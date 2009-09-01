@@ -1,9 +1,12 @@
 import java.io.IOException;
+import java.text.ParseException;
+import java.util.Calendar;
+import java.util.Date;
+import java.util.regex.Pattern;
 
 import junit.framework.TestCase;
 
 import org.apache.commons.httpclient.Header;
-import org.apache.commons.httpclient.HostConfiguration;
 import org.apache.commons.httpclient.HttpClient;
 import org.apache.commons.httpclient.HttpException;
 import org.apache.commons.httpclient.HttpStatus;
@@ -12,6 +15,8 @@ import org.apache.commons.httpclient.cookie.CookiePolicy;
 import org.apache.commons.httpclient.methods.GetMethod;
 import org.apache.commons.httpclient.methods.PostMethod;
 import org.apache.commons.httpclient.params.HttpMethodParams;
+import org.apache.commons.lang.time.DateUtils;
+import org.w3c.dom.DOMException;
 
 public class Test extends TestCase {
 	public void test_19lou_post() {
@@ -124,5 +129,29 @@ public class Test extends TestCase {
 			e.printStackTrace();
 
 		}
+	}
+	
+	public void test_string(){
+		String a="docment.write('12.3');docment.write('12.3');docment.write('12.3');";
+		//Pattern p = Pattern.compile("^(\')",Pattern.MULTILINE);
+		String[] aaa=a.split("[^1-9]");
+		for (String string : aaa) {
+			System.out.println(string);
+		}
+		Date today=new Date();
+		Calendar calendar=Calendar.getInstance();
+		 int   year   =   (Calendar.getInstance()).get(Calendar.YEAR);   
+
+		try {
+			Date date=DateUtils.parseDate("09-01 21:30", new String[]{"MM-dd HH:SS"});
+			System.out.println(year);;
+		} catch (DOMException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		} catch (ParseException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+		
 	}
 }
