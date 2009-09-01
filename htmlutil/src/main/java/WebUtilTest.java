@@ -1,18 +1,11 @@
 import java.io.IOException;
-import java.net.MalformedURLException;
-import java.util.List;
-import java.util.logging.Logger;
 
 import org.apache.commons.logging.Log;
 import org.apache.commons.logging.LogFactory;
 
 import junit.framework.TestCase;
 
-import com.gargoylesoftware.htmlunit.BrowserVersion;
-import com.gargoylesoftware.htmlunit.FailingHttpStatusCodeException;
 import com.gargoylesoftware.htmlunit.WebClient;
-import com.gargoylesoftware.htmlunit.html.HtmlAnchor;
-import com.gargoylesoftware.htmlunit.html.HtmlDivision;
 import com.gargoylesoftware.htmlunit.html.HtmlForm;
 import com.gargoylesoftware.htmlunit.html.HtmlHiddenInput;
 import com.gargoylesoftware.htmlunit.html.HtmlPage;
@@ -21,6 +14,11 @@ import com.gargoylesoftware.htmlunit.html.HtmlSubmitInput;
 import com.gargoylesoftware.htmlunit.html.HtmlTextArea;
 import com.gargoylesoftware.htmlunit.html.HtmlTextInput;
 
+/**
+ * ≤‚ ‘19lou
+ * @author mo.duanm
+ *
+ */
 public class WebUtilTest extends TestCase {
 	private final Log log = LogFactory.getLog(WebUtilTest.class);
 	private static String login_url = "http://www.19lou.com/passportlogin.php?action=login";
