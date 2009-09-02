@@ -6,13 +6,10 @@ import java.util.List;
 import java.util.Map;
 
 import org.apache.commons.lang.StringUtils;
-import org.apache.commons.logging.Log;
-import org.apache.commons.logging.LogFactory;
+import org.apache.log4j.Logger;
 import org.ertuo.htmlutil.webclient.WebClientLocal;
-import org.w3c.dom.NodeList;
 
 import com.gargoylesoftware.htmlunit.html.HtmlAnchor;
-import com.gargoylesoftware.htmlunit.html.HtmlDivision;
 import com.gargoylesoftware.htmlunit.html.HtmlForm;
 import com.gargoylesoftware.htmlunit.html.HtmlPage;
 import com.gargoylesoftware.htmlunit.html.HtmlSubmitInput;
@@ -24,19 +21,22 @@ import com.gargoylesoftware.htmlunit.html.HtmlTextArea;
  *
  */
 public class BiteSup {
-	private final Log log=LogFactory.getLog(BiteSup.class);
+	private final Logger log=Logger.getLogger(BiteSup.class);
 	
 	private String[] biteSupUrl=new String[]{
 			//"http://food.19lou.com/",
-			"http://tour.19lou.com/",
-			"http://auto.19lou.com/"};
+			//"http://tour.19lou.com/",
+			//"http://auto.19lou.com/",
+			//"http://fashion.19lou.com/",
+			"http://love.19lou.com/",
+			"http://baby.19lou.com/",
+			};
 	
-	private String floorDivId="tools_item";
 	
 	private WebClientLocal local=new WebClientLocal(false);
 	
 	//回帖内容
-	private static String guanggao="顶！支持楼主！";
+	private static String guanggao="&nbsp;[h2008] 支持楼主！顶起！[h2003]";
 	
 	/**
 	 * 获得楼层列表
@@ -47,15 +47,18 @@ public class BiteSup {
 		for (String site : biteSupUrl) {
 			page=local.getHtmlPageByUrl(site);	
 		}
-		
-		HtmlDivision htmlDivision=(HtmlDivision) page.getElementById(floorDivId);
-		NodeList nodeList= htmlDivision.getFirstChild().getChildNodes();
-		for(int i=0;i<nodeList.getLength();i++){
-			HtmlAnchor htmlAnchor=(HtmlAnchor)nodeList.item(i).getFirstChild();
-			log.info(htmlAnchor.getHrefAttribute());
-			floorList.add(htmlAnchor.getHrefAttribute());
-			//this.getNewsList(htmlAnchor.getHrefAttribute());
+		List<HtmlAnchor> auchors= page.getAnchors();
+		for (HtmlAnchor htmlAnchor : auchors) {
+			String href=htmlAnchor.getHrefAttribute();
+			if(StringUtils.isNotBlank(href)){
+				String regex = ".*(forum)-[1-9]\\d{0,4}-[1][.](html)";
+				if(href.matches(regex)){
+					floorList.add(htmlAnchor.getHrefAttribute());
+					//log.info(href);
+				}
+			}
 		}
+		
 		return floorList;
 	}
 	
@@ -90,8 +93,6 @@ public class BiteSup {
 			}
 			String href=htmlAnchor.getHrefAttribute();
 			if(href.startsWith(forumName)){
-				//href=href.substring(href.indexOf(forumName)+1);
-				//href=href.substring(0,href.indexOf("-"));
 				String[] ids=href.split("[^1-9]");
 				for (String id : ids) {
 					if(id.length()>7){
@@ -131,7 +132,10 @@ public class BiteSup {
 		final HtmlSubmitInput replysubmit = (HtmlSubmitInput) postform
 				.getInputByName("replysubmit");
 		HtmlPage htmlPage=local.getClickHtmlPage(replysubmit);
-		log.info("帖子["+answerUrl+"]回复");
+		if(htmlPage.asText().contains("http://shop58883417.taobao.com/")){
+			log.info("帖子["+answerUrl+"]回复");
+		}
+		
 		} catch (Exception e) {
 			log.error("回复["+answerUrl+"]错误",e);
 		}

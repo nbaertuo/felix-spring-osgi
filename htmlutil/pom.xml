@@ -5,21 +5,12 @@
 	<artifactId>httpclient</artifactId>
 	<version>0.0.1-SNAPSHOT</version>
 	<repositories>
-	<!--
-		<repository>
-			<id>central_prod</id>
-			<url>http://10.2.4.30:8080/artifactory/repo</url>
-			<snapshots>
-				<enabled>true</enabled>
-			</snapshots>
-		</repository>
-		<repository>
-			<id>central</id>
-			<url>http://10.2.4.31:8080/artifactory/repo</url>
-			<snapshots>
-				<enabled>true</enabled>
-			</snapshots>
-		</repository>
+		<!--
+			<repository> <id>central_prod</id>
+			<url>http://10.2.4.30:8080/artifactory/repo</url> <snapshots>
+			<enabled>true</enabled> </snapshots> </repository> <repository>
+			<id>central</id> <url>http://10.2.4.31:8080/artifactory/repo</url>
+			<snapshots> <enabled>true</enabled> </snapshots> </repository>
 		-->
 		<repository>
 			<id>jboss</id>
@@ -37,6 +28,11 @@
 			<groupId>net.sourceforge.htmlunit</groupId>
 			<artifactId>htmlunit</artifactId>
 			<version>2.4</version>
+		</dependency>
+		<dependency>
+			<groupId>com.alipay.sofa.common</groupId>
+			<artifactId>sofa-common-util</artifactId>
+			<version>1.2.1.20080627</version>
 		</dependency>
 	</dependencies>
 </project>

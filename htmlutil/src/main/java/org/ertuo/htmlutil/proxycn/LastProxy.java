@@ -10,6 +10,7 @@ import org.apache.commons.lang.time.DateUtils;
 import org.apache.commons.logging.Log;
 import org.apache.commons.logging.LogFactory;
 import org.ertuo.htmlutil.proxycn.domain.WebProxy;
+import org.nuxeo.common.xmap.XMap;
 import org.w3c.dom.DOMException;
 import org.w3c.dom.Node;
 import org.w3c.dom.NodeList;
@@ -60,6 +61,8 @@ public class LastProxy  {
 	
 	
     private static final WebClient webClient = new WebClient();
+    
+    private XMap xmap=new XMap();
 	
 	
 	static {
@@ -132,7 +135,16 @@ public class LastProxy  {
 				
 			}
 		}
-
+        /*if(canUseProxy!=null){
+        	WebProxy proxy=new WebProxy();
+        	try {
+				String webProxyXml=xmap.asXmlString(proxy, "utf-8", null);
+				System.out.println(webProxyXml);
+			} catch (Exception e) {
+				// TODO Auto-generated catch block
+				e.printStackTrace();
+			}
+        }*/
 	}
 
 	
@@ -152,7 +164,7 @@ public class LastProxy  {
 			log.info("代理["+webProxy.getUrl()+";"+webProxy.getPort()+"]可用");
 			
 		} catch (Exception e) {
-			log.error("当前传入代理["+webProxy.getUrl()+";"+webProxy.getPort()+"]不可用"+e.getMessage());
+			log.error("代理["+webProxy.getUrl()+";"+webProxy.getPort()+"]"+e.getMessage());
 			return null;
 		}
 		return webProxy;

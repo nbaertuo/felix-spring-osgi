@@ -2,21 +2,30 @@ package org.ertuo.htmlutil.proxycn.domain;
 
 import java.util.Date;
 
+import org.nuxeo.common.xmap.annotation.XNode;
+import org.nuxeo.common.xmap.annotation.XObject;
+
 /**
  * 代理对象
  * @author mo.duanm
  *
  */
+@XObject
 public class WebProxy {
 	
+	@XNode
 	private int id;
 	
+	@XNode
 	private String url;
 	
+	@XNode
 	private String port;
 	
+	@XNode
 	private Date useDate;
 	
+	@XNode
 	private Date checkDate;
 
 	 

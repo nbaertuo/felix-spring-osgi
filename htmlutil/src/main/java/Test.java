@@ -2,6 +2,7 @@ import java.io.IOException;
 import java.text.ParseException;
 import java.util.Calendar;
 import java.util.Date;
+import java.util.regex.Matcher;
 import java.util.regex.Pattern;
 
 import junit.framework.TestCase;
@@ -83,8 +84,8 @@ public class Test extends TestCase {
 	 */
 	public void test_alipay_inner() {
 		HttpClient client = new HttpClient();
-		client.getParams().setParameter(
-				HttpMethodParams.HTTP_CONTENT_CHARSET, "gb2312");
+		client.getParams().setParameter(HttpMethodParams.HTTP_CONTENT_CHARSET,
+				"gb2312");
 		GetMethod get = new GetMethod("http://www.cn.alipay-inc.com/Index.html");
 		UsernamePasswordCredentials upc = new UsernamePasswordCredentials(
 				"mo.duanm", "ertuo521$");
@@ -130,28 +131,27 @@ public class Test extends TestCase {
 
 		}
 	}
-	
-	public void test_string(){
-		String a="http://www.19lou.com/forum-1415-1.html";
-		//Pattern p = Pattern.compile("^(\')",Pattern.MULTILINE);
-		String[] aaa=a.split("(forum)-[1-9]\\d{1,5}-[1][.][(html)]");
+
+	public void test_string() {
+		String a = "http://www.19lou.com/forum-1-1.html";
+		String regex = ".*(forum)-[1-9]\\d{0,4}-[1][.](html)";
+		
+		System.out.println(a.matches(regex));
+		String[] aaa = a.split(regex);
 		for (String string : aaa) {
 			System.out.println(string);
 		}
-		Date today=new Date();
-		Calendar calendar=Calendar.getInstance();
-		 int   year   =   (Calendar.getInstance()).get(Calendar.YEAR);   
 
-		try {
-			Date date=DateUtils.parseDate("09-01 21:30", new String[]{"MM-dd HH:SS"});
-			System.out.println(year);;
-		} catch (DOMException e) {
-			// TODO Auto-generated catch block
-			e.printStackTrace();
-		} catch (ParseException e) {
-			// TODO Auto-generated catch block
-			e.printStackTrace();
-		}
-		
+		 
+		/*
+		 * Date today=new Date(); Calendar calendar=Calendar.getInstance(); int
+		 * year = (Calendar.getInstance()).get(Calendar.YEAR);
+		 * 
+		 * try { Date date=DateUtils.parseDate("09-01 21:30", new
+		 * String[]{"MM-dd HH:SS"}); System.out.println(year);; } catch
+		 * (DOMException e) { // TODO Auto-generated catch block
+		 * e.printStackTrace(); } catch (ParseException e) { // TODO
+		 * Auto-generated catch block e.printStackTrace(); }
+		 */
 	}
 }
