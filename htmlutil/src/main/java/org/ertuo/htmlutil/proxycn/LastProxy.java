@@ -1,51 +1,78 @@
 package org.ertuo.htmlutil.proxycn;
 
 import java.io.IOException;
-import java.net.MalformedURLException;
-import java.net.SocketTimeoutException;
 import java.text.ParseException;
 import java.util.ArrayList;
 import java.util.Calendar;
 import java.util.Date;
 import java.util.List;
-
-import junit.framework.TestCase;
-
-import org.apache.commons.httpclient.ConnectTimeoutException;
 import org.apache.commons.lang.time.DateUtils;
+import org.apache.commons.logging.Log;
+import org.apache.commons.logging.LogFactory;
 import org.ertuo.htmlutil.proxycn.domain.WebProxy;
-import org.ertuo.htmlutil.webclient.WebClientLocal;
 import org.w3c.dom.DOMException;
 import org.w3c.dom.Node;
 import org.w3c.dom.NodeList;
 
 import com.gargoylesoftware.htmlunit.BrowserVersion;
-import com.gargoylesoftware.htmlunit.FailingHttpStatusCodeException;
 import com.gargoylesoftware.htmlunit.WebClient;
 import com.gargoylesoftware.htmlunit.html.HtmlPage;
+import com.gargoylesoftware.htmlunit.html.HtmlSubmitInput;
 
 /**
+ * 代理存储类
+ * <p>
+ * <li>提供代理存储，提供当前有效代理
+ * </p>
  * @author mo.duanm
+ *
  * 
  */
-public class LastProxy extends TestCase {
+public class LastProxy  {
+	
+	private final Log log=LogFactory.getLog(LastProxy.class);
 
-	private static final String proxyCnUrl = "http://www.proxycn.com/html_proxy/30fastproxy-1.html";
+	/**
+	 * 获得代理的web页面
+	 */
+	private static final String proxyCnUrl = "http://www.proxycn.com/html_proxy/http-1.html";
+	
+	
+	private static final String testUrl="http://www.19lou.com/";
 
-	private static final WebClientLocal webClient = new WebClientLocal();
 
+	/**
+	 * 可用的代理集合
+	 */
 	private static List<WebProxy> canUseProxy = new ArrayList<WebProxy>();
 
+	/**
+	 * 当前有效的代理,系统内都使用这个代理连接
+	 */
 	private WebProxy currentWebProxy;
+	
+	
 
-	private static int useId = 1;
+	/**
+	 * 当前在使用中的代理序列,每次使用后，都自增一个
+	 */
+	private static int useId = 0;
+	
+	
+    private static final WebClient webClient = new WebClient();
+	
+	
+	static {
+		webClient.setJavaScriptEnabled(false);
+		webClient.setThrowExceptionOnScriptError(false);
+	}
 
 	public void test() {
-		this.webProxyCanUse();
+		this.getCurrentWebProxy();
 	}
 
 	private void createCanUseProxy() {
-		HtmlPage htmlPage = webClient.getHtmlPageByUrl(proxyCnUrl);
+		HtmlPage htmlPage = this.getHtmlPageByUrl(proxyCnUrl);
 		NodeList br = htmlPage.getElementsByTagName("tr");
 		for (int i = 0; i < br.getLength(); i++) {
 			Node node = br.item(i);
@@ -98,47 +125,38 @@ public class LastProxy extends TestCase {
 				} catch (ParseException e) {
 					e.printStackTrace();
 				}
-				canUseProxy.add(webProxy);
+				//测试是否可用
+				if(this.getCanUseWebProxy(webProxy)!=null){
+					canUseProxy.add(webProxy);
+				}
+				
 			}
 		}
 
 	}
 
-	private boolean webProxyCanUse() {
-		currentWebProxy = this.getCanUseProxy().get(useId);
-		if (currentWebProxy == null) {
-			useId++;
-			this.webProxyCanUse();
-		}
+	
+	/**
+	 * 测试传入的代理是否可用
+	 * @param webProxy
+	 * @return
+	 */
+	private WebProxy getCanUseWebProxy(WebProxy webProxy){
 		WebClient webClient = new WebClient(BrowserVersion.INTERNET_EXPLORER_6,
-				currentWebProxy.getUrl(), Integer.parseInt(currentWebProxy
+				webProxy.getUrl(), Integer.parseInt(webProxy
 						.getPort()));
 		try {
 			webClient.setJavaScriptEnabled(false);
 			webClient.setTimeout(1000);
-			HtmlPage htmlPage = (HtmlPage) webClient
-					.getPage("http://www.google.cn");
-			System.out.println(htmlPage.getEndLineNumber() + "  "
-					+ htmlPage.asText());
-		} catch (FailingHttpStatusCodeException e) {
-			// TODO Auto-generated catch block
-			e.printStackTrace();
-		} catch (MalformedURLException e) {
-			// TODO Auto-generated catch block
-			e.printStackTrace();
-		} catch (ConnectTimeoutException e) {
-			useId++;
-			this.webProxyCanUse();
-		} catch (SocketTimeoutException e) {
-			useId++;
-			this.webProxyCanUse();
-		} catch (IOException e) {
-			// TODO Auto-generated catch block
-			e.printStackTrace();
+			webClient.getPage(testUrl);
+			log.info("代理["+webProxy.getUrl()+";"+webProxy.getPort()+"]可用");
+			
+		} catch (Exception e) {
+			log.error("当前传入代理["+webProxy.getUrl()+";"+webProxy.getPort()+"]不可用"+e.getMessage());
+			return null;
 		}
-
-		return false;
-
+		return webProxy;
+		
 	}
 
 	public void setCurrentWebProxy(WebProxy currentWebProxy) {
@@ -146,8 +164,21 @@ public class LastProxy extends TestCase {
 	}
 
 	public WebProxy getCurrentWebProxy() {
+		//循环超过了当前存储的代理总和，清零
+		if(useId>=this.getCanUseProxy().size()){
+			useId=0;
+		}
 		currentWebProxy = this.getCanUseProxy().get(useId);
-		// 测试当前代理是否可用
+		useId++;
+		if (currentWebProxy == null) {
+			//循环回调
+			this.getCurrentWebProxy();
+		}
+		//当前代理不可用
+		if(this.getCanUseWebProxy(currentWebProxy)==null){
+			//循环回调
+			this.getCurrentWebProxy();
+		}
 		return currentWebProxy;
 	}
 
@@ -160,6 +191,39 @@ public class LastProxy extends TestCase {
 
 	public void setCanUseProxy(List<WebProxy> canUseProxy) {
 		LastProxy.canUseProxy = canUseProxy;
+	}
+	
+	
+	/**
+	 * @param url
+	 * @return
+	 */
+	public HtmlPage getHtmlPageByUrl(String url){
+		HtmlPage htmlPage=null;
+	 
+			try {
+				htmlPage = (HtmlPage) webClient
+						.getPage(url);
+			} catch (Exception e) {
+				 log.error("采集页面["+url+"]失败",e);
+			}
+		return htmlPage;	
+			
+	}
+	
+	/**
+	 * @param submit
+	 * @return
+	 */
+	public HtmlPage getClickHtmlPage(HtmlSubmitInput submit){
+		HtmlPage replys = null;
+		try {
+			replys = (HtmlPage) submit.click();
+		} catch (IOException e) {
+			log.error("点击失败！",e);
+		}
+		
+		return replys;
 	}
 
 }

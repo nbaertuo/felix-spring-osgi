@@ -132,9 +132,9 @@ public class Test extends TestCase {
 	}
 	
 	public void test_string(){
-		String a="docment.write('12.3');docment.write('12.3');docment.write('12.3');";
+		String a="http://www.19lou.com/forum-1415-1.html";
 		//Pattern p = Pattern.compile("^(\')",Pattern.MULTILINE);
-		String[] aaa=a.split("[^1-9]");
+		String[] aaa=a.split("(forum)-[1-9]\\d{1,5}-[1][.][(html)]");
 		for (String string : aaa) {
 			System.out.println(string);
 		}
