@@ -71,12 +71,6 @@ public class WebUtilTest extends TestCase {
 			Map<String,String> newsMap=biteSup.getNewsList(floor);
 			 
 			for (String id : newsMap.keySet()) {
-				try {
-					Thread.currentThread().sleep(30*1000);
-				} catch (InterruptedException e) {
-					// TODO Auto-generated catch block
-					e.printStackTrace();
-				}
 				biteSup.answer(newsMap.get(id),id);
 			}
 		}

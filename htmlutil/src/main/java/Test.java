@@ -1,7 +1,14 @@
+import java.io.ByteArrayInputStream;
+import java.io.FileInputStream;
+import java.io.FileOutputStream;
 import java.io.IOException;
+import java.io.InputStream;
+import java.io.OutputStream;
 import java.text.ParseException;
+import java.util.ArrayList;
 import java.util.Calendar;
 import java.util.Date;
+import java.util.List;
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
 
@@ -17,7 +24,11 @@ import org.apache.commons.httpclient.methods.GetMethod;
 import org.apache.commons.httpclient.methods.PostMethod;
 import org.apache.commons.httpclient.params.HttpMethodParams;
 import org.apache.commons.lang.time.DateUtils;
+import org.ertuo.htmlutil.proxycn.domain.WebProxy;
 import org.w3c.dom.DOMException;
+
+import com.thoughtworks.xstream.XStream;
+import com.thoughtworks.xstream.io.xml.Dom4JReader;
 
 public class Test extends TestCase {
 	public void test_19lou_post() {
@@ -153,5 +164,26 @@ public class Test extends TestCase {
 		 * e.printStackTrace(); } catch (ParseException e) { // TODO
 		 * Auto-generated catch block e.printStackTrace(); }
 		 */
+	}
+	public void test_xmap() throws Exception{
+		List<WebProxy> list=new ArrayList<WebProxy>();
+		WebProxy proxy=new WebProxy();
+		proxy.setCheckDate(new Date());
+		proxy.setId(1);
+		proxy.setPort("80");
+		proxy.setUrl("10.2.4.36");
+		proxy.setUseDate(new Date());
+		list.add(proxy);
+		
+		
+		XStream stream=new XStream();
+		OutputStream out=new FileOutputStream("d:/test.xml");
+		stream.toXML(list, out);
+		
+		 
+		
+		InputStream in=new FileInputStream("d:/test.xml");
+		Object o=stream.fromXML(in);
+		System.out.println(o);
 	}
 }

@@ -10,7 +10,6 @@ import org.apache.commons.lang.time.DateUtils;
 import org.apache.commons.logging.Log;
 import org.apache.commons.logging.LogFactory;
 import org.ertuo.htmlutil.proxycn.domain.WebProxy;
-import org.nuxeo.common.xmap.XMap;
 import org.w3c.dom.DOMException;
 import org.w3c.dom.Node;
 import org.w3c.dom.NodeList;
@@ -19,6 +18,7 @@ import com.gargoylesoftware.htmlunit.BrowserVersion;
 import com.gargoylesoftware.htmlunit.WebClient;
 import com.gargoylesoftware.htmlunit.html.HtmlPage;
 import com.gargoylesoftware.htmlunit.html.HtmlSubmitInput;
+import com.thoughtworks.xstream.XStream;
 
 /**
  * 代理存储类
@@ -62,7 +62,9 @@ public class LastProxy  {
 	
     private static final WebClient webClient = new WebClient();
     
-    private XMap xmap=new XMap();
+    
+    
+    
 	
 	
 	static {
@@ -135,16 +137,15 @@ public class LastProxy  {
 				
 			}
 		}
-        /*if(canUseProxy!=null){
+        if(canUseProxy!=null){
         	WebProxy proxy=new WebProxy();
         	try {
-				String webProxyXml=xmap.asXmlString(proxy, "utf-8", null);
-				System.out.println(webProxyXml);
+        		XStream stream=new XStream();
+				String webProxyXml=stream.toXML(canUseProxy);
 			} catch (Exception e) {
-				// TODO Auto-generated catch block
-				e.printStackTrace();
+				 log.error("序列号代理对象到xml错误",e);
 			}
-        }*/
+        } 
 	}
 
 	

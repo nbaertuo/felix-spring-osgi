@@ -23,17 +23,32 @@ import com.gargoylesoftware.htmlunit.html.HtmlTextArea;
 public class BiteSup {
 	private final Logger log=Logger.getLogger(BiteSup.class);
 	
+	private WebClientLocal local=new WebClientLocal(false);
+	
 	private String[] biteSupUrl=new String[]{
 			//"http://food.19lou.com/",
 			//"http://tour.19lou.com/",
 			//"http://auto.19lou.com/",
 			//"http://fashion.19lou.com/",
-			"http://love.19lou.com/",
-			"http://baby.19lou.com/",
+			//"http://love.19lou.com/",
+			//"http://baby.19lou.com/",
+			"http://family.19lou.com/",
+			"http://money.19lou.com/",
+			"http://house.19lou.com/",
+			"http://home.19lou.com/",
+			"http://digi.19lou.com/",
+			"http://edu.19lou.com/",
+			"http://job.19lou.com/",
+			"http://health.19lou.com/",
+			"http://sport.19lou.com/",
+			"http://bb.19lou.com/",
+			"http://design.19lou.com/",
+			"http://photo.19lou.com/",
+			"http://ent.19lou.com/"
 			};
 	
 	
-	private WebClientLocal local=new WebClientLocal(false);
+	
 	
 	//回帖内容
 	private static String guanggao="&nbsp;[h2008] 支持楼主！顶起！[h2003]";
@@ -134,6 +149,12 @@ public class BiteSup {
 		HtmlPage htmlPage=local.getClickHtmlPage(replysubmit);
 		if(htmlPage.asText().contains("http://shop58883417.taobao.com/")){
 			log.info("帖子["+answerUrl+"]回复");
+			try {
+				Thread.currentThread().sleep(30*1000);
+			} catch (InterruptedException e) {
+				// TODO Auto-generated catch block
+				e.printStackTrace();
+			}
 		}
 		
 		} catch (Exception e) {
