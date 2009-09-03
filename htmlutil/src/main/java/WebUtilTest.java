@@ -58,8 +58,8 @@ public class WebUtilTest extends TestCase {
 		final HtmlHiddenInput formhash = (HtmlHiddenInput) form
 				.getInputByName("formhash");
 		formhash.setValueAttribute("a31eb5c8");
-		username.setValueAttribute("summersnow88888");
-		password.setValueAttribute("19854171985");
+		username.setValueAttribute("summersnow8");
+		password.setValueAttribute("keyidaxie");
 		webClient.getClickHtmlPage(button);
 	}
 	

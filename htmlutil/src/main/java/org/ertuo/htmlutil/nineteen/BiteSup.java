@@ -26,25 +26,25 @@ public class BiteSup {
 	private WebClientLocal local=new WebClientLocal(false);
 	
 	private String[] biteSupUrl=new String[]{
-			//"http://food.19lou.com/",
-			//"http://tour.19lou.com/",
-			//"http://auto.19lou.com/",
-			//"http://fashion.19lou.com/",
-			//"http://love.19lou.com/",
-			//"http://baby.19lou.com/",
-			"http://family.19lou.com/",
-			"http://money.19lou.com/",
-			"http://house.19lou.com/",
-			"http://home.19lou.com/",
-			"http://digi.19lou.com/",
-			"http://edu.19lou.com/",
-			"http://job.19lou.com/",
-			"http://health.19lou.com/",
-			"http://sport.19lou.com/",
-			"http://bb.19lou.com/",
-			"http://design.19lou.com/",
-			"http://photo.19lou.com/",
-			"http://ent.19lou.com/"
+			"http://food.19lou.com/",
+			"http://tour.19lou.com/",
+			"http://auto.19lou.com/",
+			"http://fashion.19lou.com/",
+			"http://love.19lou.com/",
+			"http://baby.19lou.com/"
+			//"http://family.19lou.com/",
+			//"http://money.19lou.com/",
+			//"http://house.19lou.com/",
+			//"http://home.19lou.com/",
+			//"http://digi.19lou.com/",
+			//"http://edu.19lou.com/",
+			//"http://job.19lou.com/",
+			//"http://health.19lou.com/",
+			//"http://sport.19lou.com/",
+			//"http://bb.19lou.com/",
+			//"http://design.19lou.com/",
+			//"http://photo.19lou.com/",
+			//"http://ent.19lou.com/"
 			};
 	
 	
@@ -158,7 +158,7 @@ public class BiteSup {
 		}
 		
 		} catch (Exception e) {
-			log.error("»Ø¸´["+answerUrl+"]´íÎó",e);
+			//log.error("»Ø¸´["+answerUrl+"]´íÎó",e);
 		}
 	}
 }
