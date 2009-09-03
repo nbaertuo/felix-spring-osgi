@@ -68,6 +68,11 @@
 				<artifactId>log4j</artifactId>
 				<version>1.2.13</version>
 			</dependency>
+			<dependency>
+				<groupId>junit</groupId>
+				<artifactId>junit</artifactId>
+				<version>3.8.1</version>
+			</dependency>
 			<!-- douche -->
 			<dependency>
 				<groupId>org.ertuo.douche</groupId>
@@ -77,6 +82,11 @@
 			<dependency>
 				<groupId>org.ertuo.douche</groupId>
 				<artifactId>douche-engine-proxy</artifactId>
+				<version>${douche.version}</version>
+			</dependency>
+			<dependency>
+				<groupId>org.ertuo.douche</groupId>
+				<artifactId>douche-biz-nineteen</artifactId>
 				<version>${douche.version}</version>
 			</dependency>
 		</dependencies>

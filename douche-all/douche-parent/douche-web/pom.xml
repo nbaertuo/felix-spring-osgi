@@ -11,6 +11,8 @@
   <version>${douche.version}</version>
   <modules>
   	<module>douche-web-nineteen</module>
-  	<module>douche-web-nineteen</module>
   </modules>
+  
+  
+  
 </project>

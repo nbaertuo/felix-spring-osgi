@@ -6,7 +6,6 @@
 		<version>${douche.version}</version>
 	</parent>
 	<modelVersion>4.0.0</modelVersion>
-	<groupId>org.ertuo.douche</groupId>
 	<artifactId>douche-engine-htmlutil</artifactId>
 	<version>${douche.version}</version>
 	<dependencies>

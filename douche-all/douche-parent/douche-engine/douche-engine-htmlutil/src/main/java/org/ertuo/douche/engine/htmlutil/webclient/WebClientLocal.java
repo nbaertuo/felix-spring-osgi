@@ -4,12 +4,14 @@ import java.io.IOException;
 
 import org.apache.log4j.Logger;
 import org.ertuo.proxy.proxycn.LastProxy;
+import org.springframework.stereotype.Service;
 
 import com.gargoylesoftware.htmlunit.BrowserVersion;
 import com.gargoylesoftware.htmlunit.WebClient;
 import com.gargoylesoftware.htmlunit.html.HtmlPage;
 import com.gargoylesoftware.htmlunit.html.HtmlSubmitInput;
 
+@Service
 public class WebClientLocal {
 
 	private final  Logger log= Logger.getLogger(WebClientLocal.class);
