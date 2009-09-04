@@ -12,9 +12,12 @@ import org.springframework.stereotype.Service;
 
 import com.gargoylesoftware.htmlunit.html.HtmlAnchor;
 import com.gargoylesoftware.htmlunit.html.HtmlForm;
+import com.gargoylesoftware.htmlunit.html.HtmlHiddenInput;
 import com.gargoylesoftware.htmlunit.html.HtmlPage;
+import com.gargoylesoftware.htmlunit.html.HtmlPasswordInput;
 import com.gargoylesoftware.htmlunit.html.HtmlSubmitInput;
 import com.gargoylesoftware.htmlunit.html.HtmlTextArea;
+import com.gargoylesoftware.htmlunit.html.HtmlTextInput;
 
 /**
  * 饮食
@@ -25,28 +28,21 @@ import com.gargoylesoftware.htmlunit.html.HtmlTextArea;
 public class BiteSup {
 	private final Logger log=org.apache.log4j.Logger.getLogger(BiteSup.class);
 	
-	private WebClientLocal local=new WebClientLocal(false);
+	private WebClientLocal webClientLocal=new WebClientLocal(false);
+	
+	//登陆地址
+	private static String login_url = "http://www.19lou.com/passportlogin.php?action=login";
+	
+	//登陆action
+	private static String login_action = "http://www.19lou.com/passportlogin.php?action=login&referer=http%3A%2F%2Fwww.19lou.com%2F";
+	
 	
 	private String[] biteSupUrl=new String[]{
-			"http://food.19lou.com/",
-			"http://tour.19lou.com/",
-			"http://auto.19lou.com/",
-			"http://fashion.19lou.com/",
-			"http://love.19lou.com/",
-			"http://baby.19lou.com/"
-			//"http://family.19lou.com/",
-			//"http://money.19lou.com/",
-			//"http://house.19lou.com/",
-			//"http://home.19lou.com/",
-			//"http://digi.19lou.com/",
-			//"http://edu.19lou.com/",
-			//"http://job.19lou.com/",
-			//"http://health.19lou.com/",
-			//"http://sport.19lou.com/",
-			//"http://bb.19lou.com/",
-			//"http://design.19lou.com/",
-			//"http://photo.19lou.com/",
-			//"http://ent.19lou.com/"
+			//"http://food.19lou.com/","http://tour.19lou.com/","http://auto.19lou.com/","http://fashion.19lou.com/",
+			//"http://love.19lou.com/","http://baby.19lou.com/","http://family.19lou.com/","http://money.19lou.com/",
+			//"http://house.19lou.com/","http://home.19lou.com/","http://digi.19lou.com/","http://edu.19lou.com/",
+			//"http://job.19lou.com/","http://health.19lou.com/","http://sport.19lou.com/","http://bb.19lou.com/",
+			"http://design.19lou.com/","http://photo.19lou.com/","http://ent.19lou.com/"
 			};
 	
 	
@@ -54,15 +50,42 @@ public class BiteSup {
 	
 	//回帖内容
 	private static String guanggao="&nbsp;[h2008] 支持楼主！顶起！[h2003]";
-	
+	/**
+	 * 登录
+	 */
+	public boolean login() {
+		try {
+		
+		HtmlPage page1 = webClientLocal.getHtmlPageByUrl(login_url);
+		final HtmlForm form = page1.getFormByName("login");
+		form.setActionAttribute(BiteSup.login_action);
+
+		final HtmlSubmitInput button = (HtmlSubmitInput) form
+				.getInputByName("loginsubmit");
+		final HtmlTextInput username = (HtmlTextInput) form
+				.getInputByName("username");
+		final HtmlPasswordInput password = (HtmlPasswordInput) form
+				.getInputByName("password");
+		final HtmlHiddenInput formhash = (HtmlHiddenInput) form
+				.getInputByName("formhash");
+		formhash.setValueAttribute("a31eb5c8");
+		username.setValueAttribute("summersnow8");
+		password.setValueAttribute("keyidaxie");
+		webClientLocal.getClickHtmlPage(button);
+		} catch (Exception e) {
+			log.error("登录失败",e);
+			return false;
+		}
+		return true;
+	}
 	/**
 	 * 获得楼层列表
 	 */
-	public List<String> getFloor(){
+	public List<String> getFloors(){
 		List<String> floorList=new ArrayList<String>();
 		HtmlPage page=null;
 		for (String site : biteSupUrl) {
-			page=local.getHtmlPageByUrl(site);	
+			page=webClientLocal.getHtmlPageByUrl(site);	
 		}
 		List<HtmlAnchor> auchors= page.getAnchors();
 		for (HtmlAnchor htmlAnchor : auchors) {
@@ -80,11 +103,11 @@ public class BiteSup {
 	}
 	
 	/**
-	 * 获得帖子列表
+	 * 获得楼层和楼层下帖子关系列表
 	 * @param url
 	 * @return Map<帖子id,楼层id> 
 	 */
-	public Map<String,String> getNewsList(String url){
+	public Map<String,String> getFloorList(String url){
 		Map<String,String> newsList=new HashMap<String, String>();
 		
 		if(StringUtils.isBlank(url)||StringUtils.startsWith(url, "/")){
@@ -102,7 +125,7 @@ public class BiteSup {
 				floor=floorId;
 			}
 		}
-		HtmlPage page=local.getHtmlPageByUrl(url);
+		HtmlPage page=webClientLocal.getHtmlPageByUrl(url);
 		List<HtmlAnchor> anchors= page.getAnchors();
 		for (HtmlAnchor htmlAnchor : anchors) {
 			if(StringUtils.isBlank(htmlAnchor.getHrefAttribute())){
@@ -129,6 +152,27 @@ public class BiteSup {
 		return newsList;
 		
 	}
+
+	
+	/**
+	 * 获得帖子列表
+	 * @return
+	 */
+	private List<String> getNewsTitles(){
+		
+		BiteSup biteSup=new BiteSup();
+		List<String> floorList=biteSup.getFloors();
+		for (String floor : floorList) {
+			Map<String,String> newsMap=biteSup.getFloorList(floor);
+			 
+			for (String id : newsMap.keySet()) {
+				biteSup.answer(newsMap.get(id),id);
+			}
+		}
+		
+		return null;
+		
+	}
 	/**
 	 *  回复指定id的帖子
 	 * @param floorId 楼层id
@@ -137,7 +181,7 @@ public class BiteSup {
 	public void answer(String floorId,String newsId) {
 		String answerUrl="http://www.19lou.com/post.php?action=reply&fid="+floorId+"&tid="+newsId+"&extra=page%3D1";
 		try {
-		HtmlPage loginAfterPagee=local.getHtmlPageByUrl(answerUrl);
+		HtmlPage loginAfterPagee=webClientLocal.getHtmlPageByUrl(answerUrl);
 		HtmlForm postform = (HtmlForm) loginAfterPagee
 				.getElementById("postform");
 		// 内容
@@ -148,7 +192,7 @@ public class BiteSup {
 		message.blur();
 		final HtmlSubmitInput replysubmit = (HtmlSubmitInput) postform
 				.getInputByName("replysubmit");
-		HtmlPage htmlPage=local.getClickHtmlPage(replysubmit);
+		HtmlPage htmlPage=webClientLocal.getClickHtmlPage(replysubmit);
 		if(htmlPage.asText().contains("http://shop58883417.taobao.com/")){
 			log.info("帖子["+answerUrl+"]回复");
 			try {

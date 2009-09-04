@@ -3,6 +3,7 @@ package org.ertuo.douche.biz.nineteen.test;
 import org.ertuo.douche.biz.nineteen.BiteSup;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.test.annotation.AbstractAnnotationAwareTransactionalTests;
+import org.springframework.test.context.ContextConfiguration;
 
 
 
@@ -11,6 +12,7 @@ import org.springframework.test.annotation.AbstractAnnotationAwareTransactionalT
  * @author mo.duanm
  *
  */
+@ContextConfiguration(locations={"test.xml"})
 public class BiteSupTest extends AbstractAnnotationAwareTransactionalTests{
 	
 	@Autowired
@@ -23,5 +25,11 @@ public class BiteSupTest extends AbstractAnnotationAwareTransactionalTests{
 	public void test_Login(){
 		assertEquals(true, biteSup.login());
 	}
+	
+    public String[] getConfigLocations()
+    {
+        String[] configLocations = {"test.xml"};
+        return configLocations;
+    }
 
 }
