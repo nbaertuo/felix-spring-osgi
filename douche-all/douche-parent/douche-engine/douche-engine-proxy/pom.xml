@@ -14,29 +14,5 @@
 			<groupId>org.ertuo.douche</groupId>
 			<artifactId>douche-dao-xml</artifactId>
 		</dependency>
-		<dependency>
-			<groupId>org.springframework</groupId>
-			<artifactId>org.springframework.core</artifactId>
-		</dependency>
-		<dependency>
-			<groupId>org.springframework</groupId>
-			<artifactId>org.springframework.beans</artifactId>
-		</dependency>
-		<dependency>
-			<groupId>org.springframework</groupId>
-			<artifactId>org.springframework.context</artifactId>
-		</dependency>
-		<dependency>
-			<groupId>net.sourceforge.htmlunit</groupId>
-			<artifactId>htmlunit</artifactId>
-		</dependency>
-		<dependency>
-			<groupId>com.thoughtworks.xstream</groupId>
-			<artifactId>xstream</artifactId>
-		</dependency>
-		<dependency>
-			<groupId>log4j</groupId>
-			<artifactId>log4j</artifactId>
-		</dependency>
 	</dependencies>
 </project>

@@ -14,21 +14,5 @@
 			<groupId>org.ertuo.douche</groupId>
 			<artifactId>douche-biz-nineteen</artifactId>
 		</dependency>
-		<dependency>
-			<groupId>org.ertuo.douche</groupId>
-			<artifactId>douche-engine-htmlutil</artifactId>
-		</dependency>
-		<dependency>
-			<groupId>net.sourceforge.htmlunit</groupId>
-			<artifactId>htmlunit</artifactId>
-		</dependency>
-		<dependency>
-			<groupId>log4j</groupId>
-			<artifactId>log4j</artifactId>
-		</dependency>
-		<dependency>
-			<groupId>junit</groupId>
-			<artifactId>junit</artifactId>
-		</dependency>
 	</dependencies>
 </project>

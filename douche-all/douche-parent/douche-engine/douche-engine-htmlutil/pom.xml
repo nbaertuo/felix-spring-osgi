@@ -10,10 +10,6 @@
 	<version>${douche.version}</version>
 	<dependencies>
 		<dependency>
-			<groupId>net.sourceforge.htmlunit</groupId>
-			<artifactId>htmlunit</artifactId>
-		</dependency>
-		<dependency>
 			<groupId>org.ertuo.douche</groupId>
 			<artifactId>douche-engine-proxy</artifactId>
 		</dependency>

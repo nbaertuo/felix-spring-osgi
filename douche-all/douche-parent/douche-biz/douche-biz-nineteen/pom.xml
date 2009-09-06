@@ -6,77 +6,13 @@
 		<version>${douche.version}</version>
 	</parent>
 	<modelVersion>4.0.0</modelVersion>
+	<groupId>org.ertuo.douche</groupId>
 	<artifactId>douche-biz-nineteen</artifactId>
 	<version>${douche.version}</version>
 	<dependencies>
 		<dependency>
 			<groupId>org.ertuo.douche</groupId>
 			<artifactId>douche-engine-htmlutil</artifactId>
-		</dependency>
-		<dependency>
-			<groupId>net.sourceforge.htmlunit</groupId>
-			<artifactId>htmlunit</artifactId>
-		</dependency>
-		<dependency>
-			<groupId>log4j</groupId>
-			<artifactId>log4j</artifactId>
-		</dependency>
-		<dependency>
-			<groupId>junit</groupId>
-			<artifactId>junit</artifactId>
-		</dependency>
-		<dependency>
-			<groupId>asm</groupId>
-			<artifactId>asm</artifactId>
-		</dependency>
-		<dependency>
-			<groupId>asm</groupId>
-			<artifactId>asm-commons</artifactId>
-		</dependency>
-		<dependency>
-			<groupId>asm</groupId>
-			<artifactId>asm-util</artifactId>
-		</dependency>
-		<dependency>
-			<groupId>hsqldb</groupId>
-			<artifactId>hsqldb</artifactId>
-		</dependency>
-		<dependency>
-			<groupId>commons-dbcp</groupId>
-			<artifactId>commons-dbcp</artifactId>
-		</dependency>
-		<dependency>
-			<groupId>commons-pool</groupId>
-			<artifactId>commons-pool</artifactId>
-		</dependency>
-		<dependency>
-			<groupId>org.ertuo.douche</groupId>
-			<artifactId>douche-engine-proxy</artifactId>
-		</dependency>
-		<dependency>
-			<groupId>org.springframework</groupId>
-			<artifactId>org.springframework.core</artifactId>
-		</dependency>
-		<dependency>
-			<groupId>org.springframework</groupId>
-			<artifactId>org.springframework.beans</artifactId>
-		</dependency>
-		<dependency>
-			<groupId>org.springframework</groupId>
-			<artifactId>org.springframework.context</artifactId>
-		</dependency>
-		<dependency>
-			<groupId>org.springframework</groupId>
-			<artifactId>org.springframework.transaction</artifactId>
-		</dependency>
-		<dependency>
-			<groupId>org.springframework</groupId>
-			<artifactId>org.springframework.jdbc</artifactId>
-		</dependency>
-		<dependency>
-			<groupId>org.springframework</groupId>
-			<artifactId>org.springframework.test</artifactId>
-			<scope>test</scope>
 		</dependency>
 	</dependencies>
 </project>
