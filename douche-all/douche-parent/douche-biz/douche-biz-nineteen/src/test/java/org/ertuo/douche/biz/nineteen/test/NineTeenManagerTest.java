@@ -19,7 +19,7 @@ import org.springframework.test.context.junit4.AbstractTransactionalJUnit4Spring
 
 
 /**
- * 19楼集成
+ * 19楼集成测试
  * @author mo.duanm
  *
  */
