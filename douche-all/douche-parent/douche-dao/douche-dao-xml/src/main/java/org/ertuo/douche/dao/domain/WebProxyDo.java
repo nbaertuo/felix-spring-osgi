@@ -1,4 +1,4 @@
-package org.ertuo.proxy.domain;
+package org.ertuo.douche.dao.domain;
 
 import java.util.Date;
 
@@ -8,13 +8,13 @@ import java.util.Date;
  * @author mo.duanm
  *
  */
-public class WebProxy {
+public class WebProxyDo {
 	
 	private int id;
 	
 	private String url;
 	
-	private String port;
+	private int port;
 	
 	private Date useDate;
 	
@@ -30,11 +30,13 @@ public class WebProxy {
 		this.url = url;
 	}
 
-	public String getPort() {
+ 
+
+	public int getPort() {
 		return port;
 	}
 
-	public void setPort(String port) {
+	public void setPort(int port) {
 		this.port = port;
 	}
 
@@ -60,6 +62,10 @@ public class WebProxy {
 
 	public int getId() {
 		return id;
+	}
+	
+	public String toString(){
+		return url+":"+port;
 	}
 
 }

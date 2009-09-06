@@ -8,6 +8,7 @@ import java.util.Map;
 import org.apache.commons.lang.StringUtils;
 import org.apache.log4j.Logger;
 import org.ertuo.douche.engine.htmlutil.webclient.WebClientLocal;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import com.gargoylesoftware.htmlunit.html.HtmlAnchor;
@@ -28,7 +29,8 @@ import com.gargoylesoftware.htmlunit.html.HtmlTextInput;
 public class BiteSup {
 	private final Logger log=org.apache.log4j.Logger.getLogger(BiteSup.class);
 	
-	private WebClientLocal webClientLocal=new WebClientLocal(false);
+	@Autowired
+	private WebClientLocal webClientLocal;
 	
 	//登陆地址
 	private static String login_url = "http://www.19lou.com/passportlogin.php?action=login";
@@ -38,11 +40,11 @@ public class BiteSup {
 	
 	
 	private String[] biteSupUrl=new String[]{
-			//"http://food.19lou.com/","http://tour.19lou.com/","http://auto.19lou.com/","http://fashion.19lou.com/",
+			"http://food.19lou.com/","http://tour.19lou.com/","http://auto.19lou.com/","http://fashion.19lou.com/",
 			//"http://love.19lou.com/","http://baby.19lou.com/","http://family.19lou.com/","http://money.19lou.com/",
 			//"http://house.19lou.com/","http://home.19lou.com/","http://digi.19lou.com/","http://edu.19lou.com/",
 			//"http://job.19lou.com/","http://health.19lou.com/","http://sport.19lou.com/","http://bb.19lou.com/",
-			"http://design.19lou.com/","http://photo.19lou.com/","http://ent.19lou.com/"
+			//"http://design.19lou.com/","http://photo.19lou.com/","http://ent.19lou.com/"
 			};
 	
 	
@@ -184,6 +186,10 @@ public class BiteSup {
 		HtmlPage loginAfterPagee=webClientLocal.getHtmlPageByUrl(answerUrl);
 		HtmlForm postform = (HtmlForm) loginAfterPagee
 				.getElementById("postform");
+		if(!postform.asText().contains("请谨慎发帖")){
+			log.info("帖子["+answerUrl+"]可能不存在或者审核中!");
+			return;
+		}
 		// 内容
 		HtmlTextArea message = postform.getTextAreaByName("message");
 		// 设置value

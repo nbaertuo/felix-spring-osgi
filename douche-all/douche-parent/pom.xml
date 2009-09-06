@@ -10,10 +10,6 @@
   <packaging>pom</packaging>
   <version>${douche.version}</version>
   <modules>
-  	<module>dao</module>
-  	<module>douche-dao</module>
-  	<module>douche-biz</module>
-  	<module>douche-web</module>
   	<module>douche-dao</module>
   	<module>douche-biz</module>
   	<module>douche-web</module>

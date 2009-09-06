@@ -11,6 +11,10 @@
 	<version>${douche.version}</version>
 	<dependencies>
 		<dependency>
+			<groupId>org.ertuo.douche</groupId>
+			<artifactId>douche-dao-xml</artifactId>
+		</dependency>
+		<dependency>
 			<groupId>org.springframework</groupId>
 			<artifactId>org.springframework.core</artifactId>
 		</dependency>
