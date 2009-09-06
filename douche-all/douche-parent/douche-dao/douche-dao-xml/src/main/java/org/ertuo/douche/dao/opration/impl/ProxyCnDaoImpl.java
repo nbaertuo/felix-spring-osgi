@@ -43,13 +43,14 @@ public class ProxyCnDaoImpl implements ProxyCnDao {
 
 	public Map<String,WebProxyDo> getInvailProxys() {
 		 
-		try {
+	/*	try {
 			return (Map<String, WebProxyDo>) stream.fromXML(new FileInputStream(location));
 		} catch (FileNotFoundException e) {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
-			return new HashMap<String,WebProxyDo>();
-		}
+			
+		}*/
+		return new HashMap<String,WebProxyDo>();
 	}
 
 	public void createProxy(Map<String,WebProxyDo> webProxyDos) {
