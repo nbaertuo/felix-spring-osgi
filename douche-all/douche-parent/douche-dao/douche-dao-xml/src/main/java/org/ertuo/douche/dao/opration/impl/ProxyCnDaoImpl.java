@@ -29,6 +29,9 @@ public class ProxyCnDaoImpl implements ProxyCnDao {
 	private static final String location="d:/douche/proxy-data.xml";
 	
 
+	/* (non-Javadoc)
+	 * @see org.ertuo.douche.dao.opration.ProxyCnDao#createProxy(org.ertuo.douche.dao.domain.WebProxyDo)
+	 */
 	public void createProxy(WebProxyDo webProxyDo) {
 		if(webProxyDo==null){
 		  throw new IllegalArgumentException("传入参数["+webProxyDo+"]为null");	
@@ -42,14 +45,13 @@ public class ProxyCnDaoImpl implements ProxyCnDao {
 	}
 
 	public Map<String,WebProxyDo> getInvailProxys() {
-		 
-	/*	try {
+		try {
 			return (Map<String, WebProxyDo>) stream.fromXML(new FileInputStream(location));
 		} catch (FileNotFoundException e) {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
 			
-		}*/
+		}
 		return new HashMap<String,WebProxyDo>();
 	}
 
