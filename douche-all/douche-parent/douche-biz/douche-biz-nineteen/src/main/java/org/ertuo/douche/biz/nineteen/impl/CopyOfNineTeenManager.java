@@ -1,4 +1,4 @@
-package org.ertuo.douche.biz.nineteen;
+package org.ertuo.douche.biz.nineteen.impl;
 
 import java.util.ArrayList;
 import java.util.HashMap;
@@ -7,6 +7,7 @@ import java.util.Map;
 
 import org.apache.commons.lang.StringUtils;
 import org.apache.log4j.Logger;
+import org.ertuo.douche.biz.nineteen.NineTeenManager;
 import org.ertuo.douche.engine.htmlutil.webclient.WebClientLocal;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
@@ -26,8 +27,8 @@ import com.gargoylesoftware.htmlunit.html.HtmlTextInput;
  *
  */
 @Service
-public class BiteSup {
-	private final Logger log=org.apache.log4j.Logger.getLogger(BiteSup.class);
+public class CopyOfNineTeenManager implements NineTeenManager{
+	private final Logger log=org.apache.log4j.Logger.getLogger(CopyOfNineTeenManager.class);
 	
 	@Autowired
 	private WebClientLocal webClientLocal;
@@ -52,15 +53,16 @@ public class BiteSup {
 	
 	//回帖内容
 	private static String guanggao="&nbsp;[h2008] 支持楼主！顶起！[h2003]";
-	/**
-	 * 登录
+	 
+	/* (non-Javadoc)
+	 * @see org.ertuo.douche.biz.nineteen.NineTeenManager#login()
 	 */
 	public boolean login() {
 		try {
 		
 		HtmlPage page1 = webClientLocal.getHtmlPageByUrl(login_url);
 		final HtmlForm form = page1.getFormByName("login");
-		form.setActionAttribute(BiteSup.login_action);
+		form.setActionAttribute(CopyOfNineTeenManager.login_action);
 
 		final HtmlSubmitInput button = (HtmlSubmitInput) form
 				.getInputByName("loginsubmit");
@@ -80,8 +82,9 @@ public class BiteSup {
 		}
 		return true;
 	}
-	/**
-	 * 获得楼层列表
+	 
+	/* (non-Javadoc)
+	 * @see org.ertuo.douche.biz.nineteen.NineTeenManager#getFloors()
 	 */
 	public List<String> getFloors(){
 		List<String> floorList=new ArrayList<String>();
@@ -104,10 +107,9 @@ public class BiteSup {
 		return floorList;
 	}
 	
-	/**
-	 * 获得楼层和楼层下帖子关系列表
-	 * @param url
-	 * @return Map<帖子id,楼层id> 
+	 
+	/* (non-Javadoc)
+	 * @see org.ertuo.douche.biz.nineteen.NineTeenManager#getFloorList(java.lang.String)
 	 */
 	public Map<String,String> getFloorList(String url){
 		Map<String,String> newsList=new HashMap<String, String>();
@@ -156,13 +158,12 @@ public class BiteSup {
 	}
 
 	
-	/**
-	 * 获得帖子列表
-	 * @return
+	/* (non-Javadoc)
+	 * @see org.ertuo.douche.biz.nineteen.NineTeenManager#getNewsTitles()
 	 */
-	private List<String> getNewsTitles(){
+	public List<String> getNewsTitles(){
 		
-		BiteSup biteSup=new BiteSup();
+		CopyOfNineTeenManager biteSup=new CopyOfNineTeenManager();
 		List<String> floorList=biteSup.getFloors();
 		for (String floor : floorList) {
 			Map<String,String> newsMap=biteSup.getFloorList(floor);
@@ -175,10 +176,9 @@ public class BiteSup {
 		return null;
 		
 	}
-	/**
-	 *  回复指定id的帖子
-	 * @param floorId 楼层id
-	 * @param newsId 帖子id
+	 
+	/* (non-Javadoc)
+	 * @see org.ertuo.douche.biz.nineteen.NineTeenManager#answer(java.lang.String, java.lang.String)
 	 */
 	public void answer(String floorId,String newsId) {
 		String answerUrl="http://www.19lou.com/post.php?action=reply&fid="+floorId+"&tid="+newsId+"&extra=page%3D1";

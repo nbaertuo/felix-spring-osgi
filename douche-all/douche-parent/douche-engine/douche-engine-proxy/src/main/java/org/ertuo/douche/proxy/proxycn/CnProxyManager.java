@@ -13,7 +13,7 @@ import org.ertuo.douche.dao.domain.WebProxyDo;
  * 
  * 
  */
-public interface LastProxy {
+public interface CnProxyManager {
 
 	/**
 	 * 获得当前有效代理

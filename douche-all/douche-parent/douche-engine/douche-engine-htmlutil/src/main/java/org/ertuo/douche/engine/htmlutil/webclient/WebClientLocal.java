@@ -4,7 +4,7 @@ import java.io.IOException;
 
 import org.apache.log4j.Logger;
 import org.ertuo.douche.dao.domain.WebProxyDo;
-import org.ertuo.douche.proxy.proxycn.LastProxy;
+import org.ertuo.douche.proxy.proxycn.CnProxyManager;
 import org.springframework.beans.factory.InitializingBean;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
@@ -22,7 +22,7 @@ public class WebClientLocal implements InitializingBean{
 	private static  WebClient webClient = new WebClient();
 
 	@Autowired
-	private LastProxy lastProxy ;
+	private CnProxyManager cnProxyManager ;
 
 	static {
 		webClient.setJavaScriptEnabled(false);
@@ -45,9 +45,9 @@ public class WebClientLocal implements InitializingBean{
 	 */
 	public WebClient getProxyWebClient() {
 		
-		if (lastProxy.getCurrentInvaidProxy() != null) {
+		if (cnProxyManager.getCurrentInvaidProxy() != null) {
 			webClient = new WebClient(BrowserVersion.INTERNET_EXPLORER_6,
-					lastProxy.getCurrentInvaidProxy().getUrl(),lastProxy.getCurrentInvaidProxy().getPort());
+					cnProxyManager.getCurrentInvaidProxy().getUrl(),cnProxyManager.getCurrentInvaidProxy().getPort());
 			webClient.setJavaScriptEnabled(false);
 		}
 		return webClient;
@@ -85,7 +85,7 @@ public class WebClientLocal implements InitializingBean{
 	}
 
 	public void afterPropertiesSet() throws Exception {
-		WebProxyDo webProxyDo=lastProxy.getCurrentInvaidProxy();
+		WebProxyDo webProxyDo=cnProxyManager.getCurrentInvaidProxy();
 		if ( webProxyDo!= null) {
 			webClient = new WebClient(BrowserVersion.INTERNET_EXPLORER_6,
 					webProxyDo.getUrl(), webProxyDo.getPort());

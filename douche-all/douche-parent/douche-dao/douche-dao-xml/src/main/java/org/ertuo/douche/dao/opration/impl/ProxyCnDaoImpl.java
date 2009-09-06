@@ -1,4 +1,4 @@
-package org.ertuo.douche.dao.opration;
+package org.ertuo.douche.dao.opration.impl;
 
 import java.io.FileInputStream;
 import java.io.FileNotFoundException;
@@ -8,6 +8,7 @@ import java.util.HashMap;
 import java.util.Map;
 
 import org.ertuo.douche.dao.domain.WebProxyDo;
+import org.ertuo.douche.dao.opration.ProxyCnDao;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 

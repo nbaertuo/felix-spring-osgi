@@ -1,13 +1,7 @@
-package org.ertuo.douche.proxy.proxycn;
+package org.ertuo.douche.proxy.proxycn.impl;
 
 import java.io.IOException;
-import java.text.ParseException;
-import java.util.ArrayList;
-import java.util.Calendar;
-import java.util.Date;
-import java.util.HashMap;
 import java.util.Iterator;
-import java.util.List;
 import java.util.Map;
 import java.util.Random;
 import java.util.Map.Entry;
@@ -15,14 +9,13 @@ import java.util.regex.Matcher;
 import java.util.regex.Pattern;
 
 import org.apache.commons.lang.StringUtils;
-import org.apache.commons.lang.time.DateUtils;
 import org.apache.commons.logging.Log;
 import org.apache.commons.logging.LogFactory;
 import org.ertuo.douche.dao.domain.WebProxyDo;
 import org.ertuo.douche.dao.opration.ProxyCnDao;
+import org.ertuo.douche.proxy.proxycn.CnProxyManager;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
-import org.w3c.dom.DOMException;
 import org.w3c.dom.Node;
 import org.w3c.dom.NodeList;
 
@@ -30,12 +23,11 @@ import com.gargoylesoftware.htmlunit.BrowserVersion;
 import com.gargoylesoftware.htmlunit.WebClient;
 import com.gargoylesoftware.htmlunit.html.HtmlPage;
 import com.gargoylesoftware.htmlunit.html.HtmlSubmitInput;
-import com.thoughtworks.xstream.XStream;
 
-@Service("lastProxy")
-public class LastProxyImpl implements LastProxy {
+@Service("cnProxyManager")
+public class CnProxyManagerImpl implements CnProxyManager {
 
-	private final Log log = LogFactory.getLog(LastProxyImpl.class);
+	private final Log log = LogFactory.getLog(CnProxyManagerImpl.class);
 
 	@Autowired
 	private ProxyCnDao proxyCnDao;
@@ -53,20 +45,14 @@ public class LastProxyImpl implements LastProxy {
 
 	private final static String ip_reg = "[0-9]\\d{0,2}\\.[0-9]\\d{0,2}\\.[0-9]\\d{0,2}\\.[0-9]\\d{0,2}";
 
-	/**
-	 * 可用的代理集合 key=ip:port
-	 */
-	private static Map<String, WebProxyDo> canUseProxy = new HashMap<String, WebProxyDo>();
+	
 
 	/**
 	 * 当前有效的代理,系统内都使用这个代理连接
 	 */
 	private WebProxyDo currentWebProxy;
 
-	/**
-	 * 当前在使用中的代理序列,每次使用后，都自增一个
-	 */
-	//private static int useId = 0;
+	
 
 	private static final WebClient webClient = new WebClient();
 
@@ -76,6 +62,11 @@ public class LastProxyImpl implements LastProxy {
 	}
 
 	public void createCanUseProxy() {
+		/**
+		 * 可用的代理集合 key=ip:port
+		 */
+		  Map<String, WebProxyDo> canUseProxy =getCanUseProxy();
+		
 		for (String proxy_url : proxyCnUrl) {
 
 			HtmlPage htmlPage = this.getHtmlPageByUrl(proxy_url);

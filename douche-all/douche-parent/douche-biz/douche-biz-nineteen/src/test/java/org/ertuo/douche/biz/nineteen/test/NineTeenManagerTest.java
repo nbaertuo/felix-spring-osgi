@@ -6,10 +6,10 @@ import java.util.Map;
 
 import javax.sql.DataSource;
 
-import org.ertuo.douche.biz.nineteen.BiteSup;
+import org.ertuo.douche.biz.nineteen.NineTeenManager;
 import org.ertuo.douche.dao.domain.WebProxyDo;
 import org.ertuo.douche.dao.opration.ProxyCnDao;
-import org.ertuo.douche.proxy.proxycn.LastProxy;
+import org.ertuo.douche.proxy.proxycn.CnProxyManager;
 import org.junit.Test;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.jdbc.core.simple.SimpleJdbcTemplate;
@@ -24,16 +24,16 @@ import org.springframework.test.context.junit4.AbstractTransactionalJUnit4Spring
  *
  */
 @ContextConfiguration(locations={"classpath:test.xml","classpath:proxy-cn-dao.xml"})
-public class BiteSupTest extends AbstractTransactionalJUnit4SpringContextTests {
+public class NineTeenManagerTest extends AbstractTransactionalJUnit4SpringContextTests {
 	
 	@Autowired
-	public BiteSup biteSup;
+	public NineTeenManager biteSup;
 	
 	@Autowired
 	public ProxyCnDao proxyCnDao;
 	
 	@Autowired
-	public LastProxy lastProxy;
+	public CnProxyManager cnProxyManager;
 	
 	 
 	
@@ -70,7 +70,7 @@ public class BiteSupTest extends AbstractTransactionalJUnit4SpringContextTests {
 	
    @Test
    public void createProxy(){
-	   lastProxy.createCanUseProxy();
+	   cnProxyManager.createCanUseProxy();
    }
    @Test
    public void getInvailProxys(){
