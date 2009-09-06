@@ -26,7 +26,9 @@ public interface ProxyCnDao {
 	
 	/**
 	 * 从xml中获得有效代理
-	 * @return <code>WebProxyDo<code>集合
+	 * @return <code>WebProxyDo<code>集合 
+	 * <p>如果文件中不存在 返回一个空Map</p>
+	 * 
 	 */
 	Map<String,WebProxyDo> getInvailProxys();
 	

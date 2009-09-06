@@ -47,8 +47,8 @@ public class ProxyCnDaoImpl implements ProxyCnDao {
 		} catch (FileNotFoundException e) {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
+			return new HashMap<String,WebProxyDo>();
 		}
-		return new HashMap<String,WebProxyDo>();
 	}
 
 	public void createProxy(Map<String,WebProxyDo> webProxyDos) {
