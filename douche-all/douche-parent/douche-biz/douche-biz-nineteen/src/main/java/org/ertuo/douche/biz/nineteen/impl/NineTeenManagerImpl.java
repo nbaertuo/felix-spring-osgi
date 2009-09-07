@@ -26,7 +26,7 @@ import com.gargoylesoftware.htmlunit.html.HtmlTextInput;
  * @author mo.duanm
  *
  */
-@Service
+@Service("nineTeenManager")
 public class NineTeenManagerImpl implements NineTeenManager{
 	private final Logger log=org.apache.log4j.Logger.getLogger(NineTeenManagerImpl.class);
 	
