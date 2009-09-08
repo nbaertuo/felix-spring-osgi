@@ -4,30 +4,48 @@ import java.util.Map;
 
 import org.ertuo.douche.dao.domain.WebProxyDo;
 import org.ertuo.douche.dao.opration.ProxyCnDao;
+import org.hibernate.SessionFactory;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.orm.hibernate3.HibernateTemplate;
+import org.springframework.stereotype.Service;
 
 /**
- * @author Administrator
- *
+ * 代理中国存储hibernate方式实现
+ * 
+ * @author mo.duanm
+ * 
  */
+@Service("proxyCnDao")
 public class ProxyCnDaoImpl implements ProxyCnDao {
 
-	/* (non-Javadoc)
-	 * @see org.ertuo.douche.dao.opration.ProxyCnDao#createProxy(org.ertuo.douche.dao.domain.WebProxyDo)
+	@Autowired
+	private SessionFactory sessionFactory;
+
+	/*
+	 * (non-Javadoc)
+	 * 
+	 * @see
+	 * org.ertuo.douche.dao.opration.ProxyCnDao#createProxy(org.ertuo.douche
+	 * .dao.domain.WebProxyDo)
 	 */
 	public void createProxy(WebProxyDo webProxyDo) {
-		// TODO Auto-generated method stub
-		
+		this.getHibernateTemplate(sessionFactory).persist(webProxyDo);
+
 	}
 
-	/* (non-Javadoc)
+	/*
+	 * (non-Javadoc)
+	 * 
 	 * @see org.ertuo.douche.dao.opration.ProxyCnDao#createProxy(java.util.Map)
 	 */
 	public void createProxy(Map<String, WebProxyDo> webProxyDos) {
 		// TODO Auto-generated method stub
-		
+
 	}
 
-	/* (non-Javadoc)
+	/*
+	 * (non-Javadoc)
+	 * 
 	 * @see org.ertuo.douche.dao.opration.ProxyCnDao#getInvailProxys()
 	 */
 	public Map<String, WebProxyDo> getInvailProxys() {
@@ -35,12 +53,20 @@ public class ProxyCnDaoImpl implements ProxyCnDao {
 		return null;
 	}
 
-	/* (non-Javadoc)
-	 * @see org.ertuo.douche.dao.opration.ProxyCnDao#removePeoxy(org.ertuo.douche.dao.domain.WebProxyDo)
+	/*
+	 * (non-Javadoc)
+	 * 
+	 * @see
+	 * org.ertuo.douche.dao.opration.ProxyCnDao#removePeoxy(org.ertuo.douche
+	 * .dao.domain.WebProxyDo)
 	 */
 	public void removePeoxy(WebProxyDo webProxyDo) {
 		// TODO Auto-generated method stub
-		
+
 	}
 
+	protected HibernateTemplate getHibernateTemplate(
+			SessionFactory sessionFactory) {
+		return new HibernateTemplate(sessionFactory);
+	}
 }

@@ -2,14 +2,22 @@ package org.ertuo.douche.dao.domain;
 
 import java.util.Date;
 
+import javax.persistence.Entity;
+import javax.persistence.GeneratedValue;
+import javax.persistence.Id;
+
+
 
 /**
  * 代理对象
  * @author mo.duanm
  *
  */
+@Entity
 public class WebProxyDo {
 	
+	@Id
+	@GeneratedValue
 	private int id;
 	
 	private String url;

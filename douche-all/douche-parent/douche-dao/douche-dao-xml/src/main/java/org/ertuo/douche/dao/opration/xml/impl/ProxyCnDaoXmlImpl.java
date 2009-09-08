@@ -20,7 +20,7 @@ import com.thoughtworks.xstream.XStream;
  * @author mo.duanm
  *
  */
-@Service("proxyCnDao")
+//@Service("proxyCnDao")
 public class ProxyCnDaoXmlImpl implements ProxyCnDao {
 	
 	@Autowired

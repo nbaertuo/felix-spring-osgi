@@ -27,7 +27,7 @@ import org.springframework.test.context.junit4.AbstractTransactionalJUnit4Spring
 public class NineTeenManagerTest extends AbstractTransactionalJUnit4SpringContextTests {
 	
 	@Autowired
-	public NineTeenManager biteSup;
+	public NineTeenManager nineTeenManager;
 	
 	@Autowired
 	public ProxyCnDao proxyCnDao;
@@ -44,15 +44,15 @@ public class NineTeenManagerTest extends AbstractTransactionalJUnit4SpringContex
 	@Test
 	public void login(){
 		//登陆
-		biteSup.login();
+		nineTeenManager.login();
 		//获得所有楼层
-		List<String> floors=biteSup.getFloors();
+		List<String> floors=nineTeenManager.getFloors();
 		for (String floor : floors) {
 			//获得楼层下帖子
-			Map<String,String> newsList=biteSup.getFloorList(floor);
+			Map<String,String> newsList=nineTeenManager.getFloorList(floor);
 			for(String key:newsList.keySet()){
 				//恢复帖子
-				biteSup.answer(newsList.get(key), key);
+				nineTeenManager.answer(newsList.get(key), key);
 			}
 		}
 	}
