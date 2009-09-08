@@ -18,7 +18,7 @@
 	<bean id="dataSource" class="org.apache.commons.dbcp.BasicDataSource"
 		destroy-method="close" 
 		p:driverClassName="org.hsqldb.jdbcDriver"
-		p:url="jdbc:hsqldb:res/myproject;shutdown=true" 
+		p:url="jdbc:hsqldb:hsql://localhost/douche" 
 		p:username="sa" 
 		p:password="" />
 	<bean id="transactionManager"
