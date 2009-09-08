@@ -21,7 +21,7 @@ import com.thoughtworks.xstream.XStream;
  *
  */
 @Service("proxyCnDao")
-public class ProxyCnDaoImpl implements ProxyCnDao {
+public class ProxyCnDaoXmlImpl implements ProxyCnDao {
 	
 	@Autowired
 	private XStream stream;

@@ -10,6 +10,6 @@
   <packaging>pom</packaging>
   <version>${douche.version}</version>
   <modules>
-  	<module>douche-dao-xml</module>
+	<module>douche-dao-xml</module>
   </modules>
 </project>
