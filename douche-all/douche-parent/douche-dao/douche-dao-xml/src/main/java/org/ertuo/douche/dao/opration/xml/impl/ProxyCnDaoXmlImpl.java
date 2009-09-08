@@ -1,4 +1,4 @@
-package org.ertuo.douche.dao.opration.impl;
+package org.ertuo.douche.dao.opration.xml.impl;
 
 import java.io.FileInputStream;
 import java.io.FileNotFoundException;
