@@ -60,7 +60,7 @@ public class NineTeenManagerTest extends AbstractTransactionalJUnit4SpringContex
 	@Test
 	public void proxyCnDao_create(){
 		WebProxyDo webProxyDo=new WebProxyDo();
-		webProxyDo.setId(1);
+		webProxyDo.setId("202.103.24.68:80");
 		webProxyDo.setCheckDate(new Date());
 		webProxyDo.setPort(80);
 		webProxyDo.setUrl("202.103.24.68");

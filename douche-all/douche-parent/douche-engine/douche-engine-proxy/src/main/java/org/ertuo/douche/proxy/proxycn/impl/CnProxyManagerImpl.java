@@ -2,6 +2,7 @@ package org.ertuo.douche.proxy.proxycn.impl;
 
 import java.io.IOException;
 import java.util.Iterator;
+import java.util.List;
 import java.util.Map;
 import java.util.Random;
 import java.util.Map.Entry;
@@ -62,10 +63,6 @@ public class CnProxyManagerImpl implements CnProxyManager {
 	}
 
 	public void createCanUseProxy() {
-		/**
-		 * 可用的代理集合 key=ip:port
-		 */
-		  Map<String, WebProxyDo> canUseProxy =getCanUseProxy();
 		
 		for (String proxy_url : proxyCnUrl) {
 
@@ -101,6 +98,8 @@ public class CnProxyManagerImpl implements CnProxyManager {
 					}else{
 						continue;
 					}
+					//设置id
+					webProxy.setId(ip+":"+String.valueOf(port));
 					
 					/*// 第六个节点checkDate
 					Node sixNode = threeNode.getNextSibling().getNextSibling()
@@ -119,16 +118,16 @@ public class CnProxyManagerImpl implements CnProxyManager {
 					}*/
 					// 测试是否可用
 					if (this.getCanUseWebProxy(webProxy) != null) {
-						canUseProxy.put(webProxy.getUrl() + ":"
-								+ webProxy.getPort(), webProxy);
+						if(webProxy!=null){
+							proxyCnDao.createProxy(webProxy);	
+						}
+						
 					}
 
 				}
 			}
 		}
-		if (canUseProxy != null) {
-			proxyCnDao.createProxy(canUseProxy);
-		}
+		 
 	}
 
 	/**
@@ -158,7 +157,7 @@ public class CnProxyManagerImpl implements CnProxyManager {
 
 	public WebProxyDo getCurrentInvaidProxy() {
 		// 循环超过了当前存储的代理总和，清零
-		Map<String,WebProxyDo> webProxys=this.getCanUseProxy();
+		List<WebProxyDo> webProxys=this.getCanUseProxy();
 		if(webProxys.size()==0){
 			return null;
 		}
@@ -166,18 +165,9 @@ public class CnProxyManagerImpl implements CnProxyManager {
 		Random random=new Random();
 		//随机数
 		int select=random.nextInt(size); 
-		int i=0;
-		Iterator<Entry<String, WebProxyDo>> it=webProxys.entrySet().iterator();
-		//从当前map中随机取一个代理
-		while(it.hasNext()){
-			currentWebProxy=it.next().getValue();
-			if(i==select){
-				break;
-			}
-			i++;
-		}
-        
 		 
+		currentWebProxy=webProxys.get(select);
+
 		if (currentWebProxy == null) {
 			// 循环回调
 			this.getCurrentInvaidProxy();
@@ -193,7 +183,7 @@ public class CnProxyManagerImpl implements CnProxyManager {
 		return currentWebProxy;
 	}
 
-	private Map<String,WebProxyDo> getCanUseProxy() {
+	private List<WebProxyDo> getCanUseProxy() {
 		return proxyCnDao.getInvailProxys();
 	}
 

@@ -4,6 +4,7 @@ import java.io.IOException;
 
 import org.apache.log4j.Logger;
 import org.ertuo.douche.dao.domain.WebProxyDo;
+import org.ertuo.douche.db.hsql.HSQLServer;
 import org.ertuo.douche.proxy.proxycn.CnProxyManager;
 import org.springframework.beans.factory.InitializingBean;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -16,6 +17,11 @@ import com.gargoylesoftware.htmlunit.html.HtmlSubmitInput;
 
 @Service
 public class WebClientLocal implements InitializingBean{
+	//这里添加一个依赖没有业务意义
+	//因为在HSQLServer初始化的时候和自己的初始化的顺序冲突了
+	//这里添加依赖后可以保证HSQLServer优先启动
+	@Autowired
+	private HSQLServer server;
 
 	private final  Logger log= Logger.getLogger(WebClientLocal.class);
 

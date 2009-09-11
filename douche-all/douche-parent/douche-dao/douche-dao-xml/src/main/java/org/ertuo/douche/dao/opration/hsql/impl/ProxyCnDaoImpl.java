@@ -1,13 +1,19 @@
 package org.ertuo.douche.dao.opration.hsql.impl;
 
+import java.util.ArrayList;
+import java.util.List;
 import java.util.Map;
 
+import org.apache.log4j.Logger;
+import org.apache.log4j.spi.LoggerFactory;
 import org.ertuo.douche.dao.domain.WebProxyDo;
 import org.ertuo.douche.dao.opration.ProxyCnDao;
+import org.ertuo.douche.db.hsql.HSQLServer;
 import org.hibernate.SessionFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.orm.hibernate3.HibernateTemplate;
 import org.springframework.stereotype.Service;
+import org.springframework.transaction.annotation.Transactional;
 
 /**
  * 代理中国存储hibernate方式实现
@@ -17,6 +23,10 @@ import org.springframework.stereotype.Service;
  */
 @Service("proxyCnDao")
 public class ProxyCnDaoImpl implements ProxyCnDao {
+	
+
+	
+	private final Logger log=Logger.getLogger(ProxyCnDaoImpl.class);
 
 	@Autowired
 	private SessionFactory sessionFactory;
@@ -28,45 +38,49 @@ public class ProxyCnDaoImpl implements ProxyCnDao {
 	 * org.ertuo.douche.dao.opration.ProxyCnDao#createProxy(org.ertuo.douche
 	 * .dao.domain.WebProxyDo)
 	 */
+	@Transactional(readOnly=false)
 	public void createProxy(WebProxyDo webProxyDo) {
-		this.getHibernateTemplate(sessionFactory).persist(webProxyDo);
+		try {
+			this.getHibernateTemplate(sessionFactory).save(webProxyDo);
+		} catch (Exception e) {
+			log.error("代理["+webProxyDo+"]重复");
+		}
+		
 
 	}
 
-	/*
-	 * (non-Javadoc)
-	 * 
-	 * @see org.ertuo.douche.dao.opration.ProxyCnDao#createProxy(java.util.Map)
-	 */
-	public void createProxy(Map<String, WebProxyDo> webProxyDos) {
-		// TODO Auto-generated method stub
-
-	}
-
-	/*
-	 * (non-Javadoc)
-	 * 
-	 * @see org.ertuo.douche.dao.opration.ProxyCnDao#getInvailProxys()
-	 */
-	public Map<String, WebProxyDo> getInvailProxys() {
-		// TODO Auto-generated method stub
-		return null;
-	}
-
-	/*
-	 * (non-Javadoc)
-	 * 
-	 * @see
-	 * org.ertuo.douche.dao.opration.ProxyCnDao#removePeoxy(org.ertuo.douche
-	 * .dao.domain.WebProxyDo)
-	 */
-	public void removePeoxy(WebProxyDo webProxyDo) {
-		// TODO Auto-generated method stub
-
-	}
+	 
 
 	protected HibernateTemplate getHibernateTemplate(
 			SessionFactory sessionFactory) {
 		return new HibernateTemplate(sessionFactory);
+	}
+
+
+
+	public void createProxy(List<WebProxyDo> webProxyDos) {
+		for (WebProxyDo webProxyDo : webProxyDos) {
+			this.createProxy(webProxyDo);
+			
+			
+		}
+		
+	}
+
+
+
+	public List<WebProxyDo> getInvailProxys() {
+		List<WebProxyDo> rs=this.getHibernateTemplate(sessionFactory).find("from WebProxyDo");
+		if(rs==null){
+			rs=new ArrayList<WebProxyDo>();
+		}
+		return rs;
+	}
+
+
+
+	public void removePeoxy(WebProxyDo webProxyDo) {
+		this.getHibernateTemplate(sessionFactory).delete(webProxyDo);
+		
 	}
 }

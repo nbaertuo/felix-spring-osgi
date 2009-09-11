@@ -13,7 +13,21 @@
 		<douche.version>0.0.1-SNAPSHOT</douche.version>
 	</properties>
 	<repositories>
+		<!--<repository>
+			<id>central_prod</id>
+			<url>http://10.2.4.30:8080/artifactory/repo</url>
+			<snapshots>
+				<enabled>true</enabled>
+			</snapshots>
+		</repository>
 		<repository>
+			<id>central</id>
+			<url>http://10.2.4.31:8080/artifactory/repo</url>
+			<snapshots>
+				<enabled>true</enabled>
+			</snapshots>
+		</repository>
+		--><repository>
 			<id>SpringSource Enterprise Bundle Repository – External
 				Bundle Milestones</id>
 			<url>http://repository.springsource.com/maven/bundles/milestone</url>
@@ -114,7 +128,6 @@
 				<version>${project.version}</version>
 			</dependency>			
 			<!-- hibernate -->
-			
 			<dependency>
 				<groupId>org.hibernate</groupId>
 				<artifactId>com.springsource.org.hibernate</artifactId>

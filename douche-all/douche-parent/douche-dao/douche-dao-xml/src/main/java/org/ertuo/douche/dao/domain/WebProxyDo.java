@@ -17,8 +17,7 @@ import javax.persistence.Id;
 public class WebProxyDo {
 	
 	@Id
-	@GeneratedValue
-	private int id;
+	private String id;
 	
 	private String url;
 	
@@ -64,16 +63,17 @@ public class WebProxyDo {
 		this.checkDate = checkDate;
 	}
 
-	public void setId(int id) {
-		this.id = id;
-	}
-
-	public int getId() {
-		return id;
-	}
 	
 	public String toString(){
 		return url+":"+port;
+	}
+
+	public void setId(String id) {
+		this.id = id;
+	}
+
+	public String getId() {
+		return id;
 	}
 
 }

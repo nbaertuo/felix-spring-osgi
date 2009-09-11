@@ -1,5 +1,6 @@
 package org.ertuo.douche.dao.opration;
 
+import java.util.List;
 import java.util.Map;
 
 import org.ertuo.douche.dao.domain.WebProxyDo;
@@ -22,7 +23,7 @@ public interface ProxyCnDao {
 	 * 创建多个有效代理到xml
 	 * @param webProxyDos
 	 */
-	void createProxy(Map<String,WebProxyDo> webProxyDos);
+	void createProxy(List<WebProxyDo> webProxyDos);
 	
 	/**
 	 * 从xml中获得有效代理
@@ -30,7 +31,7 @@ public interface ProxyCnDao {
 	 * <p>如果文件中不存在 返回一个空Map</p>
 	 * 
 	 */
-	Map<String,WebProxyDo> getInvailProxys();
+	List<WebProxyDo> getInvailProxys();
 	
 	/**
 	 * 清楚无效的代理
