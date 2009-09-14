@@ -54,6 +54,7 @@ public class HSQLServer extends Server implements InitializingBean {
 	 *            端口号
 	 */
 	private static void startServer(String dbPath, String dbName, int port) {
+		 
 		Server server = new Server();// 它可是hsqldb.jar里面的类啊。
 		server.setDatabaseName(0, dbName);
 		server.setDatabasePath(0, dbPath + dbName);
@@ -62,7 +63,6 @@ public class HSQLServer extends Server implements InitializingBean {
 		}
 		server.setSilent(true);
 		server.start();
-		System.out.println("HSQLDB started...");
 
 	}
 
@@ -73,16 +73,16 @@ public class HSQLServer extends Server implements InitializingBean {
 		String[] args = new String[] { "-database.0", "file:mydb", "-dbname.0",
 				"douche" };
 		HSQLServer.start(args);
-		System.out.println("启动HSQL完毕");
 	}
 
 	/* (non-Javadoc)
 	 * @see org.springframework.beans.factory.InitializingBean#afterPropertiesSet()
 	 */
 	public void afterPropertiesSet() throws Exception {
-		String[] args = new String[] { "-database.0", "file:mydb", "-dbname.0",
+		HSQLServer.startServer("", "douche", 9999);
+		/*String[] args = new String[] { "-database.0 mydb", "file:mydb", "-dbname.0 mydb",
 				"douche" };
-		HSQLServer.start(args);
+		HSQLServer.start(args);*/
 		System.out.println("启动HSQL完毕");
 
 	}

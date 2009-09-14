@@ -9,12 +9,15 @@ import javax.sql.DataSource;
 import org.ertuo.douche.biz.nineteen.NineTeenManager;
 import org.ertuo.douche.dao.domain.WebProxyDo;
 import org.ertuo.douche.dao.opration.ProxyCnDao;
+import org.ertuo.douche.db.hsql.HSQLServer;
 import org.ertuo.douche.proxy.proxycn.CnProxyManager;
 import org.junit.Test;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.jdbc.core.simple.SimpleJdbcTemplate;
+import org.springframework.test.annotation.Rollback;
 import org.springframework.test.context.ContextConfiguration;
 import org.springframework.test.context.junit4.AbstractTransactionalJUnit4SpringContextTests;
+import org.springframework.transaction.annotation.Transactional;
 
 
 
@@ -35,6 +38,7 @@ public class NineTeenManagerTest extends AbstractTransactionalJUnit4SpringContex
 	@Autowired
 	public CnProxyManager cnProxyManager;
 	
+	
 	 
 	
 	public void setDataSource(DataSource dataSource) {
@@ -42,6 +46,7 @@ public class NineTeenManagerTest extends AbstractTransactionalJUnit4SpringContex
 	}
 
 	@Test
+	@Rollback(value=false)
 	public void login(){
 		//µÇÂ½
 		nineTeenManager.login();
@@ -58,17 +63,20 @@ public class NineTeenManagerTest extends AbstractTransactionalJUnit4SpringContex
 	}
 	
 	@Test
-	public void proxyCnDao_create(){
+	@Rollback(value=false)
+	public void createCnProxy(){
 		WebProxyDo webProxyDo=new WebProxyDo();
 		webProxyDo.setId("202.103.24.68:80");
 		webProxyDo.setCheckDate(new Date());
 		webProxyDo.setPort(80);
 		webProxyDo.setUrl("202.103.24.68");
 		proxyCnDao.createProxy(webProxyDo);
+		//server.shutdown();
 	}
 	
 	
    @Test
+   @Rollback(value=false)
    public void createProxy(){
 	   cnProxyManager.createCanUseProxy();
    }

@@ -14,5 +14,10 @@
 			<groupId>org.ertuo.douche</groupId>
 			<artifactId>douche-engine-htmlutil</artifactId>
 		</dependency>
+		<dependency>
+			<groupId>org.springframework</groupId>
+			<artifactId>org.springframework.context.support 
+			</artifactId>
+		</dependency>
 	</dependencies>
 </project>

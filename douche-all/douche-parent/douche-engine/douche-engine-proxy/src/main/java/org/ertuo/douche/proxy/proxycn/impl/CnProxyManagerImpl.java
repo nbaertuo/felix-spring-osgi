@@ -1,11 +1,8 @@
 package org.ertuo.douche.proxy.proxycn.impl;
 
 import java.io.IOException;
-import java.util.Iterator;
 import java.util.List;
-import java.util.Map;
 import java.util.Random;
-import java.util.Map.Entry;
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
 
@@ -22,6 +19,8 @@ import org.w3c.dom.NodeList;
 
 import com.gargoylesoftware.htmlunit.BrowserVersion;
 import com.gargoylesoftware.htmlunit.WebClient;
+import com.gargoylesoftware.htmlunit.html.DomNode;
+import com.gargoylesoftware.htmlunit.html.HtmlElement;
 import com.gargoylesoftware.htmlunit.html.HtmlPage;
 import com.gargoylesoftware.htmlunit.html.HtmlSubmitInput;
 
@@ -70,10 +69,9 @@ public class CnProxyManagerImpl implements CnProxyManager {
 			if(htmlPage==null){
 				continue;
 			}
-			NodeList tds = htmlPage.getElementsByTagName("td");
-			for (int i = 0; i < tds.getLength(); i++) {
-				Node node = tds.item(i);
-				String context = node.getTextContent();
+			List<HtmlElement> list=htmlPage.getElementsByName("td");
+			for (HtmlElement node : list) {
+				String context =node.getTextContent();
 				String ip = this.getIpByReg(context, ip_reg);
 
 				if (StringUtils.isNotBlank(ip)) {
@@ -91,7 +89,7 @@ public class CnProxyManagerImpl implements CnProxyManager {
 					webProxy.setUrl(ip);
 
 					// 第三个节点port
-					Node threeNode = node.getNextSibling();
+					DomNode  threeNode = node.getNextSibling();
 					String port=threeNode.getTextContent();
 					if(StringUtils.isNotBlank(port)&&StringUtils.isNumeric(port)){
 						webProxy.setPort(Integer.parseInt(port));
@@ -125,6 +123,7 @@ public class CnProxyManagerImpl implements CnProxyManager {
 					}
 
 				}
+			
 			}
 		}
 		 

@@ -31,6 +31,10 @@ public class ProxyCnDaoImpl implements ProxyCnDao {
 	@Autowired
 	private SessionFactory sessionFactory;
 
+	 
+
+
+
 	/*
 	 * (non-Javadoc)
 	 * 
@@ -38,10 +42,10 @@ public class ProxyCnDaoImpl implements ProxyCnDao {
 	 * org.ertuo.douche.dao.opration.ProxyCnDao#createProxy(org.ertuo.douche
 	 * .dao.domain.WebProxyDo)
 	 */
-	@Transactional(readOnly=false)
 	public void createProxy(WebProxyDo webProxyDo) {
 		try {
 			this.getHibernateTemplate(sessionFactory).save(webProxyDo);
+			this.getInvailProxys();
 		} catch (Exception e) {
 			log.error("代理["+webProxyDo+"]重复");
 		}
@@ -71,6 +75,7 @@ public class ProxyCnDaoImpl implements ProxyCnDao {
 
 	public List<WebProxyDo> getInvailProxys() {
 		List<WebProxyDo> rs=this.getHibernateTemplate(sessionFactory).find("from WebProxyDo");
+		log.debug("结果集长度["+rs.size()+"]");
 		if(rs==null){
 			rs=new ArrayList<WebProxyDo>();
 		}
