@@ -39,6 +39,11 @@
 		<level value="debug" />
 	</logger>
 	
+	<logger name="org.springframework.scheduling.quartz">
+		<level value="debug" />
+	</logger>
+	
+	
 	
 	
 	<logger name="org.mortbay.jetty">
