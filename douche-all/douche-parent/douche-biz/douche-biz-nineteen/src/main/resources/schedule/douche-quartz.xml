@@ -20,8 +20,29 @@
 			</props>
 		</property>
 		<!-- 启动时延期10秒开始任务 -->
-		<property name="startupDelay" value="10000" />
+		<property name="startupDelay" value="0" />
 	</bean>
+	
+
+
+	<!-- Cron式Trigger定义 -->
+	<bean id="cronTrigger" class="org.springframework.scheduling.quartz.CronTriggerBean">
+		<property name="jobDetail" ref="cronJob" />
+		<property name="cronExpression" value="0 0/1 0 * * ?" />
+	</bean>
+	
+	<!-- Cron Job -->
+	<bean id="cronJob" class="org.springframework.scheduling.quartz.MethodInvokingJobDetailFactoryBean">
+		<property name="targetObject" ref="nineteenQuartzJob" />
+		<property name="targetMethod" value="cronExecuteLog" />
+		<property name="concurrent"><value>false</value></property>
+	</bean>
+	
+	<!-- 被执行的业务类 -->
+	<bean id="nineteenQuartzJob_bsk" class="org.ertuo.douche.biz.nineteen.schedule.NineteenQuartzJob" />
+	
+	
+	
 	
 	<!-- Quartz集群Schduler 
 	<bean id="clusterQuartzScheduler" class="org.springframework.scheduling.quartz.SchedulerFactoryBean" lazy-init="false">
@@ -37,26 +58,14 @@
 		<property name="startupDelay" value="10000" />
 		 保存Job数据到数据库所需的带事务数据源 
 		<property name="dataSource" ref="dataSource" />
-	</bean>
-
-	--><!-- Cron式Trigger定义 -->
-	<bean id="cronTrigger" class="org.springframework.scheduling.quartz.CronTriggerBean">
-		<property name="jobDetail" ref="cronJob" />
-		<!-- 周一至五,朝九晚五工作时间内每半小时执行一次 -->
-		<property name="cronExpression" value="0 0/1 9-23 * * ?" />
-	</bean>
-
+	</bean>-->
 	<!-- Timer式 Trigger定义
 	<bean id="simpleTrigger" class="org.springframework.scheduling.quartz.SimpleTriggerBean">
 		<property name="jobDetail" ref="timerJob" />
 		<property name="repeatInterval" value="3600000" />
 	</bean>-->
 
-	<!-- Cron Job -->
-	<bean id="cronJob" class="org.springframework.scheduling.quartz.MethodInvokingJobDetailFactoryBean">
-		<property name="targetObject" ref="nineteenQuartzJob" />
-		<property name="targetMethod" value="cronExecuteLog" />
-	</bean>
+	
 
 	<!-- Timer Job 
 	<bean id="timerJob" class="org.springframework.scheduling.quartz.MethodInvokingJobDetailFactoryBean">
@@ -64,6 +73,5 @@
 		<property name="targetMethod" value="timerExecuteLog" />
 	</bean>-->
 
-	<!-- 被执行的业务类 -->
-	<bean id="nineteenQuartzJob" class="org.ertuo.douche.biz.nineteen.schedule.NineteenQuartzJob" />
+	
 </beans>

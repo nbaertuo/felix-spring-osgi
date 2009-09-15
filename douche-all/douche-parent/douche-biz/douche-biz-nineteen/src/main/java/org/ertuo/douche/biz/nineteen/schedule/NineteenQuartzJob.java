@@ -6,9 +6,11 @@ import java.util.Map;
 import org.apache.log4j.Logger;
 import org.ertuo.douche.biz.nineteen.NineTeenManager;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Service;
 
 /**
  */
+@Service
 public class NineteenQuartzJob {
 
 	private static Logger logger = Logger.getLogger(NineteenQuartzJob.class);
@@ -21,7 +23,6 @@ public class NineteenQuartzJob {
 	 */
 	public void cronExecuteLog() {
 		logger.debug("回帖任务开始调度");
-		nineTeenManager.login();
 		//登陆
 		nineTeenManager.login();
 		//获得所有楼层
