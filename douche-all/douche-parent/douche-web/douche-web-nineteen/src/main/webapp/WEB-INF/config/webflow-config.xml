@@ -30,8 +30,8 @@
 	</bean>
 	
 	<!-- Installs a listener that manages JPA persistence contexts for flows that require them -->
-	<bean id="jpaFlowExecutionListener" class="org.springframework.webflow.persistence.HibernateFlowExecutionListener">
-		<constructor-arg ref="sessionFactory" />
+	<bean id="jpaFlowExecutionListener" class="org.springframework.webflow.persistence.JpaFlowExecutionListener">
+		<constructor-arg ref="entityManagerFactory" />
 		<constructor-arg ref="transactionManager" />
 	</bean>
 	
