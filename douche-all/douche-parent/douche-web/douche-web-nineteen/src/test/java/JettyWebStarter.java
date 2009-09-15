@@ -69,7 +69,7 @@ public class JettyWebStarter {
         
         root.setWelcomeFiles(new String[]{"index.html"});
         
-        postStart(root);
+        //postStart(root);
         try {
             server.start();
             server.join();

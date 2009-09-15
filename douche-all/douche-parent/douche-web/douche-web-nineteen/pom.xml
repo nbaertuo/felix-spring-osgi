@@ -8,6 +8,7 @@
 	<modelVersion>4.0.0</modelVersion>
 	<groupId>org.ertuo.douche</groupId>
 	<artifactId>douche-web-nineteen</artifactId>
+	<packaging>war</packaging>
 	<version>${douche.version}</version>
 	<dependencies>
 		<dependency>
@@ -43,9 +44,18 @@
 			<artifactId>org.springframework.js</artifactId>
 		</dependency>
 		<dependency>
-			<groupId>quartz</groupId>
+			<groupId>org.opensymphony.quartz</groupId>
 			<artifactId>quartz</artifactId>
-			<version>1.5.2</version>
+			<version>1.6.5</version>
 		</dependency>
 	</dependencies>
+	<build>
+		<plugins>
+	       <!-- jetty插件,重载web.xml中设置验证码自动通过值 -->
+			<plugin>
+				<groupId>org.mortbay.jetty</groupId>
+				<artifactId>maven-jetty-plugin</artifactId>
+			</plugin>
+		</plugins>
+	</build>
 </project>

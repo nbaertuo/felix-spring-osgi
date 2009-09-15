@@ -46,7 +46,7 @@
 	
 	
 	
-	<logger name="org.mortbay.jetty">
+	<logger name="org.mortbay">
 		<level value="debug" />
 	</logger>
 	<logger name="org.ertuo.douche">
