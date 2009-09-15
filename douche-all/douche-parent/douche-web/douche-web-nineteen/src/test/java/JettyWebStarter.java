@@ -46,7 +46,7 @@ public class JettyWebStarter {
         root.setInitParams(initParams);
         /**servlet context*/
         root.setResourceBase("src/main/webapp");
-        root.addEventListener(listener);
+        //root.addEventListener(listener);
         
         ServletHolder holder=new ServletHolder(new ResourceServlet());
         root.addServlet(holder, "/resources/*");
