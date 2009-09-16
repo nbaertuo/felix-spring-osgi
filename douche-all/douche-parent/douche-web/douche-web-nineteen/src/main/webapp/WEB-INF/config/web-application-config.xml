@@ -19,6 +19,6 @@
 	<context:component-scan base-package="org.ertuo.douche" />
 	
 	<import resource="classpath:data-access-config.xml" />
-	<import resource="classpath:schedule/douche-quartz.xml" />
+	<import resource="classpath:schedule/applicationContext-executor.xml" />
 
 </beans>

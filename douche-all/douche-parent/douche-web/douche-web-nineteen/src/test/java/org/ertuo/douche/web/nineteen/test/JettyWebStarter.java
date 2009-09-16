@@ -1,3 +1,4 @@
+package org.ertuo.douche.web.nineteen.test;
 
 
 import java.io.FileNotFoundException;
@@ -7,6 +8,8 @@ import java.util.Map;
 
 
 import org.apache.jasper.servlet.JspServlet;
+import org.apache.log4j.Logger;
+import org.apache.log4j.spi.LoggerFactory;
 import org.mortbay.jetty.Connector;
 import org.mortbay.jetty.Server;
 import org.mortbay.jetty.bio.SocketConnector;
@@ -25,6 +28,8 @@ import org.springframework.web.servlet.DispatcherServlet;
  */
 
 public class JettyWebStarter {
+	
+	private Logger logger=Logger.getLogger(JettyWebStarter.class);
 
 
 	/**
@@ -72,6 +77,7 @@ public class JettyWebStarter {
         //postStart(root);
         try {
             server.start();
+            logger.debug("服务器状态:失败["+server.isFailed()+"] 运行["+server.isRunning()+"]开始["+server.isStarted()+"]");
             server.join();
         } catch (Exception e) {
             throw new RuntimeException(e);

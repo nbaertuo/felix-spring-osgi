@@ -8,6 +8,9 @@ import java.util.Map;
 import org.apache.commons.lang.StringUtils;
 import org.apache.log4j.Logger;
 import org.ertuo.douche.biz.nineteen.NineTeenManager;
+import org.ertuo.douche.dao.domain.PostDo;
+import org.ertuo.douche.dao.opration.PostDao;
+import org.ertuo.douche.db.hsql.HSQLServer;
 import org.ertuo.douche.engine.htmlutil.webclient.WebClientLocal;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
@@ -31,6 +34,12 @@ public class NineTeenManagerImpl implements NineTeenManager{
 	private final Logger log=org.apache.log4j.Logger.getLogger(NineTeenManagerImpl.class);
 	
 	@Autowired
+	HSQLServer server;
+	
+	@Autowired
+	private PostDao postDao;
+	
+	@Autowired
 	private WebClientLocal webClientLocal;
 	
 	//登陆地址
@@ -41,11 +50,11 @@ public class NineTeenManagerImpl implements NineTeenManager{
 	
 	
 	private String[] biteSupUrl=new String[]{
-			"http://food.19lou.com/","http://tour.19lou.com/","http://auto.19lou.com/","http://fashion.19lou.com/",
+			//"http://food.19lou.com/","http://tour.19lou.com/","http://auto.19lou.com/","http://fashion.19lou.com/",
 			//"http://love.19lou.com/","http://baby.19lou.com/","http://family.19lou.com/","http://money.19lou.com/",
 			//"http://house.19lou.com/","http://home.19lou.com/","http://digi.19lou.com/","http://edu.19lou.com/",
 			//"http://job.19lou.com/","http://health.19lou.com/","http://sport.19lou.com/","http://bb.19lou.com/",
-			//"http://design.19lou.com/","http://photo.19lou.com/","http://ent.19lou.com/"
+			"http://design.19lou.com/","http://photo.19lou.com/","http://ent.19lou.com/"
 			};
 	
 	
@@ -70,10 +79,7 @@ public class NineTeenManagerImpl implements NineTeenManager{
 				.getInputByName("username");
 		final HtmlPasswordInput password = (HtmlPasswordInput) form
 				.getInputByName("password");
-		final HtmlHiddenInput formhash = (HtmlHiddenInput) form
-				.getInputByName("formhash");
-		formhash.setValueAttribute("a31eb5c8");
-		username.setValueAttribute("summersnow8");
+		username.setValueAttribute("summersnow82");
 		password.setValueAttribute("keyidaxie");
 		webClientLocal.getClickHtmlPage(button);
 		} catch (Exception e) {
@@ -91,6 +97,9 @@ public class NineTeenManagerImpl implements NineTeenManager{
 		HtmlPage page=null;
 		for (String site : biteSupUrl) {
 			page=webClientLocal.getHtmlPageByUrl(site);	
+		}
+		if(page==null){
+			return floorList;
 		}
 		List<HtmlAnchor> auchors= page.getAnchors();
 		for (HtmlAnchor htmlAnchor : auchors) {
@@ -114,7 +123,7 @@ public class NineTeenManagerImpl implements NineTeenManager{
 	public Map<String,String> getFloorList(String url){
 		Map<String,String> newsList=new HashMap<String, String>();
 		
-		if(StringUtils.isBlank(url)||StringUtils.startsWith(url, "/")){
+		if(StringUtils.isBlank(url)||url.startsWith("/")){
 			return newsList;
 		}
 		
@@ -130,6 +139,9 @@ public class NineTeenManagerImpl implements NineTeenManager{
 			}
 		}
 		HtmlPage page=webClientLocal.getHtmlPageByUrl(url);
+		if(page==null){
+			return newsList;
+		}
 		List<HtmlAnchor> anchors= page.getAnchors();
 		for (HtmlAnchor htmlAnchor : anchors) {
 			if(StringUtils.isBlank(htmlAnchor.getHrefAttribute())){
@@ -181,6 +193,8 @@ public class NineTeenManagerImpl implements NineTeenManager{
 	 * @see org.ertuo.douche.biz.nineteen.NineTeenManager#answer(java.lang.String, java.lang.String)
 	 */
 	public void answer(String floorId,String newsId) {
+		
+		String viewId="http://www.19lou.com/forum-"+floorId+"-thread-"+newsId+"-1-1.html";
 		String answerUrl="http://www.19lou.com/post.php?action=reply&fid="+floorId+"&tid="+newsId+"&extra=page%3D1";
 		try {
 		HtmlPage loginAfterPagee=webClientLocal.getHtmlPageByUrl(answerUrl);
@@ -199,8 +213,15 @@ public class NineTeenManagerImpl implements NineTeenManager{
 		final HtmlSubmitInput replysubmit = (HtmlSubmitInput) postform
 				.getInputByName("replysubmit");
 		HtmlPage htmlPage=webClientLocal.getClickHtmlPage(replysubmit);
+		
+		if(postDao.getPostById(viewId)!=null){
+			//已经回复过 重复回复
+			return;
+		}
+		
 		if(htmlPage.asText().contains("http://shop58883417.taobao.com/")){
-			log.info("帖子["+answerUrl+"]回复");
+			postDao.savePost(new PostDo(viewId,"summersnow8"));
+			log.info("帖子["+viewId+"]回复");
 			try {
 				Thread.currentThread().sleep(30*1000);
 			} catch (InterruptedException e) {

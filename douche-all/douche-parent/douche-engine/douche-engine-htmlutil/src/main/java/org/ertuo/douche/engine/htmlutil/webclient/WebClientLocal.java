@@ -11,9 +11,11 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import com.gargoylesoftware.htmlunit.BrowserVersion;
+import com.gargoylesoftware.htmlunit.RefreshHandler;
 import com.gargoylesoftware.htmlunit.WebClient;
 import com.gargoylesoftware.htmlunit.html.HtmlPage;
 import com.gargoylesoftware.htmlunit.html.HtmlSubmitInput;
+import com.gargoylesoftware.htmlunit.javascript.JavaScriptEngine;
 
 @Service
 public class WebClientLocal implements InitializingBean{
@@ -25,14 +27,23 @@ public class WebClientLocal implements InitializingBean{
 
 	private final  Logger log= Logger.getLogger(WebClientLocal.class);
 
-	private static  WebClient webClient = new WebClient();
+	private static  WebClient webClient = new WebClient(BrowserVersion.FIREFOX_3);
 
 	@Autowired
 	private CnProxyManager cnProxyManager ;
 
 	static {
 		webClient.setJavaScriptEnabled(false);
-		webClient.setThrowExceptionOnScriptError(false);
+		//webClient.setThrowExceptionOnScriptError(false);
+		//webClient.setThrowExceptionOnFailingStatusCode(false);
+		webClient.setCssEnabled(false);
+		webClient.setActiveXNative(false);
+		webClient.setAppletEnabled(false);
+		webClient.setCookiesEnabled(false);
+		webClient.setPopupBlockerEnabled(false);
+		webClient.setRedirectEnabled(false);
+		webClient.setIgnoreOutsideContent(false);
+		webClient.setJavaScriptEngine(new JavaScriptEngine(webClient));
 	}
 
 	 
@@ -61,10 +72,10 @@ public class WebClientLocal implements InitializingBean{
 
 	/**
 	 * @param url
-	 * @return
+	 * @return Èç¹ûÊ§°Ü ·µ»Ønull
 	 */
 	public HtmlPage getHtmlPageByUrl(String url) {
-		HtmlPage htmlPage = null;
+		HtmlPage htmlPage =null;
 
 		try {
 			htmlPage = (HtmlPage) webClient.getPage(url);

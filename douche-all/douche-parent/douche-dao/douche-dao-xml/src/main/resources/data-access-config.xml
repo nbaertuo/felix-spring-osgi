@@ -78,8 +78,8 @@
 		</property>
 		<property name="annotatedClasses">
 			<list>
-				<value>org.ertuo.douche.dao.domain.WebProxyDo
-				</value>
+				<value>org.ertuo.douche.dao.domain.WebProxyDo</value>
+				<value>org.ertuo.douche.dao.domain.PostDo</value>
 			</list>
 		</property>
 	</bean>

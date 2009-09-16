@@ -263,7 +263,6 @@
 		</dependencies>
 	</dependencyManagement>
 	<build>
-		<finalName>spring-2.5</finalName>
 		<plugins>
 			<plugin>
 				<artifactId>maven-compiler-plugin</artifactId>

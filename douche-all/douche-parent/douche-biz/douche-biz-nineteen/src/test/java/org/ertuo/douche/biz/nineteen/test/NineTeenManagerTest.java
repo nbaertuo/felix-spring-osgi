@@ -10,6 +10,7 @@ import org.ertuo.douche.biz.nineteen.NineTeenManager;
 import org.ertuo.douche.dao.domain.WebProxyDo;
 import org.ertuo.douche.dao.opration.ProxyCnDao;
 import org.ertuo.douche.db.hsql.HSQLServer;
+import org.ertuo.douche.engine.htmlutil.webclient.WebClientLocal;
 import org.ertuo.douche.proxy.proxycn.CnProxyManager;
 import org.junit.Test;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -18,6 +19,8 @@ import org.springframework.test.annotation.Rollback;
 import org.springframework.test.context.ContextConfiguration;
 import org.springframework.test.context.junit4.AbstractTransactionalJUnit4SpringContextTests;
 import org.springframework.transaction.annotation.Transactional;
+
+import com.gargoylesoftware.htmlunit.html.HtmlPage;
 
 
 
@@ -31,6 +34,9 @@ public class NineTeenManagerTest extends AbstractTransactionalJUnit4SpringContex
 	
 	@Autowired
 	public NineTeenManager nineTeenManager;
+	
+	@Autowired
+	WebClientLocal webClientLocal;
 	
 	@Autowired
 	public ProxyCnDao proxyCnDao;
@@ -83,6 +89,12 @@ public class NineTeenManagerTest extends AbstractTransactionalJUnit4SpringContex
    @Test
    public void getInvailProxys(){
 	   proxyCnDao.getInvailProxys();
+   }
+   
+   @Test
+   public void testTaobao(){
+	  HtmlPage page= webClientLocal.getHtmlPageByUrl("http://www.19lou.com/post.php?action=reply&fid=269&tid=13543385&extra=page%3D1");
+	  logger.debug(page.asText());
    }
 
 }
