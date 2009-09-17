@@ -14,7 +14,6 @@
 		- The controllers are autodetected POJOs labeled with the @Controller
 		annotation.
 	-->
-	<context:component-scan base-package="org.ertuo.douche.dao.opration" />
 	 
 	<bean id="xstream" class="com.thoughtworks.xstream.XStream"/>
 </beans>

@@ -21,7 +21,7 @@ import org.springframework.transaction.annotation.Transactional;
  * @author mo.duanm
  * 
  */
-@Service("proxyCnDao")
+//@Service("proxyCnDao")
 public class ProxyCnDaoImpl implements ProxyCnDao {
 	
 

@@ -1,6 +1,5 @@
 package org.ertuo.douche.dao.domain;
 
-import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.Id;
 
@@ -10,7 +9,6 @@ public class PostDo {
 	@Id
 	private String postId;
 	
-	@Column
 	private String userId;
 	
 	public  PostDo() {

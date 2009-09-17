@@ -12,6 +12,8 @@
 		annotation.
 		 p:url="jdbc:hsqldb:hsql://localhost/douche;shutdown=true"
 	-->
+	 <context:component-scan base-package="org.ertuo.douche" />
+	 
 	 <bean id="dataSource" class="org.apache.commons.dbcp.BasicDataSource"
 	     destroy-method="close" 
 		 p:driverClassName="org.hsqldb.jdbcDriver"
@@ -48,6 +50,7 @@
             <!-- other methods use the default transaction settings (see below) -->
 			<tx:method name="*" />
 			<tx:method name="create*" propagation="REQUIRED"/>
+			<tx:method name="save*" propagation="REQUIRED"/>
 			<tx:method name="get*" read-only="true" />
 			<tx:method name="find*" read-only="true" />
 		</tx:attributes>
@@ -58,7 +61,7 @@
 	-->
 	<aop:config>
 		<aop:pointcut id="proxyOperation"
-			expression="execution(* org.ertuo.douche.dao.opration.ProxyCnDao.*(..))" />
+			expression="execution(* org.ertuo.douche.dao.opration.*.*(..))" />
 		<aop:advisor advice-ref="txAdvice" pointcut-ref="proxyOperation" />
 	</aop:config>
 	<bean id="sessionFactory"
