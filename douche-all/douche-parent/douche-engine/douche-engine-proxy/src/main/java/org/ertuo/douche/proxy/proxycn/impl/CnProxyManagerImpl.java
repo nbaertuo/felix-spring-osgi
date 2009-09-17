@@ -69,7 +69,7 @@ public class CnProxyManagerImpl implements CnProxyManager {
 			if(htmlPage==null){
 				continue;
 			}
-			List<HtmlElement> list=htmlPage.getElementsByName("td");
+			List<HtmlElement> list=htmlPage.getElementsByTagName("td");
 			for (HtmlElement node : list) {
 				String context =node.getTextContent();
 				String ip = this.getIpByReg(context, ip_reg);
