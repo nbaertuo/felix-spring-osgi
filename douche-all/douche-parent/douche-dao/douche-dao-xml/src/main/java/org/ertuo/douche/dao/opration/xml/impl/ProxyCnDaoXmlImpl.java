@@ -8,6 +8,7 @@ import java.util.ArrayList;
 import java.util.List;
 
 import org.apache.commons.lang.StringUtils;
+import org.apache.log4j.Logger;
 import org.ertuo.douche.dao.domain.WebProxyDo;
 import org.ertuo.douche.dao.opration.ProxyCnDao;
 import org.springframework.beans.factory.InitializingBean;
@@ -24,6 +25,8 @@ import com.thoughtworks.xstream.XStream;
  */
 @Service("proxyCnDao")
 public class ProxyCnDaoXmlImpl implements ProxyCnDao, InitializingBean {
+
+	private final Logger logger = Logger.getLogger(ProxyCnDaoXmlImpl.class);
 
 	@Autowired
 	private XStream stream;
@@ -45,6 +48,7 @@ public class ProxyCnDaoXmlImpl implements ProxyCnDao, InitializingBean {
 		List<WebProxyDo> list = this.getInvailProxys();
 		for (WebProxyDo proxyDo : list) {
 			if (StringUtils.equals(proxyDo.getId(), webProxyDo.getId())) {
+				logger.debug("代理[" + proxyDo.getId() + "]重复");
 				return;
 			}
 		}
@@ -61,8 +65,8 @@ public class ProxyCnDaoXmlImpl implements ProxyCnDao, InitializingBean {
 	public List<WebProxyDo> getInvailProxys() {
 		try {
 
-			 
-			return (List<WebProxyDo>) stream.fromXML(new FileInputStream(fileLocation));
+			return (List<WebProxyDo>) stream.fromXML(new FileInputStream(
+					fileLocation));
 		} catch (Exception e) {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
@@ -76,7 +80,7 @@ public class ProxyCnDaoXmlImpl implements ProxyCnDao, InitializingBean {
 			throw new IllegalArgumentException("参数[" + webProxyDos + "]为null");
 		}
 
-		// 原xml中存储的对象
+	/*	// 原xml中存储的对象
 		List<WebProxyDo> webProxys = this.getInvailProxys();
 		// 最终存储的集合
 		List<WebProxyDo> finalWebProxyDos = new ArrayList<WebProxyDo>(webProxys);
@@ -84,19 +88,17 @@ public class ProxyCnDaoXmlImpl implements ProxyCnDao, InitializingBean {
 		for (WebProxyDo oldWebProxyDo : webProxys) {
 			for (WebProxyDo newWebProxyDo : webProxyDos) {
 				// 如果ip和端口都相同 表示重复的代理
-				if (StringUtils.equals(newWebProxyDo.getUrl(), oldWebProxyDo
-						.getUrl())
-						&& (newWebProxyDo.getPort() == oldWebProxyDo.getPort())) {
+				if (StringUtils.equals(newWebProxyDo.getId(), oldWebProxyDo.getId())) {
 					continue;
 
 				} else {
 					finalWebProxyDos.add(newWebProxyDo);
 				}
 			}
-		}
+		}*/
 		try {
 			// 存储到xml中
-			stream.toXML(finalWebProxyDos, new FileOutputStream(fileLocation));
+			stream.toXML(webProxyDos, new FileOutputStream(fileLocation));
 		} catch (FileNotFoundException e) {
 			e.printStackTrace();
 		}

@@ -12,6 +12,7 @@
 		annotation.
 		 p:url="jdbc:hsqldb:hsql://localhost/douche;shutdown=true"
 	-->
+	 <import resource="proxy-cn-dao.xml"/>
 	 <context:component-scan base-package="org.ertuo.douche" />
 	 
 	 <bean id="dataSource" class="org.apache.commons.dbcp.BasicDataSource"

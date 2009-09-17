@@ -115,7 +115,7 @@ public class CnProxyManagerImpl implements CnProxyManager {
 						e.printStackTrace();
 					}*/
 					// 测试是否可用
-					if (this.getCanUseWebProxy(webProxy) != null) {
+					if (this.testWebProxy(webProxy) != null) {
 						if(webProxy!=null){
 							proxyCnDao.createProxy(webProxy);	
 						}
@@ -135,12 +135,12 @@ public class CnProxyManagerImpl implements CnProxyManager {
 	 * @param webProxy
 	 * @return
 	 */
-	private WebProxyDo getCanUseWebProxy(WebProxyDo webProxy) {
+	private WebProxyDo testWebProxy(WebProxyDo webProxy) {
 		WebClient webClient = new WebClient(BrowserVersion.INTERNET_EXPLORER_6,
 				webProxy.getUrl(), webProxy.getPort());
 		try {
 			webClient.setJavaScriptEnabled(false);
-			webClient.setTimeout(1000);
+			webClient.setTimeout(1*1000);
 			webClient.getPage(testUrl);
 			log.info("代理[" + webProxy.getUrl() + ":" + webProxy.getPort()
 					+ "]可用");
@@ -172,7 +172,7 @@ public class CnProxyManagerImpl implements CnProxyManager {
 			this.getCurrentInvaidProxy();
 		}
 		// 当前代理不可用
-		if (this.getCanUseWebProxy(currentWebProxy) == null) {
+		if (this.testWebProxy(currentWebProxy) == null) {
 			//当前这个已经失效了，清除掉
 			proxyCnDao.removePeoxy(currentWebProxy);
 			log.info(currentWebProxy.toString()+"已经失效,清除掉");

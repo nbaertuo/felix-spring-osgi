@@ -83,7 +83,7 @@ public class HSQLServer extends Server implements InitializingBean {
 		/*String[] args = new String[] { "-database.0 mydb", "file:mydb", "-dbname.0 mydb",
 				"douche" };
 		HSQLServer.start(args);*/
-		System.out.println("启动HSQL完毕");
+		//System.out.println("启动HSQL完毕");
 
 	}
 }

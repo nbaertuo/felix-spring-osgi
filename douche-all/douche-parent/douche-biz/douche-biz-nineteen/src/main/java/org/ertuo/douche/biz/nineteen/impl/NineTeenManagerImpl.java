@@ -4,6 +4,7 @@ import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
+import java.util.Random;
 
 import org.apache.commons.httpclient.HostConfiguration;
 import org.apache.commons.httpclient.HttpClient;
@@ -51,10 +52,10 @@ public class NineTeenManagerImpl implements NineTeenManager{
 	
 	
 	private String[] biteSupUrl=new String[]{
-			//"http://food.19lou.com/","http://tour.19lou.com/","http://auto.19lou.com/","http://fashion.19lou.com/",
-			//"http://love.19lou.com/","http://baby.19lou.com/","http://family.19lou.com/","http://money.19lou.com/",
-			//"http://house.19lou.com/","http://home.19lou.com/","http://digi.19lou.com/","http://edu.19lou.com/",
-			//"http://job.19lou.com/","http://health.19lou.com/","http://sport.19lou.com/","http://bb.19lou.com/",
+			"http://food.19lou.com/","http://tour.19lou.com/","http://auto.19lou.com/","http://fashion.19lou.com/",
+			"http://love.19lou.com/","http://baby.19lou.com/","http://family.19lou.com/","http://money.19lou.com/",
+			"http://house.19lou.com/","http://home.19lou.com/","http://digi.19lou.com/","http://edu.19lou.com/",
+			"http://job.19lou.com/","http://health.19lou.com/","http://sport.19lou.com/","http://bb.19lou.com/",
 			"http://design.19lou.com/","http://photo.19lou.com/","http://ent.19lou.com/"
 			};
 	
@@ -95,10 +96,13 @@ public class NineTeenManagerImpl implements NineTeenManager{
 	 */
 	public List<String> getFloors(){
 		List<String> floorList=new ArrayList<String>();
-		HtmlPage page=null;
-		for (String site : biteSupUrl) {
-			page=webClientLocal.getHtmlPageByUrl(site);	
-		}
+		
+		int size=biteSupUrl.length;
+		Random random=new Random();
+		//Ëæ»úÊý
+		int select=random.nextInt(size); 
+		HtmlPage page=webClientLocal.getHtmlPageByUrl(biteSupUrl[select]);
+		
 		if(page==null){
 			return floorList;
 		}
