@@ -5,6 +5,8 @@ import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 
+import org.apache.commons.httpclient.HostConfiguration;
+import org.apache.commons.httpclient.HttpClient;
 import org.apache.commons.lang.StringUtils;
 import org.apache.log4j.Logger;
 import org.ertuo.douche.biz.nineteen.NineTeenManager;
@@ -17,7 +19,6 @@ import org.springframework.stereotype.Service;
 
 import com.gargoylesoftware.htmlunit.html.HtmlAnchor;
 import com.gargoylesoftware.htmlunit.html.HtmlForm;
-import com.gargoylesoftware.htmlunit.html.HtmlHiddenInput;
 import com.gargoylesoftware.htmlunit.html.HtmlPage;
 import com.gargoylesoftware.htmlunit.html.HtmlPasswordInput;
 import com.gargoylesoftware.htmlunit.html.HtmlSubmitInput;
@@ -79,7 +80,7 @@ public class NineTeenManagerImpl implements NineTeenManager{
 				.getInputByName("username");
 		final HtmlPasswordInput password = (HtmlPasswordInput) form
 				.getInputByName("password");
-		username.setValueAttribute("summersnow82");
+		username.setValueAttribute("summersnow8");
 		password.setValueAttribute("keyidaxie");
 		webClientLocal.getClickHtmlPage(button);
 		} catch (Exception e) {
@@ -196,6 +197,13 @@ public class NineTeenManagerImpl implements NineTeenManager{
 		
 		String viewId="http://www.19lou.com/forum-"+floorId+"-thread-"+newsId+"-1-1.html";
 		String answerUrl="http://www.19lou.com/post.php?action=reply&fid="+floorId+"&tid="+newsId+"&extra=page%3D1";
+		
+		if(postDao.getPostById(viewId)!=null){
+			//已经回复过 重复回复
+			return;
+		}
+		
+		
 		try {
 		HtmlPage loginAfterPagee=webClientLocal.getHtmlPageByUrl(answerUrl);
 		HtmlForm postform = (HtmlForm) loginAfterPagee
@@ -212,12 +220,12 @@ public class NineTeenManagerImpl implements NineTeenManager{
 		message.blur();
 		final HtmlSubmitInput replysubmit = (HtmlSubmitInput) postform
 				.getInputByName("replysubmit");
+		
+		
+		
 		HtmlPage htmlPage=webClientLocal.getClickHtmlPage(replysubmit);
 		
-		if(postDao.getPostById(viewId)!=null){
-			//已经回复过 重复回复
-			return;
-		}
+		
 		
 		if(htmlPage.asText().contains("http://shop58883417.taobao.com/")){
 			postDao.savePost(new PostDo(viewId,"summersnow8"));
@@ -231,7 +239,7 @@ public class NineTeenManagerImpl implements NineTeenManager{
 		}
 		
 		} catch (Exception e) {
-			//log.error("回复["+answerUrl+"]错误",e);
+			log.error("回复["+answerUrl+"]错误",e);
 		}
 	}
 }

@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <beans xmlns="http://www.springframework.org/schema/beans" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
 	xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans-2.5.xsd"
-	>
+	default-lazy-init="false">
 
 	<description>Quartz的定时任务配置</description>
 
@@ -38,9 +38,9 @@
 		<property name="concurrent"><value>false</value></property>
 	</bean>
 	
-	<!-- 被执行的业务类 
-	<bean id="nineteenQuartzJob" class="org.ertuo.douche.biz.nineteen.schedule.NineteenQuartzJob" />
-	-->
+	<!-- 被执行的业务类 -->
+	<bean id="nineteenQuartzJob_bsk" class="org.ertuo.douche.biz.nineteen.schedule.NineteenQuartzJob" />
+	
 	
 	
 	

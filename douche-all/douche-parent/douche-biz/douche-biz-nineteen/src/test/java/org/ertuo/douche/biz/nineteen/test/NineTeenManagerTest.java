@@ -9,7 +9,6 @@ import javax.sql.DataSource;
 import org.ertuo.douche.biz.nineteen.NineTeenManager;
 import org.ertuo.douche.dao.domain.WebProxyDo;
 import org.ertuo.douche.dao.opration.ProxyCnDao;
-import org.ertuo.douche.db.hsql.HSQLServer;
 import org.ertuo.douche.engine.htmlutil.webclient.WebClientLocal;
 import org.ertuo.douche.proxy.proxycn.CnProxyManager;
 import org.junit.Test;
@@ -18,7 +17,6 @@ import org.springframework.jdbc.core.simple.SimpleJdbcTemplate;
 import org.springframework.test.annotation.Rollback;
 import org.springframework.test.context.ContextConfiguration;
 import org.springframework.test.context.junit4.AbstractTransactionalJUnit4SpringContextTests;
-import org.springframework.transaction.annotation.Transactional;
 
 import com.gargoylesoftware.htmlunit.html.HtmlPage;
 
@@ -29,7 +27,7 @@ import com.gargoylesoftware.htmlunit.html.HtmlPage;
  * @author mo.duanm
  *
  */
-@ContextConfiguration(locations={"classpath:test.xml","classpath:proxy-cn-dao.xml"})
+@ContextConfiguration(locations={"classpath:data-access-config.xml","classpath:proxy-cn-dao.xml"})
 public class NineTeenManagerTest extends AbstractTransactionalJUnit4SpringContextTests {
 	
 	@Autowired
@@ -55,7 +53,7 @@ public class NineTeenManagerTest extends AbstractTransactionalJUnit4SpringContex
 	@Rollback(value=false)
 	public void login(){
 		//登陆
-		nineTeenManager.login();
+		//nineTeenManager.login();
 		//获得所有楼层
 		List<String> floors=nineTeenManager.getFloors();
 		for (String floor : floors) {
