@@ -23,6 +23,7 @@ public interface WebClientLocal  {
 	public WebClient getProxyWebClient();
 	
 	/**
+	 * 根据url返回html页面
 	 * @param url
 	 * @return 如果失败 返回null
 	 */
@@ -30,8 +31,9 @@ public interface WebClientLocal  {
 	
 	
 	/**
-	 * @param submit
-	 * @return
+	 * 返回一个按钮提交后的页面
+	 * @param submit 提交动作的按钮
+	 * @return 如果失败 返回null
 	 */
 	public HtmlPage getClickHtmlPage(HtmlSubmitInput submit);
 	 
