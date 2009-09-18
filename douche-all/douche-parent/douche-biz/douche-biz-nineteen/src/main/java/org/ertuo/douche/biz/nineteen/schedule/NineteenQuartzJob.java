@@ -24,7 +24,7 @@ public class NineteenQuartzJob {
 	public void cronExecuteLog() {
 		logger.debug("回帖任务开始调度");
 		//登陆
-		nineTeenManager.login();
+		//nineTeenManager.login();
 		//获得所有楼层
 		List<String> floors=nineTeenManager.getFloors();
 		for (String floor : floors) {
