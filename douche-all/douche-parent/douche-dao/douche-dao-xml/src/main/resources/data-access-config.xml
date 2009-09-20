@@ -9,26 +9,32 @@
      http://www.springframework.org/schema/context http://www.springframework.org/schema/context/spring-context-2.5.xsd">
 	<!--
 		- The controllers are autodetected POJOs labeled with the @Controller
-		annotation.
-		 p:url="jdbc:hsqldb:hsql://localhost/douche;shutdown=true"
+		annotation. p:url="jdbc:hsqldb:hsql://localhost/douche;shutdown=true"
 	-->
-	 <import resource="proxy-cn-dao.xml"/>
-	 <context:component-scan base-package="org.ertuo.douche" />
-	 
-	 <bean id="dataSource" class="org.apache.commons.dbcp.BasicDataSource"
-	     destroy-method="close" 
-		 p:driverClassName="org.hsqldb.jdbcDriver"
-		 p:url="jdbc:hsqldb:hsql://localhost:9999/douche;shutdown=true"
-		 p:username="sa"
-		 p:password="" />
-		
-	 
-	
-	<bean id="dataSource_bak" class="org.springframework.jdbc.datasource.DriverManagerDataSource"
-		 p:driverClassName="org.hsqldb.jdbcDriver"
-		 p:url="jdbc:hsqldb:hsql://localhost/douche;shutdown=true"
-		 p:username="sa"
-		 p:password="" />
+		<!-- 定义受环境影响易变的变量 -->
+	<bean
+		class="org.springframework.beans.factory.config.PropertyPlaceholderConfigurer">
+		<property name="systemPropertiesModeName" value="SYSTEM_PROPERTIES_MODE_OVERRIDE" />
+		<property name="ignoreResourceNotFound" value="true" />
+		<property name="locations">
+			<list>
+				<!-- 标准配置 -->
+				<value>classpath*:/application.properties</value>
+				<!-- 服务器生产环境配置 -->
+				<!-- <value>file:/var/myapp/application.server.properties</value> -->
+			</list>
+		</property>
+	</bean>
+	<import resource="proxy-cn-dao.xml" />
+	<context:component-scan base-package="org.ertuo.douche" />
+	<bean id="dataSource" class="org.apache.commons.dbcp.BasicDataSource"
+		destroy-method="close" p:driverClassName="${jdbc.driver}"
+		p:url="${jdbc.url}"
+		p:username="${jdbc.username}" p:password="${jdbc.password}" />
+	<bean id="dataSource_bak"
+		class="org.springframework.jdbc.datasource.DriverManagerDataSource"
+		p:driverClassName="org.hsqldb.jdbcDriver" p:url="jdbc:hsqldb:hsql://localhost/douche;shutdown=true"
+		p:username="sa" p:password="" />
 	<!--
 		<bean id="transactionManager"
 		class="org.springframework.jdbc.datasource.DataSourceTransactionManager">
@@ -50,8 +56,8 @@
     <!-- all methods starting with 'get' are read-only -->
             <!-- other methods use the default transaction settings (see below) -->
 			<tx:method name="*" />
-			<tx:method name="create*" propagation="REQUIRED"/>
-			<tx:method name="save*" propagation="REQUIRED"/>
+			<tx:method name="create*" propagation="REQUIRED" />
+			<tx:method name="save*" propagation="REQUIRED" />
 			<tx:method name="get*" read-only="true" />
 			<tx:method name="find*" read-only="true" />
 		</tx:attributes>
@@ -66,7 +72,8 @@
 		<aop:advisor advice-ref="txAdvice" pointcut-ref="proxyOperation" />
 	</aop:config>
 	<bean id="sessionFactory"
-		class="org.springframework.orm.hibernate3.annotation.AnnotationSessionFactoryBean" destroy-method="destroy">
+		class="org.springframework.orm.hibernate3.annotation.AnnotationSessionFactoryBean"
+		destroy-method="destroy">
 		<property name="dataSource" ref="dataSource" />
 		<property name="namingStrategy">
 			<bean class="org.hibernate.cfg.ImprovedNamingStrategy" />
@@ -74,10 +81,9 @@
 		<property name="hibernateProperties">
 			<props>
 				<prop key="hibernate.show_sql">true</prop>
-				<prop key="hibernate.dialect">org.hibernate.dialect.HSQLDialect
+				<prop key="hibernate.dialect">${hibernate.dialect}
 				</prop>
 				<!-- <prop key="hibernate.hbm2ddl.auto">create-drop</prop> -->
-				<prop key="hibernate.hbm2ddl.auto">create-drop</prop>
 			</props>
 		</property>
 		<property name="annotatedClasses">

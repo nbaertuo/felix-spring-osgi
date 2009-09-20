@@ -1,13 +1,13 @@
 package org.ertuo.douche.biz.nineteen.impl;
 
+import java.io.IOException;
 import java.util.ArrayList;
+import java.util.Date;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 import java.util.Random;
 
-import org.apache.commons.httpclient.HostConfiguration;
-import org.apache.commons.httpclient.HttpClient;
 import org.apache.commons.lang.StringUtils;
 import org.apache.log4j.Logger;
 import org.ertuo.douche.biz.nineteen.NineTeenManager;
@@ -15,16 +15,17 @@ import org.ertuo.douche.dao.domain.PostDo;
 import org.ertuo.douche.dao.opration.PostDao;
 import org.ertuo.douche.db.hsql.HSQLServer;
 import org.ertuo.douche.engine.htmlutil.webclient.WebClientLocal;
+import org.springframework.beans.factory.InitializingBean;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
+import com.gargoylesoftware.htmlunit.html.DomNodeList;
 import com.gargoylesoftware.htmlunit.html.HtmlAnchor;
+import com.gargoylesoftware.htmlunit.html.HtmlElement;
 import com.gargoylesoftware.htmlunit.html.HtmlForm;
 import com.gargoylesoftware.htmlunit.html.HtmlPage;
-import com.gargoylesoftware.htmlunit.html.HtmlPasswordInput;
 import com.gargoylesoftware.htmlunit.html.HtmlSubmitInput;
 import com.gargoylesoftware.htmlunit.html.HtmlTextArea;
-import com.gargoylesoftware.htmlunit.html.HtmlTextInput;
 
 /**
  * 饮食
@@ -32,7 +33,7 @@ import com.gargoylesoftware.htmlunit.html.HtmlTextInput;
  *
  */
 @Service("nineTeenManager")
-public class NineTeenManagerImpl implements NineTeenManager{
+public class NineTeenManagerImpl implements NineTeenManager,InitializingBean{
 	private final Logger log=org.apache.log4j.Logger.getLogger(NineTeenManagerImpl.class);
 	
 	@Autowired
@@ -44,52 +45,60 @@ public class NineTeenManagerImpl implements NineTeenManager{
 	@Autowired
 	private WebClientLocal webClientLocal;
 	
-	//登陆地址
-	private static String login_url = "http://www.19lou.com/passportlogin.php?action=login";
-	
-	//登陆action
-	private static String login_action = "http://www.19lou.com/passportlogin.php?action=login&referer=http%3A%2F%2Fwww.19lou.com%2F";
-	
-	
-	private String[] biteSupUrl=new String[]{
-			"http://food.19lou.com/","http://tour.19lou.com/","http://auto.19lou.com/","http://fashion.19lou.com/",
-			"http://love.19lou.com/","http://baby.19lou.com/","http://family.19lou.com/","http://money.19lou.com/",
-			"http://house.19lou.com/","http://home.19lou.com/","http://digi.19lou.com/","http://edu.19lou.com/",
-			"http://job.19lou.com/","http://health.19lou.com/","http://sport.19lou.com/","http://bb.19lou.com/",
-			"http://design.19lou.com/","http://photo.19lou.com/","http://ent.19lou.com/"
-			};
-	
-	
-	
-	
-	//回帖内容
-	private static String guanggao="&nbsp;[h2008] 支持楼主！顶起！[h2003]";
-	 
-	/* (non-Javadoc)
-	 * @see org.ertuo.douche.biz.nineteen.NineTeenManager#login()
+	/**
+	 * 主机地址
 	 */
-	public boolean login() {
-		try {
-		
-		HtmlPage page1 = webClientLocal.getHtmlPageByUrl(login_url);
-		final HtmlForm form = page1.getFormByName("login");
-		form.setActionAttribute(NineTeenManagerImpl.login_action);
-
-		final HtmlSubmitInput button = (HtmlSubmitInput) form
-				.getInputByName("loginsubmit");
-		final HtmlTextInput username = (HtmlTextInput) form
-				.getInputByName("username");
-		final HtmlPasswordInput password = (HtmlPasswordInput) form
-				.getInputByName("password");
-		username.setValueAttribute("summersnow8");
-		password.setValueAttribute("keyidaxie");
-		webClientLocal.getClickHtmlPage(button);
-		} catch (Exception e) {
-			log.error("登录失败",e);
-			return false;
-		}
-		return true;
-	}
+	private final static String host="http://www.19lou.com";
+	
+	
+	
+	/**
+	 * 发帖内容
+	 */
+	private static String[] messages=new String[]{
+		"支持楼主，先顶再看！"
+		,"不能不顶，否则我就失去机会...."
+		,"顶楼上,支持楼顶!"
+		,"此贴不能沉,楼下的请紧跟屁后"
+		,"非沙发不坐"
+		,"优先沙发,考虑板凳,勉强地板"};
+	
+	/**
+	 * 帖子浏览id
+	 */
+	private static String viewId;
+	
+	/**
+	 * 回帖id
+	 */
+	private static String postId;
+	
+	
+	/**
+	 * 上次发帖时间
+	 */
+	private static Date prePostTime=new Date();
+	
+	
+	/**
+	 * 一般网站href方式提交中href中的链接规则
+	 */
+	private final String submitHrefReg="(javascript).*|#.*";
+	
+	
+	/**
+	 * 分栏目
+	 */
+	private List<String> categorys=new ArrayList<String>();
+	
+	/**
+	 * 19楼栏目url的正则
+	 */
+	private String categoryReg="(http)://[a-z]{2,9}.(19lou).(com)$";
+	
+	
+	
+	 
 	 
 	/* (non-Javadoc)
 	 * @see org.ertuo.douche.biz.nineteen.NineTeenManager#getFloors()
@@ -97,11 +106,11 @@ public class NineTeenManagerImpl implements NineTeenManager{
 	public List<String> getFloors(){
 		List<String> floorList=new ArrayList<String>();
 		
-		int size=biteSupUrl.length;
+		int size=categorys.size();
 		Random random=new Random();
 		//随机数
 		int select=random.nextInt(size); 
-		HtmlPage page=webClientLocal.getHtmlPageByUrl(biteSupUrl[select]);
+		HtmlPage page=webClientLocal.getHtmlPageByUrl(categorys.get(select));
 		
 		if(page==null){
 			return floorList;
@@ -117,7 +126,6 @@ public class NineTeenManagerImpl implements NineTeenManager{
 				}
 			}
 		}
-		
 		return floorList;
 	}
 	
@@ -161,15 +169,8 @@ public class NineTeenManagerImpl implements NineTeenManager{
 						newsList.put(id,floor);
 					}
 				}
-				
-				
 			}
-			
-			
-			
 		}
-		 
-		
 		return newsList;
 		
 	}
@@ -199,8 +200,8 @@ public class NineTeenManagerImpl implements NineTeenManager{
 	 */
 	public void answer(String floorId,String newsId) {
 		
-		String viewId="http://www.19lou.com/forum-"+floorId+"-thread-"+newsId+"-1-1.html";
-		String answerUrl="http://www.19lou.com/post.php?action=reply&fid="+floorId+"&tid="+newsId+"&extra=page%3D1";
+		 viewId="http://www.19lou.com/forum-"+floorId+"-thread-"+newsId+"-1-1.html";
+		 postId="http://www.19lou.com/post.php?action=reply&fid="+floorId+"&tid="+newsId+"&extra=page%3D1";
 		
 		if(postDao.getPostById(viewId)!=null){
 			//已经回复过 重复回复
@@ -209,41 +210,176 @@ public class NineTeenManagerImpl implements NineTeenManager{
 		
 		
 		try {
-		HtmlPage loginAfterPagee=webClientLocal.getHtmlPageByUrl(answerUrl);
-		HtmlForm postform = (HtmlForm) loginAfterPagee
-				.getElementById("postform");
-		if(!postform.asText().contains("请谨慎发帖")){
-			log.info("帖子["+answerUrl+"]可能不存在或者审核中!");
-			return;
-		}
-		// 内容
-		HtmlTextArea message = postform.getTextAreaByName("message");
-		// 设置value
-		message.focus();
-		message.setText(guanggao);
-		message.blur();
-		final HtmlSubmitInput replysubmit = (HtmlSubmitInput) postform
-				.getInputByName("replysubmit");
+		HtmlPage loginAfterPagee=webClientLocal.getHtmlPageByUrl(postId);
 		
-		
-		
-		HtmlPage htmlPage=webClientLocal.getClickHtmlPage(replysubmit);
-		
-		
-		
-		if(htmlPage.asText().contains("http://shop58883417.taobao.com/")){
-			postDao.savePost(new PostDo(viewId,"summersnow8"));
-			log.info("帖子["+viewId+"]回复");
-			try {
-				Thread.currentThread().sleep(30*1000);
-			} catch (InterruptedException e) {
-				// TODO Auto-generated catch block
-				e.printStackTrace();
-			}
-		}
+		this.replay(loginAfterPagee);
 		
 		} catch (Exception e) {
-			log.error("回复["+answerUrl+"]错误",e);
+			log.error("回复["+postId+"]错误",e);
 		}
 	}
+	
+	/**
+	 * 回复帖子 
+	 * @param page
+	 */
+	private void replay(HtmlPage page){
+		try {
+			
+			if (page != null) {
+				 
+				// 查找textarea
+				DomNodeList<HtmlElement> textareas = page
+						.getElementsByTagName("textarea");
+
+				if (textareas == null ) {
+					//log.error("页面["+page+"]中回复字段个数不等于一");
+					return;
+				}
+
+				for (HtmlElement htmlElement : textareas) {
+					HtmlTextArea message =(HtmlTextArea) htmlElement;
+					// 设置value
+					Random random=new Random();
+					
+					message.setText(messages[random.nextInt(messages.length)]);
+				}
+				
+				List<HtmlForm> forms=page.getForms();
+				
+				if(forms==null||forms.size()!=1){
+					return ;
+				}
+				 
+				HtmlForm htmlForm= forms.get(0);
+				this.formSubmit(htmlForm);
+				//优先button方式
+				/*if(!this.buttonSubmit(htmlForm)){
+					//href方式
+					this.hrefSubmit(htmlForm);
+				}*/
+				
+			}
+		 
+		} catch (Exception e) {
+			log.error("回复异常",e);
+		}
+	}
+	
+	/**
+	 * form方式提交
+	 * @param htmlForm
+	 * @return
+	 */
+	private boolean formSubmit(HtmlForm htmlForm){
+		try {
+			HtmlPage page=(HtmlPage) htmlForm.submit(null);
+			return this.afterPostOperation(page);
+		} catch (IOException e) {
+			e.printStackTrace();
+		}
+		return false;
+		
+	}
+	
+	/**
+	 * button方式提交
+	 * @param htmlForm
+	 * @return
+	 */
+	private boolean buttonSubmit(HtmlForm htmlForm){
+		try {
+			//查找submit 
+			List<HtmlElement> submits =htmlForm.getElementsByAttribute("input", "type", "submit");
+			//submit方式提交
+			if (submits != null && submits.size() == 1) {
+				HtmlSubmitInput replysubmit = (HtmlSubmitInput) submits.get(0);
+				HtmlPage replays = replysubmit.click();
+				return this.afterPostOperation(replays);
+			}
+		} catch (Exception e) {
+			log.error("按钮方式发帖错误");
+		}
+		return false;
+		
+	}
+	
+	
+	
+	/**
+	 * 超链接方式提交
+	 * @param htmlForm
+	 * @return
+	 */
+	private boolean hrefSubmit(HtmlForm htmlForm){
+		try {
+			HtmlAnchor anchor=htmlForm.getElementById("replysubmit");
+			HtmlPage page=anchor.click();
+			 
+			return this.afterPostOperation(page);
+		} catch (Exception e) {
+			log.error("按钮方式发帖错误");
+		}
+		return false;
+		
+	}
+	
+	/**
+	 * 回复后的操作
+	 * @param afterPostPage 回复后跳转的页面
+	 * @return
+	 */
+	private boolean afterPostOperation(HtmlPage afterPostPage){
+		if(afterPostPage==null){
+			return false;
+		}
+		//log.debug(afterPostPage.asText());
+		postDao.savePost(new PostDo(viewId,"summersnow8"));
+		log.info("帖子["+viewId+"]回复成功");
+		//发帖休息时间 19lou默认是30秒
+		long sleepTime=30*1000;
+		//和上次发帖的间隔时间
+		long interval=new Date().getTime()-prePostTime.getTime();
+		if(interval<=30*1000){
+			sleepTime=sleepTime-interval;
+		}else{
+			return true;
+		}
+		prePostTime=new Date();
+		try {
+			log.debug("休息["+sleepTime/1000+"]秒");
+			Thread.sleep(sleepTime);
+		} catch (InterruptedException e) {
+			e.printStackTrace();
+		}
+		return true;
+		
+	}
+	
+	/**
+	 * 初始化所有分栏目
+	 * @return
+	 */
+	private void initCategorys(){
+		if(categorys.size()==0){
+			HtmlPage page=webClientLocal.getHtmlPageByUrl(host);
+			List<HtmlAnchor> anchors= page.getAnchors();
+			for (HtmlAnchor htmlAnchor : anchors) {
+		        String anchor=htmlAnchor.getHrefAttribute();
+		        if(anchor.matches(categoryReg)){
+		        	log.debug("栏目["+anchor+"]符合");
+		        	categorys.add(anchor);
+		        }
+			}
+		}
+	}
+
+	/* (non-Javadoc)
+	 * @see org.springframework.beans.factory.InitializingBean#afterPropertiesSet()
+	 */
+	public void afterPropertiesSet() throws Exception {
+		this.initCategorys();
+		
+	}
+	
 }

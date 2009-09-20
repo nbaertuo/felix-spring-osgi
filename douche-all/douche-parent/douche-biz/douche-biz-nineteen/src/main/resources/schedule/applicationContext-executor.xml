@@ -11,7 +11,7 @@
 		<property name="scheduledExecutorTasks">
 			<list>
 				<ref bean="scheduledExecutorTasks" />
-				<ref bean="scheduledExecutorProxyTasks" />
+				<!-- <ref bean="scheduledExecutorProxyTasks" /> -->
 			</list>
 		</property>
 	</bean>

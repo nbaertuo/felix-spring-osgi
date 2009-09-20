@@ -79,7 +79,7 @@ public class HSQLServer extends Server implements InitializingBean {
 	 * @see org.springframework.beans.factory.InitializingBean#afterPropertiesSet()
 	 */
 	public void afterPropertiesSet() throws Exception {
-		HSQLServer.startServer("", "douche", 9999);
+		//HSQLServer.startServer("", "douche", 9999);
 		/*String[] args = new String[] { "-database.0 mydb", "file:mydb", "-dbname.0 mydb",
 				"douche" };
 		HSQLServer.start(args);*/

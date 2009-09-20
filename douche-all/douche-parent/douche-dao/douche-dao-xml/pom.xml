@@ -113,8 +113,14 @@
 		<dependency>
 			<groupId>org.aspectj</groupId>
 			<artifactId>com.springsource.org.aspectj.weaver</artifactId>
-			<version>1.6.2.RELEASE</version>
-			<optional>true</optional>
+		</dependency>
+		<dependency>
+			<groupId>p6spy</groupId>
+			<artifactId>p6spy</artifactId>
+		</dependency>
+		<dependency>
+			<groupId>${jdbc.driver.groupid}</groupId>
+			<artifactId>${jdbc.driver.artifactId}</artifactId>
 		</dependency>
 	</dependencies>
 </project>

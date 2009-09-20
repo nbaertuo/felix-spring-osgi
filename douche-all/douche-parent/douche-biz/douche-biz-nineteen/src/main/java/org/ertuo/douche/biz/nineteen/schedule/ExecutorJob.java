@@ -25,8 +25,6 @@ public class ExecutorJob implements Runnable {
 	 */
 	public void run() {
 		logger.debug("回帖任务开始调度");
-		//登陆
-		nineTeenManager.login();
 		//获得所有楼层
 		List<String> floors=nineTeenManager.getFloors();
 		for (String floor : floors) {

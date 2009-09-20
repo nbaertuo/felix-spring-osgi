@@ -108,7 +108,9 @@ public class WebClientLocalImpl implements WebClientLocal,InitializingBean{
 		if ( webProxyDo!= null) {
 			webClient = new WebClient(BrowserVersion.INTERNET_EXPLORER_7,
 					webProxyDo.getUrl(), webProxyDo.getPort());
-			webClient.setJavaScriptEnabled(false);
+			webClient.setJavaScriptEnabled(true);
+			webClient.setThrowExceptionOnScriptError(false);
+			webClient.setCssEnabled(false);
 		}
 		this.setCookies();
 	}
@@ -123,46 +125,10 @@ public class WebClientLocalImpl implements WebClientLocal,InitializingBean{
 		cookie.setDomain(".19lou.com");
 		cookie.setPath("/");
 		
-		
-		cookie.setName("__utmz");
-		cookie.setValue("39183075.1253168222.1.1.utmccn=(direct)|utmcsr=(direct)|utmcmd=(none)");
-		
-		cookie.setName("cdb_sid");
-		cookie.setValue("fbd9b4871e81d458505f38158db4b884");
-		
-		cookie.setName("__utma");
-		cookie.setValue("39183075.1866417099.1253021153.1253158239.1253161366.3");
-		
-		cookie.setName("cdb_cookietime");
-		cookie.setValue("2592000");
-		
-		cookie.setName("cdb_auth");
-		cookie.setValue("V19LOU_1.0_%2FG7fY7RlldSy%2F0tDGptBqmwCIIrlOFgpjf6RksQxJ%2B0qxB6z7S8A4%2FgDZINxIYTGh8f2vQ");
-		
-		cookie.setName("cdb_cookietime");
-		cookie.setValue("2592000");
-		
-		cookie.setName("cdb_visitedfid");
-		cookie.setValue("11D");
-		
-		cookie.setName("visited");
-		cookie.setValue("1");
-		
-		cookie.setName("dm_ui");
-		cookie.setValue("15078429_20090903");
-		
-		cookie.setName("dm_sid");
-		cookie.setValue("121.0.29.231.1253158261219517");
-		
-		cookie.setName("__utmc");
-		cookie.setValue("39183075");
-		
-		cookie.setName("__utmb");
-		cookie.setValue("39183075");
 		//summersnow88
-		//cookie.setValue("__utma=39183075.1866417099.1253021153.1253169527.1253172170.6; __utmz=39183075.1253021153.1.1.utmccn=(direct)|utmcsr=(direct)|utmcmd=(none); cdb_cookietime=2592000; visited=1; dm_sid=121.0.29.231.1253158261219517; __utmc=39183075; cdb_sid=df6662c605380372b2b1b022d432f56c; cdb_auth=V19LOU_1.0_pTnVYb5mxYGy%2F0sRTchHr29YId62OQ593qXFkJhqcb4skEzl7i4Cu%2FIGZINxIYHEiMT2tg; dm_ui=15557722_20090917; __utmb=39183075; cdb_visitedfid=9D");
-		//summersnow8
-		cookie.setValue("__utma=39183075.1866417099.1253021153.1253255909.1253255985.13; __utmz=39183075.1253021153.1.1.utmccn=(direct)|utmcsr=(direct)|utmcmd=(none); cdb_cookietime=2592000; visited=1; cdb_oldtopics=D15689239D18531987D15525992D15894421D; cdb_fid481=1253256015; __utmb=39183075; __utmc=39183075; dm_sid=121.0.29.231.1253255996527606; cdb_fid1415=1253238714; cdb_sid=5f3ab03cba4c8f5874ac6d0601a89dd3; cdb_visitedfid=481D; cdb_auth=V19LOU_1.0_%2FG7fY7RlldSy%2F0tDGptBqmwCIIrlOFgpjf6RksQxJ%2B0qxB6z7S8A4%2FgDZINxIYTGh8f2vQ; dm_ui=15078429_20090903");
+		cookie.setValue("__utma=39183075.1866417099.1253021153.1253169527.1253172170.6; __utmz=39183075.1253021153.1.1.utmccn=(direct)|utmcsr=(direct)|utmcmd=(none); cdb_cookietime=2592000; visited=1; dm_sid=121.0.29.231.1253158261219517; __utmc=39183075; cdb_sid=df6662c605380372b2b1b022d432f56c; cdb_auth=V19LOU_1.0_pTnVYb5mxYGy%2F0sRTchHr29YId62OQ593qXFkJhqcb4skEzl7i4Cu%2FIGZINxIYHEiMT2tg; dm_ui=15557722_20090917; __utmb=39183075; cdb_visitedfid=9D");
+		//summersnow8 会员禁止发帖了
+		//cookie.setValue("__utma=39183075.1866417099.1253021153.1253255909.1253255985.13; __utmz=39183075.1253021153.1.1.utmccn=(direct)|utmcsr=(direct)|utmcmd=(none); cdb_cookietime=2592000; visited=1; cdb_oldtopics=D15689239D18531987D15525992D15894421D; cdb_fid481=1253256015; __utmb=39183075; __utmc=39183075; dm_sid=121.0.29.231.1253255996527606; cdb_fid1415=1253238714; cdb_sid=5f3ab03cba4c8f5874ac6d0601a89dd3; cdb_visitedfid=481D; cdb_auth=V19LOU_1.0_%2FG7fY7RlldSy%2F0tDGptBqmwCIIrlOFgpjf6RksQxJ%2B0qxB6z7S8A4%2FgDZINxIYTGh8f2vQ; dm_ui=15078429_20090903");
 		webClient.getCookieManager().addCookie(cookie);
 	}
 	

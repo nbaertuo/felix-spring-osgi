@@ -9,7 +9,6 @@ import java.util.Map;
 
 import org.apache.jasper.servlet.JspServlet;
 import org.apache.log4j.Logger;
-import org.apache.log4j.spi.LoggerFactory;
 import org.mortbay.jetty.Connector;
 import org.mortbay.jetty.Server;
 import org.mortbay.jetty.bio.SocketConnector;
@@ -17,7 +16,6 @@ import org.mortbay.jetty.servlet.Context;
 import org.mortbay.jetty.servlet.DefaultServlet;
 import org.mortbay.jetty.servlet.FilterHolder;
 import org.mortbay.jetty.servlet.ServletHolder;
-import org.springframework.js.resource.ResourceServlet;
 import org.springframework.web.context.ContextLoaderListener;
 import org.springframework.web.filter.DelegatingFilterProxy;
 import org.springframework.web.servlet.DispatcherServlet;
@@ -53,11 +51,11 @@ public class JettyWebStarter {
         root.setResourceBase("src/main/webapp");
         //root.addEventListener(listener);
         
-        ServletHolder holder=new ServletHolder(new ResourceServlet());
-        root.addServlet(holder, "/resources/*");
+        //ServletHolder holder=new ServletHolder(new ResourceServlet());
+        //root.addServlet(holder, "/resources/*");
         
         /**spring control*/
-        holder = new ServletHolder(new DispatcherServlet());
+        ServletHolder holder = new ServletHolder(new DispatcherServlet());
         holder.setInitParameter("contextConfigLocation", "/WEB-INF/config/web-application-config.xml");
         root.addServlet(holder, "/spring/*");
         

@@ -27,11 +27,6 @@ import com.gargoylesoftware.htmlunit.html.HtmlTextInput;
 public interface NineTeenManager {
 	 
 	 
-	 /**
-	  * µÇÂ½
-	 * @return
-	 */
-	boolean login() ;
 	 
 	 /**
 	 * @return
