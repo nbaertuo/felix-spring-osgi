@@ -1,5 +1,6 @@
 package org.ertuo.douche.engine.htmlutil.webclient;
 
+import com.gargoylesoftware.htmlunit.BrowserVersion;
 import com.gargoylesoftware.htmlunit.WebClient;
 import com.gargoylesoftware.htmlunit.html.HtmlPage;
 import com.gargoylesoftware.htmlunit.html.HtmlSubmitInput;
@@ -13,6 +14,7 @@ import com.gargoylesoftware.htmlunit.html.HtmlSubmitInput;
  *
  */
 public interface WebClientLocal  {
+	static  WebClient webClient = new WebClient(BrowserVersion.INTERNET_EXPLORER_7);
 	 
  
 	/**

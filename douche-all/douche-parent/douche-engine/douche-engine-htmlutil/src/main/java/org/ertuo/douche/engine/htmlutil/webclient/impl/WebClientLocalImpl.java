@@ -6,7 +6,6 @@ import java.net.MalformedURLException;
 import org.apache.commons.httpclient.Cookie;
 import org.apache.log4j.Logger;
 import org.ertuo.douche.dao.domain.WebProxyDo;
-import org.ertuo.douche.db.hsql.HSQLServer;
 import org.ertuo.douche.engine.htmlutil.webclient.WebClientLocal;
 import org.ertuo.douche.proxy.proxycn.CnProxyManager;
 import org.springframework.beans.factory.InitializingBean;
@@ -17,6 +16,7 @@ import com.gargoylesoftware.htmlunit.BrowserVersion;
 import com.gargoylesoftware.htmlunit.CookieManager;
 import com.gargoylesoftware.htmlunit.FormEncodingType;
 import com.gargoylesoftware.htmlunit.HttpMethod;
+import com.gargoylesoftware.htmlunit.ProxyConfig;
 import com.gargoylesoftware.htmlunit.WebClient;
 import com.gargoylesoftware.htmlunit.WebRequestSettings;
 import com.gargoylesoftware.htmlunit.html.HtmlPage;
@@ -25,15 +25,10 @@ import com.gargoylesoftware.htmlunit.util.UrlUtils;
 
 @Service("webClientLocal")
 public class WebClientLocalImpl implements WebClientLocal,InitializingBean{
-	//这里添加一个依赖没有业务意义
-	//因为在HSQLServer初始化的时候和自己的初始化的顺序冲突了
-	//这里添加依赖后可以保证HSQLServer优先启动
-	@Autowired
-	private HSQLServer server;
 
 	private final  Logger log= Logger.getLogger(WebClientLocalImpl.class);
 
-	private static  WebClient webClient = new WebClient(BrowserVersion.INTERNET_EXPLORER_7);
+	
 	
 	@Autowired
 	private CnProxyManager cnProxyManager ;
@@ -53,11 +48,6 @@ public class WebClientLocalImpl implements WebClientLocal,InitializingBean{
 	 */
 	public WebClient getProxyWebClient() {
 		
-		if (cnProxyManager.getCurrentInvaidProxy() != null) {
-			webClient = new WebClient(BrowserVersion.INTERNET_EXPLORER_7,
-					cnProxyManager.getCurrentInvaidProxy().getUrl(),cnProxyManager.getCurrentInvaidProxy().getPort());
-			webClient.setJavaScriptEnabled(false);
-		}
 		return webClient;
 	}
 
@@ -106,8 +96,7 @@ public class WebClientLocalImpl implements WebClientLocal,InitializingBean{
 	public void afterPropertiesSet() throws Exception {
 		WebProxyDo webProxyDo=cnProxyManager.getCurrentInvaidProxy();
 		if ( webProxyDo!= null) {
-			webClient = new WebClient(BrowserVersion.INTERNET_EXPLORER_7,
-					webProxyDo.getUrl(), webProxyDo.getPort());
+			webClient.setProxyConfig(new ProxyConfig(webProxyDo.getUrl(), webProxyDo.getPort()));
 			webClient.setJavaScriptEnabled(true);
 			webClient.setThrowExceptionOnScriptError(false);
 			webClient.setCssEnabled(false);
@@ -129,7 +118,7 @@ public class WebClientLocalImpl implements WebClientLocal,InitializingBean{
 		cookie.setValue("__utma=39183075.1866417099.1253021153.1253169527.1253172170.6; __utmz=39183075.1253021153.1.1.utmccn=(direct)|utmcsr=(direct)|utmcmd=(none); cdb_cookietime=2592000; visited=1; dm_sid=121.0.29.231.1253158261219517; __utmc=39183075; cdb_sid=df6662c605380372b2b1b022d432f56c; cdb_auth=V19LOU_1.0_pTnVYb5mxYGy%2F0sRTchHr29YId62OQ593qXFkJhqcb4skEzl7i4Cu%2FIGZINxIYHEiMT2tg; dm_ui=15557722_20090917; __utmb=39183075; cdb_visitedfid=9D");
 		//summersnow8 会员禁止发帖了
 		//cookie.setValue("__utma=39183075.1866417099.1253021153.1253255909.1253255985.13; __utmz=39183075.1253021153.1.1.utmccn=(direct)|utmcsr=(direct)|utmcmd=(none); cdb_cookietime=2592000; visited=1; cdb_oldtopics=D15689239D18531987D15525992D15894421D; cdb_fid481=1253256015; __utmb=39183075; __utmc=39183075; dm_sid=121.0.29.231.1253255996527606; cdb_fid1415=1253238714; cdb_sid=5f3ab03cba4c8f5874ac6d0601a89dd3; cdb_visitedfid=481D; cdb_auth=V19LOU_1.0_%2FG7fY7RlldSy%2F0tDGptBqmwCIIrlOFgpjf6RksQxJ%2B0qxB6z7S8A4%2FgDZINxIYTGh8f2vQ; dm_ui=15078429_20090903");
-		webClient.getCookieManager().addCookie(cookie);
+		//webClient.getCookieManager().addCookie(cookie);
 	}
 	
 	/**
