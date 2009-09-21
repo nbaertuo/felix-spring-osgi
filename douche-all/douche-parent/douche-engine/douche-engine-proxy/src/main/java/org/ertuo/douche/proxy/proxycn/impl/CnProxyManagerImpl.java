@@ -14,8 +14,6 @@ import org.ertuo.douche.dao.opration.ProxyCnDao;
 import org.ertuo.douche.proxy.proxycn.CnProxyManager;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
-import org.w3c.dom.Node;
-import org.w3c.dom.NodeList;
 
 import com.gargoylesoftware.htmlunit.BrowserVersion;
 import com.gargoylesoftware.htmlunit.WebClient;
