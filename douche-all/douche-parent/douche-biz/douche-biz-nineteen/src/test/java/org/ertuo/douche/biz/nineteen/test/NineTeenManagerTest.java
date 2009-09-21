@@ -6,6 +6,7 @@ import java.util.Map;
 
 import javax.sql.DataSource;
 
+import org.ertuo.douche.biz.nineteen.LoginManager;
 import org.ertuo.douche.biz.nineteen.NineTeenManager;
 import org.ertuo.douche.dao.domain.WebProxyDo;
 import org.ertuo.douche.dao.opration.ProxyCnDao;
@@ -41,6 +42,9 @@ public class NineTeenManagerTest extends AbstractTransactionalJUnit4SpringContex
 	
 	@Autowired
 	public CnProxyManager cnProxyManager;
+	
+	@Autowired
+	public LoginManager loginManager;
 	
 	
 	 
@@ -94,5 +98,13 @@ public class NineTeenManagerTest extends AbstractTransactionalJUnit4SpringContex
 	  HtmlPage page= webClientLocal.getHtmlPageByUrl("http://www.19lou.com/post.php?action=reply&fid=269&tid=13543385&extra=page%3D1");
 	  logger.debug(page.asText());
    }
+   
+   @Test
+   public void loginManager(){
+	   loginManager.login();
+	   
+   }
+   
+   
 
 }

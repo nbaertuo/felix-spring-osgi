@@ -11,6 +11,8 @@ import java.util.Random;
 import org.apache.commons.lang.StringUtils;
 import org.apache.log4j.Logger;
 import org.ertuo.douche.biz.nineteen.NineTeenManager;
+import org.ertuo.douche.dao.constant.DoucheConstant;
+import org.ertuo.douche.dao.constant.NineTeenConstant;
 import org.ertuo.douche.dao.domain.PostDo;
 import org.ertuo.douche.dao.opration.PostDao;
 import org.ertuo.douche.db.hsql.HSQLServer;
@@ -36,8 +38,6 @@ import com.gargoylesoftware.htmlunit.html.HtmlTextArea;
 public class NineTeenManagerImpl implements NineTeenManager,InitializingBean{
 	private final Logger log=org.apache.log4j.Logger.getLogger(NineTeenManagerImpl.class);
 	
-	@Autowired
-	HSQLServer server;
 	
 	@Autowired
 	private PostDao postDao;
@@ -45,23 +45,7 @@ public class NineTeenManagerImpl implements NineTeenManager,InitializingBean{
 	@Autowired
 	private WebClientLocal webClientLocal;
 	
-	/**
-	 * 主机地址
-	 */
-	private final static String host="http://www.19lou.com";
 	
-	
-	
-	/**
-	 * 发帖内容
-	 */
-	private static String[] messages=new String[]{
-		"支持楼主，先顶再看！"
-		,"不能不顶，否则我就失去机会...."
-		,"顶楼上,支持楼顶!"
-		,"此贴不能沉,楼下的请紧跟屁后"
-		,"非沙发不坐"
-		,"优先沙发,考虑板凳,勉强地板"};
 	
 	/**
 	 * 帖子浏览id
@@ -74,16 +58,13 @@ public class NineTeenManagerImpl implements NineTeenManager,InitializingBean{
 	private static String postId;
 	
 	
+	
+	
 	/**
 	 * 上次发帖时间
 	 */
 	private static Date prePostTime=new Date();
 	
-	
-	/**
-	 * 一般网站href方式提交中href中的链接规则
-	 */
-	private final String submitHrefReg="(javascript).*|#.*";
 	
 	
 	/**
@@ -91,10 +72,6 @@ public class NineTeenManagerImpl implements NineTeenManager,InitializingBean{
 	 */
 	private List<String> categorys=new ArrayList<String>();
 	
-	/**
-	 * 19楼栏目url的正则
-	 */
-	private String categoryReg="(http)://[a-z]{2,9}.(19lou).(com)$";
 	
 	
 	
@@ -212,11 +189,32 @@ public class NineTeenManagerImpl implements NineTeenManager,InitializingBean{
 		try {
 		HtmlPage loginAfterPagee=webClientLocal.getHtmlPageByUrl(postId);
 		
-		this.replay(loginAfterPagee);
+		//是第一页才回复
+		if(this.isFirstPage(loginAfterPagee)){
+			this.replay(loginAfterPagee);
+		}
+		
+		
 		
 		} catch (Exception e) {
 			log.error("回复["+postId+"]错误",e);
 		}
+	}
+	
+	/**
+	 * 确定是不是第一页
+	 * @param page
+	 * @return
+	 */
+	private boolean isFirstPage(HtmlPage page){
+		String pageText=page.asText();
+		
+		if(pageText.contains(NineTeenConstant.isNotFirstPageToken)){
+			return false;
+		}
+		
+		return true;
+		
 	}
 	
 	/**
@@ -242,7 +240,7 @@ public class NineTeenManagerImpl implements NineTeenManager,InitializingBean{
 					// 设置value
 					Random random=new Random();
 					
-					message.setText(messages[random.nextInt(messages.length)]);
+					message.setText(DoucheConstant.messages[random.nextInt(DoucheConstant.messages.length)]);
 				}
 				
 				List<HtmlForm> forms=page.getForms();
@@ -362,11 +360,11 @@ public class NineTeenManagerImpl implements NineTeenManager,InitializingBean{
 	 */
 	private void initCategorys(){
 		if(categorys.size()==0){
-			HtmlPage page=webClientLocal.getHtmlPageByUrl(host);
+			HtmlPage page=webClientLocal.getHtmlPageByUrl(NineTeenConstant.host);
 			List<HtmlAnchor> anchors= page.getAnchors();
 			for (HtmlAnchor htmlAnchor : anchors) {
 		        String anchor=htmlAnchor.getHrefAttribute();
-		        if(anchor.matches(categoryReg)){
+		        if(anchor.matches(NineTeenConstant.categoryReg)){
 		        	log.debug("栏目["+anchor+"]符合");
 		        	categorys.add(anchor);
 		        }
