@@ -149,9 +149,7 @@ public class Test extends TestCase {
 		
 		System.out.println(a.matches(regex));
 		String[] aaa = a.split(regex);
-		for (String string : aaa) {
-			System.out.println(string);
-		}
+		System.out.println(aaa);
 
 		 
 		/*
