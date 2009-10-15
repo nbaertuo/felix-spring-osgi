@@ -20,6 +20,7 @@ import com.gargoylesoftware.htmlunit.html.HtmlObject;
 import com.gargoylesoftware.htmlunit.html.HtmlPage;
 import com.gargoylesoftware.htmlunit.html.HtmlSubmitInput;
 import com.gargoylesoftware.htmlunit.html.HtmlTextArea;
+import com.gargoylesoftware.htmlunit.html.HtmlTextInput;
 import com.gargoylesoftware.htmlunit.javascript.JavaScriptEngine;
 import com.gargoylesoftware.htmlunit.javascript.host.Event;
 import com.jacob.activeX.ActiveXComponent;
@@ -182,12 +183,24 @@ public class WebUtilTest extends TestCase {
         try {
             HtmlPage page = client.getPage(loginUrl);
             HtmlObject element = (HtmlObject) page.getElementById("Password_Edit");
-            element.setTextContent("1111");
-            element.fireEvent(new Event(element, "load", 65, false, false, false));
             element.focus();
+            element.fireEvent(new Event(element, "keydown", 65, false, false, false));
+            element.fireEvent(new Event(element, "keydown", 66, false, false, false));
+            element.fireEvent(new Event(element, "keydown", 67, false, false, false));
+            element.blur();
             log.debug(xl.invoke("EchoTest") + "½á¹û" + xl.m_pDispatch
                       + xl.getPropertyAsString("TextData"));
-            //log.debug(page.asXml());
+            HtmlForm form = (HtmlForm) page.getElementById("J_SecureForm");
+            HtmlTextInput htmlTextInput = form.getInputByName("TPL_username");
+
+            htmlTextInput.click(new Event(element, Event.TYPE_KEY_DOWN, 65, false, false, false));
+            htmlTextInput.click(new Event(element, Event.TYPE_KEY_PRESS, 66, false, false, false));
+            htmlTextInput.click(new Event(element, Event.TYPE_CHANGE, 67, false, false, false));
+            // htmlTextInput.blur();
+            //htmlTextInput.setAttribute("value", "sdfsd");
+            log.debug(htmlTextInput.getText());
+            //HtmlPage pageRs = form.getButtonByName("").click();
+            //log.debug(pageRs.asXml());
         } catch (Exception e) {
             log.error("", e);
         }
