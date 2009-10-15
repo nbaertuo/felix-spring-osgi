@@ -1,6 +1,5 @@
 package org.ertuo.htmlutil.test;
-import java.io.IOException;
-import java.net.MalformedURLException;
+
 import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
@@ -11,24 +10,18 @@ import junit.framework.TestCase;
 import org.apache.commons.httpclient.Cookie;
 import org.apache.commons.lang.StringUtils;
 import org.apache.log4j.Logger;
-import org.ertuo.htmlutil.nineteen.BiteSup;
-import org.ertuo.htmlutil.webclient.WebClientLocal;
 
-import com.gargoylesoftware.htmlunit.AlertHandler;
 import com.gargoylesoftware.htmlunit.BrowserVersion;
 import com.gargoylesoftware.htmlunit.CookieManager;
-import com.gargoylesoftware.htmlunit.FailingHttpStatusCodeException;
-import com.gargoylesoftware.htmlunit.MockWebConnection;
-import com.gargoylesoftware.htmlunit.Page;
 import com.gargoylesoftware.htmlunit.WebClient;
 import com.gargoylesoftware.htmlunit.html.HtmlAnchor;
 import com.gargoylesoftware.htmlunit.html.HtmlForm;
-import com.gargoylesoftware.htmlunit.html.HtmlHiddenInput;
+import com.gargoylesoftware.htmlunit.html.HtmlObject;
 import com.gargoylesoftware.htmlunit.html.HtmlPage;
-import com.gargoylesoftware.htmlunit.html.HtmlPasswordInput;
 import com.gargoylesoftware.htmlunit.html.HtmlSubmitInput;
 import com.gargoylesoftware.htmlunit.html.HtmlTextArea;
-import com.gargoylesoftware.htmlunit.html.HtmlTextInput;
+import com.gargoylesoftware.htmlunit.javascript.JavaScriptEngine;
+import com.gargoylesoftware.htmlunit.javascript.host.Event;
 import com.jacob.activeX.ActiveXComponent;
 import com.jacob.com.ComThread;
 import com.jacob.com.Dispatch;
@@ -42,9 +35,9 @@ import com.jacob.com.Variant;
  */
 public class WebUtilTest extends TestCase {
 
-    private final Logger                log          = Logger.getLogger(WebUtilTest.class);
+    private final Logger log = Logger.getLogger(WebUtilTest.class);
 
-    private static final WebClientLocal webClient    = new WebClientLocal(false);
+    /*
     // 登陆地址
     private static String               login_url    = "http://www.19lou.com/passportlogin.php?action=login";
 
@@ -53,47 +46,40 @@ public class WebUtilTest extends TestCase {
 
     public void test_19lou() {
         this.javaeyeAdmin();
-        // 登录
-        // this.login();
-        // 获得热门列表
-        // this.getNewsTitles();
-        // 回复热门话题
-        // this.answer();
+         
     }
 
-    /**
-     * 登录
-     */
-    private void login() {
-        HtmlPage page1 = webClient.getHtmlPageByUrl(login_url);
-        final HtmlForm form = page1.getFormByName("login");
-        form.setActionAttribute(this.login_action);
+     
+       private void login() {
+           HtmlPage page1 = webClient.getHtmlPageByUrl(login_url);
+           final HtmlForm form = page1.getFormByName("login");
+           form.setActionAttribute(this.login_action);
 
-        final HtmlSubmitInput button = (HtmlSubmitInput) form.getInputByName("loginsubmit");
-        final HtmlTextInput username = (HtmlTextInput) form.getInputByName("username");
-        final HtmlPasswordInput password = (HtmlPasswordInput) form.getInputByName("password");
-        final HtmlHiddenInput formhash = (HtmlHiddenInput) form.getInputByName("formhash");
-        formhash.setValueAttribute("a31eb5c8");
-        username.setValueAttribute("summersnow8");
-        password.setValueAttribute("keyidaxie");
-        webClient.getClickHtmlPage(button);
-    }
+           final HtmlSubmitInput button = (HtmlSubmitInput) form.getInputByName("loginsubmit");
+           final HtmlTextInput username = (HtmlTextInput) form.getInputByName("username");
+           final HtmlPasswordInput password = (HtmlPasswordInput) form.getInputByName("password");
+           final HtmlHiddenInput formhash = (HtmlHiddenInput) form.getInputByName("formhash");
+           formhash.setValueAttribute("a31eb5c8");
+           username.setValueAttribute("summersnow8");
+           password.setValueAttribute("keyidaxie");
+           webClient.getClickHtmlPage(button);
+       }
 
-    private List<String> getNewsTitles() {
+       private List<String> getNewsTitles() {
 
-        BiteSup biteSup = new BiteSup();
-        List<String> floorList = biteSup.getFloor();
-        for (String floor : floorList) {
-            Map<String, String> newsMap = biteSup.getNewsList(floor);
+           BiteSup biteSup = new BiteSup();
+           List<String> floorList = biteSup.getFloor();
+           for (String floor : floorList) {
+               Map<String, String> newsMap = biteSup.getNewsList(floor);
 
-            for (String id : newsMap.keySet()) {
-                biteSup.answer(newsMap.get(id), id);
-            }
-        }
+               for (String id : newsMap.keySet()) {
+                   biteSup.answer(newsMap.get(id), id);
+               }
+           }
 
-        return null;
+           return null;
 
-    }
+       }*/
 
     private void javaeyeAdmin() {
         WebClient webClient = new WebClient();
@@ -168,28 +154,40 @@ public class WebUtilTest extends TestCase {
     public void test_login() {
 
         ActiveXComponent xl = new ActiveXComponent("Aliedit.EditCtrl");
+        //xl.setProperty("TextData", "sdfd");
+        log.debug(xl.invoke("EchoTest") + "测试" + xl.m_pDispatch
+                  + xl.getPropertyAsString("TextData"));
+
         String loginUrl = "http://member1.taobao.com/member/login.jhtml";
         WebClient client = new WebClient(BrowserVersion.INTERNET_EXPLORER_7);
 
         client.setJavaScriptEnabled(true);
+        client.setJavaScriptEngine(new JavaScriptEngine(client));
         client.setThrowExceptionOnScriptError(false);
-        client.setCssEnabled(true);
-        //client.setActiveXNative(true);
+        client.setCssEnabled(false);
+        client.setActiveXNative(true);
 
         Map<String, String> mapIn = new HashMap<String, String>();
 
-        mapIn.put("Aliedit.EditCtrl", "com.jacob.activeX.ActiveXComponent");
-        client.setActiveXObjectMap(mapIn);
+        //mapIn.put("Aliedit.EditCtrl", "com.jacob.activeX.ActiveXComponent");
+        //client.setActiveXObjectMap(mapIn);
 
-        client.setAlertHandler(new AlertHandler() {
-            public void handleAlert(final Page page, final String message) {
-                fail("The active x object did not bind to the object.");
-            }
+        /* client.setAlertHandler(new AlertHandler() {
+             public void handleAlert(final Page page, final String message) {
+                 fail("The active x object did not bind to the object.");
+             }
 
-        });
+         });*/
+
         try {
             HtmlPage page = client.getPage(loginUrl);
-            log.debug(page.asXml());
+            HtmlObject element = (HtmlObject) page.getElementById("Password_Edit");
+            element.setTextContent("1111");
+            element.fireEvent(new Event(element, "load", 65, false, false, false));
+            element.focus();
+            log.debug(xl.invoke("EchoTest") + "结果" + xl.m_pDispatch
+                      + xl.getPropertyAsString("TextData"));
+            //log.debug(page.asXml());
         } catch (Exception e) {
             log.error("", e);
         }
@@ -221,39 +219,6 @@ public class WebUtilTest extends TestCase {
             xl.invoke("Quit", new Variant[] {});
             ComThread.Release();
         }
-    }
-
-    public void test_aliedit() {
-
-        String loginUrl = "http://sfewtxzgasd.com";
-        WebClient client = new WebClient(BrowserVersion.INTERNET_EXPLORER_7);
-        Map<String, String> mapIn = new HashMap<String, String>();
-
-        mapIn.put("Aliedit.EditCtrl", "com.jacob.activeX.ActiveXComponent");
-        client.setActiveXObjectMap(mapIn);
-        try {
-            MockWebConnection connection = new MockWebConnection(client);
-            connection
-                .setDefaultResponse(getJavaScriptContent("new ActiveXObject('Aliedit.EditCtrl')"));
-            HtmlPage page = client.getPage(loginUrl);
-            log.debug(page.asXml());
-
-        } catch (FailingHttpStatusCodeException e) {
-            log.error("", e);
-        } catch (MalformedURLException e) {
-            log.error("", e);
-        } catch (IOException e) {
-            log.error("", e);
-        }
-
-    }
-
-    private String getJavaScriptContent(final String javascript) {
-        return "<html><head><title>foo</title><script>\n" + javascript + "</script></head><body>\n"
-               + "<p>hello world</p>\n" + "<form name='form1'>\n"
-               + "    <input type='text' name='textfield1' id='textfield1' value='foo' />\n"
-               + "    <input type='text' name='textfield2' id='textfield2'/>\n" + "</form>\n"
-               + "</body></html>";
     }
 
 }
