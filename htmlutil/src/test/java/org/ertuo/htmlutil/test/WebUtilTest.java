@@ -1,9 +1,8 @@
 package org.ertuo.htmlutil.test;
 
+import java.io.FileInputStream;
 import java.util.ArrayList;
-import java.util.HashMap;
 import java.util.List;
-import java.util.Map;
 
 import junit.framework.TestCase;
 
@@ -22,7 +21,6 @@ import com.gargoylesoftware.htmlunit.html.HtmlSubmitInput;
 import com.gargoylesoftware.htmlunit.html.HtmlTextArea;
 import com.gargoylesoftware.htmlunit.html.HtmlTextInput;
 import com.gargoylesoftware.htmlunit.javascript.JavaScriptEngine;
-import com.gargoylesoftware.htmlunit.javascript.host.Event;
 import com.jacob.activeX.ActiveXComponent;
 import com.jacob.com.ComThread;
 import com.jacob.com.Dispatch;
@@ -152,13 +150,65 @@ public class WebUtilTest extends TestCase {
         return threads;
     }
 
-    public void test_login() {
+    /* Public Sub QueryInterface(riid, ppvObj)
+     Public Function AddRef() As UInt32
+     Public Function Release() As UInt32
+     Public Sub GetTypeInfoCount(pctinfo As UInt) As UInt32
+     Public Sub GetTypeInfo(ByVal itinfo As UInt, ByVal lcid As UInt32, pptinfo) As UInt32
+     Public Sub GetIDsOfNames(riid, rgszNames As Byte, ByVal cNames As UInt, ByVal lcid As UInt32, rgdispid As Long) As UInt32
+     Public Sub Invoke(ByVal dispidMember As Long, riid, ByVal lcid As UInt32, ByVal wFlags As UInt16, pdispparams, pvarResult As Variant, pexcepinfo, puArgErr As UInt) As UInt32
+     Public Property Get PasswordMode() As Boolean ' property PasswordMode
+     Public Propety Let PasswordMode() As Boolean ' property PasswordMode
+     Public Property Get SecurityMode() As Boolean ' property SecurityMode
+     Public Propety Let SecurityMode() As Boolean ' property SecurityMode
+     Public Property Get TextValue() As String ' property TextValue
+     Public Propety Let TextValue() As String ' property TextValue
+     Public Property Get MaxLength() As UInt32 ' property MaxLength
+     Public Propety Let MaxLength() As UInt32 ' property MaxLength
+     Public Property Get LogMode() As Boolean ' property LogMode
+     Public Propety Let LogMode() As Boolean ' property LogMode
+     Public Property Get TextData() As String ' property TextData
+     Public Propety Let TextData() As String ' property TextData
+     Public Function EchoTest() As Boolean ' method EchoTest
+     Public Property Get readonly() As Boolean ' property Readonly
+     Public Propety Let Readonly() As Boolean ' property Readonly
+     Public Property Get MACAddress() As String ' property MACAddress
+     Public Function Crypto(ByVal bEncrypt As Boolean, ByVal nIndex As UInt32, ByVal pInput As String) As String ' method Crypto
+     Public Property Get CryptoMode() As UInt16 ' property CryptoMode
+     Public Propety Let CryptoMode() As UInt16 ' property CryptoMode
+     Public Property Get Intension() As UInt32 ' property Intension
+     Public Property Get Identity() As String ' property Identity
+     Public Property Get UseP() As Boolean ' property UseP
+     Public Property Get PInfo() As String ' property PInfo
+     Public Function ci1() As String ' method ci1
+     Public Function ci2() As String ' method ci2
+     Public Function ci3() As String ' method ci3
+     Public Propety Let cm5ts() As String ' property cm5ts
+     Public Property Get cm5ts() As String ' property cm5ts
+     Public Propety Let cm5pk() As String ' property cm5pk
+     Public Property Get cm5pk() As String ' property cm5pk
+     
+    */
+    public void test_aliEdit() {
+        ActiveXComponent xl = new ActiveXComponent("Aliedit.EditCtrl");
+        xl.setProperty("TextData", "sdfsdf");
+        xl.setProperty("TextValue", "sdfsdf");
+        xl.setProperty("Readonly", true);
+        xl.invoke("Crypto", new Variant(true), new Variant(0), new Variant("111111a"));
+        log.debug(xl.getProperty("TextData"));
+        log.debug(xl.getProperty("TextValue"));
+        log.debug(xl.getProperty("Intension"));
+    }
+
+    public void test_taobao() {
 
         ActiveXComponent xl = new ActiveXComponent("Aliedit.EditCtrl");
-        //xl.setProperty("TextData", "sdfd");
-        log.debug(xl.invoke("EchoTest") + "测试" + xl.m_pDispatch
-                  + xl.getPropertyAsString("TextData"));
-
+        xl.setProperty("TextData", "sdsds");
+        xl.setProperty("TextValue", "sdsds");
+        /*log.debug(xl.invoke("EchoTest")
+                  + "测试"
+                  + );*/
+        xl.invoke("Crypto", new Variant(true), new Variant(0), new Variant("111111a")).getString();
         String loginUrl = "http://member1.taobao.com/member/login.jhtml";
         WebClient client = new WebClient(BrowserVersion.INTERNET_EXPLORER_7);
 
@@ -168,43 +218,56 @@ public class WebUtilTest extends TestCase {
         client.setCssEnabled(false);
         client.setActiveXNative(true);
 
-        Map<String, String> mapIn = new HashMap<String, String>();
-
-        //mapIn.put("Aliedit.EditCtrl", "com.jacob.activeX.ActiveXComponent");
-        //client.setActiveXObjectMap(mapIn);
-
-        /* client.setAlertHandler(new AlertHandler() {
-             public void handleAlert(final Page page, final String message) {
-                 fail("The active x object did not bind to the object.");
-             }
-
-         });*/
-
         try {
+
             HtmlPage page = client.getPage(loginUrl);
             HtmlObject element = (HtmlObject) page.getElementById("Password_Edit");
-            element.focus();
-            element.fireEvent(new Event(element, "keydown", 65, false, false, false));
-            element.fireEvent(new Event(element, "keydown", 66, false, false, false));
-            element.fireEvent(new Event(element, "keydown", 67, false, false, false));
+            element.click();
+            element.type('a');
             element.blur();
-            log.debug(xl.invoke("EchoTest") + "结果" + xl.m_pDispatch
-                      + xl.getPropertyAsString("TextData"));
+            log.debug("结果" + xl.getPropertyAsString("TextData"));
             HtmlForm form = (HtmlForm) page.getElementById("J_SecureForm");
             HtmlTextInput htmlTextInput = form.getInputByName("TPL_username");
-
-            htmlTextInput.click(new Event(element, Event.TYPE_KEY_DOWN, 65, false, false, false));
-            htmlTextInput.click(new Event(element, Event.TYPE_KEY_PRESS, 66, false, false, false));
-            htmlTextInput.click(new Event(element, Event.TYPE_CHANGE, 67, false, false, false));
-            // htmlTextInput.blur();
-            //htmlTextInput.setAttribute("value", "sdfsd");
-            log.debug(htmlTextInput.getText());
+            htmlTextInput.setAttribute("value", "sdfsd");
             //HtmlPage pageRs = form.getButtonByName("").click();
-            //log.debug(pageRs.asXml());
+            log.debug(element.asXml());
         } catch (Exception e) {
             log.error("", e);
         }
 
+    }
+
+    /*Public Sub QueryInterface(riid, ppvObj)
+    Public Function AddRef() As UInt32
+    Public Function Release() As UInt32
+    Public Sub GetTypeInfoCount(pctinfo As UInt) As UInt32
+    Public Sub GetTypeInfo(ByVal itinfo As UInt, ByVal lcid As UInt32, pptinfo) As UInt32
+    Public Sub GetIDsOfNames(riid, rgszNames As Byte, ByVal cNames As UInt, ByVal lcid As UInt32, rgdispid As Long) As UInt32
+    Public Sub Invoke(ByVal dispidMember As Long, riid, ByVal lcid As UInt32, ByVal wFlags As UInt16, pdispparams, pvarResult As Variant, pexcepinfo, puArgErr As UInt) As UInt32
+    Public Property Get Window() As Long
+    Public Propety Let Text() As String
+    Public Property Get Text() As String
+    Public Property Get PasswdCtrl() As Long ' property PasswdCtrl
+    Public Propety Let PasswdCtrl() As Long ' property PasswdCtrl
+    Public Property Get MaxLength() As Long ' property MaxLength
+    Public Propety Let MaxLength() As Long ' property MaxLength
+    Public Property Get Value() As String ' property Value
+    Public Propety Let Value() As String ' property Value
+    Public Sub Option(ByVal inData As String) As String ' method Option
+    Public Property Get Info() As String ' property Info
+    Public Propety Let Info() As String ' property Info
+    Public Property Get IValue() As String ' property IValue
+    Public Propety Let IValue() As String ' property IValue
+    Public Propety Let Mask() As String ' property Mask
+    Public Property Get Lic() As String ' property lic
+    Public Propety Let Lic() As String ' property lic
+    Public Propety Let SessionInfo() As String ' property SessionInfo
+    Public Property Get LicEx() As String ' property licex
+    */
+    public void test_cmb() {
+        ActiveXComponent cmbControl = new ActiveXComponent("CMBHtmlControl.Edit");
+        cmbControl.setProperty("Text", "111111a");
+        log.debug("加密" + cmbControl.getProperty("Value"));
     }
 
     public void test_active() {
@@ -232,6 +295,36 @@ public class WebUtilTest extends TestCase {
             xl.invoke("Quit", new Variant[] {});
             ComThread.Release();
         }
+    }
+
+    public void test_StringBuffer() {
+        StringBuffer strbuf = new StringBuffer();
+        try {
+            FileInputStream in = new FileInputStream("d:\\test.txt");
+            int size = 0;
+            byte[] buf = new byte[1024];
+            while ((size = in.read(buf)) != -1) {
+                strbuf.append(new String(buf, 0, size, "UTF-8"));
+            }
+        } catch (Exception e1) {
+            e1.printStackTrace();
+        }
+        log.debug("StringBuffer:" + strbuf.toString());
+    }
+
+    public void test_String() {
+        List<String> list = new ArrayList<String>();
+        list.add("1");
+        list.add("2");
+        list.add("3");
+        list.add("4");
+        list.add("5");
+        String[] a = new String[] {};
+        a = list.toArray(new String[] {});
+        for (String string : a) {
+            System.out.println(string);
+        }
+
     }
 
 }
