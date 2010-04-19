@@ -15,11 +15,6 @@
 			<artifactId>douche-engine-htmlutil</artifactId>
 		</dependency>
 		<dependency>
-			<groupId>org.springframework</groupId>
-			<artifactId>org.springframework.context.support 
-			</artifactId>
-		</dependency>
-		<dependency>
 			<groupId>org.opensymphony.quartz</groupId>
 			<artifactId>quartz</artifactId>
 			<version>1.6.5</version>
