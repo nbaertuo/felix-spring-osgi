@@ -9,118 +9,117 @@
 	<artifactId>douche-dao-xml</artifactId>
 	<version>${douche.version}</version>
 	<dependencies>
-		<dependency>
-			<groupId>com.thoughtworks.xstream</groupId>
-			<artifactId>xstream</artifactId>
-		</dependency>
-		<dependency>
-			<groupId>org.springframework</groupId>
-			<artifactId>org.springframework.core</artifactId>
-		</dependency>
-		<dependency>
-			<groupId>org.springframework</groupId>
-			<artifactId>org.springframework.beans</artifactId>
-		</dependency>
-		<dependency>
-			<groupId>org.springframework</groupId>
-			<artifactId>org.springframework.context</artifactId>
-		</dependency>
-		<dependency>
-			<groupId>org.springframework</groupId>
-			<artifactId>org.springframework.transaction</artifactId>
-		</dependency>
-		<dependency>
-			<groupId>org.springframework</groupId>
-			<artifactId>org.springframework.jdbc</artifactId>
-		</dependency>
-		<dependency>
-			<groupId>org.springframework</groupId>
-			<artifactId>org.springframework.orm</artifactId>
-		</dependency>
-		<dependency>
-			<groupId>org.springframework</groupId>
-			<artifactId>org.springframework.aop</artifactId>
-		</dependency>
-		<dependency>
-			<groupId>org.springframework</groupId>
-			<artifactId>org.springframework.aspects</artifactId>
-		</dependency>
-		<dependency>
-			<groupId>org.springframework</groupId>
-			<artifactId>org.springframework.test</artifactId>
-		</dependency>
-		<dependency>
-			<groupId>net.sourceforge.htmlunit</groupId>
-			<artifactId>htmlunit</artifactId>
-		</dependency>
-		<dependency>
-			<groupId>log4j</groupId>
-			<artifactId>log4j</artifactId>
-		</dependency>
-		<dependency>
-			<groupId>junit</groupId>
-			<artifactId>junit</artifactId>
-		</dependency>
-		<dependency>
-			<groupId>asm</groupId>
-			<artifactId>asm</artifactId>
-		</dependency>
-		<dependency>
-			<groupId>asm</groupId>
-			<artifactId>asm-commons</artifactId>
-		</dependency>
-		<dependency>
-			<groupId>asm</groupId>
-			<artifactId>asm-util</artifactId>
-		</dependency>
-		<dependency>
-			<groupId>hsqldb</groupId>
-			<artifactId>hsqldb</artifactId>
-		</dependency>
-		<dependency>
-			<groupId>commons-dbcp</groupId>
-			<artifactId>commons-dbcp</artifactId>
-		</dependency>
-		<dependency>
-			<groupId>commons-pool</groupId>
-			<artifactId>commons-pool</artifactId>
-		</dependency>
-		<dependency>
-			<groupId>mysql</groupId>
-			<artifactId>mysql-connector-java</artifactId>
-		</dependency>
-		<!-- hibernate -->
-		<dependency>
-			<groupId>javax.persistence</groupId>
-			<artifactId>com.springsource.javax.persistence</artifactId>
-		</dependency>
-		<dependency>
-			<groupId>javax.transaction</groupId>
-			<artifactId>com.springsource.javax.transaction</artifactId>
-		</dependency>
-		<dependency>
-			<groupId>org.hibernate</groupId>
-			<artifactId>com.springsource.org.hibernate</artifactId>
-		</dependency>
-		<dependency>
-			<groupId>org.hibernate</groupId>
-			<artifactId>com.springsource.org.hibernate.annotations</artifactId>
-		</dependency>
-		<dependency>
-			<groupId>org.hibernate</groupId>
-			<artifactId>com.springsource.org.hibernate.ejb</artifactId>
-		</dependency>
-		<dependency>
-			<groupId>org.aspectj</groupId>
-			<artifactId>com.springsource.org.aspectj.weaver</artifactId>
-		</dependency>
-		<dependency>
-			<groupId>p6spy</groupId>
-			<artifactId>p6spy</artifactId>
-		</dependency>
-		<dependency>
-			<groupId>${jdbc.driver.groupid}</groupId>
-			<artifactId>${jdbc.driver.artifactId}</artifactId>
-		</dependency>
+		
+
+
+        <!-- Guice -->
+
+        <dependency>
+            <groupId>com.google.inject</groupId>
+            <artifactId>guice</artifactId>
+        </dependency>
+
+        <dependency>
+            <groupId>com.google.inject.extensions</groupId>
+            <artifactId>guice-servlet</artifactId>
+        </dependency>
+
+        <!--
+            Google App Engine
+            
+            These jars are GAE-specific, and ship with the GAE SDK.  Run the 'mvn-install-gae-artifacts.sh' script,
+            located in the same directory as this 'pom.xml' file, to get these installed into your local Maven
+            repository.
+        -->
+
+        <dependency>
+            <groupId>com.google.appengine</groupId>
+            <artifactId>appengine-api-1.0-sdk</artifactId>
+        </dependency>
+
+        <dependency>
+            <groupId>com.google.appengine</groupId>
+            <artifactId>appengine-api-labs</artifactId>
+        </dependency>
+
+        <dependency>
+            <groupId>com.google.appengine</groupId>
+            <artifactId>appengine-api-stubs</artifactId>
+            <scope>test</scope>
+        </dependency>
+
+        <dependency>
+            <groupId>com.google.appengine</groupId>
+            <artifactId>datanucleus-appengine</artifactId>
+        </dependency>
+
+        <dependency>
+            <groupId>com.google.appengine</groupId>
+            <artifactId>appengine-testing</artifactId>
+            <scope>test</scope>
+        </dependency>
+
+        <!--
+            GAE dependencies
+            
+            These jars ship with the GAE SDK, but can be obtained from public repositories.
+        -->
+
+        <dependency>
+            <groupId>javax.jdo</groupId>
+            <artifactId>jdo2-api</artifactId>
+            <exclusions>
+                <exclusion>
+                    <groupId>javax.transaction</groupId>
+                    <artifactId>transaction-api</artifactId>
+                </exclusion>
+            </exclusions>
+        </dependency>
+
+        <dependency>
+            <groupId>org.apache.geronimo.specs</groupId>
+            <artifactId>geronimo-jta_1.1_spec</artifactId>
+        </dependency>
+
+        <dependency>
+            <groupId>org.apache.geronimo.specs</groupId>
+            <artifactId>geronimo-jpa_3.0_spec</artifactId>
+            <scope>runtime</scope>
+        </dependency>
+
+        <dependency>
+            <groupId>org.datanucleus</groupId>
+            <artifactId>datanucleus-core</artifactId>
+            <exclusions>
+                <exclusion>
+                    <groupId>javax.transaction</groupId>
+                    <artifactId>transaction-api</artifactId>
+                </exclusion>
+            </exclusions>
+        </dependency>
+
+        <dependency>
+            <groupId>org.datanucleus</groupId>
+            <artifactId>datanucleus-jpa</artifactId>
+            <scope>runtime</scope>
+        </dependency>
+
+        <!-- TestNG -->
+
+        <dependency>
+            <groupId>org.testng</groupId>
+            <artifactId>testng</artifactId>
+            <classifier>jdk15</classifier>
+            <scope>test</scope>
+        </dependency>
+        <!-- tools -->
+            <dependency>
+				<groupId>log4j</groupId>
+				<artifactId>log4j</artifactId>
+			</dependency>
+			<dependency>
+                <groupId>commons-lang</groupId>
+                <artifactId>commons-lang</artifactId>
+			</dependency>
 	</dependencies>
 </project>

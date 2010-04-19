@@ -14,5 +14,14 @@
 			<groupId>org.ertuo.douche</groupId>
 			<artifactId>douche-dao-xml</artifactId>
 		</dependency>
+		<dependency>
+            <groupId>com.google.inject</groupId>
+            <artifactId>guice</artifactId>
+        </dependency>
+        <dependency>
+			<groupId>net.sourceforge.htmlunit</groupId>
+			<artifactId>htmlunit</artifactId>
+		</dependency>
+        
 	</dependencies>
 </project>

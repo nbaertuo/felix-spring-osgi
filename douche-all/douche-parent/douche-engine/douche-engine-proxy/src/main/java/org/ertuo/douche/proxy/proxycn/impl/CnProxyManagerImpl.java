@@ -1,6 +1,7 @@
 package org.ertuo.douche.proxy.proxycn.impl;
 
 import java.io.IOException;
+import java.util.ArrayList;
 import java.util.List;
 import java.util.Random;
 import java.util.regex.Matcher;
@@ -10,10 +11,8 @@ import org.apache.commons.lang.StringUtils;
 import org.apache.commons.logging.Log;
 import org.apache.commons.logging.LogFactory;
 import org.ertuo.douche.dao.domain.WebProxyDo;
-import org.ertuo.douche.dao.opration.ProxyCnDao;
+import org.ertuo.douche.dao.opration.Repository;
 import org.ertuo.douche.proxy.proxycn.CnProxyManager;
-import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.stereotype.Service;
 
 import com.gargoylesoftware.htmlunit.BrowserVersion;
 import com.gargoylesoftware.htmlunit.WebClient;
@@ -21,14 +20,14 @@ import com.gargoylesoftware.htmlunit.html.DomNode;
 import com.gargoylesoftware.htmlunit.html.HtmlElement;
 import com.gargoylesoftware.htmlunit.html.HtmlPage;
 import com.gargoylesoftware.htmlunit.html.HtmlSubmitInput;
+import com.google.inject.Inject;
 
-@Service("cnProxyManager")
 public class CnProxyManagerImpl implements CnProxyManager {
 
 	private final Log log = LogFactory.getLog(CnProxyManagerImpl.class);
 
-	@Autowired
-	private ProxyCnDao proxyCnDao;
+	@Inject
+	private Repository<WebProxyDo> proxyCnDao;
 
 	/**
 	 * 获得代理的web页面
@@ -43,14 +42,10 @@ public class CnProxyManagerImpl implements CnProxyManager {
 
 	private final static String ip_reg = "[0-9]\\d{0,2}\\.[0-9]\\d{0,2}\\.[0-9]\\d{0,2}\\.[0-9]\\d{0,2}";
 
-	
-
 	/**
 	 * 当前有效的代理,系统内都使用这个代理连接
 	 */
 	private WebProxyDo currentWebProxy;
-
-	
 
 	private static final WebClient webClient = new WebClient();
 
@@ -60,71 +55,67 @@ public class CnProxyManagerImpl implements CnProxyManager {
 	}
 
 	public void createCanUseProxy() {
-		
+
 		for (String proxy_url : proxyCnUrl) {
 
 			HtmlPage htmlPage = this.getHtmlPageByUrl(proxy_url);
-			if(htmlPage==null){
+			if (htmlPage == null) {
 				continue;
 			}
-			List<HtmlElement> list=htmlPage.getElementsByTagName("td");
+			List<HtmlElement> list = htmlPage.getElementsByTagName("td");
 			for (HtmlElement node : list) {
-				String context =node.getTextContent();
+				String context = node.getTextContent();
 				String ip = this.getIpByReg(context, ip_reg);
 
 				if (StringUtils.isNotBlank(ip)) {
 					WebProxyDo webProxy = new WebProxyDo();
 					// 第一个节点id
-					/*Node firstNode = node.getPreviousSibling();
-					try {
-						webProxy.setId(useId
-								+ Integer.parseInt(firstNode.getTextContent()));
-					} catch (NumberFormatException e) {
-						continue;
-					}*/
+					/*
+					 * Node firstNode = node.getPreviousSibling(); try {
+					 * webProxy.setId(useId +
+					 * Integer.parseInt(firstNode.getTextContent())); } catch
+					 * (NumberFormatException e) { continue; }
+					 */
 
 					// 第二个节点
 					webProxy.setUrl(ip);
 
 					// 第三个节点port
-					DomNode  threeNode = node.getNextSibling();
-					String port=threeNode.getTextContent();
-					if(StringUtils.isNotBlank(port)&&StringUtils.isNumeric(port)){
+					DomNode threeNode = node.getNextSibling();
+					String port = threeNode.getTextContent();
+					if (StringUtils.isNotBlank(port)
+							&& StringUtils.isNumeric(port)) {
 						webProxy.setPort(Integer.parseInt(port));
-					}else{
+					} else {
 						continue;
 					}
-					//设置id
-					webProxy.setId(ip+":"+String.valueOf(port));
-					
-					/*// 第六个节点checkDate
-					Node sixNode = threeNode.getNextSibling().getNextSibling()
-							.getNextSibling();
-					try {
-						// 拼接当前年份+检查时间
-						Date date = DateUtils.parseDate(
-								(Calendar.getInstance()).get(Calendar.YEAR)
-										+ "-" + sixNode.getTextContent(),
-								new String[] { "yyyy-MM-dd HH:SS" });
-						webProxy.setCheckDate(date);
-					} catch (DOMException e) {
-						e.printStackTrace();
-					} catch (ParseException e) {
-						e.printStackTrace();
-					}*/
+					// 设置id
+					webProxy.setId(ip + ":" + String.valueOf(port));
+
+					/*
+					 * // 第六个节点checkDate Node sixNode =
+					 * threeNode.getNextSibling().getNextSibling()
+					 * .getNextSibling(); try { // 拼接当前年份+检查时间 Date date =
+					 * DateUtils.parseDate(
+					 * (Calendar.getInstance()).get(Calendar.YEAR) + "-" +
+					 * sixNode.getTextContent(), new String[] {
+					 * "yyyy-MM-dd HH:SS" }); webProxy.setCheckDate(date); }
+					 * catch (DOMException e) { e.printStackTrace(); } catch
+					 * (ParseException e) { e.printStackTrace(); }
+					 */
 					// 测试是否可用
 					if (this.testWebProxy(webProxy) != null) {
-						if(webProxy!=null){
-							proxyCnDao.createProxy(webProxy);	
+						if (webProxy != null) {
+							proxyCnDao.persist(webProxy);
 						}
-						
+
 					}
 
 				}
-			
+
 			}
 		}
-		 
+
 	}
 
 	/**
@@ -138,7 +129,7 @@ public class CnProxyManagerImpl implements CnProxyManager {
 				webProxy.getUrl(), webProxy.getPort());
 		try {
 			webClient.setJavaScriptEnabled(false);
-			webClient.setTimeout(1*1000);
+			webClient.setTimeout(1 * 1000);
 			webClient.getPage(testUrl);
 			log.info("代理[" + webProxy.getUrl() + ":" + webProxy.getPort()
 					+ "]可用");
@@ -154,16 +145,16 @@ public class CnProxyManagerImpl implements CnProxyManager {
 
 	public WebProxyDo getCurrentInvaidProxy() {
 		// 循环超过了当前存储的代理总和，清零
-		List<WebProxyDo> webProxys=this.getCanUseProxy();
-		if(webProxys.size()==0){
+		List<WebProxyDo> webProxys = this.getCanUseProxy();
+		if (webProxys.size() == 0) {
 			return null;
 		}
-		int size=webProxys.size();
-		Random random=new Random();
-		//随机数
-		int select=random.nextInt(size); 
-		 
-		currentWebProxy=webProxys.get(select);
+		int size = webProxys.size();
+		Random random = new Random();
+		// 随机数
+		int select = random.nextInt(size);
+
+		currentWebProxy = webProxys.get(select);
 
 		if (currentWebProxy == null) {
 			// 循环回调
@@ -171,9 +162,9 @@ public class CnProxyManagerImpl implements CnProxyManager {
 		}
 		// 当前代理不可用
 		if (this.testWebProxy(currentWebProxy) == null) {
-			//当前这个已经失效了，清除掉
-			proxyCnDao.removePeoxy(currentWebProxy);
-			log.info(currentWebProxy.toString()+"已经失效,清除掉");
+			// 当前这个已经失效了，清除掉
+			proxyCnDao.delete(currentWebProxy);
+			log.info(currentWebProxy.toString() + "已经失效,清除掉");
 			// 循环回调
 			this.getCurrentInvaidProxy();
 		}
@@ -181,7 +172,8 @@ public class CnProxyManagerImpl implements CnProxyManager {
 	}
 
 	private List<WebProxyDo> getCanUseProxy() {
-		return proxyCnDao.getInvailProxys();
+		// return proxyCnDao.getInvailProxys();
+		return new ArrayList<WebProxyDo>();
 	}
 
 	/**

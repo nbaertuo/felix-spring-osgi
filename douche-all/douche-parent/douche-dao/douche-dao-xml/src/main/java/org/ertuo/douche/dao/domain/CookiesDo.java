@@ -3,25 +3,31 @@
  */
 package org.ertuo.douche.dao.domain;
 
-import javax.persistence.Column;
-import javax.persistence.Entity;
-import javax.persistence.Id;
+import javax.jdo.annotations.IdGeneratorStrategy;
+import javax.jdo.annotations.IdentityType;
+import javax.jdo.annotations.NullValue;
+import javax.jdo.annotations.PersistenceCapable;
+import javax.jdo.annotations.Persistent;
+import javax.jdo.annotations.PrimaryKey;
 
 /**
  * @author mo.duanm
  *
  */
-@Entity
+@PersistenceCapable(identityType = IdentityType.APPLICATION)
 public class CookiesDo {
 	
-	@Id
+	@PrimaryKey
+    @Persistent(valueStrategy = IdGeneratorStrategy.IDENTITY)
 	private String id;
 	
+	@Persistent(nullValue=NullValue.EXCEPTION)
 	private String username;
 	
+	@Persistent(nullValue=NullValue.EXCEPTION)
 	private String host;
 	
-	@Column(length=256)
+	@Persistent(nullValue=NullValue.EXCEPTION)
 	private String cookies;
 
 	public String getId() {

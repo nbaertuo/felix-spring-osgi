@@ -1,33 +1,39 @@
 package org.ertuo.douche.dao.domain;
 
+import java.io.Serializable;
 import java.util.Date;
 
-import javax.persistence.Entity;
-import javax.persistence.GeneratedValue;
-import javax.persistence.Id;
-
-
+import javax.jdo.annotations.IdGeneratorStrategy;
+import javax.jdo.annotations.IdentityType;
+import javax.jdo.annotations.NullValue;
+import javax.jdo.annotations.PersistenceCapable;
+import javax.jdo.annotations.Persistent;
+import javax.jdo.annotations.PrimaryKey;
 
 /**
  * 代理对象
+ * 
  * @author mo.duanm
- *
+ * 
  */
-@Entity
-public class WebProxyDo {
-	
-	@Id
-	private String id;
-	
-	private String url;
-	
-	private int port;
-	
-	private Date useDate;
-	
-	private Date checkDate;
+@PersistenceCapable(identityType = IdentityType.APPLICATION)
+public class WebProxyDo implements Serializable {
 
-	 
+	@PrimaryKey
+	@Persistent(valueStrategy = IdGeneratorStrategy.UUIDHEX)
+	private String id;
+
+	@Persistent(nullValue = NullValue.EXCEPTION)
+	private String url;
+
+	@Persistent(nullValue = NullValue.EXCEPTION)
+	private int port;
+
+	@Persistent(nullValue = NullValue.EXCEPTION)
+	private Date useDate;
+
+	@Persistent(nullValue = NullValue.EXCEPTION)
+	private Date checkDate;
 
 	public String getUrl() {
 		return url;
@@ -36,8 +42,6 @@ public class WebProxyDo {
 	public void setUrl(String url) {
 		this.url = url;
 	}
-
- 
 
 	public int getPort() {
 		return port;
@@ -63,9 +67,9 @@ public class WebProxyDo {
 		this.checkDate = checkDate;
 	}
 
-	
-	public String toString(){
-		return url+":"+port;
+	@Override
+	public String toString() {
+		return url + ":" + port;
 	}
 
 	public void setId(String id) {

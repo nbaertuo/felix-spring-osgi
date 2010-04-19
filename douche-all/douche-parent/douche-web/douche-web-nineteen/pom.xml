@@ -40,6 +40,15 @@
 			<groupId>org.springframework.security</groupId>
 			<artifactId>org.springframework.security.taglibs</artifactId>
 		</dependency>
+		<dependency>
+            <groupId>com.google.inject</groupId>
+            <artifactId>guice</artifactId>
+        </dependency>
+
+        <dependency>
+            <groupId>com.google.inject.extensions</groupId>
+            <artifactId>guice-servlet</artifactId>
+        </dependency>
 	</dependencies>
 	<build>
 		<plugins>

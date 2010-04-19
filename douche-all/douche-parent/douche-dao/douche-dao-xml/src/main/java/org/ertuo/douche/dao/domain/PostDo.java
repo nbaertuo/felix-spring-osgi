@@ -1,22 +1,29 @@
 package org.ertuo.douche.dao.domain;
 
-import javax.persistence.Entity;
-import javax.persistence.Id;
+import javax.jdo.annotations.IdGeneratorStrategy;
+import javax.jdo.annotations.IdentityType;
+import javax.jdo.annotations.NullValue;
+import javax.jdo.annotations.PersistenceCapable;
+import javax.jdo.annotations.Persistent;
+import javax.jdo.annotations.PrimaryKey;
 
-@Entity
+@PersistenceCapable(identityType = IdentityType.APPLICATION)
 public class PostDo {
-	
-	@Id
+
+	@PrimaryKey
+	@Persistent(valueStrategy = IdGeneratorStrategy.IDENTITY)
 	private String postId;
-	
+
+	@Persistent(nullValue = NullValue.EXCEPTION)
 	private String userId;
-	
-	public  PostDo() {
-		
+
+	public PostDo() {
+
 	}
-	public  PostDo(String postId,String userId) {
-		this.postId=postId;
-		this.userId=userId;
+
+	public PostDo(String postId, String userId) {
+		this.postId = postId;
+		this.userId = userId;
 	}
 
 	public String getPostId() {
