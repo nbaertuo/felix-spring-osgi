@@ -5,6 +5,7 @@ import javax.jdo.PersistenceManager;
 import javax.jdo.Transaction;
 
 import org.ertuo.douche.dao.opration.Repository;
+import org.springframework.orm.jdo.support.JdoDaoSupport;
 
 import com.google.inject.Provider;
 
@@ -13,20 +14,18 @@ import com.google.inject.Provider;
  *
  * @param <T> the persistent entity type
  */
-public abstract class JdoRepository<T> implements Repository<T>
+public abstract class JdoRepository<T> extends JdoDaoSupport implements Repository<T>
 {
     private final Class<T> clazz;
-    private final Provider<PersistenceManager> pmProvider;
 
-    protected JdoRepository(Class<T> clazz, Provider<PersistenceManager> pmProvider)
+    protected JdoRepository(Class<T> clazz)
     {
         this.clazz = clazz;
-        this.pmProvider = pmProvider;
     }
 
     public T get(Object key)
     {
-        PersistenceManager pm = pmProvider.get();
+        PersistenceManager pm = getPersistenceManager();
         try
         {
             return pm.getObjectById(clazz, key);
@@ -39,17 +38,17 @@ public abstract class JdoRepository<T> implements Repository<T>
 
     public void persist(T entity)
     {
-        pmProvider.get().makePersistent(entity);
+    	getPersistenceManager().makePersistent(entity);
     }
 
     public void delete(T entity)
     {
-        pmProvider.get().deletePersistent(entity);
+    	getPersistenceManager().deletePersistent(entity);
     }
 
     public void runInTransaction(Runnable block)
     {
-        Transaction tx = pmProvider.get().currentTransaction();
+        Transaction tx = getPersistenceManager().currentTransaction();
         try
         {
             tx.begin();

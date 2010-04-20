@@ -6,7 +6,7 @@ import javax.jdo.PersistenceManager;
 
 import org.ertuo.douche.dao.domain.WebProxyDo;
 import org.ertuo.douche.dao.opration.Repository;
-import org.ertuo.douche.dao.opration.hsql.impl.ProxyCnDaoImpl;
+import org.ertuo.douche.dao.opration.jdo.impl.ProxyCnDao;
 import org.ertuo.douche.dao.test.base.BaseGoogleAppEngineTest;
 import org.testng.annotations.AfterMethod;
 import org.testng.annotations.BeforeMethod;
@@ -35,8 +35,7 @@ public class JdoWebProxyPersistenceTest extends BaseGoogleAppEngineTest {
 			}
 		};
 
-		greetingRepo = new ProxyCnDaoImpl(pmProvider);
-		// greetingQueries = new JdoGreetingQueries(pmProvider);
+		greetingRepo = new ProxyCnDao(pmProvider);
 	}
 
 	@AfterMethod
