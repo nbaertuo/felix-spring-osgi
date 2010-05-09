@@ -2,13 +2,13 @@
   <parent>
     <artifactId>douche-all</artifactId>
     <groupId>org.ertuo.douche</groupId>
-    <version>${douche.version}</version>
+    <version>0.0.1-SNAPSHOT</version>
   </parent>
   <modelVersion>4.0.0</modelVersion>
   <groupId>org.ertuo.douche</groupId>
   <artifactId>douche-parent</artifactId>
   <packaging>pom</packaging>
-  <version>${douche.version}</version>
+  <version>0.0.1-SNAPSHOT</version>
   <modules>
   	<module>douche-dao</module>
   	<module>douche-biz</module>

@@ -5,15 +5,16 @@ import java.util.Map;
 
 import org.apache.log4j.Logger;
 import org.ertuo.douche.biz.nineteen.NineTeenManager;
-import org.springframework.stereotype.Repository;
+import org.springframework.beans.factory.annotation.Autowired;
 
 /**
  */
-@Repository
+// @Repository
 public class ExecutorJob implements Runnable {
 
 	private static Logger logger = Logger.getLogger(ExecutorJob.class);
 
+	@Autowired
 	private NineTeenManager nineTeenManager;
 
 	/**

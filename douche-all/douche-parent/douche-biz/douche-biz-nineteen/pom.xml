@@ -3,12 +3,12 @@
 	<parent>
 		<artifactId>douche-biz</artifactId>
 		<groupId>org.ertuo.douche</groupId>
-		<version>${douche.version}</version>
+		<version>0.0.1-SNAPSHOT</version>
 	</parent>
 	<modelVersion>4.0.0</modelVersion>
 	<groupId>org.ertuo.douche</groupId>
 	<artifactId>douche-biz-nineteen</artifactId>
-	<version>${douche.version}</version>
+	<version>0.0.1-SNAPSHOT</version>
 	<dependencies>
 		<dependency>
 			<groupId>org.ertuo.douche</groupId>

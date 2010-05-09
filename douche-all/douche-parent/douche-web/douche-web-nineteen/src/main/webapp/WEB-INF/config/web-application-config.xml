@@ -18,7 +18,9 @@
 	<import resource="security-config.xml" />-->
 	<context:component-scan base-package="org.ertuo.douche" />
 	
+	
 	<import resource="classpath:data-access-config.xml" />
 	<import resource="classpath:schedule/applicationContext-executor.xml" />
+	<import resource="webmvc-config.xml" />
 
 </beans>

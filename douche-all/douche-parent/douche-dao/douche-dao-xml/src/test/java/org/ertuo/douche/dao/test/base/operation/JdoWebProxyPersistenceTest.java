@@ -35,7 +35,7 @@ public class JdoWebProxyPersistenceTest extends BaseGoogleAppEngineTest {
 			}
 		};
 
-		greetingRepo = new ProxyCnDao(pmProvider);
+		greetingRepo = new ProxyCnDao();
 	}
 
 	@AfterMethod

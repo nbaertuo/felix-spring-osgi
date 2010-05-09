@@ -18,6 +18,9 @@
 	<logger name="org.ertuo.douche">
 		<level value="debug" />
 	</logger>
+	<logger name="org.springframework.web">
+		<level value="debug" />
+	</logger>
 	<logger name="com.gargoylesoftware.htmlunit">
 		<level value="warn" />
 	</logger>

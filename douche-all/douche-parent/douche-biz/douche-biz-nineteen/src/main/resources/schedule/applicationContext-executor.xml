@@ -6,36 +6,36 @@
 	<description>使用JDK ScheduledExecutorService的定时任务配置</description>
 
 	<!-- ScheduledThreadPoolExecutor集成工厂 -->
-	<bean class="org.springframework.scheduling.concurrent.ScheduledExecutorFactoryBean" lazy-init="false">
+	<!--<bean class="org.springframework.scheduling.concurrent.ScheduledExecutorFactoryBean" lazy-init="false">
 		<property name="continueScheduledExecutionAfterException" value="true" />
 		<property name="scheduledExecutorTasks">
 			<list>
 				<ref bean="scheduledExecutorTasks" />
-				<!-- <ref bean="scheduledExecutorProxyTasks" /> -->
+				 <ref bean="scheduledExecutorProxyTasks" /> 
 			</list>
 		</property>
 	</bean>
 
-	<!-- Task的封装 -->
-	<bean id="scheduledExecutorTasks" class="org.springframework.scheduling.concurrent.ScheduledExecutorTask">
+	--><!-- Task的封装 -->
+	<!--<bean id="scheduledExecutorTasks" class="org.springframework.scheduling.concurrent.ScheduledExecutorTask">
 		<property name="runnable" ref="executorJob" />
-		<!-- 首次执行延期100秒 -->
+		 首次执行延期100秒 
 		<property name="delay" value="10000" />
-		<!-- 每次执行间隔2小时 -->
+		 每次执行间隔2小时 
 		<property name="period" value="1800000" />
-		<!-- 固定间隔,否则默认fixDelay会等到前一个任务完成后才开始计时. -->
+		 固定间隔,否则默认fixDelay会等到前一个任务完成后才开始计时. 
 		<property name="fixedRate" value="true" />
 	</bean>
 	
-	<!-- Task的封装 -->
-	<bean id="scheduledExecutorProxyTasks" class="org.springframework.scheduling.concurrent.ScheduledExecutorTask">
+	--><!-- Task的封装 -->
+	<!--<bean id="scheduledExecutorProxyTasks" class="org.springframework.scheduling.concurrent.ScheduledExecutorTask">
 		<property name="runnable" ref="executorProxyJob" />
-		<!-- 首次执行延期10秒 -->
+		 首次执行延期10秒 
 		<property name="delay" value="10000" />
-		<!-- 每次执行间隔半个小时 -->
+		 每次执行间隔半个小时 
 		<property name="period" value="7200000" />
-		<!-- 固定间隔,否则默认fixDelay会等到前一个任务完成后才开始计时. -->
+		 固定间隔,否则默认fixDelay会等到前一个任务完成后才开始计时. 
 		<property name="fixedRate" value="true" />
 	</bean>
 
-</beans>
+--></beans>

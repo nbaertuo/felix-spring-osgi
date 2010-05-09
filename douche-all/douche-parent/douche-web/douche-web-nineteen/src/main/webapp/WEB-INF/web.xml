@@ -17,7 +17,7 @@
         <param-value>deployment</param-value>
     </context-param>
 	
-	<!-- Enables Spring Security -->
+	<!-- Enables Spring Security
 	 <filter>
         <filter-name>springSecurityFilterChain</filter-name>
         <filter-class>org.springframework.web.filter.DelegatingFilterProxy</filter-class>
@@ -26,7 +26,7 @@
     <filter-mapping>
       <filter-name>springSecurityFilterChain</filter-name>
       <url-pattern>/*</url-pattern>
-    </filter-mapping>
+    </filter-mapping> -->
     
      <!-- Provides a managed, inject-able PersistenceManager per request thread. -->
     <filter>
@@ -44,18 +44,17 @@
 		<listener-class>org.springframework.web.context.ContextLoaderListener</listener-class>
 	</listener>
 
-  	<!-- Serves static resource content from .jar files such as spring-faces.jar -->
+  	<!-- Serves static resource content from .jar files such as spring-faces.jar 
 	<servlet>
 		<servlet-name>Resources Servlet</servlet-name>
 		<servlet-class>org.springframework.js.resource.ResourceServlet</servlet-class>
 		<load-on-startup>0</load-on-startup>
 	</servlet>
 		
-	<!-- Map all /resources requests to the Resource Servlet for handling -->
 	<servlet-mapping>
 		<servlet-name>Resources Servlet</servlet-name>
 		<url-pattern>/resources/*</url-pattern>
-	</servlet-mapping>
+	</servlet-mapping>-->
 	
 	<!-- The front controller of this Spring Web application, responsible for handling all application requests -->
 	<servlet>
