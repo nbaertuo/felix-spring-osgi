@@ -1,7 +1,14 @@
+import org.ertuo.linliqin.service.UserService;
+
+
 public class UserController {
 
+    UserService userService
+    
     def login={
-        println("fuck µÇÂ¼")
+        println("fuck ç™»å½•")       
+        userService.getUser(1)       
+        
     }
 
 }
