@@ -2,6 +2,7 @@
 beans = {
 		sql(groovy.sql.Sql,dataSource) {
 	    }
+		
 
     
 }

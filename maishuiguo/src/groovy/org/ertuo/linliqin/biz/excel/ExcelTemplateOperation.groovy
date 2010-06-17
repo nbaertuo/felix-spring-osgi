@@ -3,8 +3,7 @@ package org.ertuo.linliqin.biz.excel;
 import java.io.*;
 import java.util.List;
 
-import org.slf4j.Logger;
-import org.slf4j.LoggerFactory;
+import java.util.logging.Logger;
 
 import jxl.*;
 import jxl.write.*;
@@ -21,7 +20,7 @@ import org.apache.commons.lang.StringUtils;
 public class ExcelTemplateOperation {
 
 	
-	private final static Logger log = LoggerFactory
+	private final static Logger log = Logger
 	.getLogger(ExcelTemplateOperation.class);
 	
 	private WritableWorkbook wwb;

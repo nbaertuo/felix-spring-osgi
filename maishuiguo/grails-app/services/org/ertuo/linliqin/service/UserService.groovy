@@ -1,19 +1,29 @@
 package org.ertuo.linliqin.service;
 
 
-import javax.persistence.EntityManager
-import org.apache.log4j.Logger;
-import org.ertuo.linliqin.dao.persistence.EMF;
+import javax.persistence.EntityManagerFactory;
+import java.util.logging.Logger;
 import org.ertuo.linliqin.domain.Flight;
+import org.ertuo.linliqin.domain.User;
 
 public class UserService {
 
-	private final Logger log=Logger.getLogger(UserService.class)
-    //private EntityManager entityManager = EMF.get().createEntityManager();
+	private final Logger log=Logger.getLogger(UserService.class.getName())
+	//EMF emf
+	EntityManagerFactory entityManagerFactory
 
     Flight getUser(long login) {
-		log.info("fuck "+login)
-		log.error("error "+login)
-		//entityManager.persist(new Flight())
+	    entityManagerFactory.createEntityManager().persist(new Flight())
     }
+
+	void save(User user){
+	    entityManagerFactory.createEntityManager().persist(user)
+	}
+
+	User findByLogin(String login){
+	    entityManagerFactory.createEntityManager().createQuery ("select * from User x where x.login="+login).getResultList().get(0);
+	}
+
+    
+	
 }
