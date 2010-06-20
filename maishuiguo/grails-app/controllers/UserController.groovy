@@ -34,16 +34,18 @@ public class UserController {
                                   redirect(action:register)
                               }
                               else {
+                                  
+                                  //user.properties = params
+                                  bindData(user,params)
                                   user.properties.each{
                                       println(it)
                                   }
-                                  //user.properties = params
-                                  bindData(user,params)
                                   try {
                                       userService.save(user)
                                 } catch (Exception e) {
+                                	    e.printStackTrace()
                                         flash.user = user
-                                        redirect(action:register)
+                                       return redirect(action:register)
                                 }
                                 redirect(action:'query')  
                                    
@@ -51,7 +53,7 @@ public class UserController {
                               }
                           }
     def query={
-         def user=userService.findByLogin("1")
+         def user=userService.findByLogin()
          return [user:user]
     }
 

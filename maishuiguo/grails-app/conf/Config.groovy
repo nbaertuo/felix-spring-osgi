@@ -9,7 +9,12 @@
 // if(System.properties["${appName}.config.location"]) {
 //    grails.config.locations << "file:" + System.properties["${appName}.config.location"]
 // }
-
+'validator' {
+      //disable = true; //disable any validator related features
+      messageBundleName = 'validator' //do not start with '/'
+      //defaultLocale = Locale.CHINESE
+      //sessionLocaleName = 'locale' //default to session.'locale' if not specified
+    }
 grails.project.groupId = appName // change this to alter the default package name and Maven publishing destination
 grails.mime.file.extensions = true // enables the parsing of file extensions from URLs into the request format
 grails.mime.use.accept.header = false
@@ -27,7 +32,7 @@ grails.mime.types = [ html: ['text/html','application/xhtml+xml'],
                       multipartForm: 'multipart/form-data'
                     ]
 // The default codec used to encode data with ${}
-grails.views.default.codec="none" // none, html, base64
+grails.views.default.codec="html" // none, html, base64
 grails.views.gsp.encoding="UTF-8"
 grails.converters.encoding="UTF-8"
 // enable Sitemesh preprocessing of GSP pages
