@@ -1,13 +1,18 @@
 <grails>
   <resources>
     <resource>org.grails.appengine.AppEngineReloadController</resource>
-    <resource>BootStrap</resource>
-    <resource>BuildConfig</resource>
-    <resource>Config</resource>
-    <resource>DataSource</resource>
+    <resource>org.ertuo.linliqin.service.UserService</resource>
+    <resource>org.ertuo.linliqin.service.hr.HrService</resource>
+    <resource>org.ertuo.linliqin.service.tools.PullTool</resource>
     <resource>resources</resource>
+    <resource>BootStrap</resource>
     <resource>UrlMappings</resource>
+    <resource>BuildConfig</resource>
+    <resource>DataSource</resource>
+    <resource>Config</resource>
     <resource>UserController</resource>
+    <resource>HrController</resource>
+    <resource>org.ertuo.linliqin.domain.hr.Hr</resource>
   </resources>
   <plugins>
     <plugin>AppEngineGrailsPlugin</plugin>

@@ -1,6 +1,6 @@
 html * {
-    margin: 0;
-    /*padding: 0; SELECT NOT DISPLAYED CORRECTLY IN FIREFOX */
+    margin: 10;
+    padding: 0; 
 }
 
 /* GENERAL */
@@ -12,9 +12,11 @@ html * {
 }
 
 body {
+	
     background: #fff;
     color: #333;
-    font: 11px verdana, arial, helvetica, sans-serif;
+    font: 13px verdana, arial, helvetica, sans-serif;
+    font-family:arial,sans-serif;
 }
 #grailsLogo {
 	padding:20px;
@@ -25,7 +27,8 @@ a:link, a:visited, a:hover {
     font-weight: bold;
     text-decoration: none;
 }
-
+.abc{float:left;} 
+.buttomDiv {border-top:1px #cccccc solid; width:498px; height:22px;  bottom:0;}
 h1 {
     color: #48802c;
     font-weight: normal;
@@ -40,7 +43,7 @@ ul {
 input, select, textarea {
     background-color: #fcfcfc;
     border: 1px solid #ccc;
-    font: 11px verdana, arial, helvetica, sans-serif;
+    font: 13px verdana, arial, helvetica, sans-serif;
     margin: 2px 0;
     padding: 2px 4px;
 }
@@ -55,6 +58,19 @@ textarea {
 
 input:focus, select:focus, textarea:focus {
     border: 1px solid #b2d1ff;
+}
+.gaia.ops.gsl {
+	color:#3366CC;
+	font-family:arial,sans-serif;
+	font-weight:bold;
+}
+label {
+	font-family:arial,sans-serif;
+	font-weight:bold;
+}
+
+div.errormsg {
+	color:red;
 }
 
 .body {
@@ -73,7 +89,7 @@ input:focus, select:focus, textarea:focus {
 }
 
 .menuButton {
-    font-size: 10px;
+    font-size: 15px;
     padding: 0 5px;
 }
 .menuButton a {
@@ -140,7 +156,7 @@ tr {
     border: 0;
 }
 td, th {
-    font: 11px verdana, arial, helvetica, sans-serif;
+    font: 13px verdana, arial, helvetica, sans-serif;
     line-height: 12px;
     padding: 5px 6px;
     text-align: left;
@@ -149,7 +165,7 @@ td, th {
 th {
     background: #fff url(../images/skin/shadow.jpg);
     color: #666;
-    font-size: 11px;
+    font-size: 13px;
     font-weight: bold;
     line-height: 17px;
     padding: 2px 6px;

@@ -8,5 +8,6 @@
   <system-properties>
      <property name="stringchararrayaccessor.disabled" value="true" />
      <property name="grails.full.stacktrace" value="true" />
+     <property name="java.util.logging.config.file" value="WEB-INF/logging.properties"/>
   </system-properties>
 </appengine-web-app>
