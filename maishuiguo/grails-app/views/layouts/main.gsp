@@ -10,7 +10,11 @@
         <div id="spinner" class="spinner" style="display:none;">
             <img src="${resource(dir:'images',file:'spinner.gif')}" alt="Spinner" />
         </div>
-        <div id="grailsLogo" class="logo"><a href="http://grails.org"><img src="${resource(dir:'images',file:'grails_logo.png')}" alt="Grails" border="0" /></a></div>
+        <div id="grailsLogo" class="logo"><a href="http://www.hbhgzy.com.cn" target="_blank"><img src="${resource(dir:'images',file:'logo.jpg')}" alt="Grails" border="0" /></a></div>
+        <div class="nav">
+            <span class="menuButton"><g:link controller="hr" action="list">人员列表</g:link></span>
+            <span class="menuButton"><g:link action="hr">New Tag</g:link></span>
+        </div>
         <g:layoutBody />
     </body>
 </html>

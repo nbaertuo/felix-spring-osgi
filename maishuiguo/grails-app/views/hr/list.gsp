@@ -3,15 +3,13 @@
     <head>
          <meta http-equiv="Content-Type" content="text/html; charset=UTF-8"/>
          <meta name="layout" content="main" />
-         <title>Tag List</title>
+         <title>职工列表</title>
     </head>
     <body>
-        <div class="nav">
-            <span class="menuButton"><a href="${createLinkTo(dir:'')}">主页</a></span>
-            <span class="menuButton"><g:link action="create">New Tag</g:link></span>
-        </div>
         <div class="body">
-           <h1>Tag List</h1>
+           		<span class="gaia ops gsl">
+					职工列表
+ 	 			</span>
             <g:if test="${flash.message}">
                  <div class="message">
                        ${flash.message}
@@ -21,25 +19,25 @@
                <tr>
                    
                                       
-                        <th>Id</th>
+                        <th>姓名</th>
                                       
-                        <th>login</th>
+                        <th>出身日期</th>
                                       
-                        <th>Name</th>
+                        <th>籍贯</th>
                    
                    <th></th>
                </tr>
-               <g:each in="${user}">
+               <g:each in="${hrs}">
                     <tr>
                        
-                            <td>${it.id}</td>
+                            <td>${it.name}</td>
                        
-                            <td>${it.login}</td>
+                            <td><g:formatDate format="yyyy-MM-dd" date=${it.birthplace}/></td>
                        
-                            <td>${it.firstName}</td>
+                            <td>${it.nation}</td>
                        
                        <td class="actionButtons">
-                            <span class="actionButton"><g:link action="show" id="${it.id}">Show</g:link></span>
+                            <span class="actionButton"><g:link action="edit" id="${it.hrId}">编辑</g:link></span>
                        </td>
                     </tr>
                </g:each>
