@@ -45,7 +45,7 @@ public class UserController {
                                 } catch (Exception e) {
                                 	    e.printStackTrace()
                                         flash.user = user
-                                       return redirect(action:register)
+                                        return redirect(action:register)
                                 }
                                 redirect(action:'query')  
                                    
