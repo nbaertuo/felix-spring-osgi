@@ -43,8 +43,6 @@ public class UserService {
 
 	List<User> findByLogin(){
 	  entityManagerFactory.createEntityManager().createQuery (" select x from User x ").getResultList();
-	  //entityManager.createQuery (" select x from User x ").getResultList();
-	  //EMF.get().createEntityManager().createQuery (" select x from User x ").getResultList();
 	}
 
     
