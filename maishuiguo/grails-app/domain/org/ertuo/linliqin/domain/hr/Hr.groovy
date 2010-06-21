@@ -2,18 +2,10 @@ package org.ertuo.linliqin.domain.hr;
 
 
 import javax.persistence.GenerationType;
-
 import javax.persistence.GeneratedValue;
 import javax.persistence.Transient;
-
-import javax.annotation.Generated;
-
 import javax.persistence.Id;
-
 import java.util.Date
-
-
-
 import javax.persistence.Entity;
 
 @Entity
