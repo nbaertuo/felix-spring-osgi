@@ -16,7 +16,7 @@
 		<g:set var="pt" value="${applicationContext.getBean('pullTool')}"></g:set>
 
 
-		<form action="edit" method="post">
+		<form action="edit" method="post" enctype="multipart/form-data">
 		    <div>
 			<div class="abc">
 				<span class="gaia ops gsl">
@@ -162,6 +162,15 @@
 					<div class="errormsg">
 						<p class="error">
 							<g:renderErrors bean="${hr}" field="tel" />
+						</p>
+					</div>
+				</p>
+				<p>
+					<label class="label" for="login">图片:</label>
+					<input type="file" name="myFile"/>
+					<div class="errormsg">
+						<p class="error">
+							<g:renderErrors bean="${hr}" field="name" />
 						</p>
 					</div>
 				</p>
