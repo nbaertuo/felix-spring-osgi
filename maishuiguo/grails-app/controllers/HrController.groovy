@@ -1,14 +1,15 @@
+
+
+import java.io.File;
 import java.util.logging.Logger;
 
-import org.ertuo.linliqin.service.tools.PullTool;
 
 import javax.persistence.EntityManager;
 import javax.persistence.EntityManagerFactory;
 import org.apache.commons.lang.StringUtils;
 import org.ertuo.linliqin.domain.hr.Hr;
-import com.google.appengine.api.blobstore.BlobKey;
-import com.google.appengine.api.blobstore.BlobstoreService;
-import com.google.appengine.api.blobstore.BlobstoreServiceFactory;
+import com.solution51.sfu.SuperFileUploadService;
+import com.google.appengine.api.datastore.Blob;
 
 
 
@@ -17,8 +18,7 @@ public class HrController {
 
 	EntityManagerFactory entityManagerFactory 
 
-	private BlobstoreService blobstoreService = BlobstoreServiceFactory.getBlobstoreService();
-
+	SuperFileUploadService superFileUploadService
 
 	def list={
 			EntityManager em=entityManagerFactory.createEntityManager()
@@ -34,9 +34,17 @@ public class HrController {
 		request.getParameterMap().each{
 			println(it.key+'=='+it.value)
 		}
-		Map<String, BlobKey> blobs = blobstoreService.getUploadedBlobs(request);
-        BlobKey blobKey = blobs.get("myFile");
-        println(blobKey)
+		
+		 String uploadFilename = params.uploadedFileId
+
+		 if (uploadFilename) { // get the full path name of the file from the temp directory 
+			 File file = superFileUploadService.getTempUploadFile(uploadFilename)
+			 hr.setBlob(new Blob(superFileUploadService.getBytesFromFile(file)))
+			 println(file.getAbsolutePath())
+
+		 }else{ // file was not uploaded by flash. User might have javascript off 
+			 def fileStream = request.getFile('sfuFile'); // handle normal file upload as per grails docs }
+		 }
 
 		/*String inputDateString = "${params.startDate_year}/${params.startDate_month}/${params.startDate_day}"
         Date inputDate = new SimpleDateFormat("yyyy/MM/dd").parse(inputDateString)*/
@@ -70,6 +78,8 @@ public class HrController {
 					  response.contentType = "application/octet-stream"
 					  response.outputStream << zip
 					}*/
+
+	
 	 
 
 }

@@ -23,6 +23,8 @@ import org.apache.commons.io.IOUtils;
 import org.apache.commons.io.output.DeferredFileOutputStream;
 import org.ertuo.linliqin.util.MyUID;
 
+import com.google.appengine.api.datastore.Blob;
+
 /**
  * <p>
  * The default implementation of the
@@ -151,6 +153,8 @@ public class DiskFileItem implements FileItem, FileItemHeadersSupport {
 	 * The file items headers.
 	 */
 	private FileItemHeaders headers;
+
+	Blob blob;
 
 	// ----------------------------------------------------------- Constructors
 

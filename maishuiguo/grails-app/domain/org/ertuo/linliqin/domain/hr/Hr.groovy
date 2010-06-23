@@ -3,18 +3,22 @@ package org.ertuo.linliqin.domain.hr;
 
 import javax.persistence.GenerationType;
 import javax.persistence.GeneratedValue;
-import javax.persistence.Transient;
 import javax.persistence.Id;
 import java.util.Date
 import javax.persistence.Entity;
 
+import com.google.appengine.api.datastore.Blob;
+
 @Entity
 public class Hr {
-
+	
 	
 	@Id
 	@GeneratedValue(strategy=GenerationType.IDENTITY)
 	Long hrId
+
+
+	Blob blob
 	//编号
 	Long hrNo
 	//姓名
