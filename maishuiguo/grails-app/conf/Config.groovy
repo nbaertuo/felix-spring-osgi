@@ -39,7 +39,9 @@ grails.converters.encoding="UTF-8"
 grails.views.gsp.sitemesh.preprocess = true
 // scaffolding templates configuration
 grails.scaffolding.templates.domainSuffix = 'Instance'
-
+//upload file path
+sfu.tempUploadDirectory ="c:/swf_temp"
+	
 // Set to false to use the new Grails 1.2 JSONBuilder in the render method
 grails.json.legacy.builder=false
 // enabled native2ascii conversion of i18n properties files
