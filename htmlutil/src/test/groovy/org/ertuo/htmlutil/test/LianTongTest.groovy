@@ -11,8 +11,6 @@ import org.apache.commons.httpclient.Cookie;
 import org.apache.commons.httpclient.util.DateUtil;
 import org.apache.commons.io.FileUtils;
 import org.apache.commons.lang.StringUtils;
-import org.apache.commons.lang.time.DateUtils;
-import org.ertuo.number.codex.engine.impl.AABBcodex;
 import org.w3c.dom.Node;
 
 import com.gargoylesoftware.htmlunit.BrowserVersion;
@@ -30,6 +28,11 @@ class LianTongTest extends junit.framework.TestCase {
 	
 	
 	private static Map<String,String> allPhoneNums=new HashMap<String, String>();
+	
+	
+	private city="江汉"
+	
+	private cityCookies="017%7C017004"
 	
 	
 	
@@ -53,7 +56,7 @@ class LianTongTest extends junit.framework.TestCase {
 			int totalPages=this.getTotalPages(page.asText())
 			
 			log.debug ("总页数"+totalPages)
-			(1..totalPages).each {
+			(192..totalPages).each {
 				HtmlTextInput inputpage=(HtmlTextInput)page.getElementById("inputpage")
 				HtmlTextInput inputpageh=(HtmlTextInput)page.getElementById("inputpageh")
 				HtmlForm form = (HtmlForm) page.getElementById("defaultnumber");
@@ -64,7 +67,7 @@ class LianTongTest extends junit.framework.TestCase {
 				String numbers=this.getStrByReg(pageRs.asText(), "[0-9]{11}");
 				this.getTr pageRs
 				println("当前第  $it 页，总页数$totalPages")
-				sb.append(numbers)
+				sb.append(numbers+"\r")
 				//String[] num=numbers.split("\r")
 				//allPhoneNums.putAll(ArrayUtils.toMap())
 				/*client.getCookieManager().getCookies().each { 
@@ -94,15 +97,15 @@ class LianTongTest extends junit.framework.TestCase {
 			if(StringUtils.isNotBlank(prise)&&StringUtils.isNotBlank(phoneNum)){
 				prise=prise.replaceAll("元", "")
 				log.info(phoneNum+" "+prise+"元")
-				this.pullToServer (phoneNum, prise, "武汉", "20100909")
+				this.pullToServer (phoneNum, prise, "江汉", DateUtil.formatDate(new Date(), "20100915"))
 			}
 		}
 	}
 	
 	private void pullToServer(String num,String prise,String city,String date){
 		try {
-			//def pullUrl="http://avalilbale.appspot.com/phoneNum/add?num=$num&date=$date&prise=$prise&city=$city"
-			def pullUrl="http://localhost:8080/phoneNum/add?num=$num&date=$date&prise=$prise&city=$city"
+			def pullUrl="http://avalilbale.appspot.com/phoneNum/add?num=$num&date=$date&prise=$prise&city=$city"
+			//def pullUrl="http://localhost:8080/phoneNum/add?num=$num&date=$date&prise=$prise&city=$city"
 			String loginUrl = "http://shop.10010.com/number/searchNumber.action";
 			WebClient client = new WebClient(BrowserVersion.FIREFOX_3);
 			client.setJavaScriptEnabled(false);
@@ -121,7 +124,7 @@ class LianTongTest extends junit.framework.TestCase {
 	 * @param content
 	 */
 	private void genFile(String content){
-		FileUtils.writeByteArrayToFile(new File("d:\\ltPhoneNumber.txt"),content.getBytes())
+		FileUtils.writeByteArrayToFile(new File("d:\\$city ltPhoneNumber.txt"),content.getBytes())
 	}
 	
 	
@@ -134,7 +137,7 @@ class LianTongTest extends junit.framework.TestCase {
 		Cookie cookie = new Cookie();
 		cookie.setDomain("shop.10010.com");
 		cookie.setPath("/");
-		cookie.setValue("WT_FPC=id=250615e673ddc59d4a71281433959141:lv=1283823692317:ss=1283823224528; city=017%7C017001; PackageInfo=002%2C002001; AddressInfo=002%2C%2C011; city=002%7C002001; JSESSIONID=hxjGMFWBZLPgQpxDn185NpQ1M2bFZ0PFBj1qLpYNTlpLWLwTmvdL!250258817; CheckCode=0998");
+		cookie.setValue("WT_FPC=id=250615e673ddc59d4a71281433959141:lv=1283823692317:ss=1283823224528; city=$cityCookies; PackageInfo=002%2C002001; AddressInfo=002%2C%2C011; city=002%7C002001; JSESSIONID=hxjGMFWBZLPgQpxDn185NpQ1M2bFZ0PFBj1qLpYNTlpLWLwTmvdL!250258817; CheckCode=0998");
 		webClient.getCookieManager().addCookie(cookie);
 	}
 	
@@ -187,20 +190,20 @@ class LianTongTest extends junit.framework.TestCase {
 		//"http://localhost:8080/phoneNum/add?num=18602702748&viewNum=186%3Cb%3E027027%3C/b%3E48&date=20100907&prise=100"
 		
 	}
-	void test_one_num(){
-		def pnum="18602702748";
-		AABBcodex aabb=new AABBcodex(pnum)
-		def aa =[:]
-		def rs=aabb.splitLengthStr(pnum, 3,  aa)
-		rs.each {
-			def spitRs=this.nestSpitStr (pnum, "($it.key)")
-			if(spitRs.size()>1){
-				log.info "发现目标"+spitRs.get(0)
-			}
-		}
-	}
+	/*void test_one_num(){
+	 def pnum="18602702748";
+	 AABBcodex aabb=new AABBcodex(pnum)
+	 def aa =[:]
+	 def rs=aabb.splitLengthStr(pnum, 3,  aa)
+	 rs.each {
+	 def spitRs=this.nestSpitStr (pnum, "($it.key)")
+	 if(spitRs.size()>1){
+	 log.info "发现目标"+spitRs.get(0)
+	 }
+	 }
+	 }*/
 	void test_pull_one(){
-		 pullToServer("18602702748", "100", "武汉", "20100911")
+		pullToServer("18602702748", "100", "武汉", "20100911")
 	}
 	
 	/**
@@ -238,14 +241,13 @@ class LianTongTest extends junit.framework.TestCase {
 		c.add f
 		c.add g
 		c.add h
-		
 	}
 	/**
 	 * 笛卡尔积
 	 * @param al0
 	 */
-	 void Dikaerji0(ArrayList al0) {  
-		 ArrayList a0 = (ArrayList) al0.get(2);  
+	void Dikaerji0(ArrayList al0) {  
+		ArrayList a0 = (ArrayList) al0.get(2);  
 		for (int i = 3; i < al0.size(); i++) {  
 			ArrayList a1 = (ArrayList) al0.get(i);  
 			ArrayList temp = new ArrayList();  
