@@ -45,7 +45,7 @@
 		<level value="debug" />
 	</logger>
 	<logger name="org.ertuo">
-		<level value="debug" />
+		<level value="info" />
 	</logger>
 	
 	<!-- Root Logger -->

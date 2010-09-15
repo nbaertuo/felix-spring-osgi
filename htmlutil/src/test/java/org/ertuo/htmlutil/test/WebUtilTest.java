@@ -21,10 +21,6 @@ import com.gargoylesoftware.htmlunit.html.HtmlSubmitInput;
 import com.gargoylesoftware.htmlunit.html.HtmlTextArea;
 import com.gargoylesoftware.htmlunit.html.HtmlTextInput;
 import com.gargoylesoftware.htmlunit.javascript.JavaScriptEngine;
-import com.jacob.activeX.ActiveXComponent;
-import com.jacob.com.ComThread;
-import com.jacob.com.Dispatch;
-import com.jacob.com.Variant;
 
 /**
  * 测试19lou
@@ -189,7 +185,7 @@ public class WebUtilTest extends TestCase {
      Public Property Get cm5pk() As String ' property cm5pk
      
     */
-    public void test_aliEdit() {
+   /* public void test_aliEdit() {
         ActiveXComponent xl = new ActiveXComponent("Aliedit.EditCtrl");
         xl.setProperty("TextData", "sdfsdf");
         xl.setProperty("TextValue", "sdfsdf");
@@ -198,17 +194,10 @@ public class WebUtilTest extends TestCase {
         log.debug(xl.getProperty("TextData"));
         log.debug(xl.getProperty("TextValue"));
         log.debug(xl.getProperty("Intension"));
-    }
+    }*/
 
     public void test_taobao() {
 
-        ActiveXComponent xl = new ActiveXComponent("Aliedit.EditCtrl");
-        xl.setProperty("TextData", "sdsds");
-        xl.setProperty("TextValue", "sdsds");
-        /*log.debug(xl.invoke("EchoTest")
-                  + "测试"
-                  + );*/
-        xl.invoke("Crypto", new Variant(true), new Variant(0), new Variant("111111a")).getString();
         String loginUrl = "http://member1.taobao.com/member/login.jhtml";
         WebClient client = new WebClient(BrowserVersion.INTERNET_EXPLORER_7);
 
@@ -225,7 +214,6 @@ public class WebUtilTest extends TestCase {
             element.click();
             element.type('a');
             element.blur();
-            log.debug("结果" + xl.getPropertyAsString("TextData"));
             HtmlForm form = (HtmlForm) page.getElementById("J_SecureForm");
             HtmlTextInput htmlTextInput = form.getInputByName("TPL_username");
             htmlTextInput.setAttribute("value", "sdfsd");
@@ -264,7 +252,7 @@ public class WebUtilTest extends TestCase {
     Public Propety Let SessionInfo() As String ' property SessionInfo
     Public Property Get LicEx() As String ' property licex
     */
-    public void test_cmb() {
+   /* public void test_cmb() {
         ActiveXComponent cmbControl = new ActiveXComponent("CMBHtmlControl.Edit");
         cmbControl.setProperty("Text", "111111a");
         log.debug("加密" + cmbControl.getProperty("Value"));
@@ -295,7 +283,7 @@ public class WebUtilTest extends TestCase {
             xl.invoke("Quit", new Variant[] {});
             ComThread.Release();
         }
-    }
+    }*/
 
     public void test_StringBuffer() {
         StringBuffer strbuf = new StringBuffer();
@@ -326,5 +314,42 @@ public class WebUtilTest extends TestCase {
         }
 
     }
+    
+    public void test_dikaerji(){
+    	
+    }
 
+    /**
+	 * 笛卡尔积
+	 * @param al0
+	 */
+	 void Dikaerji0(ArrayList al0) {  
+		 ArrayList a0 = (ArrayList) al0.get(2);  
+		for (int i = 3; i < al0.size(); i++) {  
+			ArrayList a1 = (ArrayList) al0.get(i);  
+			ArrayList temp = new ArrayList();  
+			//每次先计算两个集合的笛卡尔积，然后用其结果再与下一个计算  
+			for (int j = 0; j < a0.size(); j++) {  
+				for (int k = 0; k < a1.size(); k++) {  
+					ArrayList cut = new ArrayList();  
+					
+					if (a0.get(j) instanceof ArrayList) {  
+						cut.addAll((ArrayList) a0.get(j));
+					} else {  
+						cut.add(a0.get(j));
+					}  
+					if (a1.get(k) instanceof ArrayList) {  
+						cut.addAll((ArrayList) a1.get(k));
+					} else {  
+						cut.add(a1.get(k));
+					}  
+					temp.add(cut);
+				}
+			}  
+			a0 = temp;  
+			for (int j = 0; j < a0.size(); j++) {  
+				System.out.println(a0.get(j));
+			}
+		}
+	}
 }
