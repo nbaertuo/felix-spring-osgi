@@ -1,0 +1,26 @@
+<grails>
+  <resources>
+    <resource>org.grails.appengine.AppEngineReloadController</resource>
+    <resource>BootStrap</resource>
+    <resource>BuildConfig</resource>
+    <resource>Config</resource>
+    <resource>DataSource</resource>
+    <resource>resources</resource>
+    <resource>UrlMappings</resource>
+    <resource>org.ertuo.credit.taobao.controll.AccountController</resource>
+    <resource>org.ertuo.credit.taobao.controll.AdminController</resource>
+    <resource>org.ertuo.credit.taobao.controll.lt.PhoneNumController</resource>
+    <resource>org.ertuo.credit.taobao.controll.lt.SellNumController</resource>
+    <resource>org.ertuo.credit.taobao.domain.CreditAccount</resource>
+    <resource>org.ertuo.credit.taobao.domain.CronProcess</resource>
+    <resource>org.ertuo.credit.taobao.domain.PhoneNum</resource>
+    <resource>org.ertuo.credit.taobao.domain.SellNum</resource>
+    <resource>org.ertuo.credit.taobao.lt.codex.XyzCodexCronService</resource>
+    <resource>org.ertuo.credit.taobao.lt.codex.XyzCodexService</resource>
+    <resource>org.ertuo.credit.taobao.lt.utils.SpitUtils</resource>
+  </resources>
+  <plugins>
+    <plugin>AppEngineGrailsPlugin</plugin>
+    <plugin>GormJpaGrailsPlugin</plugin>
+  </plugins>
+</grails>
