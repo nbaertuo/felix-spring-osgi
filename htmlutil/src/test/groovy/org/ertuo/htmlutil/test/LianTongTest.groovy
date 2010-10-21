@@ -30,9 +30,13 @@ class LianTongTest extends junit.framework.TestCase {
 	private static Map<String,String> allPhoneNums=new HashMap<String, String>();
 	
 	
-	private city="江汉"
+	private static city="武汉"
 	
-	private cityCookies="017%7C017004"
+	private cityCookies="017%7C017001"
+	
+	static{
+		System.setProperty("logFile.name",city)
+	}
 	
 	
 	
@@ -56,7 +60,7 @@ class LianTongTest extends junit.framework.TestCase {
 			int totalPages=this.getTotalPages(page.asText())
 			
 			log.debug ("总页数"+totalPages)
-			(192..totalPages).each {
+			(1..totalPages).each {
 				HtmlTextInput inputpage=(HtmlTextInput)page.getElementById("inputpage")
 				HtmlTextInput inputpageh=(HtmlTextInput)page.getElementById("inputpageh")
 				HtmlForm form = (HtmlForm) page.getElementById("defaultnumber");
@@ -66,7 +70,7 @@ class LianTongTest extends junit.framework.TestCase {
 				HtmlPage pageRs = ((HtmlButtonInput)form.getInputByValue("确定")).click()
 				String numbers=this.getStrByReg(pageRs.asText(), "[0-9]{11}");
 				this.getTr pageRs
-				println("当前第  $it 页，总页数$totalPages")
+				log.info("当前第  $it 页，总页数$totalPages")
 				sb.append(numbers+"\r")
 				//String[] num=numbers.split("\r")
 				//allPhoneNums.putAll(ArrayUtils.toMap())
@@ -78,7 +82,8 @@ class LianTongTest extends junit.framework.TestCase {
 		} catch (Exception e) {
 			log.error("查询号码错误",e)
 		}finally{
-			this.genFile(sb.toString())
+			//用日志方式替换啦
+			//this.genFile(sb.toString())
 		}
 	}
 	
@@ -96,15 +101,15 @@ class LianTongTest extends junit.framework.TestCase {
 			def prise=this.getStrByReg(context,"[0-9]{0,4}(元)")
 			if(StringUtils.isNotBlank(prise)&&StringUtils.isNotBlank(phoneNum)){
 				prise=prise.replaceAll("元", "")
-				log.info(phoneNum+" "+prise+"元")
-				this.pullToServer (phoneNum, prise, "江汉", DateUtil.formatDate(new Date(), "20100915"))
+				log.info("$phoneNum ${prise}元  $city")
+				this.pullToServer (phoneNum, prise, city, DateUtil.formatDate(new Date(), "yyyyMMdd"))
 			}
 		}
 	}
 	
 	private void pullToServer(String num,String prise,String city,String date){
 		try {
-			def pullUrl="http://avalilbale.appspot.com/phoneNum/add?num=$num&date=$date&prise=$prise&city=$city"
+			def pullUrl="http://taohaoma.appspot.com/phoneNum/add?num=$num&date=$date&prise=$prise&city=$city"
 			//def pullUrl="http://localhost:8080/phoneNum/add?num=$num&date=$date&prise=$prise&city=$city"
 			String loginUrl = "http://shop.10010.com/number/searchNumber.action";
 			WebClient client = new WebClient(BrowserVersion.FIREFOX_3);
@@ -114,7 +119,7 @@ class LianTongTest extends junit.framework.TestCase {
 			//client.setTimeout(30*1000)
 			client.getPage(pullUrl);
 		} catch (Exception e) {
-			//log.error("上传数据到服务器失败",e)
+			log.error("上传数据到服务器失败",e)
 		}
 	}
 	
@@ -155,6 +160,22 @@ class LianTongTest extends junit.framework.TestCase {
 		Matcher m = p.matcher(str);
 		if(m.find()){
 			sb.append(m.group());
+		}
+		return sb.toString();
+	}
+	/**
+	 * 通过正则返回一个字符串,如果有多个符合正则的中间用"\n"隔开
+	 * @param str 需要处理的字符串
+	 * @param reg 正则表达式
+	 * @param nest 是否嵌套查询
+	 * @return 被正则处理完的字符串
+	 */
+	private String getNestStrByReg(String str,String reg) {
+		StringBuffer sb=new StringBuffer();
+		Pattern p = Pattern.compile(reg);
+		Matcher m = p.matcher(str);
+		while(m.find()){
+			sb.append(m.group()+"\r");
 		}
 		return sb.toString();
 	}
