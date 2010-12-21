@@ -1,0 +1,47 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<classpath>
+	<classpathentry kind="src" path="src"/>
+	<classpathentry kind="src" path="test"/>
+	<classpathentry kind="con" path="org.eclipse.jdt.launching.JRE_CONTAINER"/>
+	<classpathentry kind="con" path="org.eclipse.jdt.junit.JUNIT_CONTAINER/4"/>
+	<classpathentry kind="lib" path="war/WEB-INF/lib/commons-codec-1.4.jar"/>
+	<classpathentry kind="lib" path="war/WEB-INF/lib/commons-collections-3.2.1.jar"/>
+	<classpathentry kind="lib" path="war/WEB-INF/lib/commons-io-1.4.jar"/>
+	<classpathentry kind="lib" path="war/WEB-INF/lib/commons-lang-2.5.jar"/>
+	<classpathentry kind="lib" path="war/WEB-INF/lib/commons-logging-1.1.1.jar"/>
+	<classpathentry kind="lib" path="war/WEB-INF/lib/cssparser-0.9.5.jar"/>
+	<classpathentry kind="lib" path="war/WEB-INF/lib/logback-classic-0.9.15.jar"/>
+	<classpathentry kind="lib" path="war/WEB-INF/lib/logback-core-0.9.15.jar"/>
+	<classpathentry kind="lib" path="war/WEB-INF/lib/nekohtml-1.9.14.jar" sourcepath="e:/.m2/repository/net/sourceforge/nekohtml/nekohtml/1.9.14/nekohtml-1.9.14-sources.jar"/>
+	<classpathentry kind="lib" path="war/WEB-INF/lib/persistence-api-1.0.jar" sourcepath="E:/.m2/repository/javax/persistence/persistence-api/1.0/persistence-api-1.0-sources.jar"/>
+	<classpathentry kind="lib" path="war/WEB-INF/lib/sac-1.3.jar"/>
+	<classpathentry kind="lib" path="war/WEB-INF/lib/serializer-2.7.1.jar"/>
+	<classpathentry kind="lib" path="war/WEB-INF/lib/slf4j-api-1.5.6.jar"/>
+	<classpathentry kind="lib" path="war/WEB-INF/lib/aopalliance-1.0.jar"/>
+	<classpathentry kind="lib" path="war/WEB-INF/lib/spring-aop-3.0.0.RELEASE.jar"/>
+	<classpathentry kind="lib" path="war/WEB-INF/lib/spring-asm-3.0.0.RELEASE.jar"/>
+	<classpathentry kind="lib" path="war/WEB-INF/lib/spring-beans-3.0.0.RELEASE.jar"/>
+	<classpathentry kind="lib" path="war/WEB-INF/lib/spring-context-3.0.0.RELEASE.jar"/>
+	<classpathentry kind="lib" path="war/WEB-INF/lib/spring-core-3.0.0.RELEASE.jar"/>
+	<classpathentry kind="lib" path="war/WEB-INF/lib/spring-expression-3.0.0.RELEASE.jar"/>
+	<classpathentry kind="lib" path="war/WEB-INF/lib/spring-jdbc-3.0.0.RELEASE.jar"/>
+	<classpathentry kind="lib" path="war/WEB-INF/lib/spring-orm-3.0.0.RELEASE.jar" sourcepath="E:/.m2/repository/org/springframework/spring-orm/3.0.0.RELEASE/spring-orm-3.0.0.RELEASE-sources.jar"/>
+	<classpathentry kind="lib" path="war/WEB-INF/lib/spring-tx-3.0.0.RELEASE.jar"/>
+	<classpathentry kind="lib" path="war/WEB-INF/lib/spring-web-3.0.0.RELEASE.jar" sourcepath="E:/.m2/repository/org/springframework/spring-web/3.0.0.RELEASE/spring-web-3.0.0.RELEASE-sources.jar"/>
+	<classpathentry kind="lib" path="war/WEB-INF/lib/spring-webmvc-3.0.0.RELEASE.jar"/>
+	<classpathentry kind="lib" path="war/WEB-INF/lib/standard-1.1.2.jar"/>
+	<classpathentry kind="lib" path="war/WEB-INF/lib/xalan-2.7.1.jar"/>
+	<classpathentry kind="lib" path="war/WEB-INF/lib/xercesImpl-2.9.1.jar"/>
+	<classpathentry kind="lib" path="war/WEB-INF/lib/xml-apis-1.3.04.jar"/>
+	<classpathentry kind="lib" path="war/WEB-INF/lib/apache-mime4j-0.6.jar"/>
+	<classpathentry kind="lib" path="war/WEB-INF/lib/htmlunit-2.8.jar" sourcepath="E:/.m2/repository/net/sourceforge/htmlunit/htmlunit/2.8/htmlunit-2.8-sources.jar"/>
+	<classpathentry kind="lib" path="war/WEB-INF/lib/htmlunit-core-js-2.8.jar" sourcepath="E:/.m2/repository/net/sourceforge/htmlunit/htmlunit-core-js/2.8/htmlunit-core-js-2.8-sources.jar"/>
+	<classpathentry kind="lib" path="war/WEB-INF/lib/httpclient-4.0.1.jar" sourcepath="E:/.m2/repository/org/apache/httpcomponents/httpclient/4.0.1/httpclient-4.0.1-sources.jar"/>
+	<classpathentry kind="lib" path="war/WEB-INF/lib/httpcore-4.0.1.jar" sourcepath="E:/.m2/repository/org/apache/httpcomponents/httpcore/4.0.1/httpcore-4.0.1-sources.jar"/>
+	<classpathentry kind="lib" path="war/WEB-INF/lib/httpmime-4.0.1.jar"/>
+	<classpathentry kind="lib" path="war/WEB-INF/lib/commons-beanutils-1.7.0.jar" sourcepath="e:/.m2/repository/commons-beanutils/commons-beanutils/1.7.0/commons-beanutils-1.7.0-sources.jar"/>
+	<classpathentry kind="lib" path="war/WEB-INF/lib/taobao-sdk-java-20101203.jar" sourcepath="C:/Documents and Settings/mo.duanm/桌面/淘宝/sdk/taobao-sdk-java-20101203-source.jar"/>
+	<classpathentry kind="lib" path="war/WEB-INF/lib/log4j-1.2.13.jar"/>
+	<classpathentry kind="con" path="com.google.appengine.eclipse.core.GAE_CONTAINER/1.4.0"/>
+	<classpathentry kind="output" path="war/WEB-INF/classes"/>
+</classpath>

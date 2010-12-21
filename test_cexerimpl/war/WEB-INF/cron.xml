@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<cronentries> 
+  <cron>
+    <url>/app/phone/cron</url>
+    <description>every 2 minutes process phone num</description>
+    <schedule>every 2 minutes</schedule>
+  </cron>
+  <cron>
+    <url>/app/schedule/check</url>
+    <description>every 24 hours</description>
+    <schedule>every 24 hours</schedule>
+  </cron>  
+   
+  <!--<cron>
+    <url>/app/pv/shua</url>
+    <description>刷pv</description>
+    <schedule>every 1 minutes of (08:30 to 24:00)</schedule>
+    <timezone>China/beijing</timezone>
+  </cron>
+  
+--></cronentries>

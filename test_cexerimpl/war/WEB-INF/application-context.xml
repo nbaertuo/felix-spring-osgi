@@ -1,0 +1,60 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:context="http://www.springframework.org/schema/context"
+	xmlns:tx="http://www.springframework.org/schema/tx"
+	xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans-2.0.xsd
+		http://www.springframework.org/schema/context http://www.springframework.org/schema/context/spring-context-3.0.xsd
+		http://www.springframework.org/schema/tx http://www.springframework.org/schema/tx/spring-tx-2.0.xsd">
+
+	<context:component-scan base-package="org.ertuo.taoplugin" />
+	
+	<tx:annotation-driven />
+
+	<bean id="messageDao" class="org.ertuo.taoplugin.dao.impl.MessageJpaDao">
+		<property name="entityManagerFactory" ref="entityManagerFactory"></property>
+	</bean>
+	
+	<bean id="phoneNumDao" class="org.ertuo.taoplugin.dao.impl.PhoneNumDaoImpl">
+		<property name="entityManagerFactory" ref="entityManagerFactory"></property>
+	</bean>
+	
+	
+	<bean id="saleNumDao" class="org.ertuo.taoplugin.dao.impl.SaleNumDao">
+		<property name="entityManagerFactory" ref="entityManagerFactory"></property>
+	</bean>
+	
+	<bean id="regularDao" class="org.ertuo.taoplugin.dao.impl.RegularDao">
+		<property name="entityManagerFactory" ref="entityManagerFactory"></property>
+	</bean>
+	
+	<bean id="scheduleDao" class="org.ertuo.taoplugin.dao.impl.ScheduleDao">
+		<property name="entityManagerFactory" ref="entityManagerFactory"></property>
+	</bean>
+	
+	
+	<bean id="cronProcessDao" class="org.ertuo.taoplugin.dao.impl.CronProcessDaoImpl">
+		<property name="entityManagerFactory" ref="entityManagerFactory"></property>
+	</bean>
+	
+	<bean id="cityNumDao" class="org.ertuo.taoplugin.dao.impl.CityNumDao">
+		<property name="entityManagerFactory" ref="entityManagerFactory"></property>
+	</bean>
+	
+	<bean id="proxyPageDao" class="org.ertuo.taoplugin.dao.impl.ProxyPageDaoImpl">
+		<property name="entityManagerFactory" ref="entityManagerFactory"></property>
+	</bean>
+	
+	<bean id="proxyIpDao" class="org.ertuo.taoplugin.dao.impl.ProxyIpDaoImpl">
+		<property name="entityManagerFactory" ref="entityManagerFactory"></property>
+	</bean>
+
+	<bean id="entityManagerFactory"	class="org.springframework.orm.jpa.LocalEntityManagerFactoryBean">
+		<property name="persistenceUnitName" value="transactions-optional" />
+	</bean>
+	
+	<bean name="transactionManager" class="org.springframework.orm.jpa.JpaTransactionManager">
+		<property name="entityManagerFactory" ref="entityManagerFactory" />
+	</bean>
+	
+
+</beans>
