@@ -32,8 +32,8 @@ grails.mime.types = [ html: ['text/html','application/xhtml+xml'],
 
 // The default codec used to encode data with ${}
 grails.views.default.codec = "none" // none, html, base64
-grails.views.gsp.encoding = "UTF-8"
-grails.converters.encoding = "UTF-8"
+grails.views.gsp.encoding = "GBK"
+grails.converters.encoding = "GBK"
 // enable Sitemesh preprocessing of GSP pages
 grails.views.gsp.sitemesh.preprocess = true
 // scaffolding templates configuration
@@ -57,7 +57,7 @@ environments {
         grails.serverURL = "http://www.changeme.com"
     }
     development {
-        grails.serverURL = "http://localhost:8080/${appName}"
+        grails.serverURL = "http://localhost"
     }
     test {
         grails.serverURL = "http://localhost:8080/${appName}"
@@ -87,4 +87,6 @@ log4j = {
            'net.sf.ehcache.hibernate'
 
     warn   'org.mortbay.log'
+    
+    info   'org.ertuo.onlyprice'
 }
