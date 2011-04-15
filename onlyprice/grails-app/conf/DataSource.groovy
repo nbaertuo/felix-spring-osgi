@@ -26,8 +26,8 @@ hibernate {
 environments {
     dev {
         dataSource {
-            dbCreate = "create-drop" // one of 'create', 'create-drop','update'
-            url = "jdbc:mysql://db4free.net:3306/onlyprice?useUnicode=true&amp;characterEncoding=gbk"
+            //dbCreate = "create-drop" // one of 'create', 'create-drop','update'
+            url = "jdbc:mysql://db4free.net:3306/onlyprice?useUnicode=true&amp;characterEncoding=utf-8"
             //url = "jdbc:mysql://freeql.org:3306/db13?useUnicode=true&amp;characterEncoding=utf-8"
         }
     }
