@@ -66,6 +66,22 @@ environments {
     dev { grails.serverURL = "http://localhost" }
     test { grails.serverURL = "http://localhost:8080/${appName}" }
 }
+environments {
+    prod {
+        openVar = [tbkey:"12239297", tbSecret:"c296d6c6a6fe83edd6e4bfbc4614b045",tbapi:"http://gw.api.tbsandbox.com/router/rest"]
+    }
+    dev {
+        openVar = [
+                    tbkey:"12239297",
+                    tbsecret:"sandbox6a6fe83edd6e4bfbc4614b045",
+                    tbapi:"http://gw.api.tbsandbox.com/router/rest",
+                    tbContainer:"http://container.api.tbsandbox.com/container"
+                ]
+    }
+    test {
+        openVar = [tbkey:"12239297", tbSecret:"c296d6c6a6fe83edd6e4bfbc4614b045",tbapi:"http://gw.api.tbsandbox.com/router/rest"]
+    }
+}
 
 // log4j configuration
 log4j = {

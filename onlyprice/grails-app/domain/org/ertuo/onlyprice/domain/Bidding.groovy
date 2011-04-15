@@ -4,6 +4,9 @@
  */
 package org.ertuo.onlyprice.domain
 
+import java.util.Date;
+
+
 /**
  * 竞价
  * @author mo.duanm
@@ -19,6 +22,12 @@ class Bidding {
 
     /** 出价 */
     Long price;
+
+    /** 创建时间 */
+    Date gmtCreate;
+
+    /** 修改时间 */
+    Date gmtModify=new Date()
 
     static mapping={
         table "Bidding"

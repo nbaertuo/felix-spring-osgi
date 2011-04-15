@@ -4,6 +4,8 @@
  */
 package org.ertuo.onlyprice.domain
 
+import java.util.Date;
+
 /**
  * 
  * 货架
@@ -23,6 +25,15 @@ class Shelf {
 
     /**停滞间隔  */
     Long waitTime
+
+    /** 出价单位 */
+    String utils
+
+    /** 创建时间 */
+    Date gmtCreate
+
+    /** 修改时间 */
+    Date gmtModify=new Date()
 
     static mapping={
         table "Shelf"

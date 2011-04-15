@@ -4,6 +4,8 @@
  */
 package org.ertuo.onlyprice.domain
 
+import java.util.Date;
+
 /**
  * 商品
  * @author mo.duanm
@@ -25,6 +27,13 @@ class Goods {
 
     /**  来源id*/
     String fId
+
+
+    /** 创建时间 */
+    Date gmtCreate
+
+    /** 修改时间 */
+    Date gmtModify=new Date()
 
     static mapping={
         table "goods"

@@ -4,6 +4,8 @@
  */
 package org.ertuo.onlyprice.domain
 
+import java.util.Date;
+
 import javax.persistence.Id;
 
 /**
@@ -33,6 +35,13 @@ class User {
 
     /**  来源方id*/
     String fromUid
+
+
+    /** 创建时间 */
+    Date gmtCreate;
+
+    /** 修改时间 */
+    Date gmtModify=new Date()
 
     static mapping={
         table "User"
