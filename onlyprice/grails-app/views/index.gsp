@@ -1,6 +1,6 @@
 <html>
     <head>
-        <title>Welcome to Grails</title>
+        <title>唯一低价</title>
         <meta name="layout" content="main" />
         <style type="text/css" media="screen">
 
@@ -90,10 +90,7 @@
             <div id="controllerList" class="dialog">
                 <h2>Available Controllers:</h2>
                 <ul>
-                    <g:each var="c" in="${grailsApplication.controllerClasses.sort { it.fullName } }">
-                        <li class="controller"><g:link controller="${c.logicalPropertyName}">${c.fullName}</g:link></li>
-                    </g:each>
-                    ${grailsApplication.config.openVar}
+                        <li class="controller"><a href="/tb">淘宝登录</a></li>
                 </ul>
             </div>
         </div>
