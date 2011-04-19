@@ -43,6 +43,10 @@ class User {
     /** 修改时间 */
     Date gmtModify=new Date()
 
+    def sessionKey
+
+    def uId
+
     static mapping={
         table "User"
         id generator:'assigned', name:'us'

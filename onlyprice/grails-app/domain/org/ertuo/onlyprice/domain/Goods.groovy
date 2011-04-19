@@ -17,7 +17,7 @@ class Goods {
     User seller
 
     /**  单价*/
-    Long price
+    Double price
 
     /**  商品标题*/
     String title

@@ -4,11 +4,11 @@
  */
 package org.ertuo.onlyprice.web.controllers
 
-import org.ertuo.onlyprice.biz.TbService;
+import org.ertuo.onlyprice.biz.TbService
+import org.ertuo.onlyprice.domain.User
+import org.ertuo.onlyprice.utils.TopUtils
 import org.slf4j.Logger
 import org.slf4j.LoggerFactory
-
-import com.taobao.api.TaobaoClient;
 
 /**
  * 
@@ -33,8 +33,26 @@ class TbController {
 
     def callback={
         if(params.top_session){
-            session.top_session=params.top_session
-            session.top_sign=params.top_sign
+            def topMap=TopUtils.convertBase64StringtoMap(params.top_parameters)
+            User u=new User()
+            u.sessionKey=params.top_session
+            u.us=topMap.visitor_nick
+            u.fromUid=topMap.visitor_id
+            u.gmtCreate=new Date()
+            u.nick=topMap.visitor_nick
+            u.ps="123456"
+            u.type="0"
+            u.userfrom="tb"
+            u.email="default@xxx.com"
+            session.user=u
+            if(User.get(u.nick)){
+                logger.info "用户$u.nick 已经存在"
+            }else{
+                if( !u.save() ) {
+                    u.errors.each { println it }
+                }
+                logger.info "添加用户$u.nick"
+            }
         }
     }
 
@@ -43,7 +61,7 @@ class TbController {
         if(!q||q.size()<4){
             render(view:"callback")
         }
-        def rs=tbService.onSaleGet(q, session.top_session)
+        def rs=tbService.onSaleGet(q, session.user.sessionKey)
         render(view:"callback",model:[items:rs?.items,q:q])
     }
 }
