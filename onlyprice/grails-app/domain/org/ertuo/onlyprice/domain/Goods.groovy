@@ -40,5 +40,6 @@ class Goods {
         version false
         id generator:'increment', column:'id'
         seller column:'seller_id'
+        fId unique: true
     }
 }
