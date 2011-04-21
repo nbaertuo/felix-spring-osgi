@@ -42,5 +42,6 @@ class WbController {
         logger.info u.toString()
         def user=userService.saveWbUser (u, at.token, at.tokenSecret)
         session.user=user
+        forward(controller: "shelf", action: "list")
     }
 }
