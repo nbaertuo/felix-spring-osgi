@@ -37,12 +37,20 @@ class User {
     String fromUid
 
 
+    /**  sina weibo 永久token*/
+    String accessToken
+
+    /**  sina weibo 永久密钥*/
+    String accessSecret
+
+
     /** 创建时间 */
     Date gmtCreate;
 
     /** 修改时间 */
     Date gmtModify=new Date()
 
+    /**  淘宝sessionkey*/
     def sessionKey
 
     def uId
@@ -51,5 +59,11 @@ class User {
         table "User"
         id generator:'assigned', name:'us'
         version false
+    }
+
+    static constraints = {
+        accessToken(nullable:true)
+        accessSecret(nullable:true)
+        email(nullable:true)
     }
 }
