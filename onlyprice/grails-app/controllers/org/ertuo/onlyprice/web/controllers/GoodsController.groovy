@@ -25,6 +25,7 @@ class GoodsController {
 
     def index={
     }
+    /**  淘宝卖家申请上架*/
     def ajaxAdd={
         def id=params.numId
         if(!id){
@@ -45,5 +46,13 @@ class GoodsController {
         }else{
             render(text:"商品不存在")
         }
+    }
+
+    /**  商品查询*/
+    def search={
+    }
+
+    /**  管理员审批上架商品*/
+    def check={
     }
 }
