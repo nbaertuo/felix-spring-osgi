@@ -5,6 +5,7 @@
 package org.ertuo.onlyprice.web.controllers
 
 import org.ertuo.onlyprice.biz.TbService
+import org.ertuo.onlyprice.biz.UserService;
 import org.ertuo.onlyprice.domain.User
 import org.ertuo.onlyprice.utils.TopUtils
 import org.slf4j.Logger
@@ -23,7 +24,7 @@ class TbController {
 
     TbService tbService
 
-
+    UserService userService
     def index={
         def openVar=grailsApplication.config.openVar
         def appKeyUrl="$openVar.tbContainer?appkey=$openVar.tbkey"
@@ -34,25 +35,10 @@ class TbController {
     def callback={
         if(params.top_session){
             def topMap=TopUtils.convertBase64StringtoMap(params.top_parameters)
-            User u=new User()
-            u.sessionKey=params.top_session
-            u.us=topMap.visitor_nick
-            u.fromUid=topMap.visitor_id
-            u.gmtCreate=new Date()
-            u.nick=topMap.visitor_nick
-            u.ps="123456"
-            u.type="0"
-            u.userfrom="tb"
-            u.email="default@xxx.com"
+
+            User u=userService.saveTbUser (topMap.visitor_nick, topMap.visitor_id)
+            u?.sessionKey=params.top_session
             session.user=u
-            if(User.get(u.nick)){
-                logger.info "用户$u.nick 已经存在"
-            }else{
-                if( !u.save() ) {
-                    u.errors.each { println it }
-                }
-                logger.info "添加用户$u.nick"
-            }
         }
     }
 

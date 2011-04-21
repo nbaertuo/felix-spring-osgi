@@ -8,4 +8,6 @@ beans = {
             CH.config.openVar.tbkey,
             CH.config.openVar.tbsecret
             )
+    weibo(weibo4j.Weibo){
+    }
 }

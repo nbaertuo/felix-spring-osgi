@@ -91,6 +91,7 @@
                 <h2>Available Controllers:</h2>
                 <ul>
                         <li class="controller"><a href="/tb">淘宝登录</a></li>
+                         <li class="controller"><a href="/wb">微博登录</a></li>
                 </ul>
             </div>
         </div>
