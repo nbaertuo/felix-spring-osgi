@@ -1,0 +1,13 @@
+#mw_contentwrapper .detail-goods-list {
+    border: 1px solid #D9D9D9;
+    float: left;
+    margin-top: 10px;
+    width: 788px;
+    }
+.one-goods {
+    float: left;
+    margin-left: 30px;
+    margin-top: 20px;
+    text-align: center;
+    width: 150px;
+}        
