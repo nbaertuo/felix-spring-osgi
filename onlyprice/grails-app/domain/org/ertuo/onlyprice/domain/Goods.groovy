@@ -28,12 +28,15 @@ class Goods {
     /**  来源id*/
     String fId
 
+    /**  状态（申请=0，发布中=1）*/
+    int status
 
     /** 创建时间 */
     Date gmtCreate
 
     /** 修改时间 */
     Date gmtModify=new Date()
+
 
     static mapping={
         table "goods"

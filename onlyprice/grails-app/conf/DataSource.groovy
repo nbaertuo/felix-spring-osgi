@@ -18,6 +18,9 @@ dataSource {
     }
 }
 hibernate {
+    //提高性能,hibernate中默认 flush.mode='auto'
+    flush.mode='commit'
+
     cache.use_second_level_cache = true
     cache.use_query_cache = true
     cache.provider_class = 'net.sf.ehcache.hibernate.EhCacheProvider'
