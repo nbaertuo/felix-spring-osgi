@@ -75,7 +75,8 @@ environments {
                     tbkey:"12239297",
                     tbsecret:"sandbox6a6fe83edd6e4bfbc4614b045",
                     tbapi:"http://gw.api.tbsandbox.com/router/rest",
-                    tbContainer:"http://container.api.tbsandbox.com/container"
+                    tbContainer:"http://container.api.tbsandbox.com/container",
+                    tbdetail:"http://mini.tbsandbox.com/minisandbox/buyer/item_detail.htm?numIid="
                 ]
     }
     test {
@@ -99,12 +100,13 @@ log4j = {
             'org.codehaus.groovy.grails.web.mapping', // URL mapping
             'org.codehaus.groovy.grails.commons', // core / classloading
             'org.codehaus.groovy.grails.plugins', // plugins
-            'org.codehaus.groovy.grails.orm.hibernate', // hibernate integration
+            // hibernate integration
             'org.springframework',
-            'org.hibernate',
             'net.sf.ehcache.hibernate'
 
     warn   'org.mortbay.log'
 
-    info   'org.ertuo.onlyprice'
+    info   'org.ertuo.onlyprice',
+            'org.codehaus.groovy.grails.orm.hibernate',
+            'org.hibernate'
 }

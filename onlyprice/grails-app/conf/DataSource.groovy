@@ -2,10 +2,10 @@
 dataSource {
     pooled = true
     driverClassName = "com.mysql.jdbc.Driver"
-    username = "onlypriceadmin"
-    password = "shenghuo111"
-    //username="fql13"
-    //password="keyidaxie"
+    //username = "onlypriceadmin"
+    //password = "shenghuo111"
+    username="fql13"
+    password="keyidaxie"
     dialect = org.hibernate.dialect.MySQL5InnoDBDialect
     properties {
         maxActive = 50
@@ -30,8 +30,8 @@ environments {
     dev {
         dataSource {
             //dbCreate = "update" // one of 'create', 'create-drop','update'
-            url = "jdbc:mysql://db4free.net:3306/onlyprice?useUnicode=true&amp;characterEncoding=utf-8"
-            //url = "jdbc:mysql://freeql.org:3306/db13?useUnicode=true&amp;characterEncoding=utf-8"
+            //url = "jdbc:mysql://db4free.org:3306/onlyprice?useUnicode=true&amp;characterEncoding=utf-8"
+            url = "jdbc:mysql://freeql.org:3306/db13?useUnicode=true&amp;characterEncoding=utf-8"
         }
     }
     test {

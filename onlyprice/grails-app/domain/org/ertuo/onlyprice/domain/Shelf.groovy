@@ -40,4 +40,14 @@ class Shelf {
         version false
         goods column:'goods'
     }
+
+    static constraints = {
+        utils blank:false, inList: [
+            "1",
+            "10",
+            "100",
+            "1000",
+            "10000"
+        ]
+    }
 }

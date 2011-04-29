@@ -5,7 +5,7 @@
     </head>
     ${session.top_session}
 		    
-	<form  method="post" action="${grailsApplication.config.grails.serverURL}/goods/search"  >
+	<form  method="post" action="${grailsApplication.config.grails.serverURL}/admin/search"  >
 
 				
 			<div>
@@ -15,9 +15,9 @@
  	 			</span>
 					<p>
 						<label class="label" for="login">价格区间:</label>
-						<input type="text" name="bPrice" id="bPrice" value="${bPrice}" />
+						<input type="text" name="bPrice" id="bPrice" value="${params.bPrice}" />
 							到
-						<input type="text" name="ePrice" value="${ePrice}" id="ePrice"/>	
+						<input type="text" name="ePrice" value="${params.ePrice}" id="ePrice"/>	
 						<div class="errormsg">
 							<g:if test="${flash.message}">
 								<strong class="h">INFO</strong>
@@ -36,13 +36,13 @@
 		
 		<g:each in="${list}">
 						<div class="one-goods" style="width: 150px;">
-							<p><g:remoteLink action="ajaxAdd" id="1" controller="goods" update="msg" params="[numId:it.numIid]" > <img src="${it?.picUrl}" style="height: 124px; width: 124px;"/></g:remoteLink></p>
-							<p><a href="${grailsApplication.config.grails.serverURL}/goods/ajaxAdd?numId=${it.numIid}">${it.title}</a></p>
+							<p><a href="${grailsApplication.config.openVar.tbdetail}${it.fId}" target="_black" alt="宝贝详情">${it.title}</a></p>
 							<p><span class="one-price">一口价&nbsp;￥</span><span class="shop-price">${it.price}</span></p>
+							<p><a href="${grailsApplication.config.grails.serverURL}/admin/check?id=${it.id}" >发布</a></p>
 						</div>
 		</g:each> 
-		<g:if test="${count}"> 	
-			<g:paginate total="${count}" params="${params}" />
+		<g:if test="${counts}"> 	
+			<g:paginate total="${counts}" params="${params}" />
 		</g:if>
 		<div id="msg">
 		</div>
