@@ -17,7 +17,7 @@
 			<div class="select-bar-border-no"></div>
 	        <div class="body">
 	            <g:form action="check" method="post" >
-	            	<input type="hidden" name="goods.id" value="${sf?.goods?.id}">
+	            	<input type="hidden" name="goods.fId" value="${sf?.goods?.fId}">
 	                <div class="dialog">
 	                	<div class="subdialog">
 	                		<p>
@@ -30,11 +30,12 @@
                             </p>
                             <p class='value ${hasErrors(bean:sf,field:'onTime','errors')}'>
                                  <label for='onTime'>上架时间:</label>
-                                 <g:datePicker name="onTime" value="${new Date()}" precision="minute" years="${2011..2015}"/>
+                                 <g:datePicker name="onTime" value="${new Date()}" precision="hour" years="${2011..2015}"/>
                             </p>
                             <p class='value ${hasErrors(bean:sf,field:'offTime','errors')}'>
                                  <label for='offTime'>下架时间:</label>
-                                 <g:datePicker name="offTime" value="${new Date()}" precision="minute" years="${2011..2015}"/>
+                                 <g:datePicker name="offTime" value="${new Date()}" precision="hour" years="${2011..2015}"/>
+                                 
                             </p>
                             <p class='value ${hasErrors(bean:sf,field:'waitTime','errors')}'>
                                  <label for='waitTime'>停滞间隔时间:（单位秒）</label>

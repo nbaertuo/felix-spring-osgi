@@ -3,11 +3,14 @@
         <title>出价吧</title>
         <meta name="layout" content="main" />
  </head>
-		<g:each in="${shelfs}">
+ 					<g:if test="${rs}" 
 						<div class="one-goods" style="width: 150px;">
-							<p><img src="${it.goods.picUrl}" style="height: 124px; width: 124px;"/></p>
-							<p><a href="${grailsApplication.config.grails.serverURL}/goods/ajaxAdd?numId=${it.goods.numIid}">${it.goods.tit.goodsle}</a></p>
-							<p><span class="one-price">一口价&nbsp;￥</span><span class="shop-price">${it.goods.price}</span></p>
+							<p><a href="${grailsApplication.config.grails.serverURL}/goods/ajaxAdd?numId=${rs.goods.fId}">${rs.goods.title}</a></p>
+							<p><span class="one-price"> 淘宝价&nbsp;￥</span><span class="shop-price">${rs.goods.price}</span></p>
+							
 						</div>
-		</g:each>
+					</g:if>	
+					<g:else>
+    			 		当前时间段没有竞价产品。
+					</g:else>
 </html>		  

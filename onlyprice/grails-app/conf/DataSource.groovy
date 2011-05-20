@@ -4,7 +4,7 @@ dataSource {
     driverClassName = "com.mysql.jdbc.Driver"
     //username = "onlypriceadmin"
     //password = "shenghuo111"
-    username="fql13"
+    username="admin"
     password="keyidaxie"
     dialect = org.hibernate.dialect.MySQL5InnoDBDialect
     properties {
@@ -29,9 +29,9 @@ hibernate {
 environments {
     dev {
         dataSource {
-            //dbCreate = "update" // one of 'create', 'create-drop','update'
+            //dbCreate = "create-drop" // one of 'create', 'create-drop','update'
             //url = "jdbc:mysql://db4free.org:3306/onlyprice?useUnicode=true&amp;characterEncoding=utf-8"
-            url = "jdbc:mysql://freeql.org:3306/db13?useUnicode=true&amp;characterEncoding=utf-8"
+            url = "jdbc:mysql://localhost:3306/onlyprice?useUnicode=true&amp;characterEncoding=utf-8"
         }
     }
     test {

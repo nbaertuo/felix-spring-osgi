@@ -7,7 +7,10 @@
 		    
 	<form  method="post" action="${grailsApplication.config.grails.serverURL}/admin/search"  >
 
-				
+			 <g:if test="${flash.message}">
+				<strong class="h">INFO</strong>
+	            <div class="box">${flash.message}</div>
+            </g:if>	
 			<div>
 				<div class="abc">
 					<span class="gaia ops gsl">
@@ -38,7 +41,7 @@
 						<div class="one-goods" style="width: 150px;">
 							<p><a href="${grailsApplication.config.openVar.tbdetail}${it.fId}" target="_black" alt="宝贝详情">${it.title}</a></p>
 							<p><span class="one-price">一口价&nbsp;￥</span><span class="shop-price">${it.price}</span></p>
-							<p><a href="${grailsApplication.config.grails.serverURL}/admin/check?id=${it.id}" >发布</a></p>
+							<p><a href="${grailsApplication.config.grails.serverURL}/admin/check?fId=${it.fId}" >发布</a></p>
 						</div>
 		</g:each> 
 		<g:if test="${counts}"> 	

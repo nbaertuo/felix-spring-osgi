@@ -32,7 +32,7 @@ class GoodsController {
             render(text:"please select goods")
         }
 
-        def item= tbService.get (id, session.top_session).item
+        def item= tbService.get (id,  session.user.sessionKey)?.item
 
         if(item){
             Goods g=new Goods(fId:item.numIid,price:item.price as Double,title:item.title,seller:session.user,gmtCreate:new Date(),descs:"",status:0)

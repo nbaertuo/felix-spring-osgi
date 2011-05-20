@@ -13,6 +13,9 @@ import java.util.Date;
  */
 class Goods {
 
+    /**  来源id*/
+    String fId
+
     /**  卖家*/
     User seller
 
@@ -25,8 +28,7 @@ class Goods {
     /**  商品描述*/
     String descs
 
-    /**  来源id*/
-    String fId
+
 
     /**  状态（申请=0，发布中=1）*/
     int status
@@ -41,8 +43,9 @@ class Goods {
     static mapping={
         table "goods"
         version false
-        id generator:'increment', column:'id'
+        //id generator:'increment', column:'id'
         seller column:'seller_id'
-        fId unique: true
+        id generator:'assigned', name:'fId'
+        //fId unique: true
     }
 }

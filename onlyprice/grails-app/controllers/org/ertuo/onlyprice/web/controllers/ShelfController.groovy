@@ -21,6 +21,11 @@ class ShelfController {
     static defaultAction="list"
 
     def list={
-        return [shelfs:Shelf.list()]
+        //Shelf.findAllByOnTileAndOffTime()
+        def now=new Date()
+        //只能返回一条数据
+        def rs=Shelf.find("from Shelf as b where b.onTime < ? and b.offTime > ?",[now, now])
+
+        return [rs:rs]
     }
 }

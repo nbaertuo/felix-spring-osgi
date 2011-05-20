@@ -56,27 +56,35 @@ class AdminController {
 
 
     def check={
-        def id=params.id?:params.goods?.id
-        def goods=Goods.get(id)
+        def id=params.fId?:params.goods?.fId
+        if(!id){
+            flash.message = "请填写商品id"
+            render(view:"search")
+        }
+        def goods=Goods.findByFId(id)
+
         //验证淘宝商品是否还在售中
-        def rs=tbService.get (goods?.fId, session.sessionKey)
+        def rs=tbService.get(id,session.user.sessionKey)
         //是否在售中
-        if(!rs.item?.approveStatus){
+        if(!rs?.item?.approveStatus){
             flash.message = "商品不在售中"
             return
         }
-        Shelf sf=new Shelf(goods:goods);
+        Shelf sf=new Shelf(goods:goods,gmtCreate:new Date());
         sf.properties = params
         //get方式请求
-        if(params.id){
+        if(params.fId){
             return [sf:sf]
         }
         if(!sf.validate()){
             sf.errors.each {
                 logger.info it.toString()
             }
+            return [sf:sf]
         }
-
+        if(sf.save()){
+            flash.message = "发布成功"
+        }
         return [sf:sf]
     }
 }

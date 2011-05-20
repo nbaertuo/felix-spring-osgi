@@ -14,6 +14,8 @@ import java.util.Date;
  */
 class Shelf {
 
+    String owner="onlyprice";
+
     /**商品  */
     Goods goods
 
@@ -37,7 +39,6 @@ class Shelf {
 
     static mapping={
         table "Shelf"
-        version false
         goods column:'goods'
     }
 
