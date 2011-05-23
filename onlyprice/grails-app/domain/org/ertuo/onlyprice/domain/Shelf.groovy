@@ -43,6 +43,7 @@ class Shelf {
     }
 
     static constraints = {
+
         utils blank:false, inList: [
             "1",
             "10",
@@ -50,5 +51,10 @@ class Shelf {
             "1000",
             "10000"
         ]
+        onTime (blank:false)
+        offTime (blank:false, validator: {val, obj ->
+
+            return val.after(obj.onTime);
+        })
     }
 }

@@ -4,6 +4,8 @@
  */
 package org.ertuo.onlyprice.web.controllers
 
+import org.apache.commons.lang.time.DateUtils;
+import org.ertuo.onlyprice.biz.ShelfService;
 import org.ertuo.onlyprice.biz.TbService
 import org.ertuo.onlyprice.domain.Goods
 import org.ertuo.onlyprice.domain.Shelf;
@@ -22,6 +24,8 @@ class AdminController {
     static defaultAction="index"
 
     TbService tbService
+
+    ShelfService shelfService
 
     def index={
         params.max=20
@@ -72,17 +76,23 @@ class AdminController {
         }
         Shelf sf=new Shelf(goods:goods,gmtCreate:new Date());
         sf.properties = params
+
+
         //get方式请求
         if(params.fId){
+            sf.onTime=shelfService.getLastEndTime()
             return [sf:sf]
         }
+        //sf.onTime=DateUtils.parseDate(params.onTime,["yyyy-MM-dd HH:MM"]as String[])
+        logger.info "begin time $sf.onTime $sf.offTime"
         if(!sf.validate()){
             sf.errors.each {
                 logger.info it.toString()
             }
             return [sf:sf]
         }
-        if(sf.save()){
+
+        if(shelfService.save(sf)){
             flash.message = "发布成功"
         }
         return [sf:sf]
