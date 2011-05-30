@@ -4,6 +4,7 @@
  */
 package org.ertuo.onlyprice.domain
 
+import java.io.Serializable;
 import java.util.Date;
 
 /**
@@ -12,9 +13,9 @@ import java.util.Date;
  * @author mo.duanm
  * @version $Id: Shelf.groovy, v 0.1 2011-4-14 下午06:40:36 mo.duanm Exp $
  */
-class Shelf {
+class Shelf implements Serializable {
 
-    String owner="onlyprice";
+    String owner="onlyprice"
 
     /**商品  */
     Goods goods
@@ -23,7 +24,7 @@ class Shelf {
     Date onTime
 
     /**下架时间  */
-    Date offTime
+    //Date offTime
 
     /**停滞间隔  */
     Long waitTime
@@ -40,6 +41,7 @@ class Shelf {
     static mapping={
         table "Shelf"
         goods column:'goods'
+        id composite:['goods', 'owner']
     }
 
     static constraints = {
@@ -51,10 +53,12 @@ class Shelf {
             "1000",
             "10000"
         ]
-        onTime (blank:false)
-        offTime (blank:false, validator: {val, obj ->
-
-            return val.after(obj.onTime);
+        //上架时间必须大于当前时间
+        onTime (blank:false, validator: { val, obj ->
+            return val.after(new Date())
         })
+        /*offTime (blank:false, validator: {val, obj ->
+         return val.after(obj.onTime);
+         })*/
     }
 }
