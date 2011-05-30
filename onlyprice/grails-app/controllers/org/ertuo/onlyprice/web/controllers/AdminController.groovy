@@ -46,6 +46,8 @@ class AdminController {
         def bprice=bPrice.toDouble()
         def eprice=ePrice.toDouble()
         def filter="between('price',$bprice,$eprice)"
+        //TODO 数据权限控制 商户只能查询商户自己的商品 管理员可以查询所有商品
+
         def c=Goods.createCriteria()
         def counts=c.count(){ filter }
         logger.info "total goods $counts"
@@ -59,32 +61,30 @@ class AdminController {
     }
 
 
-    def check={
-        def id=params.fId?:params.goods?.fId
-        if(!id){
+    /**  只传递id*/
+    def get={
+        def sf=this.getSf(params)
+        if(!sf){
             flash.message = "请填写商品id"
             render(view:"search")
         }
-        def goods=Goods.findByFId(id)
+        render(view:"check",model:[sf:sf])
+    }
 
-        //验证淘宝商品是否还在售中
-        def rs=tbService.get(id,session.user.sessionKey)
-        //是否在售中
-        if(!rs?.item?.approveStatus){
-            flash.message = "商品不在售中"
-            return
+    /**  修改*/
+    def mod={
+        def sf=shelfService.getSf(params.fId,params.owner)
+        if(!sf){
+            flash.message = "无法查询到对应的商品，请重新选择!"
+            forward(action:"list")
         }
-        Shelf sf=new Shelf(goods:goods,gmtCreate:new Date());
-        sf.properties = params
+        render(view:"check",model:[sf:sf])
+    }
 
 
-        //get方式请求
-        if(params.fId){
-            sf.onTime=shelfService.getLastEndTime()
-            return [sf:sf]
-        }
-        //sf.onTime=DateUtils.parseDate(params.onTime,["yyyy-MM-dd HH:MM"]as String[])
-        logger.info "begin time $sf.onTime $sf.offTime"
+    /**  post保存*/
+    def check={
+        def sf=this.getSf(params)
         if(!sf.validate()){
             sf.errors.each {
                 logger.info it.toString()
@@ -94,7 +94,29 @@ class AdminController {
 
         if(shelfService.save(sf)){
             flash.message = "发布成功"
+            forward(action:"list")
         }
         return [sf:sf]
+    }
+
+    /** 返回null的话 说明id不存在*/
+    private Shelf getSf(params){
+        def id=params.fId?:params.goods?.fId
+        logger.info "id= $id "
+        if(!id){
+            return null;
+        }
+        def goods=Goods.findByFId(id)
+        Shelf sf=new Shelf(goods:goods,gmtCreate:new Date());
+        sf.properties = params
+        //数据权限控制 ，当前操作用户作为货架的拥有者
+        sf.owner=session.user.us
+        return sf
+    }
+
+    def list={
+        def list= shelfService.ListAfterToday()
+        logger.info "web size=$list.size"
+        return [list:list]
     }
 }

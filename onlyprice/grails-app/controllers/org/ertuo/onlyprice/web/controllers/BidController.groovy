@@ -4,6 +4,7 @@
  */
 package org.ertuo.onlyprice.web.controllers
 
+import org.ertuo.onlyprice.biz.ShelfService;
 import org.ertuo.onlyprice.biz.TbService
 import org.ertuo.onlyprice.domain.Shelf
 import org.slf4j.Logger
@@ -14,18 +15,23 @@ import org.slf4j.LoggerFactory
  * @author mo.duanm
  * @version $Id: TbController.groovy, v 0.1 2011-4-15 下午04:13:08 mo.duanm Exp $
  */
-class ShelfController {
+class BidController {
 
     def Logger logger=LoggerFactory.getLogger(ShelfController.class)
 
-    static defaultAction="list"
+    static defaultAction="onTime"
 
-    def list={
-        //Shelf.findAllByOnTileAndOffTime()
-        def now=new Date()
+    ShelfService shelfService
+
+
+    /** 显示当前竞价的商品*/
+    def onTime={
         //只能返回一条数据
-        def rs=Shelf.find("from Shelf as b where b.onTime < ? and b.offTime > ?",[now, now])
-
+        def rs=shelfService.getNowShelf("onlyprice")
         return [rs:rs]
+    }
+
+    /**  出价*/
+    def bid={
     }
 }

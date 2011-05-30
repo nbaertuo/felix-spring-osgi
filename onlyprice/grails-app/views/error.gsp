@@ -1,6 +1,7 @@
 <html>
   <head>
-	  <title>Grails Runtime Exception</title>
+	  <title>杯具啦</title>
+	  <meta name="layout" content="main" />
 	  <style type="text/css">
 	  		.message {
 	  			border: 1px solid black;
@@ -24,8 +25,8 @@
   </head>
 
   <body>
-    <h1>Grails Runtime Exception</h1>
-    <h2>Error Details</h2>
+    <h1>貌似有点儿不对经啊！</h1>
+    <h2>是什么原因呢？</h2>
 
   	<div class="message">
 		<strong>Error ${request.'javax.servlet.error.status_code'}:</strong> ${request.'javax.servlet.error.message'.encodeAsHTML()}<br/>

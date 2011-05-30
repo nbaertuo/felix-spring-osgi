@@ -34,8 +34,9 @@
 		
 		<g:each in="${items}">
 						<div class="one-goods" style="width: 150px;">
-							<p><g:remoteLink action="ajaxAdd" id="1" controller="goods" update="msg" params="[numId:it.numIid]" > <img src="${it?.picUrl}" style="height: 124px; width: 124px;"/></g:remoteLink></p>
-							<p><a href="${grailsApplication.config.grails.serverURL}/goods/ajaxAdd?numId=${it.numIid}">${it.title}</a></p>
+						    <g:set var="title" value="${it.title}" />
+							<p><img src="${it.picUrl}" style="height: 124px; width: 124px;"/></p>
+							<p><g:remoteLink action="ajaxAdd" id="1" controller="goods" update="msg" params="[numId:it.numIid]" >${title}</g:remoteLink></p>
 							<p><span class="one-price">一口价&nbsp;￥</span><span class="shop-price">${it.price}</span></p>
 						</div>
 		</g:each>  	
