@@ -1,0 +1,5524 @@
+body, h1, h2, h3, h4, h5, h6, hr, p, blockquote, dl, dt, dd, ul, ol, li, pre, form, fieldset, legend, button, input, textarea, th, td {
+    margin: 0;
+    padding: 0;
+}
+body, button, input, select, textarea {
+    font: 12px/1.5 tahoma,arial,宋体,sans-serif;
+}
+h1, h2, h3, h4, h5, h6 {
+    font-size: 100%;
+}
+address, cite, dfn, em, var {
+    font-style: normal;
+}
+code, kbd, pre, samp {
+    font-family: courier new,courier,monospace;
+}
+small {
+    font-size: 12px;
+}
+table {
+    border-collapse: collapse;
+    border-spacing: 0;
+}
+ul, ol {
+    list-style: none outside none;
+}
+a {
+    text-decoration: none;
+}
+a:hover {
+    text-decoration: underline;
+}
+sup {
+    vertical-align: text-top;
+}
+sub {
+    vertical-align: text-bottom;
+}
+legend {
+    color: #000000;
+}
+fieldset, img {
+    border: 0 none;
+}
+button, input, select, textarea {
+    font-size: 100%;
+}
+table {
+    border-collapse: collapse;
+    border-spacing: 0;
+}
+.j-sub, .ju-popup .ft .buttons .check, .ju-steps .cls, .ju-timer p, .ju-timer span, .promise li, .infobox .pic .detail, .itemtabs li.on .angle, .ju-share h2, .ju-share li a, .ju-share .j-btn {
+    background: url("http://img04.taobaocdn.com/tps/i4/T1028OXhlgXXXXXXXX-304-970.png") no-repeat scroll 0 0 transparent;
+}
+#layout .ju-nav, .ju-nav ul li a:hover, .ju-nav ul li.on a, .ju-items .infobox, .ju-items .infobox-bot, .tabbox, .infobox .tip, .infobox .tip s, .infobox .pic .detail, .infobox .pic .taofx, .infobox .pic .taofx b, .itemtabs, .itemtabs li.last, .itemtabs li.on, .tabbox .item-sh, .tabbox .item-sh.on, .tabbox .item-sh .city-slct, .maplist .more-branches, .maplist .on h4, .ju-share h2, .ju-subscribe .hd, .ju-funcs .follow .f-btn, .ju-subscribe .j-sub, .ju-subs, .j-btnlink, .j-bigbtn, .j-lngbtn, .j-lngbtn b, .big-unavil {
+    background: url("http://img02.taobaocdn.com/tps/i2/T1.UV4XfBeXXXXXXXX-950-950.png") no-repeat scroll 0 0 transparent;
+}
+.infobox .bugbtn, .infobox .bugbtn strong, .infobox .avil .buy:hover, .infobox .jieti-front .buy:hover, .infobox .jieti-pay, .infobox .prices {
+    background: url("http://img02.taobaocdn.com/tps/i2/T19Kt4XiBiXXXXXXXX-528-822.png") no-repeat scroll 0 0 transparent;
+}
+#page {
+    background-color: #F7F7F7;
+}
+.w950 {
+    width: 950px;
+}
+.col-main {
+    float: left;
+    min-height: 1px;
+    width: 100%;
+}
+.col-sub, .col-extra {
+    float: left;
+}
+.layout:after, .main-wrap:after, .col-sub:after, .col-extra:after {
+    clear: both;
+    content: " ";
+    display: block;
+    height: 0;
+}
+.layout, .main-wrap, .col-sub, .col-extra {
+}
+#footer .foot-nav a {
+}
+#content {
+    color: #666666;
+    margin: 7px auto 0;
+    position: relative;
+    width: 990px;
+}
+#content:after {
+    clear: both;
+    content: " ";
+    display: block;
+    height: 0;
+}
+#channel-nav, #logo, #header .wrap-box {
+    display: none;
+}
+.grid-s160m0 .main-wrap {
+    margin-left: 170px;
+}
+.grid-s160m0 .col-sub {
+    margin-left: -100%;
+    width: 160px;
+}
+.grid-m0s220 .main-wrap {
+    margin-left: 0;
+    margin-right: 230px;
+}
+.grid-m0s220 .col-sub {
+    margin-left: -220px;
+    width: 220px;
+}
+.grid-s160m0e220 .main-wrap {
+    margin-left: 170px;
+    margin-right: 230px;
+}
+.grid-s160m0e220 .col-sub {
+    margin-left: -100%;
+    width: 160px;
+}
+.grid-s160m0e220 .col-extra {
+    margin-left: -220px;
+    width: 220px;
+}
+* html .grid-s160m0 .col-sub, * html .grid-s160m0e220 .col-sub {
+    margin-left: -960px;
+}
+* html .w970.grid-s160m0 .col-sub, * html .w970.grid-s160m0e220 .col-sub {
+    margin-left: -950px;
+}
+html {
+    overflow-x: hidden;
+    overflow-y: scroll;
+}
+body {
+    background-color: #FFFFFF;
+    min-width: 990px;
+    word-wrap: break-word;
+}
+body, button, input, select, textarea {
+    color: #525252;
+}
+h1 {
+    font-size: 30px;
+}
+h2 {
+    font-size: 16px;
+}
+h3 {
+    font-size: 14px;
+}
+a, a:visited {
+    color: #29A5C9;
+    text-decoration: none;
+}
+a:hover {
+    text-decoration: underline;
+}
+.hidden {
+    display: none;
+}
+.invisible {
+    visibility: hidden;
+}
+.h {
+    color: #FF5500 !important;
+}
+.floatleft {
+    float: left !important;
+}
+.floatright {
+    float: right !important;
+}
+.clearfix {
+}
+.clearfix:after {
+    clear: both;
+    content: " ";
+    display: block;
+    height: 0;
+}
+.j-text {
+    border: 1px solid #9E9E9E;
+    height: 17px;
+    line-height: 17px;
+    padding: 3px 5px;
+    vertical-align: middle;
+}
+.j-file {
+    font-size: 15px;
+    height: 25px;
+    vertical-align: top;
+}
+.j-btn {
+    vertical-align: top;
+}
+.j-sub {
+    background-position: -194px -380px;
+    color: #FFFFFF;
+    cursor: pointer;
+    display: inline-block;
+    font-family: verdana;
+    height: 26px;
+    line-height: 26px;
+    margin-right: 15px;
+    text-align: center;
+    text-decoration: none;
+    width: 89px;
+}
+.j-sub:visited {
+    color: #FFFFFF;
+    text-decoration: none;
+}
+.j-sub:hover {
+    background-position: -194px -461px;
+    color: #FFFFFF;
+    text-decoration: none;
+}
+.j-btnlink {
+    background-position: -661px -746px;
+    color: #FFFFFF;
+    display: inline-block;
+    height: 25px;
+    line-height: 25px;
+    text-align: center;
+    text-decoration: none;
+    vertical-align: middle;
+    width: 67px;
+}
+.j-btnlink:visited {
+    color: #FFFFFF;
+    text-decoration: none;
+}
+.j-btnlink:hover {
+    background-position: -661px -773px;
+    text-decoration: none;
+}
+.j-bigbtn {
+    background-position: -602px -667px;
+    color: #FFFFFF;
+    display: inline-block;
+    font-family: "微软雅黑";
+    font-size: 18px;
+    font-weight: bold;
+    height: 36px;
+    line-height: 36px;
+    text-align: center;
+    text-decoration: none;
+    width: 127px;
+}
+.j-bigbtn:visited {
+    color: #FFFFFF;
+    text-decoration: none;
+}
+.j-bigbtn:hover {
+    background-position: -602px -704px;
+    color: #FFFFFF;
+    text-decoration: none;
+}
+.big-unavil {
+    background-position: -602px -588px;
+    color: #999999;
+}
+.big-unavil:visited {
+    color: #999999;
+}
+.big-unavil:hover {
+    background-position: -602px -625px;
+    color: #999999;
+}
+.sub-unavil {
+    background-position: -194px -434px;
+    color: #BABABA;
+}
+.sub-unavil:visited {
+    background-position: -194px -434px;
+    color: #BABABA;
+}
+.sub-unavil:hover {
+    color: #BABABA;
+}
+.j-lngbtn {
+    background-position: -772px -176px;
+    color: #FFFFFF;
+    display: inline-block;
+    height: 25px;
+    line-height: 25px;
+    padding: 0 6px 0 8px;
+    position: relative;
+    text-align: center;
+    text-decoration: none;
+    vertical-align: middle;
+    width: auto;
+}
+.j-lngbtn b {
+    background-position: -943px -176px;
+    display: block;
+    height: 25px;
+    overflow: hidden;
+    position: absolute;
+    right: -1px;
+    top: 0;
+    width: 6px;
+}
+.j-lngbtn:visited {
+    color: #FFFFFF;
+}
+.j-lngbtn:hover {
+    background-position: -772px -203px;
+    color: #FFFFFF;
+    text-decoration: none;
+}
+.j-lngbtn:hover b {
+    background-position: -943px -203px;
+}
+.j-greenbtn {
+    background-position: -772px -232px;
+}
+.j-greenbtn b {
+    background-position: -943px -232px;
+}
+.j-greenbtn:hover {
+    background-position: -772px -259px;
+}
+.j-greenbtn:hover b {
+    background-position: -943px -259px;
+}
+.btn-small {
+    background: url("http://img02.taobaocdn.com/tps/i2/T1ZW1bXo4bXXXXXXXX-155-700.png") no-repeat scroll 0 0 transparent;
+    color: #666666;
+    display: inline-block;
+    font-size: 12px;
+    height: 21px;
+    line-height: 21px;
+    position: relative;
+    text-align: center;
+    text-decoration: none;
+    text-shadow: 1px 1px 1px #FFFFFF;
+    width: 57px;
+}
+.btn-small:visited {
+    color: #666666;
+}
+.btn-small:hover {
+    background-position: 0 -24px;
+    color: #666666;
+    text-decoration: none;
+}
+.btn-small b {
+    background: url("http://img02.taobaocdn.com/tps/i2/T1ZW1bXo4bXXXXXXXX-155-700.png") no-repeat scroll -53px 0 transparent;
+    display: block;
+    height: 21px;
+    overflow: hidden;
+    position: absolute;
+    right: -1px;
+    top: 0;
+    width: 4px;
+}
+.btn-small:hover b {
+    background: url("http://img02.taobaocdn.com/tps/i2/T1ZW1bXo4bXXXXXXXX-155-700.png") no-repeat scroll -53px -24px transparent;
+}
+.btn-width {
+    padding: 0 5px;
+    width: auto;
+}
+.small-blue {
+    background-position: 0 -48px;
+    color: #FFFFFF;
+    text-shadow: 1px 1px 1px #227AA7;
+}
+.small-blue:visited {
+    color: #FFFFFF;
+}
+.small-blue:hover {
+    background-position: 0 -72px;
+    color: #FFFFFF;
+}
+.small-blue b {
+    background: url("http://img02.taobaocdn.com/tps/i2/T1ZW1bXo4bXXXXXXXX-155-700.png") no-repeat scroll -53px -48px transparent;
+}
+.small-blue:hover b {
+    background: url("http://img02.taobaocdn.com/tps/i2/T1ZW1bXo4bXXXXXXXX-155-700.png") no-repeat scroll -53px -72px transparent;
+}
+.btn-middle {
+    background: url("http://img02.taobaocdn.com/tps/i2/T1ZW1bXo4bXXXXXXXX-155-700.png") no-repeat scroll 0 -148px transparent;
+    color: #FFFFFF;
+    display: inline-block;
+    font-size: 14px;
+    height: 29px;
+    line-height: 29px;
+    position: relative;
+    text-align: center;
+    text-decoration: none;
+    text-shadow: 1px 1px 1px #505050;
+    width: 87px;
+}
+.btn-middle b {
+    background: url("http://img02.taobaocdn.com/tps/i2/T1ZW1bXo4bXXXXXXXX-155-700.png") no-repeat scroll -53px 0 transparent;
+    display: block;
+    height: 29px;
+    overflow: hidden;
+    position: absolute;
+    right: -1px;
+    top: 0;
+    width: 4px;
+}
+.btn-middle:visited {
+    color: #FFFFFF;
+}
+.btn-middle:hover {
+    color: #FFFFFF;
+    text-decoration: none;
+}
+.middle-blue {
+    background-position: 0 -148px;
+    text-shadow: 1px 1px 1px #227AA7;
+}
+.middle-blue:hover {
+    background-position: 0 -180px;
+}
+.middle-red {
+    background-position: 0 -212px;
+    text-shadow: 1px 1px 1px #A51100;
+}
+.middle-red:hover {
+    background-position: 0 -244px;
+}
+.middle-green {
+    background-position: 0 -276px;
+    text-shadow: 1px 1px 1px #768E00;
+}
+.middle-green:hover {
+    background-position: 0 -308px;
+}
+.middle-gray {
+    background-position: 0 -340px;
+    text-shadow: 1px 1px 1px #505050;
+}
+.middle-gray:hover {
+    background-position: 0 -340px;
+}
+.middle-long-red {
+    background-position: 0 -372px;
+    padding: 0 5px;
+    text-shadow: 1px 1px 1px #A51100;
+    width: auto;
+}
+.middle-long-red:hover {
+    background-position: 0 -404px;
+}
+.middle-long-red b {
+    background: url("http://img02.taobaocdn.com/tps/i2/T1ZW1bXo4bXXXXXXXX-155-700.png") no-repeat scroll -151px -372px transparent;
+}
+.middle-long-red:hover b {
+    background: url("http://img02.taobaocdn.com/tps/i2/T1ZW1bXo4bXXXXXXXX-155-700.png") no-repeat scroll -151px -404px transparent;
+}
+.btn-big {
+    background: url("http://img02.taobaocdn.com/tps/i2/T1ZW1bXo4bXXXXXXXX-155-700.png") no-repeat scroll 0 -440px transparent;
+    color: #FFFFFF;
+    cursor: pointer;
+    display: inline-block;
+    font-family: "微软雅黑";
+    font-size: 19px;
+    height: 35px;
+    line-height: 35px;
+    position: relative;
+    text-align: center;
+    text-decoration: none;
+    text-shadow: 1px 1px 1px #569CDD;
+    width: 126px;
+}
+.btn-big:visited {
+    color: #FFFFFF;
+}
+.btn-big:hover {
+    background-position: 0 -480px;
+    color: #FFFFFF;
+    text-decoration: none;
+}
+.big-gray {
+    background-position: 0 -520px;
+    color: #999999;
+    text-shadow: none;
+}
+.big-gray:hover {
+    background-position: 0 -560px;
+    color: #999999;
+}
+i.icon {
+    background: url("http://img02.taobaocdn.com/tps/i2/T1hzyaXi4pXXXXXXXX-16-150.png") no-repeat scroll 0 0 transparent;
+    display: inline-block;
+    height: 16px;
+    margin-right: 10px;
+    vertical-align: middle;
+    width: 16px;
+}
+i.sina {
+    background-position: 0 0;
+}
+i.tao {
+    background-position: 0 -30px;
+}
+i.qqwb {
+    background-position: 0 -60px;
+}
+i.ren {
+    background-position: 0 -90px;
+}
+i.kx {
+    background-position: 0 -120px;
+}
+.page-skip button, .page-prev, .page-next, .page-start, .page-end {
+    background-image: url("http://img01.taobaocdn.com/tps/i1/T1OOpmXeVxXXXXXXXX-300-380.png") !important;
+    background-position: -9999px 0;
+    background-repeat: no-repeat;
+}
+li.pagination {
+    float: right;
+    margin: 0;
+    width: 150px;
+}
+li.pagination .page-next span {
+    background-image: none !important;
+}
+.pagination {
+    font-family: Tahoma;
+    font-size: 12px;
+    height: 22px;
+    margin-top: 30px;
+}
+.page-top, .page-bottom {
+    float: right;
+}
+.pagination a, .page-info, .page-prev, .page-cur, .page-start, .page-end, .page-break, .page-skip {
+    float: left;
+    font-family: Tahoma,SimSun,Arial;
+    height: 18px;
+    line-height: 18px;
+    margin: 0 3px 0 0;
+    text-align: center;
+    vertical-align: middle;
+    white-space: nowrap;
+}
+.page-start, .pagination a, .page-end {
+    border: 1px solid #CCCCCC;
+    padding: 0 5px;
+}
+.pagination a:hover {
+    border: 1px solid #FD6D01;
+    text-decoration: none;
+}
+.page-start {
+    background-position: 7px -217px;
+    padding: 0 !important;
+    width: 20px;
+}
+a.page-prev {
+    background-position: -68px -217px !important;
+    padding: 0 !important;
+    width: 20px;
+}
+.page-cur, .page-break {
+    padding: 0 3px;
+}
+a.page-next {
+    background-position: -179px -217px !important;
+    padding-right: 16px;
+}
+.page-end {
+    background-position: -104px -217px;
+    padding-right: 16px;
+}
+.page-cur {
+    background-color: #FFEDE1;
+    border: 1px solid #FD6D01;
+    color: #FD6D01;
+    font-weight: 700;
+    padding: 0 5px;
+}
+.page-skip {
+    color: #666666;
+    padding: 0 3px;
+}
+.page-skip input {
+    border: 1px solid #999999;
+    color: #000000;
+    font-family: Tahoma,SimSun,Arial;
+    height: 18px;
+    margin: 0 5px;
+    text-align: center;
+    vertical-align: top;
+    width: 30px;
+}
+.page-skip button {
+    background-position: -238px 0;
+    border: 0 none;
+    height: 19px;
+    margin: 0 0 0 5px;
+    text-indent: -9999px;
+    width: 37px;
+}
+.page-prev span, .page-start span, .page-mini .page-next span, .page-mini .page-end span, .page-skip button span {
+    display: none !important;
+}
+.page-skip #page {
+    width: auto;
+}
+.sbook {
+    float: left;
+    margin: 3px 0 0 6px;
+}
+.ju-msg-error {
+    background: none repeat scroll 0 0 #FFFBDE;
+    border: 1px solid #F7E3B3;
+    color: #FF8500;
+    line-height: 2;
+    padding: 20px 20px 20px 90px;
+}
+.app-home .ju-msg-error .tips {
+    background-position: -20px -15px;
+    border: 0 none;
+}
+.app-home .ju-msg-error .tips .sns-emots {
+    margin-left: 10px;
+}
+.ju-msg-error h3 {
+    font-size: 14px;
+}
+.ju-msg-error .icon {
+    background: url("http://a.tbcdn.cn/app/sns/img/emots.png") no-repeat scroll 0 0 transparent;
+    display: block;
+    float: left;
+    height: 60px;
+    margin-left: -70px;
+    margin-top: 10px;
+    width: 60px;
+}
+.ju-msg-error .export {
+    color: #666666;
+}
+.ju-popup p {
+    font-size: 14px;
+}
+.ju-popup .error-content {
+    background: url("http://a.tbcdn.cn/app/sns/img/face/46.gif") no-repeat scroll 0 0 transparent;
+    height: 50px;
+    margin-left: 0;
+    padding-left: 70px;
+    padding-top: 23px;
+}
+.ju-popup .cry {
+    background: url("http://a.tbcdn.cn/app/sns/img/face/48.gif") no-repeat scroll 0 center transparent;
+}
+.ju-popup .smile {
+    background: url("http://a.tbcdn.cn/app/sns/img/face/0.gif") no-repeat scroll 0 center transparent;
+}
+.ju-popup .laugh {
+    background: url("http://a.tbcdn.cn/app/sns/img/face/3.gif") no-repeat scroll 0 center transparent;
+}
+.ju-popup .poor {
+    background: url("http://a.tbcdn.cn/app/sns/img/face/22.gif") no-repeat scroll 0 center transparent;
+}
+.ju-popup .succed-content {
+    background: url("http://a.tbcdn.cn/app/sns/img/face/11.gif") no-repeat scroll 0 0 transparent;
+    height: 50px;
+    margin-left: 30px;
+    padding-left: 80px;
+    padding-top: 20px;
+}
+.ju-popup form.disable .txt {
+    background-color: #EBE9ED;
+}
+.ju-popup form table {
+    display: none;
+    font-size: 12px;
+    margin-left: -10px;
+    width: 380px;
+}
+.ju-popup form table tr {
+    height: 30px;
+}
+.ju-popup form select {
+    width: 60px;
+}
+.ju-popup form .red {
+    font-size: 12px;
+    font-weight: normal;
+}
+.ju-popup form .left {
+    text-align: right;
+    vertical-align: middle;
+}
+.ju-popup form .top {
+    text-align: right;
+    vertical-align: top;
+}
+.ju-popup form .right {
+    padding-left: 5px;
+    text-align: left;
+    vertical-align: top;
+}
+.ju-popup form .txt {
+    border: 1px solid #9E9E9E;
+    padding: 5px;
+}
+.ju-popup form.able .txt {
+    background: url("http://assets.taobaocdn.com/app/sns/img/input_bg.png") no-repeat scroll 0 0 transparent;
+    border: 1px solid #9E9E9E;
+    padding: 5px;
+}
+.ju-popup form .btn {
+    background-position: 0 -53px;
+    margin-left: 150px;
+}
+.ju-popup form .addresslist {
+    display: block;
+    margin-top: -19px;
+    max-height: 37px;
+    overflow: hidden;
+    padding-left: 20px;
+}
+.ju-popup .busy {
+    background: url("http://img02.taobaocdn.com/tps/i1/T1zpNLXjdjXXXXXXXX-24-24.gif") no-repeat scroll 0 0 transparent;
+    height: 24px;
+    margin: -12px 0 0 164px;
+    width: 24px;
+}
+.ju-popup .ft .buttons .unavil {
+    background-color: #F3F3F3;
+    color: #999999;
+}
+.ju-popup .ft .buttons .unavil:hover {
+    background-color: #F3F3F3;
+}
+.ju-popup .bd .order {
+    line-height: 2em;
+    padding: 20px 55px;
+}
+.ju-popup .bd .order .error-content {
+    display: inline-block;
+    margin-top: 50px;
+    vertical-align: middle;
+}
+.ju-popup .bd .order p strong {
+    color: #FF0000;
+    margin: 0 5px;
+}
+.ju-popup .bd .order .ju-timer {
+    display: inline-block;
+    margin-left: 15px;
+    margin-top: 50px;
+    vertical-align: middle;
+}
+.ju-popup .bd .order .ju-timer .label {
+    padding-top: 10px;
+}
+.ju-popup .bd .order .ju-timer .hour {
+    display: none;
+}
+.ju-popup .ft .buttons .check {
+    background-position: 0 -770px;
+    border: medium none;
+    color: #FFFFFF;
+    cursor: pointer;
+    font-size: 0;
+    height: 41px;
+    width: 103px;
+}
+.ju-popup .ft .buttons .check:hover {
+    background-position: -104px -770px;
+}
+.ju-popup .ft .buttons .unvil {
+    background-position: -104px -812px;
+}
+.ju-popup .ft .buttons .unvil:hover {
+    background-position: -104px -812px;
+}
+.ju-popup .ft .buttons .order {
+    background-position: 0 -728px;
+}
+.ju-popup .ft .buttons .order:hover {
+    background-position: -104px -728px;
+}
+.ju-popup .ft .buttons .check span {
+    letter-spacing: 0;
+    padding: 0;
+}
+del {
+}
+.ks-editor-post p, .ks-editor-post fieldset, .ks-editor-post pre {
+    line-height: 2em;
+    margin-bottom: 0;
+}
+.ju-popup-wrapper {
+    height: 100%;
+    left: 0;
+    position: fixed;
+    top: 0;
+    width: 100%;
+    z-index: 9000;
+}
+.ju-popup-mask {
+    background-color: #999999;
+    height: 100%;
+    left: 0;
+    opacity: 0.5;
+    position: absolute;
+    top: 0;
+    width: 100%;
+}
+.ju-popup-hidemask .ju-popup-mask {
+    display: none;
+}
+.ju-popup {
+    border: 7px solid #BBBBBB;
+    border-radius: 5px 5px 5px 5px;
+    margin-left: auto;
+    margin-right: auto;
+    position: relative;
+    top: 30%;
+    width: 350px;
+    z-index: 5000;
+}
+.ju-popup .hd {
+    background-color: #FF790A;
+    height: 22px;
+    line-height: 22px;
+    padding-left: 8px;
+}
+.ju-popup .hd h3 {
+    color: #FFFFFF;
+    font-size: 12px;
+}
+.ju-popup-wrapper .prompt .hd, .ju-popup-wrapper .failure .hd, .ju-popup-wrapper .error .hd {
+    background-color: #CA0002;
+}
+.ju-popup-wrapper .prompt .hd, .ju-popup-wrapper .failure .hd, .ju-popup-wrapper .error .hd {
+    font-weight: bold;
+}
+.ju-popup-wrapper .success .hd {
+    background-color: #8EAF1B;
+}
+.ju-popup-wrapper .white .hd {
+    background-color: white;
+    border-bottom: 1px solid #D1D1D1;
+    font-weight: bold;
+}
+.ju-popup-wrapper .white .ft .btn-close {
+    color: #C9C9C9;
+}
+.ju-popup-wrapper .bd .icon {
+    background: url("http://a.tbcdn.cn/app/sns/img/emots.png") no-repeat scroll -1000px -1000px transparent;
+    float: left;
+    height: 50px;
+    margin-left: -60px;
+    min-height: 50px;
+    position: absolute;
+    width: 60px;
+}
+.ju-popup-wrapper .prompt .bd, .ju-popup-wrapper .failure .bd, .ju-popup-wrapper .success .bd {
+    min-height: 50px;
+    padding-left: 85px;
+}
+.ju-popup-wrapper .prompt .bd .icon {
+    background-position: 0 -100px;
+}
+.ju-popup-wrapper .failure .bd .icon {
+    background-position: -60px -50px;
+}
+.ju-popup-wrapper .success .bd .icon {
+    background-position: -120px 0;
+}
+.ju-popup .bd {
+    background-color: #FFFFFF;
+    border: 1px solid #DDDDDD;
+    color: #333333;
+    line-height: 1.5em;
+    padding: 16px 25px;
+}
+.ju-popup .ft {
+    background-color: #F5F5F5;
+}
+.ju-popup .ft .buttons {
+    padding: 11px 0;
+    text-align: center;
+}
+.ju-popup .ft .buttons button {
+    background-color: #EEEEEE;
+    border: 1px solid #BABABA;
+    color: #333333;
+    font-size: 12px;
+    height: 25px;
+    line-height: 25px;
+    margin-right: 20px;
+    overflow: visible;
+}
+.ju-popup .ft .buttons button:hover {
+    background-color: #FFFFFF;
+}
+.ju-popup .ft .buttons button span {
+    letter-spacing: 5px;
+    padding: 0 8px 0 13px;
+}
+.ju-popup .ft .btn-close, .ju-popup .bd .btn-close {
+    color: #FFFFFF;
+    font-family: Tahoma,sans;
+    font-size: 12px;
+    font-weight: bold;
+    position: absolute;
+    right: 8px;
+    text-decoration: none;
+    top: 3px;
+}
+.no-hd .ft .btn-close, .ju-popup .bd .btn-close {
+    color: #999999;
+}
+.ju-popup .no-close .ft .btn-close {
+    display: none;
+}
+.ju-popup textarea, .ju-popup .f-txt {
+    border: 1px solid #C2C2C2;
+    color: #666666;
+}
+.ju-popup .bd .ju-nf p {
+    padding-left: 0;
+}
+.ju-popup textarea {
+    height: 60px;
+    padding: 2px 0;
+    width: 99%;
+}
+.ju-popup .f-txt {
+    padding: 5px 0;
+}
+.ju-popup.popup-friendgroup .bd {
+    padding: 9px 0 !important;
+}
+.ju-popup.popup-friendgroup ul {
+    max-height: 210px;
+    overflow-x: hidden;
+    overflow-y: auto;
+}
+.ju-popup.popup-friendgroup ul.fixed {
+}
+.ju-popup.popup-friendgroup li {
+    height: 21px;
+    line-height: 21px;
+}
+.ju-popup.popup-friendgroup li a, .ju-popup.popup-friendgroup li span {
+    color: #535353;
+    cursor: pointer;
+    display: block;
+    padding: 0 11px;
+    text-decoration: none;
+}
+.ju-popup.popup-friendgroup li a {
+}
+.ju-popup.popup-friendgroup li a:hover {
+    background-color: #8ACEDF;
+    color: white;
+}
+.ju-popup.popup-friendgroup li input {
+    width: 70px;
+}
+.ju-popup.popup-groupselector {
+    width: 168px;
+}
+.ju-popup.popup-groupselector .bd {
+    padding: 4px 0 !important;
+}
+.ju-popup.popup-groupselector ul {
+    max-height: 220px;
+    overflow-x: hidden;
+    overflow-y: auto;
+    position: relative;
+}
+.ju-popup.popup-groupselector ul.fixed {
+}
+.ju-popup.popup-groupselector li {
+    margin-bottom: 2px;
+    position: relative;
+}
+.ju-popup.popup-groupselector li span.newgroup {
+    background-color: #F3F3F3;
+    display: block;
+    padding: 0 6px;
+}
+.ju-popup.popup-groupselector li span.newgroup input {
+    -moz-border-bottom-colors: none;
+    -moz-border-image: none;
+    -moz-border-left-colors: none;
+    -moz-border-right-colors: none;
+    -moz-border-top-colors: none;
+    background: url("http://a.tbcdn.cn/app/sns/img/input_bg.png") no-repeat scroll 0 0 #FFFFFF;
+    border-color: #9D9D9D #C8C8C8 #C8C8C8 #9D9D9D;
+    border-style: solid;
+    border-width: 1px;
+    padding: 2px;
+    width: 90px;
+}
+.ju-popup.popup-groupselector li span.newgroup button {
+    margin-left: 2px;
+}
+.ju-popup.popup-groupselector a {
+    color: #333333;
+    display: block;
+    line-height: 20px;
+    padding: 0 6px;
+    white-space: nowrap;
+    width: 100%;
+}
+.ju-popup.popup-groupselector a:hover {
+    background-color: #F3F3F3;
+    font-weight: bold;
+    text-decoration: none;
+}
+.ju-popup.popup-groupselector li a .operate {
+    margin: 0;
+    padding: 0;
+    position: absolute;
+    right: 0;
+    top: 0;
+    visibility: hidden;
+}
+.ju-popup.popup-groupselector li a:link .operate, .ju-popup.popup-groupselector li a:visited .operate {
+    visibility: hidden;
+}
+.ju-popup.popup-groupselector li a:hover .operate {
+    visibility: visible;
+}
+.ju-popup.popup-groupselector li a .operate span {
+    background: url("http://a.tbcdn.cn/app/sns/img/sns_icons_16x16_8.png") no-repeat scroll 0 -394px transparent;
+    display: inline-block;
+    font-size: 0;
+    height: 16px;
+    line-height: 100px;
+    overflow: hidden;
+    vertical-align: middle;
+    width: 16px;
+}
+.ju-popup.popup-groupselector li a .operate .del {
+    background: url("http://a.tbcdn.cn/app/sns/img/sns_icons_16x16_8.png") no-repeat scroll 0 -359px transparent;
+}
+.ju-popup.popup-groupselector div.addgroup a {
+    padding: 0;
+}
+.ju-popup.popup-groupselector div.addgroup span {
+    color: #333333;
+    margin-left: 6px;
+}
+.ju-popup.popup-pokes {
+    width: 425px;
+}
+.ju-popup.popup-pokes .bd {
+    padding-left: 0 !important;
+    padding-right: 0 !important;
+}
+.ju-popup.popup-pokes .action {
+    margin: 0 10px;
+}
+.ju-popup.popup-pokes .action li {
+    float: left;
+    line-height: 20px;
+    margin-bottom: 8px;
+    margin-right: 3px;
+}
+.ju-popup.popup-pokes .action li a {
+    border: 1px solid white;
+    color: #62676B;
+    display: block;
+    height: 20px;
+    overflow: hidden;
+    text-decoration: none;
+    white-space: nowrap;
+    width: 95px;
+}
+.ju-popup.popup-pokes .action li a:hover {
+    background-color: #F0F5F9;
+    border: 1px solid #D5E6F5;
+}
+.ju-popup.popup-pokes .action li a img {
+    margin-right: 5px;
+    vertical-align: middle;
+}
+.ju-popup.popup-pokes .customize {
+    border-top: 1px solid #E8E8E8;
+    padding: 6px 10px 0;
+}
+.ju-popup.popup-pokes .customize .poke-receiver {
+    color: #FF6600;
+    white-space: nowrap;
+}
+.ju-popup.popup-pokes .customize a {
+    text-decoration: none;
+}
+.ju-popup.popup-pokes .customize .act {
+    margin-left: 10px;
+}
+.ju-popup.popup-pokes.notfriend {
+    width: 325px;
+}
+.ju-popup.popup-pokes.notfriend .pokes-list .action li {
+    margin-bottom: 0;
+}
+.ju-popup.popup-pokes.notfriend .customize {
+    display: none;
+}
+.ju-popup.popup-faces {
+    width: 320px;
+}
+.ju-popup.popup-faces .bd {
+    padding: 4px !important;
+}
+.ju-popup.popup-faces .bd a {
+    border: 1px solid #FFFFFF;
+    cursor: pointer;
+    display: block;
+    float: left;
+    padding: 1px;
+}
+.ju-popup.popup-faces .bd a:hover {
+    border-color: #999999;
+}
+.ju-popup.popup-faces .bd a img {
+    float: left;
+}
+.ju-popup.popup-translucent {
+    background: url("http://a.tbcdn.cn/app/sns/img/popup_bg.png") no-repeat scroll 0 -4px transparent;
+    border: medium none;
+    margin: 0;
+    padding: 6px;
+    top: 0;
+}
+.ju-popup.popup-translucent .hd {
+    -moz-border-bottom-colors: none;
+    -moz-border-image: none;
+    -moz-border-left-colors: none;
+    -moz-border-right-colors: none;
+    -moz-border-top-colors: none;
+    background: none repeat scroll 0 0 #FFFFFF;
+    border-color: #BBBBBB #BBBBBB -moz-use-text-color;
+    border-style: solid solid none;
+    border-width: 1px 1px medium;
+    display: block;
+    line-height: 20px;
+    margin: 0;
+    padding: 0;
+}
+.ju-popup.popup-translucent .hd.naked {
+    height: 0;
+}
+.ju-popup.popup-translucent .hd .horn {
+    background: url("http://a.tbcdn.cn/app/sns/img/popup_bg_horn.png") no-repeat scroll 0 0 transparent;
+    display: block;
+    font: 0pt/99px arial;
+    height: 12px;
+    left: 30px;
+    overflow: hidden;
+    position: absolute;
+    top: -4px;
+    width: 11px;
+}
+.ju-popup.popup-translucent .hd .horn.right {
+    left: auto;
+    right: 30px;
+}
+.popup-translucent .bd {
+    -moz-border-bottom-colors: none;
+    -moz-border-image: none;
+    -moz-border-left-colors: none;
+    -moz-border-right-colors: none;
+    -moz-border-top-colors: none;
+    background: none repeat scroll 0 0 #FFFFFF;
+    border-color: -moz-use-text-color #BBBBBB #BBBBBB;
+    border-right: 1px solid #BBBBBB;
+    border-style: none solid solid;
+    border-width: medium 1px 1px;
+    padding: 10px;
+}
+fieldset.ju-popup.popup-translucent legend.hd {
+    border: medium none;
+}
+fieldset.ju-popup.popup-translucent .bd {
+    border-top: 1px solid #BBBBBB;
+}
+.ju-popup.popup-shadow {
+    -moz-border-bottom-colors: none;
+    -moz-border-image: none;
+    -moz-border-left-colors: none;
+    -moz-border-right-colors: none;
+    -moz-border-top-colors: none;
+    background: none repeat scroll 0 0 #F7F7F7;
+    border-color: -moz-use-text-color #E9E9E9 #E9E9E9 -moz-use-text-color;
+    border-style: none solid solid none;
+    border-width: medium 2px 2px medium;
+    margin: 0;
+    padding-top: 2px;
+    top: 0;
+}
+.ju-popup.popup-shadow .hd {
+    -moz-border-bottom-colors: none;
+    -moz-border-image: none;
+    -moz-border-left-colors: none;
+    -moz-border-right-colors: none;
+    -moz-border-top-colors: none;
+    background: none repeat scroll 0 0 transparent;
+    border-color: #D1D1D1 #D1D1D1 -moz-use-text-color;
+    border-style: solid solid none;
+    border-width: 1px 1px medium;
+    height: 32px;
+    line-height: 32px;
+    margin: -2px 0 -2px -2px;
+    position: relative;
+    top: -2px;
+}
+.ju-popup.popup-shadow .hd.naked {
+    height: 0;
+}
+.ju-popup.popup-shadow .hd h3 {
+    color: #666666;
+}
+.ju-popup.popup-shadow .bd {
+    -moz-border-bottom-colors: none;
+    -moz-border-image: none;
+    -moz-border-left-colors: none;
+    -moz-border-right-colors: none;
+    -moz-border-top-colors: none;
+    background: none repeat scroll 0 0 transparent;
+    border-color: -moz-use-text-color #D1D1D1 #D1D1D1;
+    border-right: 1px solid #D1D1D1;
+    border-style: none solid solid;
+    border-width: medium 1px 1px;
+    margin: 0 0 0 -2px;
+    padding: 10px;
+}
+.ju-popup.popup-shadow .ft .btn-close, .ju-popup.popup-shadow .ft .btn-close:visited {
+    color: #C6C6C6;
+    right: 10px;
+    top: 8px;
+}
+.ju-pop-notice {
+    -moz-border-bottom-colors: none;
+    -moz-border-image: none;
+    -moz-border-left-colors: none;
+    -moz-border-right-colors: none;
+    -moz-border-top-colors: none;
+    background-color: #F2F2F2;
+    border-color: -moz-use-text-color #D6D6D6 #D6D6D6;
+    border-right: 1px solid #D6D6D6;
+    border-style: none solid solid;
+    border-width: 0 1px 1px;
+    color: #999999;
+    padding: 5px 0;
+    position: absolute;
+    width: 178px;
+    z-index: 20;
+}
+.ju-pop-notice .operate {
+    float: right;
+    margin: 0;
+    padding: 0;
+}
+.ju-pop-notice .operate span {
+    background: url("http://a.tbcdn.cn/app/sns/img/sns_icons_16x16_8.png") no-repeat scroll 0 -394px transparent;
+    display: inline-block;
+    font-size: 0;
+    height: 16px;
+    line-height: 100px;
+    overflow: hidden;
+    vertical-align: middle;
+    width: 16px;
+}
+.ju-pop-notice .operate .del {
+    background: url("http://a.tbcdn.cn/app/sns/img/sns_icons_16x16_8.png") no-repeat scroll 0 -359px transparent;
+}
+.ju-pop-notice li {
+    color: #999999;
+    line-height: 20px;
+}
+.ju-pop-notice .useless-link {
+    color: #999999;
+    display: block;
+    line-height: 16px;
+    padding: 2px 5px;
+}
+.ju-pop-notice .useless-link .operate {
+    display: none;
+}
+.ju-pop-notice .useless-link:hover {
+    background-color: #8ACEDF;
+    color: #FFFFFF;
+    text-decoration: none;
+}
+.ju-pop-notice .useless-link:hover .operate {
+    display: inline;
+}
+.ju-pop-notice input {
+    height: 18px;
+    line-height: 18px;
+    margin-right: 5px;
+    vertical-align: middle;
+    width: 122px;
+}
+.ju-pop-notice button {
+    cursor: pointer;
+    vertical-align: middle;
+}
+.ju-pop-notice .word {
+    line-height: 16px;
+    padding: 5px;
+}
+.f-search-m {
+    border-bottom: 1px solid #EEEEEE;
+    font-family: Tahoma;
+    margin: 0 10px;
+    padding: 10px 20px;
+}
+.f-search-m span {
+    cursor: pointer;
+    display: inline-block;
+    line-height: 25px;
+    overflow: hidden;
+    vertical-align: middle;
+}
+.f-search-m .s-group {
+    background: url("http://a.tbcdn.cn/app/sns/img/select_group_bg.png") no-repeat scroll 0 0 transparent;
+    color: #999999;
+    height: 26px;
+    margin-right: 10px;
+    overflow: hidden;
+    padding: 0 20px 0 5px;
+    white-space: nowrap;
+    width: 155px;
+}
+.f-search-m .s-keyword {
+    background-color: #FFFFFF;
+}
+.f-search-m .s-keyword input {
+    background: url("http://a.tbcdn.cn/app/sns/img/sns_icons_16x16_8.png") no-repeat fixed 160px -1900px transparent;
+    border: 1px solid #C9C9C9;
+    color: #999999;
+    display: inline-block;
+    height: 18px;
+    overflow: hidden;
+    padding: 5px 30px 0 5px;
+    width: 143px;
+}
+.ju-popup .f-search-m {
+    border: 0 none;
+    margin: 0;
+    overflow: hidden;
+    padding: 0;
+}
+.ju-popup .f-search-m input {
+    margin-right: 2px;
+    vertical-align: middle;
+}
+.reco-f-pop {
+    font-family: Tahoma;
+}
+.ju-popup.reco-f-pop .bd {
+    padding: 0;
+}
+.reco-f-pop h4 {
+    background-color: #F7F7F7;
+    font-weight: 400;
+    line-height: 30px;
+    padding-left: 10px;
+}
+.reco-f-pop ul {
+    margin-left: 5px;
+    max-height: 156px;
+    overflow-x: hidden;
+    overflow-y: auto;
+}
+.reco-f-pop li {
+    float: left;
+    line-height: 30px;
+    overflow: hidden;
+    padding-left: 5px;
+    white-space: nowrap;
+    width: 103px;
+}
+.reco-f-pop li .name {
+    display: inline-block;
+    overflow: hidden;
+    vertical-align: middle;
+    width: 50px;
+}
+.reco-f-pop li img {
+    height: 16px;
+    margin-right: 5px;
+    vertical-align: middle;
+    width: 16px;
+}
+.reco-f-pop li input {
+    margin-right: 3px;
+    vertical-align: middle;
+}
+.reco-f-pop .act {
+    background-color: #F7F7F7;
+    height: 30px;
+    padding-top: 10px;
+    text-align: center;
+}
+.reco-f-pop .btn {
+    margin-right: 10px;
+}
+.ju-popup.sharef-pop .bd {
+    padding: 10px;
+}
+.sharef-pop {
+    font-family: '宋体';
+    z-index: 10;
+}
+.sharef-pop li {
+    color: #737373;
+    float: left;
+    line-height: 26px;
+    overflow: hidden;
+    padding-left: 0;
+    padding-right: 6px;
+    white-space: nowrap;
+    width: 98px;
+}
+.sharef-pop .i-list li {
+    height: 26px;
+}
+.sharef-pop lable {
+    overflow: hidden;
+}
+.sharef-pop li img {
+    height: 16px;
+    margin-right: 5px;
+    vertical-align: middle;
+    width: 16px;
+}
+.sharef-pop li input {
+    margin-right: 2px;
+    vertical-align: middle;
+}
+.sharef-pop ul {
+    height: 130px;
+    margin: 10px 0 0 -2px;
+    overflow-y: scroll;
+}
+.sharef-pop .i-list label {
+    display: block;
+    overflow: hidden;
+    white-space: nowrap;
+    word-wrap: normal;
+}
+.sharef-pop .act {
+    background: none repeat scroll 0 0 transparent;
+    margin-top: 20px;
+    text-align: center;
+}
+.sharef-pop .alone-all {
+    margin-left: 148px;
+    margin-top: -24px;
+}
+.share-sub {
+    display: none;
+    font-family: '宋体';
+    position: absolute;
+    width: 168px;
+    z-index: 50;
+}
+.share-sub .bd {
+    padding: 0 !important;
+}
+.share-sub li {
+    cursor: pointer;
+    float: none;
+    line-height: 16px;
+    margin-bottom: 5px;
+    overflow: hidden;
+    padding: 2px 10px;
+    white-space: nowrap;
+    width: auto;
+    word-wrap: normal;
+}
+.share-sub ul {
+    margin: 0;
+    overflow-x: hidden;
+    overflow-y: auto;
+    padding: 5px 0;
+    width: 166px;
+}
+.share-sub li:hover, .share-sub li.hover {
+    background-color: #F3F3F3;
+    font-weight: 700;
+}
+.share-sub li img {
+    height: 16px;
+    margin-right: 3px;
+    vertical-align: middle;
+    width: 16px;
+}
+.for-pop {
+    margin: 10px 0;
+    overflow: hidden;
+    position: relative;
+    z-index: 10;
+}
+.for-pop .down {
+    background: url("http://a.tbcdn.cn/app/sns/img/select_group_bg.png") no-repeat scroll -160px 0 transparent;
+    cursor: pointer;
+    display: inline-block;
+    height: 25px;
+    margin-top: 1px;
+    overflow: hidden;
+    vertical-align: top;
+    width: 20px;
+}
+.for-pop .s-keyword {
+    background: url("http://a.tbcdn.cn/app/sns/img/s_icon.png") no-repeat scroll right 2px #FFFFFF;
+    border: 1px solid #C9C9C9;
+    display: inline-block;
+    line-height: 0;
+    margin-top: 1px;
+    min-height: 23px;
+    overflow: visible;
+    padding: 0 30px 0 5px;
+    vertical-align: top;
+    width: 143px;
+}
+.for-pop .s-btn {
+    background: url("http://a.tbcdn.cn/app/sns/img/s_icon.png") no-repeat scroll 0 0 transparent;
+    cursor: pointer;
+    display: inline-block;
+    height: 20px;
+    margin: 3px 0 0 3px;
+    overflow: hidden;
+    vertical-align: top;
+    width: 20px;
+}
+.ju-popup .for-pop .s-keyword {
+    width: 290px;
+}
+.for-pop .s-keyword input {
+    background: none repeat scroll 0 0 transparent;
+    border: medium none;
+    display: inline-block;
+    height: 14px;
+    line-height: 14px;
+    margin: 4px 0 0;
+    overflow: hidden;
+    padding: 0;
+    vertical-align: bottom;
+    width: 12px;
+}
+.s-keyword {
+    background-color: #FFFFFF;
+}
+.s-keyword .f-inner {
+    background: none repeat scroll 0 0 #FFFFFF;
+    display: inline-block;
+    line-height: 20px;
+    min-height: 14px;
+    overflow: visible;
+}
+.s-keyword .f-inner span {
+    background-color: #F3F3F3;
+    color: #666666;
+    display: inline-block;
+    font-size: 12px;
+    font-weight: 400;
+    height: 14px;
+    line-height: 14px;
+    margin: 5px 2px 0 0;
+    overflow: visible;
+    padding: 0 2px;
+    vertical-align: middle;
+}
+.notice-msg {
+    background-color: #F2F2F2;
+    border: 1px solid #D6D6D6;
+    line-height: 20px;
+    padding: 5px;
+    position: absolute;
+    width: 168px;
+    z-index: 100;
+}
+.pop_box_div {
+    color: #717171;
+    font-size: 12px;
+    left: 0;
+    padding: 6px;
+    position: absolute;
+    top: 0;
+}
+.pop_box_yinying {
+    background-color: #CCCCCC;
+    left: 0;
+    position: absolute;
+    top: 0;
+}
+.pop_box_body {
+    background-color: #FFFFFF;
+    position: relative;
+    text-align: center;
+    width: 246px;
+    z-index: 100;
+}
+.pop_box_title {
+    background: url("http://a.tbcdn.cn/app/sns/img/module.png") no-repeat scroll right -73px #CA0002;
+    font-weight: bold;
+    height: 22px;
+    line-height: 22px;
+    overflow: hidden;
+    padding-left: 10px;
+    text-align: left;
+}
+.pop_box_title span {
+    color: #FFFFFF;
+    float: left;
+}
+.pop_box_close {
+    float: right;
+    height: 25px;
+    width: 30px;
+}
+.pop_box_content {
+    border: 1px solid #E0E0E0;
+    line-height: 20px;
+    overflow: hidden;
+    padding: 28px 15px;
+    text-align: left;
+    word-wrap: normal;
+}
+.pop_box_content em {
+    font-weight: bold;
+}
+.pop_button, a.pop_button:visited {
+    background: url("http://a.tbcdn.cn/app/sns/img/module.png") no-repeat scroll 0 0 transparent;
+    color: #525252;
+    cursor: pointer;
+    display: inline-block;
+    height: 22px;
+    margin-right: 10px;
+    text-align: center;
+    vertical-align: middle;
+}
+a.pop_button:hover {
+    text-decoration: none;
+}
+.pop_button span {
+    background: url("http://a.tbcdn.cn/app/sns/img/module.png") no-repeat scroll right 0 transparent;
+    cursor: pointer;
+    display: block;
+    height: 20px;
+    line-height: 18px;
+    margin: 0 0 0 10px;
+    padding-right: 10px;
+    padding-top: 2px;
+}
+.pop_box_button_1 {
+    background-color: #F5F5F5;
+    height: 35px;
+    padding-top: 15px;
+    text-align: center;
+}
+.pop_box_button_2 {
+    background-color: #F5F5F5;
+    height: 35px;
+    padding-left: 60px;
+    padding-top: 15px;
+}
+.ju-popup.popup-moreapptypes {
+    width: 80px;
+}
+.ju-popup.popup-moreapptypes .bd {
+    padding: 4px 0 !important;
+}
+.ju-popup.popup-moreapptypes .bd ul {
+    border: 0 none;
+    margin: 0;
+    padding: 0;
+}
+.ju-popup.popup-moreapptypes .bd ul li {
+    clear: both;
+    float: none;
+    margin: 0;
+    text-align: left;
+}
+.ju-popup.popup-moreapptypes .bd ul li a {
+    color: #333333;
+    display: block;
+    float: none;
+    font-weight: normal !important;
+    height: auto;
+    line-height: 20px;
+    margin: 0;
+    padding: 0 6px;
+    white-space: nowrap;
+    width: 66px;
+}
+.ju-popup.popup-moreapptypes .bd ul li a:hover {
+    background-color: #F3F3F3;
+    border: 0 none;
+    font-weight: bold !important;
+    margin: 0;
+    padding: 0 6px;
+    text-decoration: none;
+}
+.addgroup .icon-add {
+    background-position: 0 -3168px;
+}
+.ju-popup .popup-addfriend {
+    line-height: 1.8em;
+}
+.ju-popup .popup-addfriend em {
+    color: #2CA9CC;
+    font-weight: bold;
+    margin: 0 0.5em;
+}
+.ju-panel-wrap {
+    background-color: #BBBBBB;
+    border-radius: 5px 5px 5px 5px;
+    left: 0;
+    opacity: 0.5;
+    position: absolute;
+    top: 0;
+}
+.ju-panel {
+    padding: 3px;
+    position: relative;
+}
+.ju-panel-content {
+    background-color: #FFFFFF;
+    border: 1px solid #BBBBBB;
+}
+.ju-dialog {
+    width: 350px;
+}
+.ju-panel .hd {
+    background-color: #CA0002;
+    height: 22px;
+    line-height: 22px;
+    padding-left: 8px;
+}
+.green .ju-panel .hd {
+    background-color: #8EAF1B;
+}
+.ju-panel .hd h3 {
+    color: #FFFFFF;
+    font-size: 12px;
+}
+.ju-panel .bd {
+    background-color: #FFFFFF;
+    border: 1px solid #DDDDDD;
+    color: #333333;
+    line-height: 1.5em;
+    padding: 16px 25px;
+}
+.ju-panel .ft {
+    background-color: #F5F5F5;
+}
+.ju-panel .ft .buttons {
+    padding: 11px 0;
+    text-align: center;
+}
+.ju-panel .ft .buttons button {
+    background-color: #EEEEEE;
+    border: 1px solid #BABABA;
+    color: #333333;
+    font-size: 12px;
+    height: 25px;
+    line-height: 25px;
+    margin-right: 20px;
+    overflow: visible;
+}
+.ju-panel .ft .buttons button:hover {
+    background-color: #FFFFFF;
+}
+.ju-panel .ft .buttons button span {
+    letter-spacing: 5px;
+    padding: 0 8px 0 13px;
+}
+.ju-panel .btn-close {
+    color: #FFFFFF;
+    font-family: Tahoma,sans;
+    font-size: 12px;
+    font-weight: bold;
+    position: absolute;
+    right: 8px;
+    text-decoration: none;
+    top: 3px;
+}
+#site-nav {
+    position: relative;
+    word-wrap: normal;
+    z-index: 100;
+}
+#site-nav-bd {
+    width: 990px;
+}
+#layout {
+    background: url("http://img04.taobaocdn.com/tps/i4/T12xKaXmhAXXXXXXXX-585-106.png") repeat-x scroll center top #DC442F;
+    position: relative;
+    z-index: 3;
+}
+#layout .logo {
+    height: 76px;
+    margin: 0 auto;
+    width: 990px;
+}
+#layout .logo h1 {
+    float: left;
+    padding-top: 19px;
+}
+#layout .citylist {
+    color: #FFFFFF;
+    cursor: pointer;
+    display: inline-block;
+    float: left;
+    font: 26px/26px "微软雅黑";
+    margin: 21px 0 0 19px;
+    position: relative;
+    text-align: right;
+}
+#layout .citylist b {
+    color: #F8DAD5;
+    font: 26px/26px Tahoma,Helvetica,Arial,sans-serif;
+    margin: 0 2px;
+}
+#layout .citylist span {
+    padding-right: 12px;
+}
+#layout .citylist .inner {
+    cursor: pointer;
+    display: inline-block;
+    height: 48px;
+    position: relative;
+    text-align: center;
+    vertical-align: middle;
+}
+#layout .citylist .curr-city {
+    color: #FFFFFF;
+    font: 26px/26px "Microsoft Yahei";
+    padding-right: 6px;
+}
+#layout .citylist .choose {
+    -moz-border-bottom-colors: none;
+    -moz-border-image: none;
+    -moz-border-left-colors: none;
+    -moz-border-right-colors: none;
+    -moz-border-top-colors: none;
+    border-color: #FFFFFF transparent transparent;
+    border-style: solid;
+    border-width: 5px;
+    font-size: 0;
+    height: 0;
+    line-height: 0;
+    margin-left: 5px;
+    position: absolute;
+    right: 12px;
+    top: 13px;
+    width: 0;
+}
+#layout .citylist .inner:hover .change-city {
+    text-decoration: underline;
+}
+#layout .subscription {
+    float: right;
+    overflow: hidden;
+    width: 400px;
+}
+#layout .subscription p {
+    position: relative;
+}
+#layout .subscription .btn-sub {
+    overflow: hidden;
+    padding: 20px 40px 0 0;
+}
+#layout .subscription a:hover {
+    text-decoration: none;
+}
+#layout .subscription .btn-wangwang, #layout .subscription .btn-wangwang-ed, #layout .subscription .btn-mail, #layout .subscription .btn-mail-ed {
+    cursor: pointer;
+    float: right;
+    height: 21px;
+    width: 84px;
+}
+#layout .subscription .btn-wangwang {
+    background: url("http://img01.taobaocdn.com/tps/i1/T1yXmbXgdqXXXXXXXX-84-253.png") no-repeat scroll 0 -64px transparent;
+}
+#layout .subscription .btn-wangwang:hover {
+    background-position: 0 -200px;
+}
+#layout .subscription .btn-wangwang-ed, #layout .subscription .btn-mail-ed {
+    color: #FFFFFF;
+    cursor: default;
+    line-height: 20px;
+    padding-left: 17px;
+    width: auto;
+}
+#layout .subscription .btn-wangwang-ed {
+    background: url("http://img01.taobaocdn.com/tps/i1/T1yXmbXgdqXXXXXXXX-84-253.png") no-repeat scroll 0 -86px transparent;
+}
+#layout .subscription .btn-mail {
+    background: url("http://img01.taobaocdn.com/tps/i1/T1yXmbXgdqXXXXXXXX-84-253.png") no-repeat scroll 0 -40px transparent;
+    margin-left: 10px;
+}
+#layout .subscription .btn-mail:hover {
+    background-position: 0 -224px;
+}
+#layout .subscription .btn-mail-ed {
+    background: url("http://img01.taobaocdn.com/tps/i1/T1yXmbXgdqXXXXXXXX-84-253.png") no-repeat scroll 0 -106px transparent;
+    margin-left: 10px;
+}
+#layout .subscription .mail-state {
+    clear: both;
+    color: #F8DAD5;
+    padding-right: 20px;
+    padding-top: 5px;
+    text-align: right;
+}
+#layout .subscription .mail-state a {
+    color: #F8DAD5;
+    margin-left: 3px;
+}
+#layout .subscription .mail-state a:hover {
+    text-decoration: underline;
+}
+#layout .ju-nav {
+    background: none repeat scroll 0 0 transparent;
+    height: 33px;
+    margin: 0 auto;
+    position: relative;
+}
+#layout .ju-nav .mask {
+    background: none repeat scroll 0 0 #3E0000;
+    height: 33px;
+    margin: 0 auto;
+    opacity: 0.4;
+}
+#layout .ju-nav .navigation {
+    font-size: 0;
+    height: 33px;
+    left: 50%;
+    margin-left: -495px;
+    position: absolute;
+    top: 0;
+    width: 990px;
+}
+.ju-nav .navigation li {
+    background: url("http://img01.taobaocdn.com/tps/i1/T1yXmbXgdqXXXXXXXX-84-253.png") no-repeat scroll right -128px transparent;
+    float: left;
+    font-size: 0;
+    height: 100%;
+    padding-right: 2px;
+    position: relative;
+}
+.ju-nav .navigation li.entrance, .ju-nav .navigation li.myju, .ju-nav .navigation li.slash {
+    float: right;
+    height: 100%;
+}
+.ju-nav .navigation li.current {
+    background: none repeat scroll 0 0 transparent;
+    overflow: hidden;
+    padding-right: 0;
+}
+.ju-nav .navigation li.current a {
+    box-shadow: -3px 0 3px #892418;
+}
+.ju-nav .navigation li a {
+    color: #FFFFFF;
+    float: left;
+    font-size: 14px;
+    font-weight: bold;
+    height: 33px;
+    line-height: 33px;
+    padding: 0 20px;
+    text-align: center;
+}
+.ju-nav .navigation li a:hover {
+    background: none repeat scroll 0 0 #7E2116;
+    border: 1px solid #9F1E0E;
+    height: 31px;
+    line-height: 31px;
+    padding: 0 19px;
+    text-decoration: none;
+}
+.ju-nav .navigation li a b {
+    -moz-border-bottom-colors: none;
+    -moz-border-image: none;
+    -moz-border-left-colors: none;
+    -moz-border-right-colors: none;
+    -moz-border-top-colors: none;
+    border-color: #FFFFFF #9D291C #9D291C;
+    border-style: solid;
+    border-width: 3px;
+    font-size: 0;
+    height: 0;
+    line-height: 0;
+    margin-left: 5px;
+    position: absolute;
+    top: 15px;
+    width: 0;
+}
+.ju-nav .navigation li a:hover b {
+    border-color: #7E2116 #7E2116 #FFFFFF;
+    top: 11px;
+}
+.ju-nav .navigation li.current a, .ju-nav .navigation li.current a:hover {
+    background: url("http://img01.taobaocdn.com/tps/i1/T1yXmbXgdqXXXXXXXX-84-253.png") repeat-x scroll left top transparent;
+    border: medium none;
+    color: #DC442F;
+    height: 33px;
+    line-height: 33px;
+    padding-left: 18px;
+    padding-right: 23px;
+}
+.ju-nav .navigation li.current a b, .ju-nav .navigation li.current a:hover b {
+    border-color: #FCDB51 #FCDB51 #DC442F;
+    top: 12px;
+}
+.ju-nav .navigation li .sub-menu {
+    display: none;
+    float: left;
+    left: 0;
+    position: absolute;
+    top: 100%;
+    width: 100%;
+}
+.ju-nav .navigation li .sub-menu a {
+    background: none repeat scroll 0 0 #7E2116;
+    border-top: 1px dashed #BD361B;
+    color: #FFFFFF;
+    display: block;
+    float: none;
+    font-size: 12px;
+    height: 27px;
+    line-height: 27px;
+    margin-right: 2px;
+    padding: 0;
+    text-align: center;
+    white-space: nowrap;
+}
+.ju-nav .navigation li .sub-menu a em {
+    font-style: normal;
+    font-weight: bold;
+}
+.ju-nav .navigation li .sub-menu a:hover {
+    -moz-border-bottom-colors: none;
+    -moz-border-image: none;
+    -moz-border-left-colors: none;
+    -moz-border-right-colors: none;
+    -moz-border-top-colors: none;
+    background: none repeat scroll 0 0 #E96D34;
+    border-color: #BD361B -moz-use-text-color -moz-use-text-color;
+    border-right: medium none;
+    border-style: dashed none none;
+    border-width: 1px medium medium;
+    height: 27px;
+    line-height: 27px;
+    padding: 0;
+}
+.ju-nav .navigation li .sub-menu a.first {
+    border-top: medium none;
+    padding: 0;
+}
+.ju-nav .navigation li .curr-city {
+    text-decoration: underline;
+}
+.ju-nav .navigation li .curr-city:hover {
+    color: #FFFF00;
+    text-decoration: underline;
+}
+.ju-nav .navigation .current .curr-city:hover {
+    color: #DC442F;
+}
+#layout .ju-sub-nav {
+    background-color: #FCE268;
+    border-bottom: 1px solid #FFB83A;
+    font-size: 0;
+    height: auto !important;
+    min-height: 5px;
+}
+#layout .ju-sub-nav p {
+    font-size: 14px;
+    height: 27px;
+    line-height: 27px;
+    margin: 0 auto;
+    padding: 0 10px;
+    width: 970px;
+}
+#layout .ju-sub-nav a {
+    float: left;
+    margin: 0 20px;
+}
+#layout .ju-sub-nav a:hover {
+    text-decoration: underline;
+}
+#layout .ju-sub-nav a.on, #layout .ju-sub-nav a.on:visited, #layout .ju-sub-nav a.on:hover {
+    color: #666666;
+    cursor: default;
+    font-weight: bold;
+    text-decoration: none;
+}
+#layout .ju-sub-nav a em {
+    color: #DC442F;
+    font-weight: bold;
+    margin-left: 3px;
+}
+#layout .ju-sub-nav s {
+    background: url("http://img01.taobaocdn.com/tps/i1/T1yXmbXgdqXXXXXXXX-84-253.png") no-repeat scroll left -159px transparent;
+    float: left;
+    height: 27px;
+    width: 1px;
+}
+.hot-tip {
+    background: url("http://img03.taobaocdn.com/tps/i3/T1f2tSXkBvXXXXXXXX-21-16.gif") no-repeat scroll 0 0 transparent;
+    display: block;
+    height: 18px;
+    position: absolute;
+    right: 762px;
+    top: 2px;
+    width: 22px;
+}
+.new-tip {
+    background: url("http://img03.taobaocdn.com/tps/i3/T1and3XdXhXXXXXXXX-21-16.gif") no-repeat scroll 0 0 transparent;
+    display: block;
+    height: 18px;
+    position: absolute;
+    right: 582px;
+    top: 2px;
+    width: 22px;
+}
+.pop-city {
+    top: 20%;
+}
+.pop-city .bd {
+    padding: 0;
+}
+.pop-city .hd {
+    background-color: #DC442F;
+}
+.city-choose {
+    background-color: #F5F5F5;
+    border-bottom: medium none #D6D6D6;
+    line-height: 1em;
+    padding: 12px;
+    text-align: right;
+}
+.city-choose .label {
+    float: left;
+}
+.city-choose ul, .city-choose li {
+    display: inline-block;
+}
+.city-choose li a {
+    font-family: Verdana;
+    padding: 0 2px;
+}
+.pop-city-cont {
+    padding: 12px;
+}
+.pop-city-cont li {
+    float: left;
+    height: 49px;
+    margin: 0 1px 1px 0;
+    text-align: center;
+    width: 91px;
+}
+.pop-city-cont li a {
+    background-color: #F7F7F7;
+    color: #333333;
+    display: block;
+    font: 20px/49px "微软雅黑";
+    height: 49px;
+    width: 91px;
+}
+.pop-city-cont li a:visited {
+    color: #333333;
+    text-decoration: none;
+}
+.pop-city-cont li a:hover {
+    background-color: #F2D3CF;
+    text-decoration: none;
+}
+.pop-city-cont li.on a, .pop-city-cont li.on a:visited, .pop-city-cont li.on a:hover {
+    background-color: #DC442F;
+    color: #FFFFFF;
+}
+#top-banner {
+    background-color: #F7F7F7;
+    overflow: hidden;
+    padding-top: 10px;
+}
+#top-banner .inner {
+    height: 50px;
+    margin: 0 auto;
+    position: relative;
+    width: 990px;
+}
+#top-banner .inner img {
+    display: block;
+}
+#top-banner .btn-expand {
+    background: url("http://img04.taobaocdn.com/tps/i4/T1GU1aXfxtXXXXXXXX-50-44.gif") no-repeat scroll 0 0 transparent;
+    bottom: 0;
+    cursor: pointer;
+    display: block;
+    height: 21px;
+    position: absolute;
+    right: 0;
+    width: 50px;
+}
+#top-banner .unexpand {
+    background-position: 0 -23px;
+}
+#footer {
+    background: none repeat scroll 0 0 #FFFFFF;
+    border-top: 1px solid #E8E8E8;
+    clear: both;
+    margin: 28px auto auto;
+    padding: 28px 0;
+    text-align: left;
+    width: auto;
+}
+#footer .footer-nav {
+    display: block;
+    margin: 0 auto;
+    width: 990px;
+}
+#footer .footer-nav dl {
+    float: left;
+    width: 170px;
+}
+#footer .footer-nav dl dt {
+    border-bottom: 1px solid #E2E2E2;
+    display: block;
+    width: 160px;
+}
+#footer .footer-nav dl dt span {
+    color: #666666;
+    font-family: 'Microsoft Yahei','Tahoma','Arial','Verdana';
+    font-size: 18px;
+    font-weight: 500;
+    line-height: 31px;
+}
+#footer .footer-nav dl dd {
+    display: block;
+    padding: 5px 0 0 2px;
+}
+#footer .footer-nav dl dd a {
+    color: #666666;
+    display: block;
+    line-height: 24px;
+    text-align: left;
+}
+#footer .footer-nav dl dd a:hover {
+    text-decoration: underline;
+}
+#footer .footer-nav dl dd a i {
+    background: url("http://img01.taobaocdn.com/tps/i1/T1yXmbXgdqXXXXXXXX-84-253.png") no-repeat scroll -8px -157px transparent;
+    float: left;
+    height: 24px;
+    margin-right: 7px;
+    width: 3px;
+}
+#footer .logo-bottom {
+    color: #999999;
+    float: left;
+    line-height: 2em;
+    margin: 10px 0 0 20px;
+    text-align: center;
+}
+.tb-lst-express-region {
+    background-color: #FDFFEE;
+    border: 2px solid #FFBF69;
+    left: -9999px;
+    overflow: hidden;
+    padding: 5px;
+    position: absolute;
+    top: -9999px;
+    width: 256px;
+    z-index: 1000;
+}
+.tb-lst-express-region li {
+    float: left;
+    padding: 2px;
+}
+.tb-lst-express-region li a {
+    display: block;
+    text-align: center;
+    width: 60px;
+}
+.tb-lst-express-region li a:hover {
+    background-color: #FFBF69;
+    color: #FFFFFF;
+}
+.tb-postage-toggle {
+    background: url("http://img01.taobaocdn.com/tps/i1/T1B.hPXjRyXXXXXXXX.png") no-repeat scroll 100% 3px transparent;
+    padding-right: 12px;
+}
+.ju-timer {
+    height: 40px;
+    overflow: hidden;
+}
+.ju-timer p {
+    background-position: -152px -448px;
+    float: left;
+    height: 32px;
+    padding: 9px 0 0 2px;
+    width: 37px;
+}
+.ju-timer span {
+    background-position: -286px -675px;
+    display: block;
+    float: left;
+    height: 24px;
+    width: 18px;
+}
+.ju-timer .dsec, .ju-timer p.day {
+    padding: 9px 10px 0;
+    width: 19px;
+}
+.ju-timer .day {
+    display: none;
+}
+.ju-timer .label {
+    font-weight: bold;
+    padding: 20px 0 0;
+    text-align: center;
+    width: 20px;
+}
+.ju-timer .thin {
+    width: 12px;
+}
+.ju-timer .t0 {
+    background-position: -286px -380px;
+}
+.ju-timer .t1 {
+    background-position: -286px -404px;
+}
+.ju-timer .t2 {
+    background-position: -286px -428px;
+}
+.ju-timer .t3 {
+    background-position: -286px -452px;
+}
+.ju-timer .t4 {
+    background-position: -286px -476px;
+}
+.ju-timer .t5 {
+    background-position: -286px -500px;
+}
+.ju-timer .t6 {
+    background-position: -286px -524px;
+}
+.ju-timer .t7 {
+    background-position: -286px -548px;
+}
+.ju-timer .t8 {
+    background-position: -286px -572px;
+}
+.ju-timer .t9 {
+    background-position: -286px -596px;
+}
+.ju-spltimer {
+    overflow: hidden;
+}
+.ju-spltimer p {
+    color: #333333;
+    display: inline;
+    font: 20px/1em Verdana;
+    vertical-align: middle;
+}
+.ju-spltimer .label {
+    margin: 0 2px 0 1px;
+    vertical-align: middle;
+}
+.dsec-anim {
+    background: url("http://img01.taobaocdn.com/tps/i1/T1BoaaXXpjXXXXXXXX-18-25.gif") no-repeat scroll 0 -2px transparent;
+    display: inline-block;
+    height: 25px;
+    line-height: 25px;
+    margin-left: 3px;
+    overflow: hidden;
+    padding-left: 20px;
+    vertical-align: middle;
+    width: 18px;
+}
+.no-anim {
+    background: none repeat scroll 0 0 transparent;
+    padding-left: 2px;
+}
+.ju-sider {
+    float: right;
+    width: 248px;
+}
+.ju-sider .side-mod {
+    float: right;
+    margin: 0 10px 10px 0;
+    width: 220px;
+}
+.side-mod .hd {
+    border-bottom: 2px solid #CCCCCC;
+    height: 32px;
+    line-height: 32px;
+    text-align: right;
+}
+.side-mod .bd {
+    color: #999999;
+    padding: 5px 0;
+}
+.side-mod h2 {
+    float: left;
+    font: 16px/32px "微软雅黑";
+}
+.side-mod .iphone {
+    background: url("http://img02.taobaocdn.com/tps/i2/T1RZabXj0jXXXXXXXX-250-85.png") no-repeat scroll -122px 3px transparent;
+    border-top: 1px solid #DDDDDD;
+    height: 24px;
+    margin-top: 5px;
+    padding-top: 5px;
+    text-align: right;
+}
+.ju-sider .ads {
+    background-color: #EFEDEE;
+    border: 1px solid #DADADA;
+    padding: 0 15px;
+    text-align: center;
+    width: auto;
+}
+.ju-sider .ads img {
+    display: block;
+}
+.ju-sider .save-info {
+    background: url("http://img01.taobaocdn.com/tps/i1/T1C71aXeFcXXXXXXXX-218-126.png") no-repeat scroll 0 0 transparent;
+    border: 1px solid #DADADA;
+    font-family: "微软雅黑";
+    font-size: 14px;
+    height: 110px;
+    line-height: 1.6em;
+    padding: 15px 0 0;
+    text-align: center;
+}
+.ju-sider .save-info h2 {
+    float: none;
+    font-size: 16px;
+    line-height: 20px;
+}
+.ju-sider .save-info em {
+    color: #DC442F;
+    font: bold 16px Arial;
+}
+.ju-sider .save-info strong {
+    color: #DC442F;
+    font: bold 24px/1.3em Arial;
+}
+.ju-sider .follow li {
+    border-bottom: 1px solid #DDDDDD;
+    padding: 6px 0;
+    text-align: right;
+}
+.ju-sider .follow li.b {
+    border: medium none;
+}
+.ju-sider .follow li h3 {
+    float: left;
+    font-weight: normal;
+}
+.ju-sider .ur-link {
+    font-size: 13px;
+}
+.ju-sider i.bubble {
+    background: url("http://img02.taobaocdn.com/tps/i2/T1RZabXj0jXXXXXXXX-250-85.png") no-repeat scroll -38px -16px transparent;
+    display: inline-block;
+    height: 12px;
+    margin-right: 5px;
+    vertical-align: middle;
+    width: 12px;
+}
+.sider-bar-tp {
+    background: url("http://img03.taobaocdn.com/tps/i3/T1c6CaXaJkXXXXXXXX-250-1.png") repeat-y scroll left top transparent;
+    margin-bottom: 10px;
+    margin-left: -1px;
+    margin-top: 10px;
+    position: relative;
+    width: 250px;
+}
+.sider-bar-tp s {
+    background: url("http://img02.taobaocdn.com/tps/i2/T1RZabXj0jXXXXXXXX-250-85.png") no-repeat scroll 0 0 transparent;
+    height: 7px;
+    position: absolute;
+    right: 0;
+    top: 0;
+    width: 8px;
+}
+.sider-bar-more {
+    background: url("http://img02.taobaocdn.com/tps/i2/T1RZabXj0jXXXXXXXX-250-85.png") no-repeat scroll 0 -46px transparent;
+    color: #649AB8;
+    display: block;
+    font-family: "Microsoft Yahei","Arial","Tahoma";
+    font-size: 16px;
+    font-weight: bold;
+    height: 39px;
+    line-height: 38px;
+    padding-right: 70px;
+    text-align: right;
+    width: 180px;
+}
+.sider-bar-more:visited {
+    color: #649AB8;
+}
+.sider-bar-more:hover {
+    color: #649AB8;
+    cursor: pointer;
+    text-decoration: underline;
+}
+.sider-bar-inner {
+    border-top: 1px solid #DDDDDD;
+}
+.ju-sider .pro-list {
+    font-size: 0;
+}
+.pro-list li {
+    clear: both;
+    cursor: pointer;
+    position: relative;
+}
+.pro-list li .wrap {
+    cursor: pointer;
+    display: block;
+    font-size: 0;
+}
+.pro-list li .wrap:hover {
+    text-decoration: none;
+}
+.pro-list li .main-view {
+    border-bottom: 1px dashed #999999;
+    height: 139px;
+    margin: auto 0 auto 20px;
+    overflow: hidden;
+    position: relative;
+    z-index: 2;
+}
+.pro-list li .main-view h3 {
+    color: #666666;
+    font-size: 14px;
+    font-weight: bold;
+    line-height: 20px;
+    padding-bottom: 7px;
+    padding-top: 13px;
+    text-align: justify;
+    white-space: nowrap;
+    word-wrap: normal;
+}
+.pro-list li .main-view h3 a, .pro-list li .main-view h3 a:visited, .pro-list li .main-view h3 a:hover {
+    color: #666666;
+    text-decoration: none;
+}
+.pro-list li .main-view .pic {
+    border: 1px solid #DDDDDD;
+    box-shadow: 1px 1px 0 0 #EEEEEE;
+    float: left;
+    height: 80px;
+    margin-right: 5px;
+    overflow: hidden;
+    position: relative;
+    text-align: center;
+    width: 120px;
+}
+.pro-list li .main-view .pic img {
+    display: block;
+    width: 120px;
+}
+.pro-list li .main-view .pic b {
+    background: url("http://img02.taobaocdn.com/tps/i2/T1RZabXj0jXXXXXXXX-250-85.png") no-repeat scroll -72px 0 transparent;
+    color: #FFFFFF;
+    font-size: 14px;
+    font-weight: bold;
+    height: 41px;
+    padding-left: 17px;
+    position: absolute;
+    right: 0;
+    top: 0;
+    width: 24px;
+}
+.pro-list li .main-view .state {
+    float: left;
+    position: relative;
+    white-space: nowrap;
+    width: 86px;
+    word-wrap: normal;
+}
+.pro-list li .main-view .state .price {
+    color: #DC442F;
+    font-family: 'Arial';
+    font-size: 16px;
+    font-weight: bold;
+}
+.pro-list li .main-view .state .price em {
+    font-size: 24px;
+    font-style: normal;
+    margin-left: 2px;
+}
+.pro-list li .main-view .state .orig, .pro-list li .main-view .state .buy-ed {
+    color: #999999;
+    font-size: 12px;
+    margin-bottom: 6px;
+}
+.pro-list li .main-view .state .buy-ed em {
+    color: #66B024;
+    font-weight: bold;
+}
+.pro-list li .main-view .state .ding {
+    background: url("http://img01.taobaocdn.com/tps/i1/T1pKXZXnpvXXXXXXXX-23-12.png") no-repeat scroll 0 0 transparent;
+    height: 14px;
+    position: absolute;
+    right: 0;
+    top: 0;
+    width: 23px;
+}
+.pro-list li .sd {
+    display: none;
+}
+.pro-list li.on .sd, .pro-list li.current .sd, .pro-list li.hover .sd {
+    -moz-border-bottom-colors: none;
+    -moz-border-image: none;
+    -moz-border-left-colors: none;
+    -moz-border-right-colors: none;
+    -moz-border-top-colors: none;
+    background: none repeat scroll 0 0 #FFFBD1;
+    border-color: #E2C6C2 #E2C6C2 #E2C6C2 -moz-use-text-color;
+    border-style: solid solid solid none;
+    border-width: 2px 2px 2px 0;
+    display: block;
+    height: 138px;
+    position: absolute;
+    top: -1px;
+    width: 258px;
+}
+.pro-list li.on .sd b.tp, .pro-list li.hover .sd b.tp, .pro-list li.current .sd b.tp {
+    background: url("http://img02.taobaocdn.com/tps/i2/T1RZabXj0jXXXXXXXX-250-85.png") no-repeat scroll 0 -20px transparent;
+    font-size: 0;
+    height: 6px;
+    position: absolute;
+    right: -2px;
+    top: -2px;
+    width: 6px;
+}
+.pro-list li.on .sd b.bt, .pro-list li.hover .sd b.bt, .pro-list li.current .sd b.bt {
+    background: url("http://img02.taobaocdn.com/tps/i2/T1RZabXj0jXXXXXXXX-250-85.png") no-repeat scroll -18px -20px transparent;
+    bottom: -2px;
+    font-size: 0;
+    height: 6px;
+    position: absolute;
+    right: -2px;
+    width: 6px;
+}
+.pro-list li.hover .sd {
+    background-color: #FFFFFF;
+}
+.pro-list li.noBg .main-view {
+    border-bottom: medium none;
+    height: 140px;
+}
+.sider-bar-bt {
+    background: none repeat scroll 0 0 #F7F7F7;
+    margin-bottom: 15px;
+    width: 100%;
+}
+.sider-bar-bt h2 {
+    border-bottom: 2px solid #CCCCCC;
+    clear: both;
+    color: #666666;
+    font-family: "Microsoft Yahei","Arial";
+    font-size: 16px;
+    font-weight: normal;
+    height: 33px;
+    line-height: 33px;
+    margin-left: 20px;
+    margin-right: 5px;
+    text-align: left;
+}
+.sider-bar-bt h2 a {
+    color: #649AB8;
+    float: right;
+    font-size: 12px;
+    margin-top: 2px;
+}
+.sider-bar-bt ul li .main-view {
+    margin: 0;
+}
+.sider-bar-bt .wrap {
+    cursor: pointer;
+    display: block;
+    font-size: 0;
+    margin: auto 5px auto 18px;
+}
+.sider-bar-bt .wrap:hover {
+    background: none repeat scroll 0 0 #FFFFFF;
+}
+.ju-main {
+    float: left;
+    width: 742px;
+}
+.main-box {
+    background-color: #FFFFFF;
+    margin-bottom: 15px;
+    position: relative;
+}
+.main-box .box-top {
+    background: url("http://img02.taobaocdn.com/tps/i2/T1hRWaXbxdXXXXXXXX-2236-12.png") no-repeat scroll -1px 0 transparent;
+    font-size: 0;
+    height: 12px;
+}
+.main-box .box-body {
+    background: url("http://img02.taobaocdn.com/tps/i2/T1hRWaXbxdXXXXXXXX-2236-12.png") repeat-y scroll -1489px 0 transparent;
+    padding: 0 10px 2px;
+    z-index: 20;
+}
+.main-box .box-bottom {
+    background: url("http://img02.taobaocdn.com/tps/i2/T1hRWaXbxdXXXXXXXX-2236-12.png") no-repeat scroll -745px 0 transparent;
+    font-size: 0;
+    height: 12px;
+}
+.main-box .item_num {
+    background: url("http://img02.taobaocdn.com/tps/i2/T11B9aXmReXXXXXXXX-264-248.png") no-repeat scroll 0 -136px transparent;
+    color: #DC442F;
+    font: bold 16px/20px Arial;
+    height: 20px;
+    left: 0;
+    padding: 2px 18px 18px 2px;
+    position: absolute;
+    text-align: center;
+    top: 1px;
+    width: 20px;
+}
+.main-box h2 {
+    color: #333333;
+    font: bold 23px/36px "微软雅黑";
+    padding: 3px 8px;
+}
+.main-box h2 span {
+    color: #DC442F;
+}
+.main-box h2 a {
+    color: #333333;
+}
+.main-box h2 a:visited {
+    color: #333333;
+}
+.main-box h2 a:hover {
+    color: #333333;
+}
+.main-box .info-box {
+    margin-top: 12px;
+    position: relative;
+}
+.main-box .info-box .meta {
+    -moz-border-bottom-colors: none;
+    -moz-border-image: none;
+    -moz-border-left-colors: none;
+    -moz-border-right-colors: none;
+    -moz-border-top-colors: none;
+    border-color: -moz-use-text-color -moz-use-text-color #FFED85 #FFED85;
+    border-style: none none solid solid;
+    border-width: medium medium 1px 1px;
+    float: left;
+    height: 183px;
+    margin-left: 2px;
+    padding-top: 128px;
+    position: relative;
+    width: 254px;
+}
+.main-box .info-box .picbox {
+    -moz-border-bottom-colors: none;
+    -moz-border-image: none;
+    -moz-border-left-colors: none;
+    -moz-border-right-colors: none;
+    -moz-border-top-colors: none;
+    background: -moz-linear-gradient(center top , #F4381A -1%, #CF301A 18%) repeat scroll 0 0 transparent;
+    border-color: #A51100 #A51100 #A51100 -moz-use-text-color;
+    border-style: solid solid solid none;
+    border-width: 1px 1px 1px medium;
+    float: left;
+    height: 310px;
+    position: relative;
+    width: 460px;
+}
+.main-box .info-box .pic {
+    border-top: 1px solid #FD9B8B;
+    height: 301px;
+    padding: 3px 4px 4px;
+    width: 452px;
+}
+.main-box .info-box .pic a {
+    background-color: #FFFFFF;
+    border: 1px solid #F5D6D1;
+    display: block;
+    height: 300px;
+    overflow: hidden;
+    text-align: center;
+}
+.main-box .info-box .pic img {
+    background-color: #FFFFFF;
+    display: inline-block;
+    width: 450px;
+}
+.main-box .info-box .picbox .discount {
+    background: url("http://img02.taobaocdn.com/tps/i2/T11B9aXmReXXXXXXXX-264-248.png") no-repeat scroll 0 -184px transparent;
+    color: #FFFFFF;
+    font: bold 24px "微软雅黑",Arial;
+    height: 28px;
+    padding: 0 0 36px 22px;
+    position: absolute;
+    right: 5px;
+    text-align: center;
+    top: 5px;
+    white-space: nowrap;
+    width: 42px;
+    word-wrap: normal;
+}
+.main-box .item-buy {
+    background: url("http://img01.taobaocdn.com/tps/i1/T1lSqaXhxdXXXXXXXX-451-860.png") no-repeat scroll right 0 #CF301A;
+    height: 68px;
+    left: -27px;
+    position: absolute;
+    top: 0;
+    width: 281px;
+}
+.main-box .item-buy strong {
+    background: url("http://img01.taobaocdn.com/tps/i1/T1lSqaXhxdXXXXXXXX-451-860.png") no-repeat scroll 190px 0 transparent;
+    color: #FFFFFF;
+    display: block;
+    font: bold 46px/68px Arial;
+    height: 68px;
+    letter-spacing: -3px;
+    padding-right: 90px;
+    text-align: center;
+    text-shadow: 1px 1px 1px #666666;
+}
+.main-box .item-buy strong b {
+    font: bold 30px "微软雅黑",Verdana;
+    margin-right: 3px;
+}
+.main-box .item-buy strong span {
+    font-size: 34px;
+    letter-spacing: -2px;
+}
+.main-box .item-buy .large {
+    font-size: 42px;
+}
+.main-box .item-buy .buy {
+    cursor: default;
+    display: block;
+    height: 68px;
+    position: absolute;
+    top: 0;
+    width: 281px;
+}
+.main-box .item-buy .buy:hover {
+    background: url("http://img01.taobaocdn.com/tps/i1/T1lSqaXhxdXXXXXXXX-451-860.png") no-repeat scroll 190px -390px transparent;
+}
+.avil .item-buy .buy {
+    cursor: pointer;
+}
+.main-box .item-prices {
+    background: url("http://img02.taobaocdn.com/tps/i2/T11B9aXmReXXXXXXXX-264-248.png") no-repeat scroll 1px 0 transparent;
+    height: 59px;
+    left: -11px;
+    padding-left: 12px;
+    position: absolute;
+    top: 68px;
+    width: 253px;
+    word-wrap: normal;
+}
+.main-box .item-prices dt, .main-box .item-prices dd {
+    float: left;
+    height: 29px;
+    line-height: 29px;
+    text-align: center;
+    width: 84px;
+}
+.main-box .item-prices dt {
+    color: #666666;
+    font-size: 14px;
+}
+.main-box .item-prices dd {
+    color: #333333;
+    font: 17px Verdana;
+    letter-spacing: -2px;
+}
+.main-box .item-sold {
+    color: #333333;
+    font: 20px "微软雅黑";
+    height: 69px;
+    padding-top: 23px;
+    text-align: center;
+}
+.main-box .item-sold strong {
+    color: #66B024;
+    font-size: 30px;
+    font-weight: normal;
+}
+.main-box .item-sold p {
+    line-height: 33px;
+}
+.main-box .item-sold .desc {
+    font-size: 16px;
+    line-height: 23px;
+}
+.main-box .time-count {
+    margin: 14px 0 0 10px;
+    white-space: nowrap;
+}
+.main-box .time-count .tit {
+    display: inline;
+    vertical-align: middle;
+}
+.main-box .time-count .begin {
+    color: #F43200;
+    font: bold 19px "微软雅黑";
+    text-align: center;
+}
+.main-box .time-count .dsec-anim {
+    background: url("http://img01.taobaocdn.com/tps/i1/T1BoaaXXpjXXXXXXXX-18-25.gif") no-repeat scroll 0 -1px transparent;
+    display: inline-block;
+    height: 25px;
+    line-height: 25px;
+    margin-left: 3px;
+    overflow: hidden;
+    padding-left: 20px;
+    vertical-align: middle;
+    width: 18px;
+}
+.main-box .time-count .no-anim {
+    background: none repeat scroll 0 0 transparent;
+    padding-left: 2px;
+}
+.main-box .ju-spltimer {
+    display: inline-block;
+    line-height: 21px;
+    vertical-align: middle;
+}
+.main-box .item-prom {
+    border-top: 1px solid #FFED85;
+    height: 37px;
+    line-height: 37px;
+    position: absolute;
+    text-align: center;
+    top: 271px;
+    width: 254px;
+}
+.main-box .item-prom li {
+    background: url("http://img01.taobaocdn.com/tps/i1/T1LjWaXm8jXXXXXXXX-19-163.png") no-repeat scroll 0 0 transparent;
+    display: inline;
+    float: left;
+    height: 16px;
+    line-height: 16px;
+    margin: 11px 0 0 9px;
+    padding-left: 20px;
+    width: 54px;
+}
+.main-box .item-prom .prom1 {
+    background-position: 0 0;
+}
+.main-box .item-prom .prom2 {
+    background-position: 0 -20px;
+}
+.main-box .item-prom .prom3 {
+    background-position: 0 -40px;
+}
+.main-box .item-prom .prom4 {
+    background-position: 0 -63px;
+}
+.main-box .item-prom .prom5 {
+    background-position: 0 -88px;
+}
+.main-box .item-prom .prom6 {
+    background-position: 0 -112px;
+}
+.main-box .item-prom img {
+    vertical-align: middle;
+}
+.main-box .info-bar {
+    height: 29px;
+    margin: 10px 5px 0;
+}
+.info-bar .item_share {
+    float: left;
+    padding-top: 4px;
+    width: 252px;
+}
+.info-bar .item_share i.icon {
+    vertical-align: middle;
+}
+.info-bar .item_share .small-blue {
+    margin-right: 9px;
+    vertical-align: middle;
+}
+.info-bar .item-seller {
+    border: 1px solid #E7E7E7;
+    border-radius: 2px 2px 2px 2px;
+    float: left;
+    height: 27px;
+    line-height: 27px;
+    margin-right: 3px;
+    overflow: hidden;
+    padding: 0 3px;
+    text-align: center;
+    width: 361px;
+}
+.info-bar .item_url {
+    border: 1px solid #E7E7E7;
+    color: #B0B0B0;
+    height: 19px;
+    line-height: 19px;
+    vertical-align: middle;
+    width: 76px;
+}
+.info-bar .item-seller .rank, .info-bar .item-seller span {
+    vertical-align: middle;
+}
+.info-bar .item-seller .ww-inline {
+    margin: 0 10px;
+    vertical-align: text-bottom;
+}
+.main-box .info-banner {
+    margin: 10px 2px;
+}
+.main-box .tip {
+    background-color: #FFFFE2;
+    border: 1px solid #FFC674;
+    bottom: 56px;
+    left: 130px;
+    padding: 5px 10px;
+    position: absolute;
+    width: 215px;
+    z-index: 100;
+}
+.main-box .tip s {
+    background: url("http://img02.taobaocdn.com/tps/i2/T11B9aXmReXXXXXXXX-264-248.png") no-repeat scroll -245px -237px transparent;
+    bottom: -5px;
+    display: block;
+    font-size: 0;
+    height: 5px;
+    left: 91px;
+    position: absolute;
+    width: 7px;
+}
+.main-box .tip b {
+    background-position: -443px -882px;
+    display: block;
+    font-size: 0;
+    height: 5px;
+    left: 5px;
+    position: absolute;
+    top: 5px;
+    width: 7px;
+}
+.jieti .buy-bottom .item-prices .curprice {
+    color: #DC442F;
+}
+.notbegin .info-box .picbox {
+    background: -moz-linear-gradient(center top , #B8E70E -1%, #9BBF0F 18%) repeat scroll 0 0 transparent;
+    border-color: #829A00;
+}
+.notbegin .info-box .pic {
+    border-color: #D3ED72;
+}
+.notbegin .item-buy {
+    background: url("http://img01.taobaocdn.com/tps/i1/T1lSqaXhxdXXXXXXXX-451-860.png") no-repeat scroll right -78px #9BBF0F;
+}
+.notbegin .item-buy strong {
+    background-position: 190px -78px;
+}
+.notbegin .item-buy .buy:hover {
+    background-image: none;
+}
+.chance .info-box .picbox {
+    background: -moz-linear-gradient(center top , #18DAE4 -1%, #18BCC1 18%) repeat scroll 0 0 transparent;
+    border-color: #00989A;
+}
+.chance .info-box .pic {
+    border-color: #82E6EC;
+}
+.chance .item-buy {
+    background: url("http://img01.taobaocdn.com/tps/i1/T1lSqaXhxdXXXXXXXX-451-860.png") no-repeat scroll right -156px #18BCC1;
+}
+.chance .item-buy strong {
+    background-position: 190px -156px;
+}
+.chance .item-buy .buy:hover {
+    background-image: none;
+}
+.soldout .info-box .picbox {
+    background: -moz-linear-gradient(center top , #ABABAB -1%, #A0A0A0 18%) repeat scroll 0 0 transparent;
+    border-color: #8B8B8B;
+}
+.soldout .info-box .pic {
+    border-color: #D0D0D0;
+}
+.soldout .item-buy {
+    background: url("http://img01.taobaocdn.com/tps/i1/T1lSqaXhxdXXXXXXXX-451-860.png") no-repeat scroll right -234px #18BCC1;
+}
+.soldout .item-buy strong {
+    background-position: 190px -234px;
+}
+.soldout .item-buy .buy:hover {
+    background-image: none;
+}
+.timeout .info-box .picbox {
+    background: -moz-linear-gradient(center top , #ABABAB -1%, #A0A0A0 18%) repeat scroll 0 0 transparent;
+    border-color: #8B8B8B;
+}
+.timeout .info-box .pic {
+    border-color: #D0D0D0;
+}
+.timeout .item-buy {
+    background: url("http://img01.taobaocdn.com/tps/i1/T1lSqaXhxdXXXXXXXX-451-860.png") no-repeat scroll right -234px #18BCC1;
+}
+.timeout .item-buy strong {
+    background-position: 190px -314px;
+}
+.timeout .item-buy .buy:hover {
+    background-image: none;
+}
+.deal-record {
+    margin: 10px 0;
+}
+.deal-record .hd {
+    border-bottom: 2px solid #DDE4EA;
+    line-height: 3em;
+    padding-left: 10px;
+    width: 710px;
+}
+.deal-record h3 {
+    display: inline-block;
+}
+.deal-record div {
+    overflow: hidden;
+    width: 100%;
+}
+.deal-record .table-deal-record em, .deal-record .table-deal-record caption {
+    color: #FF5500;
+    font-weight: 700;
+}
+.deal-record .table-deal-record {
+    margin-bottom: 10px;
+    width: 100%;
+}
+.deal-record .table-deal-record caption {
+    padding: 5px 0;
+}
+.deal-record .table-deal-record th {
+    border-bottom: 1px solid #DDE4EA;
+    font-weight: 700;
+    height: 30px;
+    text-align: center;
+}
+.deal-record .table-deal-record td {
+    border-bottom: 1px solid #EEF1F4;
+    padding: 3px 5px;
+    text-align: center;
+}
+.deal-record .cell-align-l {
+    text-align: left;
+}
+.deal-record .cell-align-c {
+    text-align: center;
+}
+.deal-record .odd {
+    background-color: #F6F9FF;
+}
+.deal-record .col-buyer {
+    width: 130px;
+}
+.deal-record .col-price {
+    width: 10%;
+}
+.deal-record .col-amount {
+    width: 10%;
+}
+.deal-record .col-chargetime {
+    width: 20%;
+}
+.deal-record .col-status {
+    width: 10%;
+}
+.deal-record .col-auct-buyer {
+    width: 20%;
+}
+.deal-record .col-auct-price {
+    width: 20%;
+}
+.deal-record .col-auct-amount {
+    width: 15%;
+}
+.deal-record .col-auct-effectamount {
+    width: 15%;
+}
+.deal-record .col-auct-actiontime {
+    width: 20%;
+}
+.deal-record .col-auct-status {
+    width: 10%;
+}
+.main-box .info-detail {
+    font-size: 14px;
+    line-height: 1.5;
+    margin: 15px 10px;
+}
+.main-box .info-detail p {
+    margin-bottom: 1em;
+}
+.buy-bottom {
+    height: 70px;
+    margin-top: 30px;
+    position: relative;
+}
+.buy-bottom .item-prices {
+    background: none repeat scroll 0 0 transparent;
+    left: 64px;
+    top: 10px;
+}
+.buy-bottom .item-buy {
+    background-position: right -312px;
+    left: 334px;
+    top: 3px;
+}
+.infomap {
+    margin: 15px 0 3px;
+    padding: 10px 15px;
+    width: 678px;
+}
+.infomap h3 {
+    color: #FF7500;
+    font-size: 14px;
+    margin-bottom: 5px;
+}
+.infomap .btn-bigmap {
+    background-color: white;
+    border: 1px solid black;
+    border-radius: 4px 4px 4px 4px;
+    bottom: 7px;
+    box-shadow: 1px 1px 1px #999999;
+    cursor: pointer;
+    opacity: 0.9;
+    padding: 0 4px;
+    position: absolute;
+    right: 5px;
+    z-index: 100;
+}
+.infomap .mapbox {
+    border: 1px solid #D2D2D2;
+    float: left;
+    height: 210px;
+    width: 375px;
+}
+.infomap .maplist {
+    float: right;
+    font-size: 14px;
+    margin-left: 15px;
+    width: 285px;
+}
+.maplist ul {
+    overflow: hidden;
+}
+.maplist .more-branches {
+    background-position: 0 -866px;
+    display: none;
+    padding: 5px;
+    text-align: right;
+}
+.maplist h4 {
+    border-top: 1px solid #DEDEDE;
+    color: #3399CC;
+    cursor: pointer;
+    font-size: 14px;
+    font-weight: normal;
+    padding: 5px;
+}
+.maplist .on h4 {
+    background-position: -135px -843px;
+    border: medium none;
+    color: #333333;
+    font-weight: bold;
+    padding: 0 5px 10px;
+}
+.maplist .info {
+    color: #666666;
+    margin-left: 5px;
+    padding: 5px 0;
+}
+.maplist .info p {
+    margin-left: 3em;
+    text-indent: -3em;
+}
+.info-bar .item-seller .grade {
+    padding-top: 0;
+}
+.info-bar .c-value-no {
+    background: url("http://img05.taobaocdn.com/tps/i5/T1JLtRXhlAXXXXXXXX-128-83.png") repeat scroll -64px -12px transparent;
+}
+.c-value-no i {
+    display: inline-block;
+    height: 16px;
+    overflow: hidden;
+    width: 16px;
+}
+.c-value-no, .c-value-no i {
+    background: url("http://img05.taobaocdn.com/tps/i5/T1JLtRXhlAXXXXXXXX-128-83.png") no-repeat scroll 0 0 transparent;
+}
+.info-bar .grade h4 {
+    display: none;
+}
+.info-bar .grade a {
+    color: #777777;
+    text-decoration: none;
+}
+.info-bar .grade .c-value-no {
+    margin-right: 3px;
+}
+.info-bar .grade, #shop-info .extra-info .extend, #shop-info .extra-info .other {
+    color: #777777;
+    padding-top: 5px;
+}
+#header .c-value-no, #content .c-value-no {
+    background-position: -64px -12px;
+    display: inline-block;
+    height: 12px !important;
+    overflow: hidden;
+    text-align: left;
+    vertical-align: inherit !important;
+    width: 60px;
+}
+#header .c-value-no i, #content .c-value-no i {
+    background-position: -64px 0;
+    overflow: hidden;
+    vertical-align: top;
+    width: 0;
+}
+.danshuang .tip {
+    bottom: 72px;
+    display: none;
+    left: 4px;
+    width: 282px;
+}
+.danshuang .tip s {
+    left: 80px;
+}
+.shuang .tip {
+    bottom: -50px;
+}
+.shuang .tip s {
+    background-position: 0 -48px;
+    left: 80px;
+    top: -5px;
+}
+.danshuang .dantong strong {
+    font-size: 40px;
+    padding-top: 10px;
+}
+.danshuang .dantong .label, .danshuang .buy-shuang .label {
+    color: #FFFFFF;
+    left: 30px;
+    position: absolute;
+    top: 5px;
+}
+.danshuang .buy-shuang .label {
+    color: #DC442F;
+}
+.danshuang .buy-shuang {
+    background-position: right -390px;
+    top: 127px;
+}
+.danshuang .buy-shuang strong {
+    background-position: 190px -624px;
+    color: #DC442F;
+    font-size: 40px;
+    padding-top: 10px;
+    text-shadow: 1px 1px 1px #E5C569;
+}
+.danshuang .buy-shuang .buy:hover {
+    background-position: 190px -702px;
+}
+.notbegin .buy-shuang {
+    background: url("http://img01.taobaocdn.com/tps/i1/T1lSqaXhxdXXXXXXXX-451-860.png") no-repeat scroll right -78px #9BBF0F;
+}
+.notbegin .buy-shuang .label {
+    color: #FFFFFF;
+}
+.notbegin .buy-shuang strong {
+    background-position: 190px -78px;
+    color: #FFFFFF;
+    text-shadow: 1px 1px 1px #666666;
+}
+.notbegin .buy-shuang .buy:hover {
+    background-image: none;
+}
+.soldout .buy-shuang {
+    background: url("http://img01.taobaocdn.com/tps/i1/T1lSqaXhxdXXXXXXXX-451-860.png") no-repeat scroll right -234px #18BCC1;
+}
+.soldout .buy-shuang strong {
+    background-position: 190px -234px;
+    color: #FFFFFF;
+    text-shadow: 1px 1px 1px #666666;
+}
+.soldout .buy-shuang .label {
+    color: #FFFFFF;
+}
+.soldout .buy-shuang .buy:hover {
+    background-image: none;
+}
+.timeout .buy-shuang {
+    background: url("http://img01.taobaocdn.com/tps/i1/T1lSqaXhxdXXXXXXXX-451-860.png") no-repeat scroll right -234px #18BCC1;
+}
+.timeout .buy-shuang strong {
+    background-position: 190px -314px;
+    color: #FFFFFF;
+    text-shadow: 1px 1px 1px #666666;
+}
+.timeout .buy-shuang .label {
+    color: #FFFFFF;
+}
+.timeout .buy-shuang .buy:hover {
+    background-image: none;
+}
+.chance .buy-shuang {
+    background: url("http://img01.taobaocdn.com/tps/i1/T1lSqaXhxdXXXXXXXX-451-860.png") no-repeat scroll right -156px #18BCC1;
+}
+.chance .buy-shuang strong {
+    background-position: 190px -156px;
+    color: #FFFFFF;
+    text-shadow: 1px 1px 1px #666666;
+}
+.chance .buy-shuang .label {
+    color: #FFFFFF;
+}
+.chance .buy-shuang .buy:hover {
+    background-image: none;
+}
+.shuang .item-sold {
+    height: auto;
+    line-height: 1em;
+    padding-top: 71px;
+}
+.shuang .time-count {
+    margin-top: 3px;
+}
+.shuang .buy-bottom .buy-shuang {
+    background: url("http://img01.taobaocdn.com/tps/i1/T1lSqaXhxdXXXXXXXX-451-860.png") no-repeat scroll -180px -472px #FFE27D;
+    height: 28px;
+    left: 85px;
+    padding: 20px;
+    position: absolute;
+    top: 3px;
+    width: 220px;
+    z-index: 100;
+}
+.shuang .buy-bottom .buy-shuang strong {
+    color: #DC442F;
+    font-size: 30px;
+}
+.shuang .buy-bottom .buy-shuang b {
+    font-family: Arial;
+    font-size: 20px;
+}
+.shuang .buy-bottom .buy-shuang .label {
+    color: #DC442F;
+}
+.shuang .buy-bottom .btn-middle {
+    padding: 0 10px;
+    position: absolute;
+    right: 18px;
+    top: 21px;
+}
+.infodetail {
+    overflow: hidden;
+    padding: 0 10px;
+    width: 702px;
+}
+.infodetail img {
+    max-width: 702px;
+}
+.backto-list {
+    background: url("http://img02.taobaocdn.com/tps/i2/T11B9aXmReXXXXXXXX-264-248.png") no-repeat scroll -162px -136px transparent;
+    display: block;
+    height: 75px;
+    left: -40px;
+    position: absolute;
+    top: 3px;
+    width: 22px;
+}
+.backto-list:hover {
+    background-position: -136px -136px;
+}
+.ju-main .list-load {
+    background: url("http://img04.taobaocdn.com/tps/i4/T1JyCaXd8zXXXXXXXX-32-32.gif") no-repeat scroll center center #F3FBFB;
+    border: 1px solid #CDE4EB;
+    border-radius: 3px 3px 3px 3px;
+    display: none;
+    height: 47px;
+    margin-bottom: 15px;
+}
+.ju-main .list-load .reload {
+    background-color: #F3FBFB;
+    cursor: pointer;
+    display: block;
+    font: 16px/47px "微软雅黑";
+    height: 47px;
+    text-align: center;
+}
+.ju-main .list-load .reload:hover {
+    text-decoration: underline;
+}
+.pop-map {
+    border: 2px solid white;
+    border-radius: 3px 3px 3px 3px;
+    box-shadow: 5px 5px 7px #666666;
+    top: 60px;
+}
+.pop-map .infomap {
+    margin: 0;
+}
+.pop-map .hd {
+    display: none;
+    height: 0;
+}
+.pop-map .bd {
+    border: medium none;
+    padding: 25px 25px 19px;
+}
+.pop-map .ft {
+    background: none repeat scroll 0 0 white;
+}
+.pop-map .ft .buttons {
+    padding: 0 0 20px;
+}
+.pop-map .ft .buttons button {
+    color: #999999;
+    font-size: 19px;
+    font-weight: bold;
+    height: 34px;
+    line-height: 36px;
+    width: 127px;
+}
+.pop-map .ft .btn-close {
+    color: #29A5C9;
+}
+.main-box .item-buy .icon-front {
+    background: url("http://img01.taobaocdn.com/tps/i1/T1lSqaXhxdXXXXXXXX-451-860.png") no-repeat scroll 0 -806px transparent;
+    display: none;
+    height: 17px;
+    left: 26px;
+    position: absolute;
+    top: -6px;
+    width: 55px;
+}
+.main-box .item-buy .final {
+    background-position: -73px -806px;
+    width: 61px;
+}
+.jieti .item-buy .icon-front {
+    display: block;
+}
+.jieti .avil strong {
+    background-position: 190px -468px;
+}
+.jieti .avil .buy:hover {
+    background-position: 190px -546px;
+}
+.jieti .item-prices {
+    background-position: 1px -60px;
+}
+.jieti .item-prices dt {
+    line-height: 34px;
+    overflow: hidden;
+}
+.jieti .item-prices .price {
+    margin-right: 4px;
+    overflow: hidden;
+    width: 80px;
+}
+.jieti .item-prices .curprice {
+    color: #FFFFFF;
+}
+.jieti .item-prices .minprice {
+    color: #309B00;
+}
+.main-box .pay-final {
+    background: url("http://img02.taobaocdn.com/tps/i2/T11B9aXmReXXXXXXXX-264-248.png") no-repeat scroll 1px 0 transparent;
+    height: 59px;
+    left: -11px;
+    padding-left: 12px;
+    position: absolute;
+    top: 68px;
+    white-space: nowrap;
+    width: 253px;
+}
+.main-box .pay-final .inner {
+    background-color: #FFF7AD;
+    height: 43px;
+    margin: 10px 1px;
+    padding-top: 5px;
+    width: 251px;
+}
+.main-box .pay-final .dealing {
+    padding: 0 5px;
+    white-space: normal;
+}
+.main-box .pay-final span {
+    padding: 0 12px;
+    vertical-align: middle;
+}
+.main-box .pay-final .dealing span {
+    padding: 0;
+}
+.price-grads {
+    overflow: hidden;
+    padding: 18px 0 0;
+    position: relative;
+    text-align: center;
+    width: 250px;
+}
+.price-grads .grad-info {
+    background-color: #FFFFE2;
+    border: 1px solid #FFC674;
+    border-radius: 2px 2px 2px 2px;
+    color: #666666;
+    display: inline-block;
+    height: 24px;
+    line-height: 24px;
+    margin: 10px 0 0;
+    overflow: hidden;
+    padding: 0 5px;
+    text-align: center;
+    white-space: nowrap;
+    width: 222px;
+}
+.price-grads .style1-tip {
+    margin-top: 6px;
+}
+.price-grads .grad-info strong {
+    color: #DC442F;
+}
+.price-grads .grad-pointer {
+    background: url("http://img02.taobaocdn.com/tps/i2/T11B9aXmReXXXXXXXX-264-248.png") no-repeat scroll -245px -243px transparent;
+    bottom: 29px;
+    display: block;
+    height: 5px;
+    left: 119px;
+    position: absolute;
+    width: 7px;
+}
+.price-grads .style1-poi {
+    top: 64px;
+}
+.price-grads .grad-bar {
+    border-radius: 2px 2px 2px 2px;
+    cursor: default;
+    height: 14px;
+    overflow: hidden;
+    padding: 8px 0 0 10px;
+    white-space: nowrap;
+    width: 242px;
+}
+.price-grads .grad-bar ul {
+    width: 250px;
+}
+.price-grads .grad-bar li {
+    border-right: 1px solid #FFFFFF;
+    color: #FFFFFF;
+    display: block;
+    float: left;
+    font-family: Arial;
+    height: 14px;
+    line-height: 14px;
+    overflow: hidden;
+    text-align: center;
+    width: 60px;
+}
+.price-grads .grad-bar .pass {
+    background-color: #ABDDF4;
+}
+.price-grads .grad-bar .curr {
+    background-color: #DC442F;
+}
+.price-grads .grad-bar .next {
+    background-color: #ABDDF4;
+}
+.price-grads .style1-bar {
+    padding-top: 30px;
+}
+.price-grads .style1-bar li {
+    width: 48px;
+}
+.price-grads .style1-bar .pass {
+    color: #ABDDF4;
+}
+.price-grads .style1-bar .curr {
+    color: #DC442F;
+}
+.price-grads .style1-bar .next {
+    color: #ABDDF4;
+}
+.price-grads .grad-num {
+    height: 12px;
+    line-height: 12px;
+    margin-left: 10px;
+}
+.price-grads .grad-num ul {
+    width: 250px;
+}
+.price-grads .grad-num li {
+    display: block;
+    float: left;
+    text-align: left;
+    white-space: nowrap;
+    width: 58px;
+    word-wrap: normal;
+}
+.price-grads .style1-num {
+    padding-top: 3px;
+    position: absolute;
+    text-align: right;
+    width: 236px;
+}
+.price-grads .style1-num div {
+    display: inline-block;
+    float: right;
+    text-align: right;
+}
+.price-grads .style1-num .min {
+    float: left;
+    text-align: left;
+}
+.price-grads .style1-num .price {
+    color: #FF6600;
+    font-weight: bold;
+}
+.price-grads .style1-num .pricetip {
+    background-color: #FFFFE2;
+    border: 1px solid #FFC674;
+    color: #FF6600;
+    font-weight: bold;
+    left: 50px;
+    line-height: 1.3em;
+    padding: 0 5px;
+    position: absolute;
+    top: -5px;
+    white-space: nowrap;
+}
+.ju-pay {
+    background-color: #FFFFFF;
+    border: 2px solid #CBD1DB;
+    border-radius: 5px 5px 5px 5px;
+    overflow: hidden;
+    padding: 20px;
+    width: 906px;
+}
+.ju-pay h2 {
+    background-color: #F7F7F7;
+    font-size: 14px;
+    height: 25px;
+    margin: -20px 0 0 -20px;
+    padding: 5px 0 0 10px;
+    width: 936px;
+}
+.ju-pay .pay-unit {
+    border-bottom: 1px dashed #E0E0E0;
+    margin: 0 10px;
+    padding: 15px 0;
+}
+.ju-pay .jieti-anc {
+    font-size: 14px;
+}
+.ju-pay .pay-unit strong {
+    color: #FF6600;
+    font-weight: normal;
+}
+.ju-pay .pay-unit h3 {
+    font-size: 14px;
+    line-height: 2em;
+}
+.ju-pay .tuan-state {
+    border: medium none;
+}
+.ju-pay .item-info {
+    line-height: 2.7em;
+}
+.ju-pay .item-info img {
+    border: 1px solid #E0E0E0;
+    float: left;
+    height: 80px;
+    margin: 7px 40px 0 0;
+    width: 80px;
+}
+.ju-pay .item-info h4 {
+    font-size: 14px;
+    font-weight: normal;
+}
+.ju-pay .item-info .desc {
+    color: #999999;
+}
+.ju-pay .item-info strong {
+    margin-right: 20px;
+}
+.ju-pay .item-info strong em {
+    font-weight: bold;
+}
+.ju-pay .price-grads {
+    margin: 10px 0 0;
+    text-align: left;
+    width: 875px;
+}
+.ju-pay .price-grads .grad-bar {
+    height: 40px;
+    margin: 10px 0 0;
+    width: 875px;
+}
+.ju-pay .price-grads ul {
+    width: 885px;
+}
+.ju-pay .price-grads .grad-bar li {
+    font-size: 20px;
+    height: 40px;
+    line-height: 40px;
+}
+.ju-pay .price-final {
+    background-color: #FFFFE1;
+    border: 1px solid #F9B967;
+    float: left;
+    padding: 15px 20px;
+}
+.ju-pay .price-final strong {
+    font-size: 20px;
+    font-weight: bold;
+}
+.ju-pay .price-final .num {
+    color: #309B00;
+}
+.ju-pay .receive {
+    line-height: 26px;
+    padding: 10px 0;
+}
+.ju-pay .receive-info dd {
+    float: left;
+    width: 750px;
+}
+.ju-pay .receive-info dt {
+    float: left;
+    width: 85px;
+}
+.ju-pay .pay-term {
+    background-color: #F7F7F7;
+    border: 1px solid #DFDFDF;
+    float: left;
+    height: 45px;
+    line-height: 2em;
+    margin: 10px 10px 10px 0;
+    padding: 10px;
+    width: 240px;
+}
+.ju-pay .pay-term strong {
+    color: #666666;
+    font-weight: bold;
+}
+.ju-pay .pay-term .ju-spltimer {
+    display: inline-block;
+    height: auto;
+    vertical-align: middle;
+}
+.ju-pay .pay-term .ju-spltimer .label {
+    vertical-align: middle;
+}
+.pop-ju .dsec-anim {
+    vertical-align: top;
+}
+.ju-pay .pay-contact .field {
+    clear: both;
+    padding: 5px 0;
+}
+.ju-pay .pay-contact .terms {
+    float: left;
+    margin-right: 15px;
+}
+.ju-pay .pay-contact .j-text {
+    border-color: #ABADB3;
+    width: 210px;
+}
+.ju-pay .pay-contact .unavil {
+    color: #B0B0B0;
+}
+.ju-pay .pay-info {
+    border: medium none;
+    line-height: 2.3em;
+    text-align: center;
+}
+.ju-pay .pay-info .tit {
+    background: url("http://img04.taobaocdn.com/tps/i4/T1r6N1XmtnXXXXXXXX-10-14.png") no-repeat scroll 0 8px transparent;
+    display: inline-block;
+    padding-left: 13px;
+    vertical-align: baseline;
+}
+.ju-pay .pay-info .price {
+    line-height: 3em;
+}
+.ju-pay .pay-info .price .ding {
+    font-size: 14px;
+}
+.ju-pay .pay-info .price strong {
+    font-family: "微软雅黑";
+    font-size: 35px;
+    font-weight: bold;
+}
+.ju-pay .pay-info .price .final-terms strong {
+    font-size: 16px;
+}
+.ju-pay .pay-info .price em {
+    color: #FF6600;
+    font-size: 21px;
+    font-weight: bold;
+}
+.ju-pay .pay-info .desc {
+    color: #FF6600;
+}
+.ju-pay .pay-info .agreement a {
+    font-weight: bold;
+}
+.ju-pay .pay-info .j-bigbtn {
+    margin: 10px 15px 0 0;
+}
+.ju-pay .pay-info textarea {
+    clear: both;
+    height: 74px;
+    line-height: 2em;
+    margin: 10px 0 5px;
+    padding: 5px;
+    width: 660px;
+}
+.ju-pay .pay-info .agreement strong {
+    color: #666666;
+    font-weight: bold;
+}
+.ju-pay .pay-info .agreement input {
+    vertical-align: middle;
+}
+.ju-pay .final-timer .ju-spltimer {
+    display: inline-block;
+    height: auto;
+    vertical-align: middle;
+}
+.ju-pay .final-timer .ju-spltimer p {
+    vertical-align: baseline;
+}
+.ju-pay .final-timer .ju-spltimer .label {
+    vertical-align: top;
+}
+.pop_pay .tit {
+    color: #FF6600;
+    margin: 0.6em 0;
+}
+.pop_pay .desc {
+    color: #666666;
+    margin: 0.5em 0;
+    padding: 12px;
+}
+.pop_pay .desc p {
+    font-size: 12px;
+    margin: 0.2em 0;
+}
+.pop_pay .tip-blue {
+    background: url("http://img03.taobaocdn.com/tps/i3/T1K0t7XcpvXXXXXXXX-276-32.png") no-repeat scroll 0 0 transparent;
+    display: inline-block;
+    height: 22px;
+    margin-top: 5px;
+    padding: 10px 0 0 26px;
+    text-align: left;
+    width: 250px;
+}
+.order-box {
+    color: #404040;
+}
+.order-box .hd {
+    border-bottom: 3px solid #E9E9E9;
+    height: 24px;
+    line-height: 24px;
+    position: relative;
+}
+.order-box .bd {
+    padding: 10px 20px 15px;
+}
+.order-box .hd h3 em {
+    color: #404040;
+    font-weight: 700;
+}
+.order-box .hd h3 .manage-address {
+    font-size: 12px;
+    font-weight: 400;
+    margin-left: 10px;
+}
+.order-box .h {
+    margin-left: -15px;
+    padding: 4px;
+    position: absolute;
+}
+.all, .mini {
+    background: url("http://img07.taobaocdn.com/tps/i1/T1yudfXdXxXXXXXXXX-15-50.gif") no-repeat scroll 0 0 transparent;
+    cursor: pointer;
+    font-size: 12px;
+    font-weight: 400;
+    padding-right: 15px;
+    position: absolute;
+    right: 0;
+    top: 0;
+}
+.all {
+    background-position: right -3px;
+}
+.mini {
+    background-position: right -28px;
+    display: none;
+}
+.expand .mini {
+    display: block;
+}
+.expand .all {
+    display: none;
+}
+.label-error {
+    background: url("http://a.tbcdn.cn/img/app/trade/sys_icons.gif") no-repeat scroll 5px 5px #FFF2E9;
+    border: 1px solid #FF6600;
+    height: 25px;
+    line-height: 25px;
+    margin: 5px 0 0;
+    padding-left: 28px;
+    width: auto;
+}
+.other-address {
+    background: none repeat scroll 0 0 #F1F8FF;
+    margin-top: 10px;
+}
+.order-box td {
+    color: #404040;
+    line-height: 20px;
+    padding: 5px 0 5px 10px;
+}
+.order-box .first-col {
+    text-align: right;
+    vertical-align: top;
+}
+.order-box td label {
+    margin-left: 6px;
+}
+.other-address .address-txt {
+    height: 50px;
+    padding: 3px;
+    width: 500px;
+}
+.msgtosaler {
+    height: 50px;
+    padding: 3px;
+    width: 500px;
+}
+#address-collection li {
+    color: #404040;
+    margin-bottom: 3px;
+    padding-left: 3px;
+}
+#address-collection li.selected {
+    background: none repeat scroll 0 0 #FDF2C9;
+    border: 1px solid #FBEBAD;
+}
+#address-collection li input {
+    outline: medium none;
+    vertical-align: middle;
+}
+#address-collection li label {
+    padding-left: 5px;
+}
+#address-collection .buyer-name {
+    padding-right: 15px;
+}
+#address-collection .extra {
+    display: none;
+}
+.expand #address-collection .extra, #address-collection .selected {
+    display: block;
+}
+#address-collection .msg {
+    display: inline-block;
+    margin-left: 15px;
+    vertical-align: middle;
+}
+#address-collection .msg p {
+    float: none;
+    padding: 2px 10px 0 23px;
+}
+.msg .loading {
+    background: url("http://img03.taobaocdn.com/tps/i3/T1NAdGXb0FXXXXXXXX-16-16.gif") no-repeat scroll 0 3px transparent;
+    color: #404040;
+    float: left;
+    line-height: 16px;
+    padding: 2px 10px 2px 23px;
+}
+#address-collection li .set-default {
+    display: none;
+}
+#address-collection li.hover .set-default {
+    display: inline;
+    margin-left: 15px;
+}
+.other-address {
+    background: none repeat scroll 0 0 #F1F8FF;
+    margin-top: 10px;
+}
+.order-box td {
+    color: #404040;
+    line-height: 20px;
+    padding: 5px 0 5px 10px;
+}
+.order-box .first-col {
+    text-align: right;
+    vertical-align: top;
+}
+.order-box td label {
+    margin-left: 6px;
+}
+.other-address .address-txt {
+    height: 50px;
+    padding: 3px;
+    width: 500px;
+}
+#trade-info .invoice {
+    margin-bottom: 10px;
+    overflow: hidden;
+}
+#trade-info .invoice em {
+    padding-right: 5px;
+}
+#trade-info .invoice .default, #trade-info .invoice .custom {
+    display: block;
+    height: 21px;
+}
+#trade-info .invoice .custom {
+    position: relative;
+}
+#trade-info .invoice .custom .h {
+    left: 7px;
+    margin-left: -22px;
+    padding: 4px;
+    position: absolute;
+}
+#trade-info .invoice .custom input {
+    height: 15px;
+    padding: 2px;
+    width: 500px;
+}
+#trade-info .invoice .custom {
+    display: none;
+}
+#trade-info .invoice-edit .custom {
+    display: block;
+    margin-bottom: 3px;
+}
+#trade-info .invoice-edit .default {
+    display: none;
+}
+.ju-popup .ju-spltimer {
+    display: inline-block;
+    height: auto;
+    vertical-align: middle;
+}
+.ju-popup .ju-spltimer .label {
+    vertical-align: top;
+}
+.pay-success {
+    padding: 20px 10px;
+    width: 926px;
+}
+.pay-success h2 {
+    margin: -20px 0 0 -10px;
+}
+.pay-success .success {
+    font-size: 14px;
+    line-height: 68px;
+    margin: 35px 0 0 156px;
+    padding-left: 80px;
+}
+.pay-success .final {
+    line-height: 60px;
+    margin-left: 280px;
+    position: relative;
+    text-align: center;
+    width: 286px;
+}
+.pay-success .final .icon-suc {
+    background: url("http://img02.taobaocdn.com/tps/i2/T15PFRXXtxXXXXXXXX.png") no-repeat scroll 0 0 transparent;
+    display: block;
+    height: 70px;
+    left: 0;
+    position: absolute;
+    top: 0;
+    width: 70px;
+}
+.pay-success .final .shop-info {
+    line-height: 1.6em;
+    padding-left: 43px;
+    text-align: left;
+}
+.suc-pics {
+    margin-top: 30px;
+    text-align: center;
+    width: 946px;
+}
+.suc-pics div {
+    float: left;
+    margin-right: 10px;
+}
+.suc-pics p {
+    margin-left: 2em;
+    text-indent: -1em;
+}
+.suc-sub {
+    font-size: 14px;
+    line-height: 50px;
+    margin: 40px 0 20px;
+    text-align: center;
+}
+.suc-sub p {
+    line-height: 50px;
+}
+.suc-sub strong {
+    color: #FF6600;
+}
+.suc-sub .j-bigbtn {
+    margin-right: 15px;
+}
+.suc-tms {
+    margin: 10px 0;
+    width: 920px;
+}
+.ju-pay .url_input {
+    border: 0 none;
+    line-height: 1em;
+    width: 415px;
+}
+.infobox .info-share {
+    border-top: 1px dashed #DADADA;
+    height: 25px;
+    margin: 0 auto;
+    overflow: hidden;
+    padding-top: 10px;
+    text-align: right;
+    width: 670px;
+}
+.infobox .tit {
+    font-weight: bold;
+}
+.info-share ul {
+    display: inline-block;
+}
+.info-share li {
+    display: inline-block;
+    margin-left: 12px;
+}
+.info-share li a {
+    line-height: 20px;
+}
+.info-share li b {
+    background: url("http://img01.taobaocdn.com/tps/i1/T127XWXnXHXXXXXXXX-240-20.png") no-repeat scroll 0 0 transparent;
+    display: inline-block;
+    height: 18px;
+    margin-right: 3px;
+    vertical-align: text-bottom;
+    width: 18px;
+}
+.info-share a, .info-share a:visited, .info-share a:hover {
+    color: #666666;
+    text-decoration: none;
+}
+.info-share .ww b {
+    background-position: 0 0;
+}
+.info-share .tao b {
+    background-position: -25px 0;
+}
+.info-share .kx b {
+    background-position: -50px 0;
+}
+.info-share .ren b {
+    background-position: -75px 0;
+}
+.info-share .db b {
+    background-position: -100px 0;
+}
+.info-share .sina b {
+    background-position: -125px 0;
+}
+.info-share .mail b {
+    background-position: -150px 0;
+}
+.share-copy {
+    background-color: #FFFFFF;
+    border: 1px solid #D7D7D7;
+    color: #333333;
+    font-size: 13px;
+    line-height: 2em;
+    padding: 10px 20px 20px;
+}
+.share-copy .j-sub {
+    font-size: 12px;
+    margin-right: 0;
+    vertical-align: middle;
+}
+.share-copy input {
+    border: 1px solid #CDCDCD;
+    color: #999999;
+    width: 260px;
+}
+.seller {
+    margin-bottom: 50px;
+}
+.seller h2 {
+    color: #333333;
+    font-size: 14px;
+    font-weight: bold;
+    margin: 5px 0 0 9px;
+}
+.sign-terms {
+    background-color: #EAEAEA;
+    height: 100px;
+    line-height: 100px;
+    margin: 10px 10px 20px;
+    text-align: center;
+}
+.ju-form {
+    background-color: #FFFFFF;
+    padding: 10px 10px 0;
+}
+.ju-form .field, .ju-form .field-e {
+    clear: both;
+    line-height: 2em;
+    padding: 11px 0 0;
+    width: 100%;
+}
+.ju-form .field span {
+    display: inline-block;
+    white-space: nowrap;
+}
+.ju-form .field b, .ju-form .field-e b {
+    color: #DE0000;
+    display: block;
+    float: left;
+    font-weight: normal;
+    text-align: center;
+    width: 24px;
+}
+.ju-form .field .tit, .ju-form .field-e .tit {
+    float: left;
+    width: 82px;
+}
+.ju-form .terms {
+    float: left;
+    width: 205px;
+}
+.ju-form .agreement {
+    width: 280px;
+}
+.ju-form .agreement input {
+    vertical-align: middle;
+}
+.sign .j-text {
+    width: 178px;
+}
+.ju-form .terms label {
+    margin-left: 6px;
+    vertical-align: bottom;
+}
+.ju-form .sub {
+    margin: 10px 0 10px 106px;
+}
+.seller-tab {
+    border-bottom: 1px solid #CBCBCB;
+    height: 27px;
+    position: relative;
+}
+.seller-tab ul {
+    border-bottom: 1px solid #E4E4E4;
+    height: 26px;
+    overflow: visible;
+    padding-left: 16px;
+    position: relative;
+}
+.seller-tab ul li {
+    -moz-border-bottom-colors: none;
+    -moz-border-image: none;
+    -moz-border-left-colors: none;
+    -moz-border-right-colors: none;
+    -moz-border-top-colors: none;
+    background-color: #FFFFFF;
+    border-color: #D8D8D8;
+    border-style: solid;
+    border-top-left-radius: 3px;
+    border-top-right-radius: 3px;
+    border-width: 1px 1px 0;
+    cursor: pointer;
+    float: left;
+    height: 25px;
+    line-height: 27px;
+    margin-right: 1px;
+    position: relative;
+    text-align: center;
+    width: 71px;
+}
+.seller-tab ul li.active {
+    font-weight: bold;
+    height: 27px;
+    margin-bottom: -2px;
+}
+.seller-tab a {
+    color: #666666;
+}
+.seller-tab a:hover {
+    color: #666666;
+}
+.seller-tab a:visited {
+    color: #666666;
+    text-decoration: none;
+}
+.seller-tab .active a, .seller-tab .active a:hover, .seller-tab .active a:visited {
+    color: #E8341C;
+}
+.seller-list {
+    background-color: #FFFFFF;
+}
+.seller-list table {
+    text-align: center;
+    width: 990px;
+}
+.seller-list th {
+    font-weight: normal;
+    padding: 12px 0;
+}
+.seller-list td {
+    padding: 10px 0 4px;
+}
+.seller-list .odd {
+    background-color: #F7F7F7;
+}
+.seller-list .pic {
+    width: 77px;
+}
+.seller-list .name {
+    width: 175px;
+}
+.seller-list .price, .seller-list .off, .seller-list .juprice, .seller-list .num {
+    width: 60px;
+}
+.seller-list .post, .seller-list .type, .seller-list .addtime, .seller-list .state, .seller-list .arrange, .seller-list .option {
+    width: 75px;
+}
+.seller-list .off {
+    width: 60px;
+}
+.seller-list td.name {
+    text-align: left;
+}
+.seller-list td.state {
+    color: #DE0000;
+}
+.seller-list .tips {
+    padding: 0 6px 10px;
+    text-align: left;
+}
+.seller-list .tips div {
+    background-color: #FFFFE2;
+    border: 1px solid #FFC674;
+    color: #FF8500;
+    font-weight: bold;
+    overflow: hidden;
+    padding: 5px 12px;
+    word-wrap: break-word;
+}
+.seller-add {
+    -moz-border-bottom-colors: none;
+    -moz-border-image: none;
+    -moz-border-left-colors: none;
+    -moz-border-right-colors: none;
+    -moz-border-top-colors: none;
+    background-color: #FFFFFF;
+    border-color: #E6E6E6;
+    border-style: solid;
+    border-width: 0 1px 1px;
+    margin-bottom: 30px;
+    padding-bottom: 30px;
+}
+.seller-add .field .tit {
+    margin-right: 20px;
+    text-align: right;
+    width: 132px;
+}
+.seller-add .upload {
+    color: #000000;
+    font-size: 15px;
+    height: 25px;
+    padding: 0 5px;
+}
+.seller-add .terms {
+    width: auto;
+}
+.seller-add .j-text {
+    width: 166px;
+}
+.seller-add .field span {
+    line-height: 22px;
+}
+.seller-add .field .wrn {
+    color: #E8341C;
+}
+.seller-add .preview {
+    background: -moz-linear-gradient(center top , #F4381A -1%, #CF301A 18%) repeat scroll 0 0 transparent;
+    border: 1px solid #A51100;
+    display: none;
+    float: left;
+    height: 300px;
+    margin: 15px 0 10px;
+    overflow: hidden;
+    padding: 3px;
+    position: relative;
+    text-align: center;
+    width: 450px;
+}
+.seller-add .preview .pic {
+    height: 300px;
+    overflow: hidden;
+    width: 450px;
+}
+.seller-add .preview img {
+    display: inline-block;
+    width: 450px;
+}
+.seller-add .preview .discount {
+    background: url("http://img02.taobaocdn.com/tps/i2/T11B9aXmReXXXXXXXX-264-248.png") repeat-x scroll -64px -184px transparent;
+    color: #FFFFFF;
+    font: bold 17px "微软雅黑",Arial;
+    height: 28px;
+    padding: 4px 0 36px 22px;
+    position: absolute;
+    right: 3px;
+    text-align: center;
+    top: 3px;
+    width: 42px;
+}
+.seller-add .field .sub {
+    margin: 0 0 0 152px;
+}
+.seller-detail {
+    -moz-border-bottom-colors: none;
+    -moz-border-image: none;
+    -moz-border-left-colors: none;
+    -moz-border-right-colors: none;
+    -moz-border-top-colors: none;
+    background-color: #FFFFFF;
+    border-color: #E6E6E6;
+    border-style: solid;
+    border-width: 0 1px 1px;
+    padding-bottom: 30px;
+}
+.seller-detail .terms {
+    width: auto;
+}
+.seller-detail .sub {
+    margin-left: 106px;
+}
+.seller-detail .w515 {
+    width: 515px;
+}
+.seller-detail .w200 {
+    width: 200px;
+}
+.seller-detail .w61 {
+    width: 61px;
+}
+.seller-detail .ju-form .msg {
+    width: auto;
+}
+.seller-detail .terms select {
+    padding: 3px;
+}
+#J_FormDetEditor .msg {
+    display: inline;
+    margin: 5px 0 0 106px;
+}
+.seller-detail .goods-detail {
+    width: 650px;
+    word-wrap: break-word;
+}
+.seller-detail .goods-detail span {
+    display: inline;
+    white-space: normal;
+    word-wrap: break-word;
+}
+.seller-info {
+    -moz-border-bottom-colors: none;
+    -moz-border-image: none;
+    -moz-border-left-colors: none;
+    -moz-border-right-colors: none;
+    -moz-border-top-colors: none;
+    background-color: #FFFFFF;
+    border-color: #E6E6E6;
+    border-style: solid;
+    border-width: 0 1px 1px;
+    padding: 10px 10px 30px;
+}
+.ju-form .msg {
+    float: left;
+    margin-left: 10px;
+    white-space: nowrap;
+    width: 320px;
+}
+.msg .error, .msg .stop, .msg .alert, .msg .attention, .msg .tips, .msg .ok, .msg .notice, .msg .question, .msg .help, .msg .small-help {
+    background: url("http://a.tbcdn.cn/sys/common/img/msg_bg.png") no-repeat scroll 0 0 transparent;
+    border: 1px solid #DDDDDD;
+    color: #404040;
+    float: left;
+    line-height: 18px;
+    padding: 2px 10px 2px 23px;
+}
+.msg .error {
+    background-color: #FFF2F2;
+    background-position: 3px 3px;
+    border-color: #FF8080;
+}
+.msg .stop {
+    background-color: #FFF2F2;
+    background-position: 3px -47px;
+    border-color: #FF8080;
+}
+.msg .alert {
+    background-color: #FFF5F6;
+    background-position: 3px -97px;
+    border-color: #FF8C40;
+}
+.msg .attention {
+    background-color: #E5F5FF;
+    background-position: 3px -147px;
+    border-color: #40B3FF;
+}
+.msg .tips {
+    background-color: #FFFFE5;
+    background-position: 3px -197px;
+    border-color: #FFCC7F;
+    font-size: 12px;
+}
+.msg .ok {
+    background-color: #F0FFE5;
+    background-position: 3px -247px;
+    border-color: #4DBF00;
+}
+.msg .notice {
+    background-color: #E6F5FF;
+    background-position: 5px -295px;
+    border-color: #40B3FF;
+}
+.msg .question {
+    background-color: #F2F2F2;
+    background-position: 3px -347px;
+    border-color: #BFBFBF;
+}
+.msg .descraption {
+    clear: both;
+    color: #999999;
+    padding-top: 10px;
+}
+.errorpage {
+    margin: 100px auto;
+    width: 380px;
+}
+.mainbox {
+    background-color: #FFFFFF;
+    border: 1px solid #E6E6E6;
+    overflow: hidden;
+    padding: 10px;
+    width: 928px;
+}
+.error-box {
+    border: medium none;
+    margin: 0 auto;
+    width: 930px;
+}
+.ju-past {
+    overflow: hidden;
+}
+.page-other {
+    border-bottom: 1px dotted #E6E6E6;
+}
+.page-other .pagination {
+    float: right;
+    margin: 1px 10px 9px 0;
+}
+.page-other .pagination li {
+    display: inline-block;
+}
+.page-other .pagination ul {
+    display: inline-block;
+    vertical-align: middle;
+}
+.page-other .pagination span {
+    vertical-align: middle;
+}
+.page-bot {
+    border: medium none;
+    margin: 10px 10px 9px 0;
+}
+.ju-past h2 {
+    color: #333333;
+    font-size: 14px;
+    font-weight: bold;
+    margin: 5px 0 0 9px;
+}
+.ju-past ul {
+    width: 950px;
+}
+.ju-past li {
+    border-bottom: 1px dotted #E6E6E6;
+    float: left;
+    height: 248px;
+    padding: 15px 40px 25px 10px;
+    width: 412px;
+}
+.ju-past li h3 {
+    color: #666666;
+    font-size: 14px;
+    height: 42px;
+    margin-bottom: 6px;
+}
+.ju-past li .pic {
+    float: left;
+    text-align: center;
+}
+.ju-past li .pic a {
+    background-color: #FFFFFF;
+    border: 1px solid #E0E0DF;
+    display: table-cell;
+    height: 198px;
+    overflow: hidden;
+    vertical-align: middle;
+    width: 198px;
+}
+.ju-past li .pic a img {
+    max-height: 198px;
+    max-width: 198px;
+    vertical-align: middle;
+}
+.ju-past li .detail {
+    float: left;
+    margin-left: 20px;
+}
+.ju-past li .detail p {
+    margin-bottom: 14px;
+}
+.ju-past li .buy {
+    background-position: -194px -407px;
+    color: #FD9A0B;
+    font-family: verdana;
+}
+.ju-past li .buy:visited {
+    color: #FD9A0B;
+}
+.ju-past li .buy:hover {
+    background-position: -194px -407px;
+    color: #FD9A0B;
+}
+.ju-past li strong {
+    color: #FD9A0B;
+    font-size: 16px;
+}
+.ju-past li em {
+    color: #D22200;
+    font-weight: bold;
+}
+.ju-past li strong b {
+    font-size: 12px;
+}
+.ju-past li del {
+    font-weight: bold;
+}
+.ju-more {
+    margin: 0 auto;
+    overflow: hidden;
+    padding-top: 3px;
+    width: 990px;
+}
+.more-group {
+    background: none repeat scroll 0 0 #F7F7F7;
+    clear: both;
+    margin: auto 0;
+}
+.more-group ul {
+    padding-top: 5px;
+    width: 1010px;
+}
+.more-group ul li {
+    background: url("http://img04.taobaocdn.com/tps/i4/T1PPCaXfNnXXXXXXXX-120-131.png") no-repeat scroll right bottom transparent;
+    float: left;
+    margin-right: 15px;
+    padding-bottom: 15px;
+    position: relative;
+    width: 320px;
+}
+.more-group ul li .inner-box {
+    background: none repeat scroll 0 0 #FFFFFF;
+    border: 1px solid #E5E5E5;
+    padding-bottom: 15px;
+}
+.more-group ul li.special .inner-box {
+    background: none repeat scroll 0 0 #FFFAC2;
+    border: 1px solid #FFED85;
+}
+.more-group ul li .inner-box:hover, .more-group ul li.special .inner-box:hover {
+    border: 1px solid #DC442F;
+}
+.more-group ul li.special b.jieti {
+    background: none repeat scroll 0 0 #FFED85;
+    color: #DC442F;
+    display: block;
+    font-weight: normal;
+    height: 17px;
+    left: 0;
+    line-height: 17px;
+    position: absolute;
+    text-align: center;
+    top: -17px;
+    width: 46px;
+}
+.more-group ul li h3 {
+    color: #666666;
+    font-size: 14px;
+    line-height: 20px;
+    margin: auto auto 7px;
+    padding-top: 13px;
+    width: 290px;
+}
+.more-group ul li h3 a, .more-group ul li h3 a:visited, .more-group ul li h3 a:hover {
+    color: #666666;
+}
+.more-group ul li .pic {
+    -moz-border-bottom-colors: none;
+    -moz-border-image: none;
+    -moz-border-left-colors: none;
+    -moz-border-right-colors: none;
+    -moz-border-top-colors: none;
+    border-color: #A51100 #A51100 -moz-use-text-color;
+    border-style: solid solid none;
+    border-width: 1px 1px medium;
+    height: 190px;
+    margin: 7px auto 0;
+    overflow: hidden;
+    position: relative;
+    width: 285px;
+}
+.more-group ul li .pic .discount {
+    background: url("http://img04.taobaocdn.com/tps/i4/T1PPCaXfNnXXXXXXXX-120-131.png") no-repeat scroll 0 -56px transparent;
+    color: #FFFFFF;
+    font-size: 14px;
+    font-weight: bold;
+    height: 41px;
+    overflow: hidden;
+    padding-left: 14px;
+    position: absolute;
+    right: 0;
+    text-align: center;
+    top: 0;
+    width: 27px;
+}
+.more-group ul li .buy-mask {
+    background-color: #000000;
+    bottom: 79px;
+    height: 19px;
+    left: 17px;
+    opacity: 0.5;
+    position: absolute;
+    width: 286px;
+}
+.more-group ul li .buy-state {
+    bottom: 79px;
+    color: #FFFFFF;
+    left: 17px;
+    position: absolute;
+    width: 285px;
+}
+.more-group ul li .buy-state .orig-price {
+    float: left;
+    font-size: 12px;
+    padding: 0 4px 0 10px;
+}
+.more-group ul li .buy-state .orig-price del, .more-group ul li .buy-state .orig-price strong {
+    font-family: Arial;
+    font-weight: bold;
+    margin-left: 3px;
+}
+.more-group ul li .buy-state .buy-ed {
+    float: right;
+    font-size: 12px;
+    padding-right: 6px;
+}
+.more-group ul li .buy-state .buy-ed strong {
+    color: #B0E553;
+    font-family: Arial;
+    font-weight: bold;
+}
+.more-group ul li .buy-action {
+    background: url("http://img01.taobaocdn.com/tps/i1/T1ETmcXmNdXXXXXXXX-287-600.png") no-repeat scroll 0 0 transparent;
+    cursor: pointer;
+    display: block;
+    height: 48px;
+    line-height: 48px;
+    margin: 0 auto auto;
+    padding-left: 18px;
+    position: relative;
+    text-decoration: none;
+    width: 269px;
+}
+.more-group ul li .buy-action:visited, .more-group ul li .buy-action:hover {
+    color: #FFFFFF;
+    text-decoration: none;
+}
+.more-group ul li .buy-action b {
+    background: url("http://img01.taobaocdn.com/tps/i1/T1ETmcXmNdXXXXXXXX-287-600.png") no-repeat scroll 0 -456px transparent;
+    cursor: pointer;
+    display: block;
+    height: 32px;
+    position: absolute;
+    right: 5px;
+    top: 10px;
+    width: 86px;
+}
+.more-group ul li .buy-action:hover .btn {
+    background-position: -91px -456px;
+}
+.more-group ul .notbegin .buy-action {
+    background-position: 0 -54px;
+}
+.more-group ul .notbegin .buy-action:hover {
+    background-position: 0 -107px;
+}
+.more-group ul .notbegin .buy-action .btn {
+    background-position: 0 -493px;
+    height: 23px;
+    top: 13px;
+    width: 93px;
+}
+.more-group ul .notbegin .buy-action:hover .btn {
+    background-position: -98px -493px;
+}
+.more-group ul .notbegin .pic {
+    border-color: #768E00;
+}
+.more-group ul .timeout .buy-action, .more-group ul .soldout .buy-action {
+    background-position: 0 -266px;
+}
+.more-group ul .timeout .buy-action:hover, .more-group ul .soldout .buy-action:hover {
+    background-position: 0 -319px;
+}
+.more-group ul .soldout .buy-action .btn {
+    background-position: 0 -549px;
+    height: 23px;
+    top: 13px;
+    width: 93px;
+}
+.more-group ul .soldout .buy-action:hover .btn {
+    background-position: -98px -549px;
+}
+.more-group ul .soldout .pic, .more-group ul .timeout .pic {
+    border-color: #8B8B8B;
+}
+.more-group ul .timeout .buy-action .btn {
+    background-position: -37px -577px;
+    height: 23px;
+    top: 13px;
+    width: 76px;
+}
+.more-group ul .timeout .buy-action:hover .btn {
+    background-position: -151px -577px;
+}
+.more-group ul li .buy-action .price {
+    color: #FFFFFF;
+    float: left;
+    font: bold 40px "Arial";
+    letter-spacing: -2px;
+}
+.more-group ul li .buy-action .price em {
+    font-family: "Microsoft Yahei","Arial","Verda","tahoma";
+    font-size: 26px;
+    font-weight: bold;
+}
+.more-group ul li .buy-action .price span {
+    font-size: 28px;
+}
+.more-group ul li .buy-action .buy-btn {
+    cursor: pointer;
+    float: right;
+    height: 29px;
+    margin-top: 4px;
+    width: 87px;
+}
+.more-group ul li .buy-action .btn-middle {
+    cursor: pointer;
+    float: right;
+    height: 29px;
+    margin-top: 4px;
+    width: 87px;
+}
+.more-group ul li .buy-action .deposit {
+    background: url("http://img01.taobaocdn.com/tps/i1/T1ETmcXmNdXXXXXXXX-287-600.png") no-repeat scroll -258px -456px transparent;
+    cursor: pointer;
+    display: inline-block;
+    height: 19px;
+    margin-left: 6px;
+    vertical-align: baseline;
+    width: 31px;
+}
+.more-group ul li .buy-action .deal {
+    background: url("http://img01.taobaocdn.com/tps/i1/T1ETmcXmNdXXXXXXXX-287-600.png") no-repeat scroll -246px -476px transparent;
+    cursor: pointer;
+    display: inline-block;
+    height: 19px;
+    margin-left: 6px;
+    vertical-align: baseline;
+    width: 43px;
+}
+.ju-pagination {
+    color: #999999;
+    font-weight: 700;
+    margin-left: 22px;
+}
+.page-bottom {
+    float: right;
+}
+.ju-pagination .tp {
+    margin-bottom: 5px;
+    margin-top: 3px;
+}
+.ju-pagination .bt {
+    margin-top: 5px;
+    position: relative;
+    z-index: 5;
+}
+.ju-pagination a, .page-info, .page-prev, .page-start, .page-cur, .page-end {
+    background-image: none !important;
+    height: 28px;
+    margin-right: 0 !important;
+    padding: 10px 14px 0 !important;
+}
+.ju-pagination .page-break {
+    margin-right: 0;
+}
+.page-start {
+    width: auto;
+}
+.page-cur, .ju-pagination a, .page-end {
+    -moz-border-bottom-colors: none;
+    -moz-border-image: none;
+    -moz-border-left-colors: none;
+    -moz-border-right-colors: none;
+    -moz-border-top-colors: none;
+    border-color: #E5E5E5 #E5E5E5 #E5E5E5 -moz-use-text-color;
+    border-style: solid solid solid none;
+    border-width: 1px 1px 1px 0;
+}
+.ju-pagination a {
+    color: #2953A6;
+}
+.ju-pagination a:hover {
+    -moz-border-bottom-colors: none;
+    -moz-border-image: none;
+    -moz-border-left-colors: none;
+    -moz-border-right-colors: none;
+    -moz-border-top-colors: none;
+    background-color: #EFEFEF;
+    border-color: #E5E5E5 #E5E5E5 #E5E5E5 -moz-use-text-color;
+    border-style: solid solid solid none;
+    border-width: 1px 1px 1px 0;
+    color: #2953A6;
+    text-decoration: underline;
+}
+.ju-pagination .page-start, .ju-pagination .page-prev {
+    border: 1px solid #E5E5E5;
+    width: auto;
+}
+.ju-pagination .page-next span {
+    background-position: 48px -39px !important;
+    padding-right: 14px;
+}
+.ju-pagination .page-end span {
+    background-position: 48px -56px !important;
+    padding-right: 14px;
+}
+.ju-pagination .page-start span {
+    background-position: -30px -56px !important;
+    padding-left: 14px;
+}
+.ju-pagination .page-prev span {
+    background-position: 48px -39px !important;
+}
+.ju-pagination .page-cur {
+    background-color: #EFEFEF;
+    color: #999999;
+}
+.ju-pagination .page-break {
+    border-right: 1px solid #E5E5E5;
+    height: 40px;
+    line-height: 40px;
+    padding: 0 4px;
+}
+.ju-pagination .page-prev span, .ju-pagination .page-start span, .ju-pagination .page-mini .page-next span, .ju-pagination .page-mini .page-end span {
+    display: inline !important;
+}
+.ju-pagination a, .page-info, .ju-pagination .page-prev, .ju-pagination .page-cur, .ju-pagination .page-start, .ju-pagination .page-end, .page-break {
+    float: left;
+}
+.ju-pagination .icon {
+    background: url("http://img04.taobaocdn.com/tps/i4/T1PPCaXfNnXXXXXXXX-120-131.png") no-repeat scroll 0 0 transparent;
+    display: inline-block;
+    height: 9px;
+    overflow: hidden;
+    vertical-align: middle;
+    width: 11px;
+}
+.page-start .icon {
+    background-position: -85px 0;
+}
+.page-prev .icon {
+    background-position: -61px 0;
+}
+.page-next .icon {
+    background-position: -48px 0;
+}
+.page-end .icon {
+    background-position: -74px 0;
+}
+.ju-subs {
+    background-color: #FEFEFE;
+    background-position: 0 276px;
+    background-repeat: repeat-x;
+    border: 2px solid #CBD1DB;
+    border-radius: 5px 5px 5px 5px;
+    height: 400px;
+    padding: 20px;
+}
+.ju-subs .tip {
+    background: url("http://img02.taobaocdn.com/tps/i2/T17qmXXnpXXXXXXXXX-946-57.png") no-repeat scroll 0 0 transparent;
+    height: 37px;
+    padding: 20px 20px 0 0;
+    text-align: right;
+    width: 926px;
+}
+.ju-subs .sub-types {
+    padding: 35px 0 0 185px;
+}
+.sub-types p {
+    line-height: 2em;
+    padding: 8px 0;
+}
+.sub-types .status {
+    font-size: 14px;
+}
+.sub-types .status strong {
+    margin-left: 10px;
+}
+.sub-types .status a {
+    margin-right: 10px;
+}
+.sub-types p .check {
+    margin: 0 10px 0 20px;
+    vertical-align: middle;
+}
+.sub-types .ind {
+    color: #999999;
+    padding-left: 10px;
+}
+.sub-types .l-ind {
+    color: #999999;
+    padding-left: 85px;
+}
+.sub-types .j-text {
+    width: 180px;
+}
+.ju-subs .msg {
+    margin: 0 0 0 186px;
+    position: absolute;
+}
+.sub-pot {
+    clear: both;
+    padding: 45px 0 0 298px;
+}
+.sub-pot .j-bigbtn {
+    margin-left: 5px;
+}
+.ju-subs .success {
+    background: url("http://img02.taobaocdn.com/tps/i2/T15PFRXXtxXXXXXXXX.png") no-repeat scroll 0 0 transparent;
+    height: 68px;
+    margin: 35px 0 0 156px;
+    padding-left: 80px;
+}
+.ju-subs .warning {
+    background-position: 0 -103px;
+}
+.ju-subs .success h2 {
+    color: #FF6600;
+    font-size: 14px;
+    padding: 10px 0 6px;
+}
+.ju-subs .warning h2 {
+    color: #666666;
+    font-size: 12px;
+    font-weight: normal;
+}
+.ju-subs .attent {
+    background-color: #FFFFE1;
+    border: 1px solid #F9B967;
+    margin: 0 0 0 236px;
+    padding: 15px;
+    width: 400px;
+}
+.ju-subs .attent h3 {
+    color: #FF6600;
+    font-size: 12px;
+}
+.ju-subs .attent p {
+    margin: 0.5em 0;
+}
+.pop-citychange p {
+    line-height: 2em;
+    margin: 1em 0;
+}
+.pop-citychange label {
+    display: inline-block;
+    width: 82px;
+}
+.pop-citychange .no-city label {
+    width: auto;
+}
+.ju-myju {
+    background-color: #FFFFFF;
+    border: 2px solid #CBD1DB;
+    border-radius: 5px 5px 5px 5px;
+}
+.ju-myju .tab-link {
+    background: url("http://img01.taobaocdn.com/tps/i1/T1BF41Xb4fXXXXXXXX-1-37.png") repeat-x scroll 0 0 transparent;
+    border-bottom: 1px solid #A4A4A4;
+    border-radius: 5px 5px 0 0;
+    height: 37px;
+    padding-left: 10px;
+}
+.tab-link .linkitems {
+    background: url("http://img02.taobaocdn.com/tps/i2/T1QX41Xo4eXXXXXXXX-2-37.png") no-repeat scroll 0 1px transparent;
+    height: 37px;
+    padding: 0 0 0 2px;
+    width: 100%;
+}
+.tab-link .linkitems li {
+    background: url("http://img02.taobaocdn.com/tps/i2/T1QX41Xo4eXXXXXXXX-2-37.png") no-repeat scroll right 1px transparent;
+    float: left;
+    font-size: 14px;
+    font-weight: bold;
+    height: 37px;
+    line-height: 37px;
+    position: relative;
+}
+.tab-link .linkitems a {
+    color: #818181;
+    display: block;
+    margin: 0 2px 0 0;
+    padding: 0 30px 0 46px;
+}
+.tab-link .linkitems .on {
+    background: url("http://img04.taobaocdn.com/tps/i4/T17V41XlxeXXXXXXXX-1-44.png") repeat-x scroll 0 0 transparent;
+}
+.tab-link .linkitems a:hover {
+    text-decoration: none;
+}
+.past-ico, .mysubs-ico {
+    display: block;
+    height: 16px;
+    left: 26px;
+    position: absolute;
+    top: 11px;
+    width: 16px;
+}
+.past-ico {
+    background: url("http://img03.taobaocdn.com/tps/i3/T1Zp41XnBeXXXXXXXX-16-16.png") no-repeat scroll 0 0 transparent;
+}
+.mysubs-ico {
+    background: url("http://img04.taobaocdn.com/tps/i4/T1JV41XXNfXXXXXXXX-16-16.png") no-repeat scroll 0 0 transparent;
+}
+.mytuan-past {
+    margin: 5px 0 20px;
+    padding: 0 10px;
+}
+.mytuan-past .mytuan-title {
+    font-size: 12px;
+    margin: 5px 0;
+}
+.mytuan-past .mytuan-title .unavil {
+    color: #999999;
+}
+.mytuan-title a.on {
+    color: #FF6600;
+    cursor: default;
+    font-size: 13px;
+    font-weight: bold;
+    text-decoration: none;
+}
+.mytuan-past .mytuan-tips {
+    color: #999999;
+    padding: 10px;
+}
+.mytuan-past .ju-pagination .bt li {
+    float: left;
+}
+.mytuan-past .ju-pagination .prev-page a, .mytuan-past .ju-pagination .prev-page a:hover {
+    border: 1px solid #E5E5E5;
+}
+.mytuan-past .ju-pagination .page-nav {
+    display: inline-block;
+    vertical-align: middle;
+}
+.title-left {
+    cursor: default;
+    float: left;
+    margin: 0 0 0 8px;
+}
+.title-left a {
+    cursor: pointer;
+}
+.title-right {
+    float: right;
+}
+.title-search .btn-magnifier {
+    background: url("http://img02.taobaocdn.com/tps/i2/T1nTV0Xb4IXXXXXXXX-16-16.png") no-repeat scroll 0 0 transparent;
+    border: medium none;
+    cursor: pointer;
+    height: 16px;
+    width: 16px;
+}
+.mytuan-list-col0 {
+    width: 325px;
+}
+.mytuan-list-col1 {
+    width: 150px;
+}
+.mytuan-list-col2 {
+    width: 108px;
+}
+.mytuan-list-col3 {
+    width: 96px;
+}
+.mytuan-list-col4 {
+    width: 60px;
+}
+.mytuan-list-col5 {
+    width: 100px;
+}
+.mytuan-list table {
+    border-collapse: collapse;
+    border-spacing: 0;
+    color: #666666;
+    margin-bottom: 20px;
+    width: 100%;
+}
+.mytuan-list tbody {
+    margin: 10px 0 0;
+}
+.mytuan-list td.item {
+    padding: 10px;
+    text-align: left;
+}
+.done .order-num {
+    background-color: #F7F7F7;
+    padding: 5px 0 5px 8px;
+    text-align: left;
+}
+.undone .order-num {
+    background-color: #FFFFD5;
+    padding: 5px 0 5px 8px;
+    text-align: left;
+}
+.order-num span {
+    float: left;
+    margin-right: 10px;
+}
+.mytuan-list .lim-time {
+    display: block;
+    float: right;
+}
+.mytuan-list td {
+    border: 1px solid #EEEEEE;
+    padding: 16px 0;
+    text-align: center;
+}
+.mytuan-list .sep-row {
+    height: 10px;
+}
+.mytuan-list thead {
+    background-color: #F7F7F7;
+    line-height: 30px;
+}
+.mytuan-list th {
+    border-bottom: 1px solid #BFBFBF;
+    border-top: 1px solid #BFBFBF;
+}
+.mytuan-list .dealtime {
+    display: block;
+}
+.mytuan-list .usefulllife {
+    display: block;
+}
+.mytuan-list .usefulllife strong {
+    color: #FF6600;
+}
+.mytuan-list .price-current {
+    display: block;
+    font: 14px Arial;
+}
+.mytuan-list .price-old {
+    display: block;
+    font: 14px Arial;
+}
+.price-current strong {
+    color: #FF6600;
+}
+.mytuan-list .chengtuan {
+    background: url("http://img04.taobaocdn.com/tps/i4/T1UF41XiVeXXXXXXXX-16-16.png") no-repeat scroll 16px center transparent;
+    display: block;
+    font-size: 13px;
+    line-height: 16px;
+    padding: 0 0 0 18px;
+}
+.mytuan-list .ordertype {
+    color: #FF6600;
+    padding-left: 17px;
+}
+.mytuan-list td.seller {
+    color: #2CA9CC;
+}
+.mytuan-list .tuan-status span {
+    display: block;
+    padding: 3px 0;
+}
+.tuan-status .deal-closed, .tuan-status .deal-payment, .tuan-status .deal-unpayed {
+    font-weight: bold;
+}
+.tuan-status .deal-unpayed {
+    color: #FF6600;
+}
+.tuan-status .btn-showdetail {
+    color: #2CA9CC;
+}
+.tuan-status .btn-payearnest a {
+    background: url("http://img03.taobaocdn.com/tps/i3/T1KV41XXFfXXXXXXXX-52-19.png") no-repeat scroll 0 0 transparent;
+    color: white;
+    display: block;
+    height: 19px;
+    margin: 0 auto;
+    width: 52px;
+}
+.tuan-status .btn-payearnest a:hover {
+    text-decoration: none;
+}
+.ju-myju .no-mytuan-list {
+    padding-bottom: 200px;
+    text-align: center;
+}
+.text-center {
+    font-size: 14px;
+    font-weight: bold;
+    padding: 40px 0 20px;
+}
+.ju-myju .ju-subs {
+    border: medium none;
+}
+.except {
+    background-color: #FFFFFF;
+    border: 1px solid #DFDFDF;
+    font: 30px/39px "微软雅黑";
+    height: 230px;
+    padding: 155px 0 0 398px;
+}
+.p404 {
+    background: url("http://img02.taobaocdn.com/tps/i2/T1tu9XXnFnXXXXXXXX-217-259.png") no-repeat scroll 163px 59px #FFFFFF;
+}
+.rest {
+    background: url("http://img01.taobaocdn.com/tps/i1/T1ru9XXnFnXXXXXXXX-234-307.png") no-repeat scroll 140px 50px #FFFFFF;
+}
+.busy {
+    background: url("http://img04.taobaocdn.com/tps/i4/T1qe9XXnJnXXXXXXXX-248-262.png") no-repeat scroll 140px 50px #FFFFFF;
+}
+.busy .btn-middle {
+    cursor: pointer;
+    margin: 5px;
+}
+.city-unavil {
+    background: url("http://img03.taobaocdn.com/tps/i3/T12gaXXipiXXXXXXXX-802-446.png") no-repeat scroll center bottom #FFFFFF;
+    border: 1px solid #DFDFDF;
+    font-size: 14px;
+    height: 560px;
+    line-height: 3em;
+    padding-top: 45px;
+    text-align: center;
+}
+.city-unavil h3 {
+    font: 30px "微软雅黑";
+}
+.city-unavil strong {
+    color: #DC442F;
+}
+.city-unavil .btn-middle {
+    left: 260px;
+    position: absolute;
+    top: 386px;
+}
