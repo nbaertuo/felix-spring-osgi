@@ -115,7 +115,8 @@ class AdminController {
     }
 
     def list={
-        def list= shelfService.ListAfterToday()
+
+        def list= shelfService.ListAfterToday(session.user.us)
         logger.info "web size=$list.size"
         return [list:list]
     }

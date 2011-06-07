@@ -106,7 +106,5 @@ log4j = {
 
     warn   'org.mortbay.log'
 
-    info   'org.ertuo.onlyprice',
-            'org.codehaus.groovy.grails.orm.hibernate',
-            'org.hibernate'
+    info   'org.ertuo.onlyprice'
 }

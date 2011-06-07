@@ -29,7 +29,7 @@ hibernate {
 environments {
     dev {
         dataSource {
-            //dbCreate = "create-drop" // one of 'create', 'create-drop','update'
+            //dbCreate = "create" // one of 'create', 'create-drop','update'
             //url = "jdbc:mysql://db4free.org:3306/onlyprice?useUnicode=true&amp;characterEncoding=utf-8"
             url = "jdbc:mysql://localhost:3306/onlyprice?useUnicode=true&amp;characterEncoding=utf-8"
         }

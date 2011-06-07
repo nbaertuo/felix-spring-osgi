@@ -45,6 +45,7 @@ class TbController {
     def get={
         def q=params.q
         if(!q||q.size()<4){
+            flash.message = "输入长度不能小于4"
             render(view:"callback")
         }
         def rs=tbService.onSaleGet(q, session.user.sessionKey)

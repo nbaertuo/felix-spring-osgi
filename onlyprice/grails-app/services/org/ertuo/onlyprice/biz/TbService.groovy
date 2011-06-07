@@ -26,8 +26,9 @@ class TbService {
 
 
     def onSaleGet(q,session){
+        logger.info "查询条件$q"
         ItemsOnsaleGetRequest req=new ItemsOnsaleGetRequest();
-        req.setFields("approve_status,num_iid,title,nick,type,cid,pic_url,num,props,valid_thru,list_time,price,has_discount,has_invoice,has_warranty,has_showcase,modified,delist_time,postage_id,seller_cids,outer_id");
+        req.setFields("approve_status,num_iid,title,nick,pic_url,price,desc");
         req.q=q
         tbClient.execute req,session
     }
@@ -39,7 +40,7 @@ class TbService {
             return
         }
         ItemGetRequest req=new ItemGetRequest();
-        req.setFields("detail_url,num_iid,title,nick,type,cid,seller_cids,props,input_pids,input_str,desc,pic_url,num,valid_thru,list_time,delist_time,stuff_status,location,price,post_fee,express_fee,ems_fee,has_discount,freight_payer,has_invoice,has_warranty,has_showcase,modified,increment,approve_status,postage_id,product_id,auction_point,property_alias,item_img,prop_img,sku,video,outer_id,is_virtual");
+        req.setFields("detail_url,num_iid,title,nick,desc,pic_url,price");
         req.setNumIid(id as Long);
         tbClient.execute(req , sessionKey);
     }

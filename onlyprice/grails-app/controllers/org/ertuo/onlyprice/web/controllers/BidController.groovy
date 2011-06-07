@@ -17,7 +17,7 @@ import org.slf4j.LoggerFactory
  */
 class BidController {
 
-    def Logger logger=LoggerFactory.getLogger(ShelfController.class)
+    def Logger logger=LoggerFactory.getLogger(BidController.class)
 
     static defaultAction="onTime"
 

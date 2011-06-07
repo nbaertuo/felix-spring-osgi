@@ -28,6 +28,9 @@ class Goods {
     /**  商品描述*/
     String descs
 
+    /** 图片 */
+    String picUrl;
+
 
 
     /**  状态（申请=0，发布中=1）*/
@@ -48,4 +51,6 @@ class Goods {
         id generator:'assigned', name:'fId'
         //fId unique: true
     }
+
+    static constraints = { descs (blank:false,maxSize:120) }
 }
